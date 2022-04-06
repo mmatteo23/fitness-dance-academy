@@ -1,0 +1,116 @@
+
+
+CREATE TABLE utente (
+	id int NOT NULL,
+	nome varchar(200) NOT NULL,
+	cognome varchar(200) NOT NULL,
+	email varchar(255) NOT NULL UNIQUE,
+	data_nascita date NOT NULL,
+	password varchar(255) NOT NULL,
+	telefono varchar(10) NOT NULL,
+	sesso char NOT NULL,
+	foto_profilo varchar(255) NOT NULL,
+	ruolo int NOT NULL,
+	altezza int,
+	peso int,
+
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE evento (
+	id int NOT NULL,
+	titolo varchar(255) NOT NULL,
+	descrizione varchar(255) NOT NULL,
+	data_inizio datetime NOT NULL,
+	data_fine datetime NOT NULL,
+	copertina varchar(255) NOT NULL,
+
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE prenotazione_evento (
+	cliente int,
+	evento int,
+
+	PRIMARY KEY (cliente, evento)
+);
+
+CREATE TABLE scheda (
+	id int NOT NULL,
+	data date NOT NULL,
+	cliente int NOT NULL,
+	trainer int NOT NULL,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (trainer) REFERENCES utente(id)
+);
+
+CREATE TABLE prenotazione_scheda (
+	id int AUTO_INCREMENT,
+	cliente int NOT NULL,
+	trainer int NOT NULL,
+	data datetime,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (cliente) REFERENCES utente(int),
+	FOREIGN KEY (trainer) REFERENCES utente(int)
+);
+
+CREATE TABLE esercizio_scheda {
+	scheda int NOT NULL,
+	esercizio int NOT NULL,
+	serie int NOT NULL,
+	ripetizioni int NOT NULL,
+	riposo int NOT NULL,
+	# foto_esercizio varchar(255) NOT NULL,
+
+	PRIMARY KEY (scheda, esercizio)
+}
+
+CREATE TABLE categoria (
+	id int NOT NULL,
+	descrizione varchar(200) NOT NULL,
+
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE esercizio (
+	id int NOT NULL,
+	nome varchar(200) NOT NULL,
+	categoria int NOT NULL,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (categoria) REFERENCES categoria(id)
+);
+
+CREATE TABLE prenotazione_sessione (
+	id int AUTO_INCREMENT,
+	data date NOT NULL,
+	ora_inizio time NOT NULL,
+	ora_fine time NOT NULL,
+	cliente int NOT NULL,
+
+	PRIMARY KEY (id)
+	FOREIGN KEY (cliente) REFERENCES utente(id)
+);
+
+CREATE TABLE corso (
+	id int AUTO_INCREMENT,
+	titolo varchar(200) NOT NULL,
+	descrizione varchar(255) NOT NULL,
+	data_inizio datetime NOT NULL,
+	data_fine datetime NOT NULL,
+	copertina varchar(255),
+
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE iscrizione_corso (
+	cliente int,
+	corso int,
+
+	PRIMARY KEY (cliente, corso),
+	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (corso) REFERENCES corso(id)
+);
