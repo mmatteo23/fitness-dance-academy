@@ -10,7 +10,6 @@ html, body{
 }
 
 body{
-    
     background-color: white;
 }
 header{
@@ -62,25 +61,118 @@ navbar li{
     border-radius: 1em;
 }
 
-.card{
-    display: flex;
-    text-align: center;
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    grid-template-areas: 
+        "a a b c"
+        "d e b c"
+        "d e f f";
+    margin: 1em;
 }
 
-.card-image{
-    margin: 3em;
-    width:30%;
-    height:auto;
+.grid-item{
+    background-color: #999999;
+    display: flex;
+}
+
+#grid-item-a{
+    width: 100%;
+    grid-area: a;
+}
+#grid-item-b{
+    width:100%;
+    flex-direction: column;
+    grid-area: b;
+}
+#grid-item-c{
+    width:100%;
+    flex-direction: column;
+    grid-area: c;
+}
+#grid-item-d{
+    width:100%;
+    flex-direction: column;
+    grid-area: d;
+}
+#grid-item-e{
+    width:100%;
+    flex-direction: column;
+    grid-area: e;
+}
+#grid-item-f{
+    width:100%;
+    flex-direction: column;
+    grid-area: f;
+}
+
+.grid-item p{
+    font-size: 1.5em;
+    max-width: 13em;
+}
+
+p.grid-item-title-horizontal{
+    margin: auto 1em;
+}
+
+p.grid-item-title-vertical{
+    margin: auto;
+    padding: 1em;
+}
+
+.grid-img-horizontal, .grid-img-vertical{
+    width: 15em;
+    height: auto;
+    margin: 1em;
+}
+
+.grid-img-vertical{
+    margin: 1em auto;
+}
+
+#grid-item-c>.grid-img-vertical{
+    margin-bottom: 1em;
+    margin-top: auto;
+}
+
+#grid-item-f>h2{
+    margin: 1em auto;
+}
+
+#inserimento-dati{
+    margin: auto;
+    display: flex;
+}
+
+#inserimento-dati>label{
+    margin-left: 1em;
+    font-size: 1.25em;
+    margin: auto;
+    margin-left:1em;
+    margin-right:0.5em;
+}
+#inserimento-dati>p{
+    font-size:1em;
+    padding-left: 0.25em;
+}
+#inserimento-dati>input[type="text"]{
+    font-size: 1.25em;
+    height:1.75em;
+    width: 25%;
+}
+#btn-calcola{
+    font-family: "Poppins";
+    font-size: 1em;
+    font-weight:bold;
+    margin: 2% 15%;
+    padding: 1em;
     border-radius: 1em;
 }
-
-.card-description{
-    margin: auto;
-    margin-left: 0em;  
-    max-width: 3em; 
-    text-align: left;
-    font-size: 2em;
+#bmi-result{
+    margin:0 auto;
+    max-width: 50em;
 }
-
 
 
