@@ -1,4 +1,14 @@
-
+DROP TABLE IF EXISTS prenotazione_scheda;
+DROP TABLE IF EXISTS esercizio_scheda;
+DROP TABLE IF EXISTS prenotazione_evento;
+DROP TABLE IF EXISTS prenotazione_sessione;
+DROP TABLE IF EXISTS iscrizione_corso;
+DROP TABLE IF EXISTS scheda;
+DROP TABLE IF EXISTS utente;
+DROP TABLE IF EXISTS evento;
+DROP TABLE IF EXISTS esercizio;
+DROP TABLE IF EXISTS categoria;
+DROP TABLE IF EXISTS corso;
 
 CREATE TABLE utente (
 	id int NOT NULL,
@@ -32,7 +42,9 @@ CREATE TABLE prenotazione_evento (
 	cliente int,
 	evento int,
 
-	PRIMARY KEY (cliente, evento)
+	PRIMARY KEY (cliente, evento),
+	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (evento) REFERENCES evento(id)
 );
 
 CREATE TABLE scheda (
@@ -47,26 +59,15 @@ CREATE TABLE scheda (
 );
 
 CREATE TABLE prenotazione_scheda (
-	id int AUTO_INCREMENT,
-	cliente int NOT NULL,
-	trainer int NOT NULL,
-	data datetime,
+	id 				int AUTO_INCREMENT,
+	cliente			int NOT NULL,
+	trainer			int NOT NULL,
+	data 			datetime NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (cliente) REFERENCES utente(int),
-	FOREIGN KEY (trainer) REFERENCES utente(int)
+	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (trainer) REFERENCES utente(id)
 );
-
-CREATE TABLE esercizio_scheda {
-	scheda int NOT NULL,
-	esercizio int NOT NULL,
-	serie int NOT NULL,
-	ripetizioni int NOT NULL,
-	riposo int NOT NULL,
-	# foto_esercizio varchar(255) NOT NULL,
-
-	PRIMARY KEY (scheda, esercizio)
-}
 
 CREATE TABLE categoria (
 	id int NOT NULL,
@@ -84,6 +85,18 @@ CREATE TABLE esercizio (
 	FOREIGN KEY (categoria) REFERENCES categoria(id)
 );
 
+CREATE TABLE esercizio_scheda (
+	scheda int NOT NULL,
+	esercizio int NOT NULL,
+	serie int NOT NULL,
+	ripetizioni int NOT NULL,
+	riposo int NOT NULL,
+	# foto_esercizio varchar(255) NOT NULL,
+
+	PRIMARY KEY (scheda, esercizio),
+	FOREIGN KEY (esercizio) REFERENCES esercizio(id)
+);
+
 CREATE TABLE prenotazione_sessione (
 	id int AUTO_INCREMENT,
 	data date NOT NULL,
@@ -91,7 +104,7 @@ CREATE TABLE prenotazione_sessione (
 	ora_fine time NOT NULL,
 	cliente int NOT NULL,
 
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
 	FOREIGN KEY (cliente) REFERENCES utente(id)
 );
 
