@@ -4,11 +4,19 @@ DROP TABLE IF EXISTS prenotazione_evento;
 DROP TABLE IF EXISTS prenotazione_sessione;
 DROP TABLE IF EXISTS iscrizione_corso;
 DROP TABLE IF EXISTS scheda;
+DROP TABLE IF EXISTS ruolo;
 DROP TABLE IF EXISTS utente;
 DROP TABLE IF EXISTS evento;
 DROP TABLE IF EXISTS esercizio;
 DROP TABLE IF EXISTS categoria;
 DROP TABLE IF EXISTS corso;
+
+CREATE TABLE ruolo (
+	id int,
+	descrizione varchar(100),
+
+	PRIMARY KEY (id)
+);
 
 CREATE TABLE utente (
 	id int NOT NULL,
@@ -17,9 +25,9 @@ CREATE TABLE utente (
 	email varchar(255) NOT NULL UNIQUE,
 	data_nascita date NOT NULL,
 	password varchar(255) NOT NULL,
-	telefono varchar(10) NOT NULL,
+	telefono varchar(10),
 	sesso char NOT NULL,
-	foto_profilo varchar(255) NOT NULL,
+	foto_profilo varchar(255),
 	ruolo int NOT NULL,
 	altezza int,
 	peso int,
