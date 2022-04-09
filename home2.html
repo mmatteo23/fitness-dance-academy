@@ -17,12 +17,12 @@
 
 <body>
     <header>
-        <img id="img-logo" src="img/logoFDA.jpg" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
         <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
         <div id="navbar-breadcrumb">
             <navbar>
                 <ul>
-                    <li>
+                    <li id="selectedBreadcrumb">
                         HOME
                     </li>
                     <li>
@@ -73,6 +73,30 @@
             <p class="grid-item-title-vertical">Visualizza gli eventi che si terranno proprio qui nella palestra sotto casa di midena.</p>
         </div>
         <div class="grid-item" id="grid-item-f">
+            <table id="orari">
+                <caption>Gli orari della nostra palestra:</caption>
+                <tr>
+                    <th>giorni</th>
+                    <th>ora inizio</th>
+                    <th>ora fine</th>
+                </tr>
+                <tr>
+                    <td>Lunedì-Venerdì</td>
+                    <td>10:00</td>
+                    <td>22:30</td>
+                </tr>
+                <tr>
+                    <td>Sabato</td>
+                    <td>11:00</td>
+                    <td>16:30</td>
+                </tr>
+                <tr>
+                    <td>Domenica</td>
+                    <td colspan="2">chiuso</td>
+                </tr>
+            </table>
+        </div>
+        <div class="grid-item" id="grid-item-g">
             <h2>Calcola il tuo <abbr title = "Body Mass Index">BMI</abbr>!</h2>
             <div id="inserimento-dati">
                 <label for="text-altezza">Altezza:</label>
