@@ -22,8 +22,8 @@
         <div id="navbar-breadcrumb">
             <navbar>
                 <ul>
-                    <li id="selectedBreadcrumb">
-                        HOME
+                    <li id="selectedNavbar">
+                        <span xml:lang="en">HOME</span>
                     </li>
                     <li>
                         CORSI
@@ -42,7 +42,9 @@
                     </li>
                 </ul>
             </navbar>
-            <p id="breadcrumb">Ti trovi in: Home</p>
+            <ul id="breadcrumb">
+                <li id="selectedBreadcrumb" class="firstBreadcrumb"><span xml:lang="en">Home</span></li>
+            </ul>
         </div>
     </header>
     <main class="grid-container">
@@ -74,11 +76,11 @@
         </div>
         <div class="grid-item" id="grid-item-f">
             <table id="orari">
-                <caption>Gli orari della nostra palestra:</caption>
+                <caption>Gli orari della nostra palestra</caption>
                 <tr>
-                    <th>giorni</th>
-                    <th>ora inizio</th>
-                    <th>ora fine</th>
+                    <th>Giorni</th>
+                    <th>Dalle</th>
+                    <th>Alle</th>
                 </tr>
                 <tr>
                     <td>Lunedì-Venerdì</td>
@@ -92,19 +94,23 @@
                 </tr>
                 <tr>
                     <td>Domenica</td>
-                    <td colspan="2">chiuso</td>
+                    <td colspan="2" class="cursive">chiuso</td>
                 </tr>
             </table>
         </div>
         <div class="grid-item" id="grid-item-g">
             <h2>Calcola il tuo <abbr title = "Body Mass Index">BMI</abbr>!</h2>
             <div id="inserimento-dati">
-                <label for="text-altezza">Altezza:</label>
-                <input type="text" id="text-altezza"></input>
-                <p>m</p>
-                <label for="text-altezza">Peso:</label>
-                <input type="text" id="text-peso"></input>
-                <p>kg</p>
+                <div id="altezza">
+                    <label for="text-altezza">Altezza:</label>
+                    <input type="text" id="text-altezza"></input>
+                    <p>m</p>
+                </div>
+                <div id="peso">
+                    <label for="text-altezza">Peso:</label>
+                    <input type="text" id="text-peso"></input>
+                    <p>kg</p>
+                </div>
             </div>
             <button id="btn-calcola" onclick="getBMI()">CALCOLA</button>
             <p id="bmi-result">Risultato: </p>
