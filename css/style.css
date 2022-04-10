@@ -73,7 +73,7 @@ ul#breadcrumb{
     background-color: #111e2a;
     width: 6em;
     margin: 0;
-    padding: 0.5em 1em;
+    padding: 0.25em 0.5em;
     text-align: center;
     -webkit-clip-path: polygon(0 0, 10% 50%, 0 100%, 90% 100%, 100% 50%, 90% 0);
     clip-path: polygon(0 0, 10% 50%, 0 100%, 90% 100%, 100% 50%, 90% 0);
@@ -137,7 +137,6 @@ li#selectedBreadcrumb{
 }
 #grid-item-g{
     width:100%;
-    flex-direction: column;
     grid-area: g;
 }
 
@@ -170,21 +169,57 @@ p.grid-item-title-vertical{
     margin-top: auto;
 }
 
-#grid-item-g>h2{
-    margin: 1em auto;
+#grid-item-g h2{
+    margin: 0 auto;
+    margin-top: 0.5em;
+    font-size: 2em;
+    text-align: center;
+}
+#grid-item-g h3{
+    font-size: 1.5em;
+    margin: 1em;
+    margin-bottom: 0;
+    text-align: center;
+}
+#bmi-explaination p{
+    text-align: center;
+    font-size: 1em;
+    margin: 0 1em;
+    margin-bottom: 1em;
+    max-width: none;
+}
+#bmi-explaination{
+    width:25%;
+    align-items: center;
+    background-color: #111e2a;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
 }
 
-#orari td, #orari th{
+#classi-bmi{
+    background-color: #111e2a;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+#valori-bmi{
+    margin: 1em 1em;
+}
+#valori-bmi td, #valori-bmi th{
+    padding: 0.5em;
+}
+
+td, th{
     text-align: center;
     border-style: solid;
     border-width: 3px;
     border-color: white;
 }
-#orari th{
+th{
     font-size:1.1em;
 }
 
-#orari{
+table{
     margin: 0 1em;
     margin-bottom: 1em;
     border-collapse: collapse;
@@ -204,17 +239,18 @@ p.grid-item-title-vertical{
     width: 50%;
     /*display: flex;
     align-items: center;*/
+    text-align: center;
 }
 
 #inserimento-dati label{
     margin-left: 1em;
-    font-size: 1.25em;
+    font-size: 1.5em;
     margin: auto;
     margin-left:1em;
     margin-right:0.5em;
 }
 #inserimento-dati p{
-    font-size:1em;
+    font-size:1.25em;
     padding-left: 0.25em;
 }
 #inserimento-dati input[type="text"]{
@@ -236,22 +272,19 @@ p.grid-item-title-vertical{
 
 #btn-calcola{
     font-family: "Poppins";
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight:bold;
-    margin: 2% auto;
-    padding: 1.33em;
+    margin: 0 auto;
+    padding: 0.66em;
     border-radius: 1em;
-    width: 25%;
     cursor: pointer;
 }
 #btn-calcola:hover{
-    font-size:1.2em;
     color: white;
-    padding:1em;
     background-color: #555555;
 }
 #bmi-result{
-    margin:0 auto;
+    margin:0.5em auto;
     max-width: 50em;
 }
 

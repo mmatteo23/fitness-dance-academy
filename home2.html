@@ -64,14 +64,14 @@
             <p class="grid-item-title-vertical">
                 Prenota la tua scheda fitness con esercizi su misura consigliati da massimi esperti.
             </p>
-            <img class="grid-img-vertical" src="img/schedaEsempioPreview.png" alt="foto esempio di una delle schede esercizi personalizzate fatte dai nostri trainer"/>
+            <img class="grid-img-vertical" src="img/scheda.jpg" alt="foto esempio di una delle schede esercizi personalizzate fatte dai nostri trainer"/>
         </div>
         <div class="grid-item" id="grid-item-d">
             <p class="grid-item-title-vertical">Iscriviti al sito per poter effettuare tutte le operazioni disponibili.</p>
-            <img class="grid-img-vertical" src="img/signup.jpg" alt="immagine rappresentante un cursore che clicca sul bottone sign up"/>
+            <img class="grid-img-vertical" src="img/telefonino.jpg" alt="immagine rappresentante un cursore che clicca sul bottone sign up"/>
         </div>
         <div class="grid-item" id="grid-item-e">
-            <img class="grid-img-vertical" src="img/evento.jpg" alt="immagine della piscina comunale di padova dove talvolta organizziamo eventi"/>
+            <img class="grid-img-vertical" src="img/pizzata.jfif" alt="immagine della piscina comunale di padova dove talvolta organizziamo eventi"/>
             <p class="grid-item-title-vertical">Visualizza gli eventi che si terranno proprio qui nella palestra sotto casa di midena.</p>
         </div>
         <div class="grid-item" id="grid-item-f">
@@ -99,22 +99,57 @@
             </table>
         </div>
         <div class="grid-item" id="grid-item-g">
-            <h2>Calcola il tuo <abbr title = "Body Mass Index">BMI</abbr>!</h2>
+            <div id="bmi-explaination">
+                <h3>Che cos'è il <abbr title="Body Mass Index">BMI</abbr>?</h3>
+                <p>Il <span xml:lang="en">Body Mass Index</span> è un sistema di valutazione del peso attraverso la soluzione di una formula che richiede due valori noti (altezza e peso) che permette di stabilire la classe di appartenenza dell'utente.
+                    Il posizionamento nella classe peso-forma è statisticamente collegato al minor rischio di ammalarsi di patologie metaboliche e non solo.    </p>
+            </div>
             <div id="inserimento-dati">
+                <h2>Calcola il tuo <abbr title = "Body Mass Index">BMI</abbr>!</h2>
                 <div id="altezza">
                     <label for="text-altezza">Altezza:</label>
                     <input type="text" id="text-altezza"></input>
-                    <p>m</p>
+                    <p><abbr title="metri">m</abbr></p>
                 </div>
                 <div id="peso">
                     <label for="text-altezza">Peso:</label>
                     <input type="text" id="text-peso"></input>
-                    <p>kg</p>
+                    <p><abbr title="chilogrammi">kg</abbr></p>
                 </div>
+                <button id="btn-calcola" onclick="getBMI()">CALCOLA</button>
+                <p id="bmi-result">Risultato: </p>
             </div>
-            <button id="btn-calcola" onclick="getBMI()">CALCOLA</button>
-            <p id="bmi-result">Risultato: </p>
+            <div id="classi-bmi">
+                <table id="valori-bmi">
+                    <tr>
+                        <th>Classe</th>
+                        <th>Valore <abbr title = "Body Mass Index">BMI</abbr></th>
+                    </tr>
+                    <tr>
+                        <td>sottopeso</td>
+                        <td>x <= 18.5</td>
+                    </tr>
+                    <tr>
+                        <td>pesoforma</td>
+                        <td>18.5 < x < 25</td>
+                    </tr>
+                    <tr>
+                        <td>sovrappeso</td>
+                        <td>25 <= x < 30</td>
+                    </tr>
+                    <tr>
+                        <td>obesità</td>
+                        <td>30 <= x < 35</td>
+                    </tr>
+                    <tr>
+                        <td>obesità severa</td>
+                        <td>x >= 35 </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </main>
-
+    <footer>
+        
+    </footer>
 </body>
