@@ -67,6 +67,13 @@ class DBAccess {
 		}
 		return $queryResult;	// FALSE => Query failed
 	}
+
+	public function getNewId(string $tableName){
+		$query = "SELECT id FROM " . $tableName . " ORDER BY id DESC LIMIT 1 ";
+
+		$newId = $this->executeQuery($query);
+		return $newId ? $newId[0]['id']+1 : 1;
+	}
 }
 
 ?>
