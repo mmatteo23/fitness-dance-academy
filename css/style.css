@@ -1,6 +1,6 @@
 
 html{
-    background-color:rgb(57, 95, 129)  ;
+    background-color:rgb(59, 106, 148)  ;
 }
 
 html, body{
@@ -18,25 +18,22 @@ header{
 }
 
 #img-logo{
-    max-width: 7em;
-    height:auto;
+    max-width: 4em;
+    height: 4em;
     margin: 1em 2em;
 }
 
 h1#title{
     color: white;
     max-width: 5em;
-    font-size: 1.5em;
-}
-
-#navbar-breadcrumb{
-    margin-top: auto;
-    margin-right: 0;
-    margin-left: 5%;
+    font-size: 1.2em;
 }
 
 navbar{
     display: flex;
+    margin: auto;
+    margin-right: 0;
+    margin-left: 5%;
 }
 
 navbar ul{
@@ -67,6 +64,8 @@ ul#breadcrumb{
     color:white;
     padding: 0.25em 1em;
     display:flex;   
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 #breadcrumb li{
@@ -78,8 +77,12 @@ ul#breadcrumb{
     -webkit-clip-path: polygon(0 0, 10% 50%, 0 100%, 90% 100%, 100% 50%, 90% 0);
     clip-path: polygon(0 0, 10% 50%, 0 100%, 90% 100%, 100% 50%, 90% 0);
 }
+#breadcrumb a{
+    text-decoration: none;
+    color: inherit;
+}
 li#selectedBreadcrumb{
-    background-color: #467db0;
+    background-color: #6D9AC5;
     font-weight: bold;
     color: black;
 }
@@ -98,6 +101,7 @@ li#selectedBreadcrumb{
         "d e f f"
         "g g g g";
     margin: 1em;
+    margin-top:0;
 }
 
 .grid-item{
@@ -108,6 +112,7 @@ li#selectedBreadcrumb{
 
 #grid-item-a{
     width: 100%;
+    flex-direction: column;
     grid-area: a;
 }
 #grid-item-b{
@@ -132,7 +137,6 @@ li#selectedBreadcrumb{
 }
 #grid-item-f{
     width:100%;
-    flex-direction: column;
     grid-area: f;
 }
 #grid-item-g{
@@ -205,6 +209,11 @@ p.grid-item-title-vertical{
 #valori-bmi{
     margin: 1em 1em;
 }
+#valori-bmi>caption{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5em;
+}
 #valori-bmi td, #valori-bmi th{
     padding: 0.5em;
 }
@@ -256,7 +265,7 @@ table{
 #inserimento-dati input[type="text"]{
     font-size: 1.25em;
     height:1.75em;
-    width: 50%;
+    width: 30%;
 }
 #altezza, #peso{
     align-items: center;
@@ -288,4 +297,60 @@ table{
     max-width: 50em;
 }
 
+footer{
+    text-align: center;
+}
+footer ul{
+    padding: 0;
+    margin-top:0;
+    list-style-type: none;
+}
+#contatti-social{
+    display: flex;
+    justify-content: space-evenly;
+}
+footer h3{
+    margin-bottom: 0;
+}
+#contatti, #social, #indirizzo{
+    width: 33%;
+}
+footer>p{
+    margin: 0;
+}
 
+/*----SESSIONE----*/
+#formSessione{
+    text-align: center;
+    background-color: #123456;
+    color:white;
+}
+#formSessione>h2{
+    margin: 0 auto;
+    font-size: 2em;
+    padding-top:1em;
+}
+#formSessione label{
+    font-size: 1.5em;
+    padding-right: 0.5em;
+}
+#formSessione select{
+    font-family: inherit;
+    font-size: 1.25em;
+}
+#formSessione>input[type="submit"]{
+    font-size: 1.5em;
+    font-family: inherit;
+    margin: 1em;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+}
+
+#formSessione>input[type="submit"]:hover{
+    color: white;
+    background-color: #555555;
+    cursor: pointer;
+}
+#formSessione>div{
+    margin-top: 2em;
+}

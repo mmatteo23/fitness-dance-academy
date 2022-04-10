@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Prenotazione Sessione - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="js/bmi.js"></script>
+</head>
+<body>
+    <header>
+        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+        <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+        <navbar>
+            <ul>
+                <li>
+                    <span xml:lang="en">HOME</span>
+                </li>
+                <li>
+                    CORSI
+                </li>
+                <li>
+                    SCHEDE
+                </li>
+                <li id="selectedNavbar">
+                    SESSIONE
+                </li>
+                <li>
+                    EVENTI
+                </li>
+                <li>
+                    PROFILO
+                </li>
+            </ul>
+        </navbar>
+    </header>
+    <ul id="breadcrumb">
+        <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
+        <li id="selectedBreadcrumb">Sessione</li>
+    </ul>
+    <main>
+        <form action="prenotaSessione.php" method="post" id="formSessione">
+            <h2>Prenota una sessione di allenamento da noi</h2>
+            <div id="dataSessione">
+                <label for="giornoSessione meseSessione">Data della sessione:</label>
+                <div>
+                    <select id="giornoSessione">
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                    </select>
+                    <select id="meseSessione">
+                        <option value="1">gennaio</option>
+                        <option value="2">febbraio</option>
+                        <option value="3">marzo</option>
+                        <option value="4">aprile</option>
+                        <option value="5">maggio</option>
+                        <option value="6">giugno</option>
+                        <option value="7">luglio</option>
+                        <option value="8">agosto</option>
+                        <option value="9">settembre</option>
+                        <option value="10">ottobre</option>
+                        <option value="11">novembre</option>
+                        <option value="12">dicembre</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+                <div>
+                    <select id="oraInizio">
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                    <select id="minutoInizio">
+                        <option value="0">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="oraFine minutoFino">Ora di fine della sessione:</label>
+                <div>
+                    <select id="oraFine">
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                    <select id="minutoFine">
+                        <option value="0">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="prenota" name="prenota">
+        </form>
+    </main>
+    <footer>
+        <div id="contatti-social">
+            <div id="contatti">
+                <h3>Contatti</h3>
+                <ul>
+                    <li>
+                        <i class="fa fa-phone"></i>
+                        0498079289
+                    </li>
+                    <li>
+                        <i class="fa fa-whatsapp"></i>
+                        392 3909778
+                    </li>
+                </ul>
+            </div>
+            <div id="Indirizzo">
+                <h3>Indirizzo</h3>
+                <ul>
+                    <li>
+                        vicolo Ognissanti 1/C
+                    </li>
+                    <li>
+                        Padova 35129
+                    </li>
+                </ul>
+            </div>
+            <div id="social">
+                <h3>Social</h3>
+                <ul>
+                    <li>
+                        <i class="fa fa-instagram"></i>
+                        <a href="https://www.instagram.com/fitness_dance_academy/">@fitness_dance_academy</a>
+                    </li>   
+                    <li>
+                        <i class="fa fa-facebook"></i>
+                        <a href="https://www.facebook.com/palestrafda/">Palestra Fitness & Dance Academy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2022 FDA - Fitness & Dance Academy</p>
+    </footer>
+</body>
