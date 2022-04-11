@@ -17,6 +17,10 @@ header{
     display: flex;
 }
 
+img {
+    width: 100%;
+}
+
 #img-logo{
     max-width: 4em;
     height: 4em;
@@ -102,6 +106,7 @@ li#selectedBreadcrumb{
         "g g g g";
     margin: 1em;
     margin-top:0;
+    background-color: white;
 }
 
 .grid-item{
@@ -319,6 +324,16 @@ footer>p{
     margin: 0;
 }
 
+main div#container {
+    background-color: #123456;
+    color: white;
+    padding: 1.5em 1.5em;
+}
+
+h1 {
+    text-align: center;
+}
+
 /*----SESSIONE----*/
 #formSessione{
     text-align: center;
@@ -353,4 +368,122 @@ footer>p{
 }
 #formSessione>div{
     margin-top: 2em;
+}
+
+/********************************
+ *          CORSI
+ *******************************/
+table#corsi {
+    margin: auto;
+    width: 100%;
+}
+
+table#corsi th {
+    padding: 1em 2em;
+}
+
+table#corsi td {
+    padding: 0.6em 0em;
+}
+
+.white-box {
+    margin: 2em 0em;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.corso-card {
+    padding: 1em;
+    background-color: #6D9AC5;
+    width: 29%;
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+span.little-title {
+    font-size: medium   ;
+    font-weight: lighter;
+}
+
+img.img-card {
+}
+
+p.title-card {
+    font-size: 2em;
+    margin: 0.5em 0em;
+    font-weight: bold;
+}
+
+
+/***********************************
+ *          SESSIONE
+ **********************************/
+#mainPrenotaSessione{
+    display: flex;
+}
+#formSessione{
+    width: 48%;
+    text-align: center;
+    background-color: #123456;
+    color:white;
+}
+#mainPrenotaSessione h2{
+    margin: 0 auto;
+    padding: 0 1em;
+    font-size: 2em;
+    padding-top:1em;
+}
+#formSessione label{
+    font-size: 1.5em;
+    padding-right: 0.5em;
+}
+#formSessione select{
+    font-family: inherit;
+    font-size: 1.25em;
+}
+#formSessione>input[type="submit"]{
+    font-size: 1.5em;
+    font-family: inherit;
+    margin: 1em;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+}
+
+#formSessione>input[type="submit"]:hover{
+    color: white;
+    background-color: #555555;
+    cursor: pointer;
+}
+#formSessione>div{
+    margin-top: 2em;
+}
+#sessioniPrenotate{
+    text-align: center;
+    width: 48%;
+    background-color: #123456;
+    margin-left: 4%;
+    color:white;
+}
+#tabSessioni{
+    margin: 1em auto;
+    font-size: 1.2em;
+    width: 70%;
+}
+#tabSessioni td, #tabSessioni th{
+    padding: 0.3em;
+}
+
+#btn-cancella{
+    font-family: "Poppins";
+    font-size: 1em;
+    font-weight:bold;
+    margin: 0 auto;
+    padding: 0.25em 0.5em;
+    border-radius: 1em;
+    cursor: pointer;
+}
+#btn-cancella:hover{
+    color: white;
+    background-color: #555555;
 }

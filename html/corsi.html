@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Corsi - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="js/bmi.js"></script>
+</head>
+<body>
+    <header>
+        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+        <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+        <navbar>
+            <ul>
+                <li>
+                    <span xml:lang="en">HOME</span>
+                </li>
+                <li id="selectedNavbar">
+                    CORSI
+                </li>
+                <li>
+                    SCHEDE
+                </li>
+                <li>
+                    SESSIONE
+                </li>
+                <li>
+                    EVENTI
+                </li>
+                <li>
+                    PROFILO
+                </li>
+            </ul>
+        </navbar>
+    </header>
+    
+    <ul id="breadcrumb">
+        <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
+        <li id="selectedBreadcrumb">Corsi</li>
+    </ul>
+    
+    <main>
+        <div id="container">
+            <h1>La nostra offerta corsi</h1>
+
+            <div class="white-box">
+                <div class="corso-card">
+                    <img class="img-card" src="img/spinningQuadrato.jpg"/>
+                    <p class="title-card">Spinning <span class="little-title">by Corrado</span></p>
+                </div>
+                <div class="corso-card">
+                    <img class="img-card" src="img/bilanciereQuadrato.jpg"/>
+                    <p class="title-card">Pesi <span class="little-title">by King Canotta</span></p>
+                </div>
+                <div class="corso-card">
+                    <img class="img-card" src="img/attrezziQuadrato.jpg"/>
+                    <p class="title-card">Casonato <span class="little-title">by LuBu</span></p>
+                </div>
+
+            </div>
+
+            <h1>Orari Corsi</h1>
+            <table id="corsi" title="orari divisi per ore in cui si svolgono i corsi della palestra dal lunedì al venerdì">
+                <caption>Orari dei corsi</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Orario</th>
+                        <th scope="col" abbr="lun">Lunedì</th>
+                        <th scope="col" abbr="mar">Martedì</th>
+                        <th scope="col" abbr="mer">Mercoledì</th>
+                        <th scope="col" abbr="gio">Giovedì</th>
+                        <th scope="col" abbr="ven">Venerdì</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">17:30-18:30</td>                        
+                        <td>Total Body</td>
+                        <td>Yogafit</td>
+                        <td>Total Body</td>
+                        <td>Yogafit</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">18:30-19:30</td>                        
+                        <td>Zumbafit</td>
+                        <td>Functional</td>
+                        <td>Zumbafit</td>
+                        <td>Functional</td>
+                        <td>Break ass</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">19:30-20:30</td>                        
+                        <td>Spinning</td>
+                        <td>Tone up</td>
+                        <td>Spinning</td>
+                        <td>Tone up</td>
+                        <td>Spinning</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">20:30-21:30</td>                        
+                        <td>Fitboxe</td>
+                        <td>Superjump</td>
+                        <td>Fitboxe</td>
+                        <td>Superjump</td>
+                        <td>Calisthenics</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">21:30-22:30</td>                        
+                        <td>Tango</td>
+                        <td>Six pack</td>
+                        <td></td>
+                        <td>Six pack</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+    </main>
+
+    <pageFooter/>
+</body>
