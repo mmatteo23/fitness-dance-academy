@@ -78,7 +78,7 @@ class Utente {
     {
         return $this->peso;
     }
-
+    /*
     // SET METHODS
     public function setId(int $_id)
     {
@@ -139,10 +139,11 @@ class Utente {
     {
         $this->peso = $_peso;
     }
+    */
 
     public function validator(array $data = NULL)
     {
-
+        return true;
     }
 
     // CRUD OPERATIONS
@@ -153,27 +154,30 @@ class Utente {
 
         if($conn_ok){
             $newId = $connection_manager->getNewId('utente');
-
+            
+            print_r($data);
+            /*
             $query = "INSERT INTO utente (id, nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
             VALUE (
                 " . $newId . ",
-                '" . $data->nome . "',
-                '" . $data->cognome . "',
-                '" . $data->email . "',
-                '" . $data->data_nascita . "',
-                '" . $data->password . "',
-                '" . $data->telefono . "',
-                '" . $data->sesso . "',
-                '" . $data->foto_profilo . "',
-                " . $data->ruolo . ",
-                " . $data->altezza . ",
-                " . $data->peso . "
+                '" . $data['nome'] . "',
+                '" . $data['cognome'] . "',
+                '" . $data['email'] . "',
+                '" . $data['data_nascita'] . "',
+                '" . $data['password'] . "',
+                '" . $data['telefono'] . "',
+                '" . $data['sesso'] . "',
+                '" . $data['foto_profilo'] . "',
+                " . $data['ruolo'] . ",
+                " . $data['altezza'] . ",
+                " . $data['peso'] . "
             )";
             
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
             return $queryResults;
+            */
         }
 
         return false;
@@ -204,16 +208,16 @@ class Utente {
         if($conn_ok){
 
             $query = "UPDATE utente SET 
-                nome = '" . $data->nome . "', 
-                cognome = '" . $data->cognome . "',
-                data_nascita = '" . $data->data_nascita . "',
-                password = '" . $data->password . "',
-                telefono = '" . $data->telefono . "',
-                sesso = '" . $data->sesso . "',
-                foto_profilo = '" . $data->foto_profilo . "',
-                ruolo = " . $data->ruolo . ",
-                altezza = " . $data->altezza . ",
-                peso = " . $data->peso . "
+                nome = '" . $data['nome'] . "', 
+                cognome = '" . $data['cognome'] . "',
+                data_nascita = '" . $data['data_nascita'] . "',
+                password = '" . $data['password'] . "',
+                telefono = '" . $data['telefono'] . "',
+                sesso = '" . $data['sesso'] . "',
+                foto_profilo = '" . $data['foto_profilo'] . "',
+                ruolo = " . $data['ruolo'] . ",
+                altezza = " . $data['altezza'] . ",
+                peso = " . $data['peso'] . "
                 
                 WHERE id = " . $id;
             
