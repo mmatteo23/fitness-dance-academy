@@ -324,7 +324,7 @@ footer>p{
     margin: 0;
 }
 
-main div#container {
+main#container {
     background-color: #123456;
     color: white;
     padding: 1.5em 1.5em;
@@ -332,6 +332,47 @@ main div#container {
 
 h1 {
     text-align: center;
+}
+
+/*******************************
+ *          LOGIN
+ ******************************/
+div.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+
+div.form-wrapper form {
+    width: 80%;
+}
+
+div.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+div.input-wrapper input {
+    padding: 0.5em 0.4em;
+    font-size: 1em;
+}
+
+div.input-wrapper label {
+    font-size: 1.2em;
+
+}
+
+div.form-wrapper input[type=submit] {
+    background-color: #6d9ac5;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1em 2em;
+    margin: auto;
+    display: block;
 }
 
 

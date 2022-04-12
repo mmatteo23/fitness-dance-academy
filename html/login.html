@@ -1,53 +1,78 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<meta charset="utf-8"/>
-	<title>Login FDA</title>
-	<meta name="keywords" content="eSports, gaming, games, competitive, news, pentanews, highlights, Tournaments, updates, new games"/>
-	<meta name="description" content="The latest selection of articles from the world of esports, we publish daily. Find out which articles have gained the most traction and which games have been on everyone's mouths."/>
-	<meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta charset="utf-8"/>
+    <title>Login - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/desktop.css">
-    <link rel="stylesheet" type="text/css" href="css/print.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script defer src="js/search.js"></script>
-    <script defer src="js/loadMoreArticles.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="js/bmi.js"></script>
 </head>
 <body>
 
-    <nav id="breadcrumb">
-		<p><a href="index.php">Home</a> &gt; Login</p>
-	</nav>
+    <header>
+        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+        <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+        <navbar>
+            <ul>
+                <li>
+                    <a href="/"><span xml:lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="corsi.php">CORSI</a>
+                </li>
+                <li>
+                    SCHEDE
+                </li>
+                <li>
+                    <a href="sessione.php">SESSIONE</a>
+                </li>
+                <li>
+                    EVENTI
+                </li>
+                <li id="selectedNavbar">
+                    PROFILO
+                </li>
+            </ul>
+        </navbar>
+    </header>
     
-    <main id="content" class="form-content">
+    <ul id="breadcrumb">
+        <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
+        <li id="selectedBreadcrumb">Accesso Area Personale</li>
+    </ul>
+    
+    <main id="container">
+        <h1>Accesso Area Personale</h1>
         <div class="form-wrapper">
-            <h1>Accesso Area Personale</h1>
             <form action="login.php" method="POST" id="formLogin">
                 <div class="input-wrapper">
-                    <label for="email">e-mail</label>
+                    <label for="email">E-mail</label>
                     <input type="email" name="email" id="email">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="password">password</label>
+                    <label for="password">Password</label>
                     <input type="password" name="password" id="password">
                     <p class='error'></p>
                 </div>
                 <formErrors/>
                 <input type="submit" class="login-signup-btn" value="Login" name="login">
             </form>
-            <div>
-                <p>Sei un nuovo membro? </p>
-                <a href="signup.php">Registrati!</a>
-            </div>
-           
+            
+            <p>Sei un nuovo membro? <a href="signup.php">Registrati!</a></p>
+            
+            
         </div>
     </main>
 
+    <pageFooter/>
 </body>
 </html>

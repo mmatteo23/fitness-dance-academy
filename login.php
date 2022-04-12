@@ -33,6 +33,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
     }   
 }
 
+
+
+$footer = file_get_contents("html/components/footer.html");
+
+$htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
+
 $htmlPage = str_replace("<formErrors/>", $errors, $htmlPage);
 
 // se l'utente ha già effettuato il login non deve visualizzare questa pagina
