@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style2.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,8 +18,10 @@
 <body>
     <header>
         <navbar>
-            <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
-            <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>    
             <ul>
                 <li id="selectedNavbar">
                     <span xml:lang="en">HOME</span>
@@ -43,11 +44,11 @@
             </ul>
         </navbar>
     </header>
-    <ul id="breadcrumb">
-        <li class="firstBreadcrumb">Google</li>
-        <li>pirati</li>
-        <li id="selectedBreadcrumb"><span xml:lang="en">Home</span></li>
-    </ul>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb" id="selectedBreadcrumb"><span xml:lang="en">Home</span></li>
+        </ul>
+    </navbar>
     <main class="grid-container">
         <div class="grid-item" id="grid-item-a">
             <table id="orari" title="orari di apertura e chiusura della palestra distribuiti nei giorni della settimana">

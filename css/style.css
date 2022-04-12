@@ -2,8 +2,10 @@
  *          PALETTE
  ******************************/
  :root{  
-    --color0: #1f306e;   /*non in palette*/
-    --color1: #553772; /*non in palette*/
+    --color0: #1f306e;
+    --color0-dark: #1a2240;
+    --color0-light: #2c4396;
+    --color1: #553772;
     --color2: #8F3B76;
     --color3: #C7417B;
     --color4: #F5487F;
@@ -20,13 +22,14 @@ html{
 }
 
 html, body{
+    background-image: linear-gradient(to bottom right, #2c4396, #8f3b76);
     font-family: "Poppins", sans-serif;
+    color: white;
     margin: 0 auto;
-    max-width: 1200px;
 }
 
 header{
-    background-color: var(--color1);
+    box-shadow: -5px -3px 9px 0px #1a2240;
 }
 
 img {
@@ -34,22 +37,34 @@ img {
 }
 
 #img-logo{
-    max-width: 4em;
-    height: 4em;
+    max-width: 55%;
     margin: 1em 2em;
+    transition: transform 0.25s;
+}
+
+#img-logo:hover{
+    transform: scale(0.95);
+}
+
+#divLogo {
+    display: flex;
 }
 
 h1#title{
     color: white;
     max-width: 5em;
     font-size: 1.2em;
+    text-indent: -999em;
+    position: absolute;
 }
 
 navbar{
     display: flex;
     margin: auto;
-    margin-right: 0;
-    margin-left: 5%;
+}
+
+navbar, main {
+    max-width: 1200px;
 }
 
 navbar ul{
@@ -66,26 +81,38 @@ navbar li{
     padding: 0.25em 1.5em;
     color: white;
     text-align: center;
+    transition: background-color 0.25s;
+}
+
+navbar li > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+navbar li:hover {
+    background-color: var(--color0);
 }
 
 li#selectedNavbar{
     font-weight: bold;
-    background-color: #111e2a;
+    background-color: var(--color0-dark);
 }
 
-
 ul#breadcrumb{
+    font-size: 0.8em;
     padding: 0;
     display: flex;
     color:white;
-    padding: 0.25em 1em;
-    display:flex;   
+    padding: 0.9em 1em;
+    padding-left: 0;
     margin-top: 0.2em;
     margin-bottom: 0.2em;
+    max-width: 1200px;
+    justify-content: center;
 }
 
 #breadcrumb li{
-    background-color: #111e2a;
+    background-color: var(--color0);
     width: 6em;
     margin: 0;
     padding: 0.25em 0.5em;
@@ -93,14 +120,15 @@ ul#breadcrumb{
     -webkit-clip-path: polygon(0 0, 10% 50%, 0 100%, 90% 100%, 100% 50%, 90% 0);
     clip-path: polygon(0 0, 10% 50%, 0 100%, 90% 100%, 100% 50%, 90% 0);
 }
+
 #breadcrumb a{
     text-decoration: none;
     color: inherit;
 }
+
 li#selectedBreadcrumb{
-    background-color: #6D9AC5;
+    background-color: var(--color0-dark);
     font-weight: bold;
-    color: black;
 }
 #breadcrumb li#selectedBreadcrumb.firstBreadcrumb, #breadcrumb li.firstBreadcrumb{
     -webkit-clip-path: polygon(0 0, 0 100%, 90% 100%, 100% 50%, 90% 0);
@@ -116,15 +144,15 @@ li#selectedBreadcrumb{
         "d e b c"
         "d e f f"
         "g g g g";
-    margin: 1em;
+    margin: auto;
     margin-top:0;
-    background-color: white;
 }
 
 .grid-item{
     color: white;
-    background-color:  #123456 ;
     display: flex;
+    background-color: var(--color0);
+    box-shadow: 0 0 10px var(--color0-dark);
 }
 
 #grid-item-a{
@@ -212,15 +240,11 @@ p.grid-item-title-vertical{
 #bmi-explaination{
     width:25%;
     align-items: center;
-    background-color: #111e2a;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
+    background-color: var(--color0-dark);
 }
 
 #classi-bmi{
-    background-color: #111e2a;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
+    background-color: var(--color0-dark);
 }
 
 #valori-bmi{
@@ -305,10 +329,12 @@ table{
     border-radius: 1em;
     cursor: pointer;
 }
+
 #btn-calcola:hover{
     color: white;
     background-color: #555555;
 }
+
 #bmi-result{
     margin:0.5em auto;
     max-width: 50em;
@@ -316,22 +342,37 @@ table{
 
 footer{
     text-align: center;
+    margin-top: 1.7em;
+    padding-bottom: 1em;
+    box-shadow: -2px 4px 9px 0px #1a2240;
 }
+
+footer li > a {
+    color: inherit;
+}
+
 footer ul{
     padding: 0;
     margin-top:0;
     list-style-type: none;
 }
+
 #contatti-social{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 1em;
 }
+
 footer h3{
     margin-bottom: 0;
 }
+
 #contatti, #social, #indirizzo{
     width: 33%;
 }
+
 footer>p{
     margin: 0;
 }
