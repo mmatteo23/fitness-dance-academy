@@ -334,41 +334,6 @@ h1 {
     text-align: center;
 }
 
-/*----SESSIONE----*/
-#formSessione{
-    text-align: center;
-    background-color: #123456;
-    color:white;
-}
-#formSessione>h2{
-    margin: 0 auto;
-    font-size: 2em;
-    padding-top:1em;
-}
-#formSessione label{
-    font-size: 1.5em;
-    padding-right: 0.5em;
-}
-#formSessione select{
-    font-family: inherit;
-    font-size: 1.25em;
-}
-#formSessione>input[type="submit"]{
-    font-size: 1.5em;
-    font-family: inherit;
-    margin: 1em;
-    padding: 0.5em 1em;
-    border-radius: 1em;
-}
-
-#formSessione>input[type="submit"]:hover{
-    color: white;
-    background-color: #555555;
-    cursor: pointer;
-}
-#formSessione>div{
-    margin-top: 2em;
-}
 
 /********************************
  *          CORSI
@@ -427,6 +392,16 @@ p.title-card {
     text-align: center;
     background-color: #123456;
     color:white;
+    margin: 0 0.5% 0 1%;
+}
+#dataSessione>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#giornoSettimana{
+    font-size: 1.2em;
+    margin: 0 0.5em;
 }
 #mainPrenotaSessione h2{
     margin: 0 auto;
@@ -434,15 +409,19 @@ p.title-card {
     font-size: 2em;
     padding-top:1em;
 }
+#formSessione>h2{
+    margin: 0 auto;
+    font-size: 2em;
+    padding-top:1em;
+}
 #formSessione label{
     font-size: 1.5em;
-    padding-right: 0.5em;
 }
 #formSessione select{
     font-family: inherit;
     font-size: 1.25em;
 }
-#formSessione>input[type="submit"]{
+#formSessione input[type="submit"]{
     font-size: 1.5em;
     font-family: inherit;
     margin: 1em;
@@ -450,7 +429,7 @@ p.title-card {
     border-radius: 1em;
 }
 
-#formSessione>input[type="submit"]:hover{
+#formSessione input[type="submit"]:hover{
     color: white;
     background-color: #555555;
     cursor: pointer;
@@ -462,7 +441,7 @@ p.title-card {
     text-align: center;
     width: 48%;
     background-color: #123456;
-    margin-left: 4%;
+    margin: 0 0.5% 0 1%;
     color:white;
 }
 #tabSessioni{
