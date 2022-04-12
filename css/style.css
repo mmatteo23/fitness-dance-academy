@@ -1,6 +1,22 @@
+/*******************************
+ *          PALETTE
+ ******************************/
+ :root{  
+    --color0: #1f306e;   /*non in palette*/
+    --color1: #553772; /*non in palette*/
+    --color2: #8F3B76;
+    --color3: #C7417B;
+    --color4: #F5487F;
+
+    --dark-shadow: black;
+
+    --lateral-padding: 2em;
+    --content-max_width: 1200px;
+}
+
 
 html{
-    background-color:rgb(59, 106, 148)  ;
+    background-color: var(--color0)  ;
 }
 
 html, body{
@@ -9,12 +25,8 @@ html, body{
     max-width: 1200px;
 }
 
-body{
-    background-color: white;
-}
 header{
-    background-color: #123456;
-    display: flex;
+    background-color: var(--color1);
 }
 
 img {
