@@ -24,5 +24,20 @@ function getUser(int $id) {
     }
 }
 
+function getUserIdFromEmail($email){
+    $connection_manager = new DBAccess();
+    $conn_ok = $connection_manager->openDBConnection();
+
+    if($conn_ok){
+        $query = "SELECT id FROM utente
+                WHERE email = '$email' LIMIT 1";
+
+        $queryResults = $connection_manager->executeQuery($query); 
+        $connection_manager->closeDBConnection();
+        if(isset($queryResults[0]['id']))
+            return $queryResults[0]['id'];
+        return false;
+    }
+}
 
 ?>

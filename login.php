@@ -2,6 +2,7 @@
 
 require_once('php/db.php');
 require_once('php/AuthController.php');
+require_once('php/UserController.php');
 use DB\DBAccess;
 
 session_start();
@@ -24,6 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
         if($isValid){  // utente trovato
             $_SESSION['email'] = $email;
+            $_SESSION['userId'] = getUserIdFromEmail($email);
 
         } else {    // utente non registrato o credenziali errate
             $errors = "<p class='error'>

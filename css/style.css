@@ -480,11 +480,12 @@ p.title-card {
  **********************************/
 #mainPrenotaSessione{
     display: flex;
+    margin: 0 auto;
 }
 #formSessione{
     width: 48%;
     text-align: center;
-    background-color: #123456;
+    background-color: var(--color0);
     color:white;
     margin: 0 0.5% 0 1%;
 }
@@ -534,7 +535,7 @@ p.title-card {
 #sessioniPrenotate{
     text-align: center;
     width: 48%;
-    background-color: #123456;
+    background-color: var(--color0);
     margin: 0 0.5% 0 1%;
     color:white;
 }

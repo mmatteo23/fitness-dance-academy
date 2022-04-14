@@ -17,9 +17,11 @@
 </head>
 <body onload="caricaDateOre()">
     <header>
-        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
-        <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
         <navbar>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>   
             <ul>
                 <li>
                     <span xml:lang="en">HOME</span>
@@ -42,19 +44,22 @@
             </ul>
         </navbar>
     </header>
-    <ul id="breadcrumb">
-        <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
-        <li id="selectedBreadcrumb">Sessione</li>
-    </ul>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
+            <li id="selectedBreadcrumb">Sessione</li>
+        </ul>
+    </navbar>
     <main id="mainPrenotaSessione">
-        <form action="prenotaSessione.php" method="post" id="formSessione">
-            <h2>Prenota una sessione di allenamento da noi</h2>
+        <form action="sessione.php" method="post" id="formSessione">
+            <h2>Prenota una sessione di allenamento da noi</h2> 
+            <div id="errori"></div>
             <div id="dataSessione">
                 <label for="giornoSessione meseSessione">Data della sessione:</label>
                 <div>
                     <p id="giornoSettimana"></p>
-                    <select id="giornoSessione" onchange="giornoCambiato()">
-                        <option value="1">01</option>
+                    <select id="giornoSessione" name="giornoSessione" onchange="giornoCambiato()">
+                        <option value="1" selected>01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
                         <option value="4">04</option>
@@ -86,8 +91,8 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select id="meseSessione" onchange="meseCambiato()">
-                        <option value="1">gennaio</option>
+                    <select id="meseSessione" name="meseSessione" onchange="meseCambiato()">
+                        <option value="1" selected>gennaio</option>
                         <option value="2">febbraio</option>
                         <option value="3">marzo</option>
                         <option value="4">aprile</option>
@@ -106,8 +111,8 @@
                 <div>
                     <label for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
                     <div>
-                        <select id="oraInizio">
-                            <option value="10">10</option>
+                        <select id="oraInizio" name="oraInizio">
+                            <option value="10" selected>10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
                             <option value="13">13</option>
@@ -121,7 +126,7 @@
                             <option value="21">21</option>
                             <option value="22">22</option>
                         </select>
-                        <select id="minutoInizio">
+                        <select id="minutoInizio" name="minutoInizio">
                             <option value="0" selected>00</option>
                             <option value="15">15</option>
                             <option value="30">30</option>
@@ -132,7 +137,7 @@
                 <div>
                     <label for="oraFine minutoFine">Ora di fine della sessione:</label>
                     <div>
-                        <select id="oraFine">
+                        <select id="oraFine" name="oraFine">
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
@@ -147,7 +152,7 @@
                             <option value="21">21</option>
                             <option value="22">22</option>
                         </select>
-                        <select id="minutoFine">
+                        <select id="minutoFine" name="minutoFine">
                             <option value="0">00</option>
                             <option value="15">15</option>
                             <option value="30" selected>30</option>

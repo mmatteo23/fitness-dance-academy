@@ -72,7 +72,7 @@ function giornoCambiato(){
     }
     contenuto += "</select><select id='minutoInizio'><option value='0' selected>00</option><option value='15'>15</option><option value='30'>30</option><option value='45'>45</option></select>";
     contenuto += "</div></div><div><label for='oraFine minutoFine'>Ora di fine della sessione:</label><div><select id='oraFine'>";
-    contenuto += "<option value='" + dalle + "' selected>" + String(dalle) + "</option>";
+    contenuto += "<option value='" + alle + "' selected>" + String(alle) + "</option>";
     for(i=dalle + 1; i<=alle; i++){
         contenuto += "<option value='" + i + "'>" + String(i) + "</option>";
     }
