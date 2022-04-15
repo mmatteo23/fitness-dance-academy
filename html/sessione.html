@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="js/caricaDateOre.js"></script>
 </head>
-<body onload="caricaDateOre()">
+<body>
     <header>
         <navbar>
             <a id="divLogo" href="/">
@@ -57,7 +57,8 @@
             <div id="dataSessione">
                 <label for="giornoSessione meseSessione">Data della sessione:</label>
                 <div>
-                    <p id="giornoSettimana"></p>
+                    <giornoSessione/>
+                    <!--<p id="giornoSettimana"></p>
                     <select id="giornoSessione" name="giornoSessione" onchange="giornoCambiato()">
                         <option value="1" selected>01</option>
                         <option value="2">02</option>
@@ -104,7 +105,7 @@
                         <option value="10">ottobre</option>
                         <option value="11">novembre</option>
                         <option value="12">dicembre</option>
-                    </select>
+                    </select>-->
                 </div>
             </div>
             <div id="selezioneOrari">

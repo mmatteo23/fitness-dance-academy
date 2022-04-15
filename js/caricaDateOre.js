@@ -1,7 +1,7 @@
 var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
 var settimana = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
 
-function caricaDateOre(){
+/*function caricaDateOre(){
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -34,7 +34,7 @@ function caricaDateOre(){
 
     var dotw = today.getDay();
     document.getElementById("giornoSettimana").innerHTML = settimana[dotw];
-}
+}*/
 
 function meseCambiato(){
     var e = document.getElementById("meseSessione");
@@ -52,7 +52,11 @@ function meseCambiato(){
 function giornoCambiato(){
     var today = new Date();
     var date = new Date(today.getFullYear(), document.getElementById("meseSessione").value - 1, document.getElementById("giornoSessione").value);
-    
+    console.log(date);console.log(today);
+    if(today.setHours(0,0,0,0) > date){   //il giorno è passato
+        document.getElementById("selezioneOrari").innerHTML = "<p>Non è possibile prenotare sessioni per giorni passati</p>";
+        return;
+    }
     var dotw = date.getDay();
     document.getElementById("giornoSettimana").innerHTML = settimana[dotw];
     var dalle = 10, alle = 22;
@@ -85,6 +89,7 @@ function giornoCambiato(){
 
 function numeroDiGiorni(mm, yyyy){
     var n = 31;
+    console.log("il mese che mi hai dato è " + mm);
     if(mm == "11" || mm == "04" || mm == "06" || mm == "09")
         n = 30;
     else if(mm == "02"){
