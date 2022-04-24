@@ -6,7 +6,8 @@ require_once("php/Models/Utente.php");
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     
     $modello = new Utente();
-    $modello->create($_POST);
+    if($modello->validator($_POST))
+        $modello->create($_POST);
     
     $destructor = new Utente($_POST);
     $destructor->delete(1);

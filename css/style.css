@@ -381,6 +381,7 @@ main#container {
     background-color: #123456;
     color: white;
     padding: 1.5em 1.5em;
+    margin: auto;
 }
 
 h1 {

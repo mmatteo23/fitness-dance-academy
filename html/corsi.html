@@ -17,15 +17,17 @@
 </head>
 <body>
     <header>
-        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
-        <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
         <navbar>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>    
             <ul>
                 <li>
-                    <a href="/"><span xml:lang="en">HOME</span></a>
+                    <a href="/" xml:lang="en">HOME</a>
                 </li>
                 <li id="selectedNavbar">
-                    CORSI
+                    <span>CORSI</span>
                 </li>
                 <li>
                     SCHEDE
@@ -37,16 +39,16 @@
                     EVENTI
                 </li>
                 <li>
-                    PROFILO
+                    <a href="login.php">PROFILO</a>
                 </li>
             </ul>
         </navbar>
     </header>
-    
-    <ul id="breadcrumb">
-        <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
-        <li id="selectedBreadcrumb">Corsi</li>
-    </ul>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb" id="selectedBreadcrumb"><span xml:lang="en">Home</span></li>
+        </ul>
+    </navbar>
     
     <main id="container">
         <h1>La nostra offerta corsi</h1>
