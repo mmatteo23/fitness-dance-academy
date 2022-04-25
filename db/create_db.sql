@@ -78,14 +78,14 @@ CREATE TABLE prenotazione_scheda (
 );
 
 CREATE TABLE categoria (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	descrizione varchar(200) NOT NULL,
 
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE esercizio (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(200) NOT NULL,
 	categoria int NOT NULL,
 

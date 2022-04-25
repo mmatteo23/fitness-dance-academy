@@ -28,6 +28,20 @@ VALUES
     2,
     177,
     70
+),
+(
+    2,
+    'Danilo',
+    'Stojkovic',
+    'ds@ds.it',
+    '20/09/2000',
+    'pass',
+    '33333333333',
+    'M',
+    NULL,
+    2,
+    185,
+    68
 );
 
 INSERT INTO corso (
@@ -53,8 +67,37 @@ VALUES (
   ),
   (
     3,
-    'Spinnign',
+    'Spinning',
     'Allenamento con <span xml:lang="fr">cyclette</span> professionali Tehnogym',
     '2022-01-02',
     '2022-12-02' 
   );
+
+INSERT INTO categoria(descrizione) 
+VALUES 
+('addominali'), 
+('petto'), 
+('spalla'), 
+('cardio'), 
+('gambe'), 
+('braccia'), 
+('glutei'),
+('stretching');
+
+INSERT INTO esercizio(nome, categoria) 
+VALUES 
+('plank', 1), 
+('crunch', 1), 
+('trazioni', 2), 
+('pressa spalla', 3), 
+('tapis roulant', 4), 
+('quadricipiti', 5), 
+('salto con corda', 5), 
+('manubri', 6), 
+('affondi', 5), 
+('squat', 7), 
+('cyclette', 4), 
+('curl bilancere', 6), 
+('panca piana', 6), 
+('plank laterale', 1), 
+('stretching gambe', 8);
