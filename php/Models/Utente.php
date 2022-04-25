@@ -247,4 +247,21 @@ class Utente {
 
         return false;
     }
+
+    public static function getIdFromEmail($email){
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+
+            $query = "SELECT id FROM utente WHERE email = '".$email."'";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults[0]['id'];
+        }
+
+        return false;
+    }
 }

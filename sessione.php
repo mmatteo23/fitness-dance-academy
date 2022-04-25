@@ -10,7 +10,6 @@ $errors = "";
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     $_POST['cliente'] = $_SESSION['userId'];
-    print_r($_POST);
 
     $errors = Sessione::validator($_POST);
 
@@ -57,10 +56,30 @@ for($i=1; $i<=12; $i++){
 }
 $giornoHTML .= "<select/>";
 
+$tabellaSess = "";
+if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
+    $sessioniPrenot = Sessione::getSessionsOf($_SESSION['userId']);
+    foreach($sessioniPrenot as $sess){
+        $data = explode('-', $sess['data']);
+        $data = $data[2]."/".$data[1];
+        $oraI = substr($sess['ora_inizio'], 0, 5);
+        $oraF = substr($sess['ora_fine'], 0, 5);;
+        $tabellaSess .= "
+            <tr id='sess".$sess['id']."'>
+                <td>".$data."</td>
+                <td>".$oraI."</td>
+                <td>".$oraF."</td>
+                <td><button onclick = 'deleteSession(".$sess['id'].")' id='btn-cancella'>Cancella</button></td>
+            </tr>";
+    }
+
+}
+
 $footer = file_get_contents("html/components/footer.html");
 
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
+$htmlPage = str_replace("<sessionTableBody/>", $tabellaSess, $htmlPage);
 
 echo $htmlPage;
 

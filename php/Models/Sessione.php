@@ -1,6 +1,6 @@
 <?php
 
-require_once('php/db.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/php/db.php");
 use DB\DBAccess;
 
 class Sessione {
@@ -44,7 +44,41 @@ class Sessione {
                 '" . $data['oraFine'].":".$data['minutoFine'].":00',
                 " . $data['cliente'] . "
             )";
-            echo $query;
+
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
+    public static function delete($id)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $year = date("Y");
+            $query = "DELETE FROM prenotazione_sessione WHERE id = ".$id;
+
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
+    public static function getSessionsOf($id){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT * FROM prenotazione_sessione WHERE cliente = ".$id;
 
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
