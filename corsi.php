@@ -6,8 +6,6 @@ require_once("php/Models/Corso.php");
 $modello = new Corso();
 
 $corsi = $modello->index($_GET);
-print_r($corsi);
-
 
 $htmlPage = file_get_contents("html/corsi.html");
 

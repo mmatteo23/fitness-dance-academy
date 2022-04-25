@@ -5,7 +5,7 @@ session_start();
 require_once('php/db.php');
 require_once('php/AuthController.php');
 //require_once('php/utilities.php');
-require_once('php/models/utente.php');
+require_once('php/Models/Utente.php');
 use DB\DBAccess;
 
 
