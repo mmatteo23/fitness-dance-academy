@@ -64,12 +64,18 @@ if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
         $data = $data[2]."/".$data[1];
         $oraI = substr($sess['ora_inizio'], 0, 5);
         $oraF = substr($sess['ora_fine'], 0, 5);;
+
+        //<button onclick = 'deleteSession(".$sess['id'].")' id='btn-cancella'>Cancella</button>
         $tabellaSess .= "
             <tr id='sess".$sess['id']."'>
                 <td>".$data."</td>
                 <td>".$oraI."</td>
                 <td>".$oraF."</td>
-                <td><button onclick = 'deleteSession(".$sess['id'].")' id='btn-cancella'>Cancella</button></td>
+                <td>
+                    <button onclick='deleteSession(".$sess['id'].")' class='button button-purple' id='btn-conferma'>Conferma</button>
+                    <button onclick='hideModal(".$sess['id'].")' class='button button-violet' id='btn-annulla'>Annulla</button>
+                    <button onclick = 'showModal(".$sess['id'].")' class='button button-purple' id='btn-cancella'>Cancella</button>
+                </td>
             </tr>";
     }
 

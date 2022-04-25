@@ -560,16 +560,20 @@ p.title-card {
     border-radius: 1em;
     cursor: pointer;
 }
-#btn-cancella:hover{
-    color: white;
-    background-color: #555555;
+#btn-conferma, #btn-annulla{
+    padding: 0.2em 0.4em; 
+    font-size: 1em;
+    display: none;
+    min-width: 5.5em;
+}
+#btn-annulla{
+    margin-top: 0.2em;
 }
 abbr[title] {
     text-decoration: none;
 }
-.button-blue {
-    background-color: var(--color0-light);
-    color: white;
+
+.button {
     font-size: 1.25em;
     font-weight: bold;
     border:none;
@@ -580,10 +584,33 @@ abbr[title] {
     border-radius: 1em;
     box-shadow: 0px 0px 3px var(--color0-dark);
 }
+.button-blue {
+    background-color: var(--color0-light);
+    color: white;
+}
 .button-blue:hover{
     background-color: var(--color0-verylight);
     color: var(--color0-dark);
 }
+
+.button-purple {
+    background-color: var(--color2);
+    color: white;
+}
+.button-purple:hover{
+    background-color: var(--color3);
+    color: var(--color1-dark);
+}
+
+.button-violet {
+    background-color: var(--color1-dark);
+    color: white;
+}
+.button-violet:hover{
+    background-color: var(--color3-light);
+    color: var(--color1-dark);
+}
+
 .button-light{
     background-color: var(--color0-verylight);
     color: var(--color0-dark);
