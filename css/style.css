@@ -14,7 +14,7 @@
     --color4: #F5487F;
 
     --dark-shadow: black;
-
+    --transparent: #ffffff14;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
 }
@@ -274,14 +274,18 @@ p.grid-item-title-vertical{
 }
 #valori-bmi td, #valori-bmi th{
     padding: 0.5em;
+    border-color: var(--color0-dark);
 }
 
 td, th{
     text-align: center;
     border-style: solid;
-    border-width: 3px;
-    border-color: white;
+    border-width: 0.2em;
+    border-color: var(--color0);
+    padding: 0.5em;
+    background-color: var(--transparent);
 }
+
 th{
     font-size:1.1em;
 }
@@ -304,9 +308,10 @@ table{
 #inserimento-dati{
     margin: auto;
     width: 50%;
-    /*display: flex;
-    align-items: center;*/
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #inserimento-dati label{
@@ -320,14 +325,37 @@ table{
     font-size:1.25em;
     padding-left: 0.25em;
 }
-#inserimento-dati input[type="text"]{
+input[type="text"]{
     font-size: 1.25em;
-    height:1.75em;
+    height: 1.75em;
     width: 30%;
+    background-color: var(--transparent);
+    border: solid 0.1em;
+    border-radius: 0.5em;
+    border-color: #ffffff1a;
+    color:white;
+}
+.transparent-login {
+    font-size: 1.25em;
+    font-family: inherit;
+    background-color: var(--transparent);
+    border: solid 0.1em;
+    border-radius: 0.5em;
+    border-color: #ffffff1a;
+    color:white;
+}
+#loginBtn{
+    margin-top: 0;
+}
+#inserimento-dati button.button{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.4em;
 }
 #altezza, #peso{
     align-items: center;
     display: flex;
+    justify-content: center;
     width:50%;
 }
 #altezza{
@@ -456,11 +484,11 @@ table#corsi td {
 
 div.corso-card {
     padding: 1em;
-    background-color: #6D9AC5;
+    background-color: var(--transparent);
     width: 29%;
     display: flex;
     flex-direction: column;
-    color: black;
+    color: white;
 }
 
 span.little-title {
@@ -519,21 +547,8 @@ p.title-card {
     font-family: inherit;
     font-size: 1.25em;
 }
-#formSessione input[type="submit"]{
-    font-size: 1.5em;
-    font-family: inherit;
-    margin: 1em;
-    padding: 0.5em 1em;
-    border-radius: 1em;
-}
-
-#formSessione input[type="submit"]:hover{
-    color: white;
-    background-color: #555555;
-    cursor: pointer;
-}
-#formSessione>div{
-    margin-top: 2em;
+.form-el-margin-top{
+    margin-top: 1.5em;
 }
 #sessioniPrenotate{
     text-align: center;
@@ -574,15 +589,18 @@ abbr[title] {
 }
 
 .button {
-    font-size: 1.25em;
+    font-size: 1.4em;
     font-weight: bold;
     border:none;
-    padding: 1em 2em;
-    margin: auto;
     display: block;
     cursor: pointer;
-    border-radius: 1em;
+    border-radius: 0.5em;
     box-shadow: 0px 0px 3px var(--color0-dark);
+    font-family: inherit;
+    margin: auto;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.5em 1.75em;
 }
 .button-blue {
     background-color: var(--color0-light);
@@ -597,7 +615,7 @@ abbr[title] {
     background-color: var(--color2);
     color: white;
 }
-.button-purple:hover{
+.button.button-purple:hover{
     background-color: var(--color3);
     color: var(--color1-dark);
 }
@@ -606,7 +624,7 @@ abbr[title] {
     background-color: var(--color1-dark);
     color: white;
 }
-.button-violet:hover{
+.button.button-violet:hover{
     background-color: var(--color3-light);
     color: var(--color1-dark);
 }
@@ -627,4 +645,16 @@ abbr[title] {
 .button-light:hover{
     background-color: var(--color0-light);
     color: white;
+}
+select {
+    background-color: var(--transparent);
+    color: white;
+    border: solid 0.1em;
+    border-radius: 0.5em;
+    border-color: #ffffff1a;
+    padding: 0.25em 0.5em;
+    margin: 0.5em 0;
+}
+select#giornoSessione {
+    margin-right:0.2em;
 }

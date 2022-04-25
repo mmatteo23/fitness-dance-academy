@@ -51,13 +51,61 @@
         </ul>
     </navbar>
     
-    <main id="container">
-        <h1>Schede</h1>
-
-        <div class="white-box">
-            <p>Sei stato trollato qui non c'è niente da vedere</p>
+    <main id="mainPrenotaSessione">
+        <form action="scheda.php" method="post" id="formSessione">
+            <h2>Prenota una scheda con uno dei nostri Personal Trainer</h2> 
+            <div id="errori"></div>
+            <div id="dataSessione">
+                <label for="giornoSessione meseSessione">Data della scheda:</label>
+                <div>
+                    <giornoSessione/>
+                </div>
+            </div>
+            <div id="selezioneOrari">
+                <div>
+                    <label for="oraInizio minutoInizio">Orario (durata 30 minuti):</label>
+                    <div>
+                        <select id="oraInizio" name="oraInizio">
+                            <option value="10" selected>10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                        </select>
+                        <select id="minutoInizio" name="minutoInizio">
+                            <option value="0" selected>00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="submit" value="Prenota" name="prenota" class="button button-purple">
+            </div>
+        </form>
+        <div id="sessioniPrenotate">
+            <h2>Le tue schede</h2>
+            <table id="tabSessioni">
+                <thead>
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Personal Trainer</th>
+                        <th scope="col">Visualizza</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <sessionTableBody/>
+                </tbody>
+            </table>
         </div>
-        
     </main>
 
     <pageFooter/>

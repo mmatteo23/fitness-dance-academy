@@ -58,16 +58,16 @@
             <form action="login.php" method="POST" id="formLogin">
                 <div class="input-wrapper">
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email" id="email" class="transparent-login">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" class="transparent-login">
                     <p class='error'></p>
                 </div>
                 <formErrors/>
-                <input type="submit" class="button-blue" value="Login" name="login">
+                <input id="loginBtn" type="submit" class="button button-purple" value="Login" name="login">
             </form>
             
             <p>Sei un nuovo membro? <a href="signup.php">Registrati!</a></p>

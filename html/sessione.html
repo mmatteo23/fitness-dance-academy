@@ -56,7 +56,9 @@
             <h2>Prenota una sessione di allenamento da noi</h2> 
             <div id="errori"></div>
             <div id="dataSessione">
-                <label for="giornoSessione meseSessione">Data della sessione:</label>
+                <div class="form-el-margin-top">
+                    <label for="giornoSessione meseSessione">Data della sessione:</label>
+                </div>
                 <div>
                     <giornoSessione/>
                     <!--<p id="giornoSettimana"></p>
@@ -111,7 +113,9 @@
             </div>
             <div id="selezioneOrari">
                 <div>
-                    <label for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+                    <div class="form-el-margin-top">
+                        <label for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+                    </div>
                     <div>
                         <select id="oraInizio" name="oraInizio">
                             <option value="10" selected>10</option>
@@ -137,7 +141,9 @@
                     </div>
                 </div>
                 <div>
-                    <label for="oraFine minutoFine">Ora di fine della sessione:</label>
+                    <div class="form-el-margin-top">
+                        <label for="oraFine minutoFine">Ora di fine della sessione:</label>
+                    </div>
                     <div>
                         <select id="oraFine" name="oraFine">
                             <option value="10">10</option>
@@ -162,7 +168,7 @@
                         </select>
                     </div>
                 </div>
-                <input type="submit" value="prenota" name="prenota">
+                <input type="submit" value="Prenota" name="prenota" class="button button-purple">
             </div>
         </form>
         <div id="sessioniPrenotate">
