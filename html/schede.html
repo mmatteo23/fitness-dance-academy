@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="utf-8"/>
-    <title>Login - FDA</title>
+    <title>Schede - FDA</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
@@ -16,13 +16,12 @@
     <script defer src="js/bmi.js"></script>
 </head>
 <body>
-
     <header>
         <navbar>
             <a id="divLogo" href="/">
                 <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
                 <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
-            </a>   
+            </a>    
             <ul>
                 <li>
                     <a href="/"><span xml:lang="en">HOME</span></a>
@@ -30,8 +29,8 @@
                 <li>
                     <a href="corsi.php">CORSI</a>
                 </li>
-                <li>
-                    <a href="schede.php">SCHEDE</a>
+                <li id="selectedNavbar">
+                    SCHEDE
                 </li>
                 <li>
                     <a href="sessione.php">SESSIONE</a>
@@ -39,8 +38,8 @@
                 <li>
                     <a href="eventi.php">EVENTI</a>
                 </li>
-                <li id="selectedNavbar">
-                    PROFILO
+                <li>
+                    <a href="login.php">PROFILO</a>
                 </li>
             </ul>
         </navbar>
@@ -48,34 +47,18 @@
     <navbar>
         <ul id="breadcrumb">
             <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
-            <li id="selectedBreadcrumb">Profilo</li>
+            <li id="selectedBreadcrumb">Schede</li>
         </ul>
     </navbar>
     
     <main id="container">
-        <div id="loginForm" class="form-wrapper">
-            <h1>Accesso Area Personale</h1>
-            <form action="login.php" method="POST" id="formLogin">
-                <div class="input-wrapper">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email">
-                    <p class='error'></p>
-                </div>
-                <div class="input-wrapper">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
-                    <p class='error'></p>
-                </div>
-                <formErrors/>
-                <input type="submit" class="button-blue" value="Login" name="login">
-            </form>
-            
-            <p>Sei un nuovo membro? <a href="signup.php">Registrati!</a></p>
-            
-            
+        <h1>Schede</h1>
+
+        <div class="white-box">
+            <p>Sei stato trollato qui non c'è niente da vedere</p>
         </div>
+        
     </main>
 
     <pageFooter/>
 </body>
-</html>

@@ -4,16 +4,14 @@ require_once('php/db.php');
 require_once('php/utilities.php');
 use DB\DBAccess;
 
-class Corso {
+class Scheda {
 
-    protected $filtrable_fields = array("titolo", "descrizione", "data_inizio", "data_fine", "copertina");
+    protected $filtrable_fields = array("data", "cliente", "trainer");
 
     protected $id;
-    protected $titolo;
-    protected $descrizione;
-    protected $data_inizio;
-    protected $data_fine;
-    protected $copertina;
+    protected $data;
+    protected $cliente;
+    protected $trainer;
 
     public function index(array $filters)
     {
@@ -21,7 +19,7 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT * FROM corso";
+            $query = "SELECT * FROM scheda";
             // append if there are some filters
             $query .= append_filters($filters, $this->filtrable_fields);
 

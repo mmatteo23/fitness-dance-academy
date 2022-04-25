@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once('php/models/Sessione.php');
+require_once('php/Models/Sessione.php');
 
 $htmlPage = file_get_contents("html/sessione.html");
 

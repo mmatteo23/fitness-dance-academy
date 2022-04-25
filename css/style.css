@@ -337,21 +337,6 @@ table{
     float: right;
 }
 
-#btn-calcola{
-    font-family: "Poppins";
-    font-size: 1.5em;
-    font-weight:bold;
-    margin: 0 auto;
-    padding: 0.66em;
-    border-radius: 1em;
-    cursor: pointer;
-}
-
-#btn-calcola:hover{
-    color: white;
-    background-color: #555555;
-}
-
 #bmi-result{
     margin:0.5em auto;
     max-width: 50em;
@@ -441,26 +426,9 @@ div.input-wrapper label {
 
 }
 
-div.form-wrapper input[type=submit] {
-    background-color: var(--color0-light);
-    color: white;
-    font-size: 1.25em;
-    font-weight: bold;
-    border:none;
-    padding: 1em 2em;
-    margin: auto;
-    display: block;
-    cursor: pointer;
-    border-radius: 1em;
-    box-shadow: 0px 0px 3px var(--color0-dark);
-}
-div.form-wrapper input[type=submit]:hover{
-    background-color: var(--color0-verylight);
-    color: var(--color0-dark);
-}
-
 #loginForm{
-    padding-bottom: 10em;
+    padding-top: 5em;
+    padding-bottom: 5em;
 }
 
 
@@ -595,4 +563,41 @@ p.title-card {
 #btn-cancella:hover{
     color: white;
     background-color: #555555;
+}
+abbr[title] {
+    text-decoration: none;
+}
+.button-blue {
+    background-color: var(--color0-light);
+    color: white;
+    font-size: 1.25em;
+    font-weight: bold;
+    border:none;
+    padding: 1em 2em;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 1em;
+    box-shadow: 0px 0px 3px var(--color0-dark);
+}
+.button-blue:hover{
+    background-color: var(--color0-verylight);
+    color: var(--color0-dark);
+}
+.button-light{
+    background-color: var(--color0-verylight);
+    color: var(--color0-dark);
+    font-size: 1.25em;
+    font-weight: bold;
+    border:none;
+    padding: 1em 2em;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 1em;
+    box-shadow: 0px 0px 3px var(--color0-dark);
+}
+.button-light:hover{
+    background-color: var(--color0-light);
+    color: white;
 }

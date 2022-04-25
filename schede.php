@@ -1,15 +1,13 @@
 <?php
 
-require_once("php/Models/Corso.php");
+require_once("php/Models/Scheda.php");
 
 // get all corsi from db
-$modello = new Corso();
+$modello = new Scheda();
 
-$corsi = $modello->index($_GET);
-print_r($corsi);
+$schede = $modello->index($_GET);
 
-
-$htmlPage = file_get_contents("html/corsi.html");
+$htmlPage = file_get_contents("html/schede.html");
 
 $footer = file_get_contents("html/components/footer.html");
 

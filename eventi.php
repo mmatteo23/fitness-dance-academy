@@ -1,15 +1,13 @@
 <?php
 
-require_once("php/Models/Corso.php");
+require_once("php/Models/Evento.php");
 
 // get all corsi from db
-$modello = new Corso();
+$modello = new Evento();
 
-$corsi = $modello->index($_GET);
-print_r($corsi);
+$eventi = $modello->index($_GET);
 
-
-$htmlPage = file_get_contents("html/corsi.html");
+$htmlPage = file_get_contents("html/eventi.html");
 
 $footer = file_get_contents("html/components/footer.html");
 
