@@ -1,11 +1,12 @@
 <?php
 
+session_start();
+
 require_once('php/db.php');
 require_once('php/AuthController.php');
-require_once('php/UserController.php');
+require_once('php/utilities.php');
 use DB\DBAccess;
 
-session_start();
 
 // paginate the content
 // page structure

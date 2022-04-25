@@ -18,9 +18,11 @@
 <body>
 
     <header>
-        <img id="img-logo" src="img/logoFDA.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
-        <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
         <navbar>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>   
             <ul>
                 <li>
                     <a href="/"><span xml:lang="en">HOME</span></a>
@@ -43,15 +45,16 @@
             </ul>
         </navbar>
     </header>
-    
-    <ul id="breadcrumb">
-        <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
-        <li id="selectedBreadcrumb">Accesso Area Personale</li>
-    </ul>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="home2.html"><span xml:lang="en">Home</span></a></li>
+            <li id="selectedBreadcrumb">Profilo</li>
+        </ul>
+    </navbar>
     
     <main id="container">
-        <h1>Accesso Area Personale</h1>
-        <div class="form-wrapper">
+        <div id="loginForm" class="form-wrapper">
+            <h1>Accesso Area Personale</h1>
             <form action="login.php" method="POST" id="formLogin">
                 <div class="input-wrapper">
                     <label for="email">E-mail</label>

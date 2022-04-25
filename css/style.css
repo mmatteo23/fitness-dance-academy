@@ -5,9 +5,12 @@
     --color0: #1f306e;
     --color0-dark: #1a2240;
     --color0-light: #2c4396;
+    --color0-verylight: #B6C3F6;
     --color1: #553772;
+    --color1-dark: #291834;
     --color2: #8F3B76;
     --color3: #C7417B;
+    --color3-light: #F5B2CD;
     --color4: #F5487F;
 
     --dark-shadow: black;
@@ -32,6 +35,14 @@ header{
     box-shadow: -5px -3px 9px 0px #1a2240;
 }
 
+a{
+    color: var(--color0-verylight)
+}
+
+a:visited{
+    color: var(--color3-light);
+}
+
 img {
     width: 100%;
 }
@@ -48,6 +59,7 @@ img {
 
 #divLogo {
     display: flex;
+    background-color: inherit;
 }
 
 h1#title{
@@ -86,6 +98,11 @@ navbar li{
 
 navbar li > a {
     text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+navbar li > a:visited{
     color: inherit;
 }
 
@@ -349,6 +366,11 @@ footer{
 
 footer li > a {
     color: inherit;
+    background-color: inherit;
+}
+
+footer li > a:visited{
+    color: inherit;
 }
 
 footer ul{
@@ -378,7 +400,7 @@ footer>p{
 }
 
 main#container {
-    background-color: #123456;
+    background-color: var(--color0);
     color: white;
     padding: 1.5em 1.5em;
     margin: auto;
@@ -420,13 +442,25 @@ div.input-wrapper label {
 }
 
 div.form-wrapper input[type=submit] {
-    background-color: #6d9ac5;
+    background-color: var(--color0-light);
     color: white;
+    font-size: 1.25em;
     font-weight: bold;
-    text-transform: uppercase;
+    border:none;
     padding: 1em 2em;
     margin: auto;
     display: block;
+    cursor: pointer;
+    border-radius: 1em;
+    box-shadow: 0px 0px 3px var(--color0-dark);
+}
+div.form-wrapper input[type=submit]:hover{
+    background-color: var(--color0-verylight);
+    color: var(--color0-dark);
+}
+
+#loginForm{
+    padding-bottom: 10em;
 }
 
 
