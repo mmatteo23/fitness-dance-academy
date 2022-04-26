@@ -92,7 +92,7 @@ VALUES
 ('pressa spalla', 3), 
 ('tapis roulant', 4), 
 ('quadricipiti', 5), 
-('salto con corda', 5), 
+('salto corda', 5), 
 ('manubri', 6), 
 ('affondi', 5), 
 ('squat', 7), 
@@ -101,3 +101,16 @@ VALUES
 ('panca piana', 6), 
 ('plank laterale', 1), 
 ('stretching gambe', 8);
+
+INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 2, 1);
+
+INSERT INTO esercizio_scheda(scheda, esercizio, serie, ripetizioni, riposo) VALUES
+(1, 3, 3, 10, 0),
+(1, 1, 4, 15, 0),
+(1, 7, 10, 1, 60),
+(1, 12, 3, 7, 0),
+(1, 13, 2, 1, 0),
+(1, 10, 3, 3, 0),
+(1, 5, 4, 5, 60),
+(1, 9, 5, 5, 0),
+(1, 2, 3, 20, 0);

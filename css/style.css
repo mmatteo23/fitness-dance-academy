@@ -31,6 +31,11 @@ html, body{
     margin: 0 auto;
 }
 
+main{
+    max-width: var(--content-max_width);
+    margin: 0 auto;
+}
+
 header{
     box-shadow: -5px -3px 9px 0px #1a2240;
 }
@@ -461,7 +466,7 @@ div.input-wrapper label {
 /********************************
  *          CORSI
  *******************************/
-table#corsi>caption{
+table#corsi>caption {
     font-size: 2em;
     font-weight: bold;
     padding-bottom: 0.5em;
@@ -661,4 +666,59 @@ select {
 }
 select#giornoSessione {
     margin-right:0.2em;
+}
+
+
+/*----VISUALIZZA SCHEDA----*/
+main#visScheda{
+    text-align: center;
+}
+main#visScheda h2{
+    padding: 1em;
+    font-size: 2em;
+    margin: 0 auto;
+}
+
+#ex-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.ex{
+    max-width: 12em;
+    margin: 1em;
+    background-color: var(--color0-dark);
+}
+.ex-img{
+    background-color: var(--color0-verylight);
+    max-width: 10em;
+    border-radius: 1em;
+    margin: 1em;
+}
+.ex-descr{
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+.ex-descr :first-child{
+    margin: 0;
+}
+.ex-descr :last-child{
+    margin: 0;
+}
+.ex-descr :last-child>span{
+    font-size: 0.75em;
+    padding: 0 0.1em;
+}
+.pausa{
+    max-width: 12em;
+    margin: 1em;
+    background-color: var(--color0-verylight);
+}
+.pausa>.ex-descr{
+    color: black;
+}
+.pausa>.ex-img{
+    background-color: var(--color0-dark);
 }

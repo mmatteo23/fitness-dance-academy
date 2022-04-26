@@ -56,7 +56,7 @@ CREATE TABLE prenotazione_evento (
 );
 
 CREATE TABLE scheda (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	data date NOT NULL,
 	cliente int NOT NULL,
 	trainer int NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE esercizio_scheda (
 	serie int NOT NULL,
 	ripetizioni int NOT NULL,
 	riposo int NOT NULL,
-	# foto_esercizio varchar(255) NOT NULL,
+	/*foto_esercizio varchar(255) NOT NULL,*/
 
 	PRIMARY KEY (scheda, esercizio),
 	FOREIGN KEY (esercizio) REFERENCES esercizio(id)
