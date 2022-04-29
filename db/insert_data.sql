@@ -49,28 +49,32 @@ INSERT INTO corso (
     titolo,
     descrizione,
     data_inizio,
-    data_fine
+    data_fine,
+    trainer
   )
 VALUES (
     1,
     'Total Body',
     'Allenamento di tutto il corpo con poche pause',
     '2022-01-02',
-    '2022-12-02'
+    '2022-12-02',
+    1
   ),
   (
     2,
     'ZumbaFit',
     'Allenamento Full Body a passi di Zumba per tutte le età',
     '2022-01-02',
-    '2022-12-02'
+    '2022-12-02',
+    1
   ),
   (
     3,
     'Spinning',
     'Allenamento con <span xml:lang="fr">cyclette</span> professionali Tehnogym',
     '2022-01-02',
-    '2022-12-02' 
+    '2022-12-02',
+    1
   );
 
 INSERT INTO categoria(descrizione) 

@@ -21,9 +21,10 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT * FROM corso";
+            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                INNER JOIN utente ON utente.id = trainer";
             // append if there are some filters
-            $query .= append_filters($filters, $this->filtrable_fields);
+            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields);
 
             //echo $query;
             $queryResults = $connection_manager->executeQuery($query);

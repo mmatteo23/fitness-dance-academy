@@ -5,11 +5,11 @@ DROP TABLE IF EXISTS prenotazione_sessione;
 DROP TABLE IF EXISTS iscrizione_corso;
 DROP TABLE IF EXISTS scheda;
 DROP TABLE IF EXISTS ruolo;
+DROP TABLE IF EXISTS corso;
 DROP TABLE IF EXISTS utente;
 DROP TABLE IF EXISTS evento;
 DROP TABLE IF EXISTS esercizio;
 DROP TABLE IF EXISTS categoria;
-DROP TABLE IF EXISTS corso;
 
 CREATE TABLE ruolo (
 	id int,
@@ -123,8 +123,10 @@ CREATE TABLE corso (
 	data_inizio datetime NOT NULL,
 	data_fine datetime NOT NULL,
 	copertina varchar(255),
+	trainer int NOT NULL,
 
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	FOREIGN KEY (trainer) REFERENCES utente(id)
 );
 
 CREATE TABLE iscrizione_corso (
