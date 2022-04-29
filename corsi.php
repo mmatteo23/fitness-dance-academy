@@ -1,6 +1,8 @@
 <?php
 
-require_once("php/Models/Corso.php");
+require_once "config.php";
+
+require_once(SITE_ROOT . "/php/Models/Corso.php");
 
 // get all corsi from db
 $modello = new Corso();

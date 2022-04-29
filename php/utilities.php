@@ -7,10 +7,12 @@
             if(in_array($key, $table_fields)){
                 // if there is at least a valid parameter I insert the keyword where
                 if($partial_query === "") $partial_query .= " WHERE";
-                if (gettype($value) == "string") {
-                    $partial_query .= " " . $key . " LIKE '%" . $value . "%'";
-                } else {
-                    $partial_query .= " " . $key . " = " . $value;
+                if($value){
+                    if (gettype($value) == "string") {
+                        $partial_query .= " " . $key . " LIKE '%" . $value . "%'";
+                    } else {
+                        $partial_query .= " " . $key . " = " . $value;
+                    }
                 }
             }
         }

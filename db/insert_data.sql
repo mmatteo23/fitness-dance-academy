@@ -85,7 +85,7 @@ VALUES (
   (
     3,
     'Spinning',
-    'Allenamento con <span xml:lang="fr">cyclette</span> professionali Tehnogym',
+    'Allenamento con <span xml:lang="fr">cyclette</span> professionali Technogym',
     '2022-01-02',
     '2022-12-02',
     1
