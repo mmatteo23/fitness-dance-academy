@@ -194,7 +194,7 @@ class Utente {
             $queryResults = $connection_manager->executeQuery($query);
             $connection_manager->closeDBConnection();
 
-            return isset($queryResults[0])?:NULL;
+            return isset($queryResults[0])?$queryResults[0]:NULL;
         }
 
         return NULL;

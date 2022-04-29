@@ -15,6 +15,7 @@
 
     --dark-shadow: black;
     --transparent: #ffffff14;
+    --transparent-dark: #20131345;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
 }
@@ -617,7 +618,7 @@ abbr[title] {
     display: block;
     cursor: pointer;
     border-radius: 0.5em;
-    box-shadow: 0px 0px 3px var(--color0-dark);
+    box-shadow: 0px 0px 3px var(--transparent-dark);
     font-family: inherit;
     margin: auto;
     margin-top: 1.5em;
@@ -633,13 +634,13 @@ abbr[title] {
     color: var(--color0-dark);
 }
 
-.button-purple {
+.button.button-purple {
     background-color: var(--color2);
     color: white;
 }
 .button.button-purple:hover{
     background-color: var(--color3);
-    color: var(--color1-dark);
+    color: white;
 }
 
 .button-violet {
@@ -735,4 +736,52 @@ main#visScheda h2{
 }
 .pausa>.ex-img{
     background-color: var(--color0-dark);
+}
+
+/* PROFILO */
+
+.profile-box {
+    margin: 2em 0em;
+    display: flex;
+    justify-content: center;
+}
+
+main#container.profileContainer {
+    background-color: var(--transparent-dark);
+}
+
+img.profilePicture {
+    max-width: 20%;
+    height: auto;
+    border: solid 0.4em;
+    border-radius: 10em;
+    border-color: #ffffff1a;
+}
+
+.profileData {
+    font-size: 1.4em;
+}
+
+.profileData li:first-child {
+    font-size: 1.8em;
+}
+
+.profileData ul {
+    list-style-type: none;
+}
+
+a.button {
+    width: fit-content;
+    text-decoration: none;
+}
+
+#profileButtons {
+    display: flex;
+    justify-content: center;
+}
+
+#profileButtons .button {
+    margin: 1.5em 0.5em;
+    min-width: 6em;
+    text-align: center;
 }
