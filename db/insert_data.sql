@@ -42,6 +42,20 @@ VALUES
     2,
     185,
     68
+),
+(
+    3,
+    'Matteo',
+    'Casonato',
+    'matteo@casonato.com',
+    '08/08/2000',
+    'admin',
+    '3923240890',
+    'M',
+    NULL,
+    2,
+    186,
+    78
 );
 
 INSERT INTO corso (
