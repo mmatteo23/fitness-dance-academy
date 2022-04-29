@@ -15,7 +15,9 @@
 
     --dark-shadow: black;
     --transparent: #ffffff14;
+    --transparent-full: #ffffff00;
     --transparent-dark: #20131345;
+    --transparent-light: #ffffff2b;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
 }
@@ -174,7 +176,8 @@ li#selectedBreadcrumb{
 .grid-item{
     color: white;
     display: flex;
-    background-color: var(--color0);
+    /* background-color: var(--color0); */
+    background-color: var(--transparent-dark);
     box-shadow: 0 0 10px var(--color0-dark);
 }
 
@@ -280,14 +283,15 @@ p.grid-item-title-vertical{
 }
 #valori-bmi td, #valori-bmi th{
     padding: 0.5em;
-    border-color: var(--color0-dark);
+    /* border-color: var(--color0-dark); */
 }
 
 td, th{
     text-align: center;
     border-style: solid;
     border-width: 0.2em;
-    border-color: var(--color0);
+    /* border-color: var(--color0); */
+    border-color: var(--transparent-full);
     padding: 0.5em;
     background-color: var(--transparent);
 }
@@ -299,7 +303,8 @@ th{
 table{
     margin: 0 1em;
     margin-bottom: 1em;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0.2em;
 }
 
 #orari>caption{
@@ -417,7 +422,8 @@ footer>p{
 }
 
 main#container {
-    background-color: var(--color0);
+    /* background-color: var(--color0); */
+    background-color: var(--transparent-dark);
     color: white;
     padding: 1.5em 1.5em;
     margin: auto;
@@ -478,6 +484,11 @@ table#corsi {
     width: 100%;
 }
 
+th {
+    font-size: 1em;
+    background-color: var(--transparent-light);
+}
+
 table#corsi th {
     padding: 1em 2em;
 }
@@ -528,7 +539,7 @@ p.title-card {
 #formSessione{
     width: 48%;
     text-align: center;
-    background-color: var(--color0);
+    background-color: var(--transparent-dark);
     color:white;
     margin: 0 0.5% 1em 1%;
     min-width: 25em;
@@ -566,7 +577,7 @@ p.title-card {
 #sessioniPrenotate{
     text-align: center;
     width: 48%;
-    background-color: var(--color0);
+    background-color: var(--transparent-dark);
     margin: 0 0.5% 1em 1%;
     color:white;
     min-width: 25em;
