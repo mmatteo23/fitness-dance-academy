@@ -8,27 +8,22 @@ if(isset($_GET['id']))
 
     $esercizi = Scheda::getEserciziById($schedaId);
 
-    $content = '<div id="ex-container">';
+    $content = '<ol id="ex-container">';
+    $i=0;
     foreach($esercizi as $es){
+        $i++;
         $content .= 
-            '<div class="ex">
+            '<li class="ex">
                 <img class="ex-img" src="img/iconeEsercizi/'.$es['id'].'.png"/>
-                <div class="ex-descr">
-                    <h3>'.$es['nome'].'</h3>
-                    <h3>'.$es['serie'].'<span>X</span>'.$es['ripetizioni'].'</h3>
-                </div>
-            </div>';
-        if(intval($es['riposo'])>0)
-            $content .= 
-                '<div class="pausa">
-                    <img class="ex-img" src="img/iconeEsercizi/pausa.png"/>
-                    <div class="ex-descr">
-                        <h3>Pausa</h3>
-                        <h3>'.$es['riposo'].'s</h3>
-                    </div>
-                </div>';
+                <ul class="ex-descr">
+                    <li>'.$i.". ".$es['nome'].'</li>
+                    <li>Serie: '.$es['serie'].'</li>
+                    <li>Ripetizioni: '.$es['ripetizioni'].'</li>
+                    <li>Pausa: '.$es['riposo'].'s</li>
+                </ul>
+            </li>';
     }
-    $content .= "</div>";
+    $content .= "</ol>";
 
     $htmlPage = file_get_contents("html/visualizzaScheda.html");
 

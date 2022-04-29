@@ -72,6 +72,24 @@ class Scheda {
         return NULL;
     }
 
+    public static function getSchedeById($id){
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = 
+                "SELECT scheda.id as id, data, CONCAT(nome, ' ', cognome) AS trainer FROM scheda INNER JOIN utente on trainer = utente.id WHERE cliente = ".$id;
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
 }
 
 ?>

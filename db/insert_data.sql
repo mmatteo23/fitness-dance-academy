@@ -86,21 +86,21 @@ VALUES
 
 INSERT INTO esercizio(nome, categoria) 
 VALUES 
-('plank', 1), 
-('crunch', 1), 
-('trazioni', 2), 
-('pressa spalla', 3), 
-('tapis roulant', 4), 
-('quadricipiti', 5), 
-('salto corda', 5), 
-('manubri', 6), 
-('affondi', 5), 
-('squat', 7), 
-('cyclette', 4), 
-('curl bilancere', 6), 
-('panca piana', 6), 
-('plank laterale', 1), 
-('stretching gambe', 8);
+('Plank', 1), 
+('Crunch', 1), 
+('Trazioni', 2), 
+('Pressa spalla', 3), 
+('Tapis roulant', 4), 
+('Quadricipiti', 5), 
+('Salto corda', 5), 
+('Manubri', 6), 
+('Affondi', 5), 
+('Squat', 7), 
+('Cyclette', 4), 
+('Curl bilancere', 6), 
+('Panca piana', 6), 
+('Plank laterale', 1), 
+('Stretching gambe', 8);
 
 INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 2, 1);
 

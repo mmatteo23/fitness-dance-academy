@@ -520,6 +520,8 @@ p.title-card {
  **********************************/
 #mainPrenotaSessione{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     margin: 0 auto;
 }
 #formSessione{
@@ -527,7 +529,8 @@ p.title-card {
     text-align: center;
     background-color: var(--color0);
     color:white;
-    margin: 0 0.5% 0 1%;
+    margin: 0 0.5% 1em 1%;
+    min-width: 25em;
 }
 #dataSessione>div{
     display: flex;
@@ -563,8 +566,9 @@ p.title-card {
     text-align: center;
     width: 48%;
     background-color: var(--color0);
-    margin: 0 0.5% 0 1%;
+    margin: 0 0.5% 1em 1%;
     color:white;
+    min-width: 25em;
 }
 #tabSessioni{
     margin: 1em auto;
@@ -573,6 +577,15 @@ p.title-card {
 }
 #tabSessioni td, #tabSessioni th{
     padding: 0.3em;
+}
+#tabSessioni a{
+    margin: 0 10%;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+#tabSessioni a:hover{
+    color: var(--color1-dark);
 }
 
 #btn-cancella{
@@ -672,6 +685,7 @@ select#giornoSessione {
 /*----VISUALIZZA SCHEDA----*/
 main#visScheda{
     text-align: center;
+    background-color: var(--color0);
 }
 main#visScheda h2{
     padding: 1em;
@@ -681,13 +695,15 @@ main#visScheda h2{
 
 #ex-container{
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
+
 .ex{
-    max-width: 12em;
     margin: 1em;
-    background-color: var(--color0-dark);
+    background-color: var(--transparent);
+    display: flex;
+    min-width: 30em;
 }
 .ex-img{
     background-color: var(--color0-verylight);
@@ -696,20 +712,18 @@ main#visScheda h2{
     margin: 1em;
 }
 .ex-descr{
-    padding-bottom: 1em;
-    display: flex;
-    justify-content: space-evenly;
+    padding-left: 5%;
     color: white;
+    margin: auto 0;
+    margin-right: 1em;
+    list-style-type: none;
+    text-align: left;
 }
 .ex-descr :first-child{
-    margin: 0;
+    font-size: 2em;
 }
 .ex-descr :last-child{
     margin: 0;
-}
-.ex-descr :last-child>span{
-    font-size: 0.75em;
-    padding: 0 0.1em;
 }
 .pausa{
     max-width: 12em;
