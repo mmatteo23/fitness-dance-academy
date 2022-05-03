@@ -54,22 +54,71 @@
     <main id="containerCreaPro">
         <div id="loginForm" class="form-wrapper">
             <h1>Accesso Area Personale</h1>
-            <form action="login.php" method="POST" id="formLogin">
+            <form action="creaProfilo.php" method="POST" id="formCreaProfilo">
                 <div class="input-wrapper">
-                    <label for="email">E-mail</label>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" class="transparent-login">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="cognome">Cognome</label>
+                    <input type="text" name="cognome" id="cognome" class="transparent-login">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="email"><span xml:lang="en">E-mail</span></label>
                     <input type="email" name="email" id="email" class="transparent-login">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="password">Password</label>
+                    <label for="dataNascita">Data di nascita</label>
+                    <input type="date" name="dataNascita" id="dataNascita" class="transparent-login" value="2000-01-01">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" name="telefono" id="telefono" class="transparent-login" pattern="[0-9]{10}">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="sesso">Sesso</label>
+                        <div class="super-radio-wrapper">
+                        <div class="radio-wrapper">
+                            <input type="radio" name="sesso" id="maschio" class="transparent-login" value="M"/>
+                            <label for="html">Maschio</label>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="sesso" id="femmina" class="transparent-login" value="F"/>
+                            <label for="html">Femmina</label>
+                        </div>
+                    </div>
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="altezza">Altezza (in centimetri)</label>
+                    <input type="number" name="altezza" id="altezza" class="transparent-login">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="peso">Peso (in chilogrammi)</label>
+                    <input type="number" name="peso" id="peso" class="transparent-login">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="password"><span xml:lang="en">Password</span></label>
                     <input type="password" name="password" id="password" class="transparent-login">
                     <p class='error'></p>
                 </div>
+                <div class="input-wrapper">
+                    <label for="Rpassword">Ripeti <span xml:lang="en">Password</span></label>
+                    <input type="password" name="Rpassword" id="Rpassword" class="transparent-login">
+                    <p class='error'></p>
+                </div>
                 <formErrors/>
-                <input id="loginBtn" type="submit" class="button button-purple" value="Login" name="login">
+                <input id="creaProfiloBtn" type="submit" class="button button-purple" value="Crea Profilo" name="crea"/>
             </form>
             
-            <p>Sei un nuovo membro? <a href="signup.php">Registrati!</a></p>
+            <p>Sei già membro? <a href="login.php">Accedi!</a></p>
         </div>
     </main>
     

@@ -141,29 +141,34 @@ class Utente {
     }
     */
 
-    public function validator(array $data = NULL)
+    public static function validator(array $data = NULL)
     {
+        $errors = "";
+        if($data['nome']==""){
+            $errors .= "<li>Il campo 'nome' va inserito</li>";
+        }
+        if($data['cognome']==""){
+            $errors .= "<li>Il campo 'cognome' va inserito</li>";
+        }
+        if($data['nome']==""){
+            $errors .= "<li>Il campo 'nome' va inserito</li>";
+        }
         return true;
     }
 
     // CRUD OPERATIONS
-    public function create(array $data)
+    public static function create(array $data)
     {
         $connection_manager = new DBAccess();
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $newId = $connection_manager->getNewId('utente');
-            
-            print_r($data);
-            /*
-            $query = "INSERT INTO utente (id, nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
+            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
             VALUE (
-                " . $newId . ",
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
                 '" . $data['email'] . "',
-                '" . $data['data_nascita'] . "',
+                '" . $data['dataNascita'] . "',
                 '" . $data['password'] . "',
                 '" . $data['telefono'] . "',
                 '" . $data['sesso'] . "',
@@ -177,7 +182,6 @@ class Utente {
             $connection_manager->closeDBConnection();
             
             return $queryResults;
-            */
         }
 
         return false;

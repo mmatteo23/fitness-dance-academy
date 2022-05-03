@@ -138,7 +138,7 @@ ul#breadcrumb{
 
 #breadcrumb li{
     background-color: var(--color0);
-    width: 6em;
+    width: 7em;
     margin: 0;
     padding: 0.25em 0.5em;
     text-align: center;
@@ -804,6 +804,19 @@ select option {
 /****************CREA PROFILO*******************************/
 #containerCreaPro{
     background-color: var(--transparent-dark);
+}
+#loginForm input{
+    width: 100%;
+}
+.super-radio-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.radio-wrapper{
+    display: flex;
+}
+#loginForm .radio-wrapper>input{
+    width: auto;
 }
 
 
