@@ -16,7 +16,7 @@ if(count($corsi) > 0){
         $htmlCorsi .= "<div class='corso-card'>
                 <img class='img-card' src='" . ($corso['copertina']?:'img/spinningQuadrato.jpg') . "'/>
                 <p class='title-card'>" . $corso['titolo'] . "<span class='little-title'><span xml:lang='en'> by</span> " . $corso['trainer_nome'] . "</span></p>
-                <button id='btnModalCorso". $corso['id'] . "'> Leggi di più </button> 
+                <button id='btnModalCorso" . $corso['id'] . "' class='button button-purple button-modal'> Scopri di più </button> 
         </div>";
         /*
         "<div class='corso-card'>
