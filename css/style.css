@@ -680,6 +680,10 @@ abbr[title] {
     background-color: var(--color0-light);
     color: white;
 }
+.button.button-modal{
+    margin-top: 0;
+    margin-bottom: 0;
+}
 select {
     background-color: var(--transparent);
     color: white;
