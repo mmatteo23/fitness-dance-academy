@@ -749,6 +749,7 @@ main#visScheda h2{
     background-color: var(--color0-dark);
 }
 
+
 /* PROFILO */
 
 .profile-box {
@@ -800,3 +801,9 @@ a.button {
 select option {
     background: var(--color1);
 }
+/****************CREA PROFILO*******************************/
+#containerCreaPro{
+    background-color: var(--transparent-dark);
+}
+
+
