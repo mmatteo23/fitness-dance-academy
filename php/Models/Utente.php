@@ -140,19 +140,32 @@ class Utente {
         $this->peso = $_peso;
     }
     */
+    public static function isMandatory($data, $key, $name){
+        if($data[$key] == "")
+            return "<li>Il campo '".$name."' va inserito</li>";
+        return "";
+    }
+    public static function checkRegExp($data, $key, $regEx, $name){
+        if(!preg_match($regEx, $data[$key]))
+            return "<li>Il campo '".$name."' contiene input non valido</li>";
+        return "";
+    }
 
     public static function validator(array $data = NULL)
     {
         $errors = "";
-        if($data['nome']==""){
-            $errors .= "<li>Il campo 'nome' va inserito</li>";
-        }
-        if($data['cognome']==""){
-            $errors .= "<li>Il campo 'cognome' va inserito</li>";
-        }
-        if($data['nome']==""){
-            $errors .= "<li>Il campo 'nome' va inserito</li>";
-        }
+        $errors .=  Utente::isMandatory($data, "nome", "nome").
+                    Utente::isMandatory($data, "cognome", "cognome").
+                    Utente::isMandatory($data, "dataNascita", "data di nascita").
+                    Utente::isMandatory($data, "email", "e-mail").
+                    Utente::isMandatory($data, "password", "password").
+                    Utente::isMandatory($data, "Rpassword", "ripeti password").
+                    Utente::checkRegExp($data, "nome", "/^[a-zA-Z\s-]+$/", "nome").
+                    Utente::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
+                    Utente::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
+                    Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono");
+        if($errors != "")
+            return "<ul>".$errors."</ul>";
         return true;
     }
 

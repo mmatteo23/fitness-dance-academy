@@ -53,7 +53,8 @@
     </navbar>
     <main id="containerCreaPro">
         <div id="loginForm" class="form-wrapper">
-            <h1>Accesso Area Personale</h1>
+            <h1>Crea il tuo Profilo</h1>
+            <formErrors/>
             <form action="creaProfilo.php" method="POST" id="formCreaProfilo">
                 <div class="input-wrapper">
                     <label for="nome">Nome</label>
@@ -84,7 +85,7 @@
                     <label for="sesso">Sesso</label>
                         <div class="super-radio-wrapper">
                         <div class="radio-wrapper">
-                            <input type="radio" name="sesso" id="maschio" class="transparent-login" value="M"/>
+                            <input type="radio" name="sesso" id="maschio" class="transparent-login" value="M" checked="checked"/>
                             <label for="html">Maschio</label>
                         </div>
                         <div class="radio-wrapper">
@@ -114,7 +115,6 @@
                     <input type="password" name="Rpassword" id="Rpassword" class="transparent-login">
                     <p class='error'></p>
                 </div>
-                <formErrors/>
                 <input id="creaProfiloBtn" type="submit" class="button button-purple" value="Crea Profilo" name="crea"/>
             </form>
             

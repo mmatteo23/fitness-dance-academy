@@ -19,7 +19,7 @@ CREATE TABLE ruolo (
 );
 
 CREATE TABLE utente (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(200) NOT NULL,
 	cognome varchar(200) NOT NULL,
 	email varchar(255) NOT NULL UNIQUE,
