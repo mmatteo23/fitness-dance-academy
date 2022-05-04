@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="js/bmi.js"></script>
 </head>
@@ -51,19 +51,39 @@
         </ul>
     </navbar>
     
-    <main id="container" class="profileContainer">
-        <h1>Profilo</h1>
+    <main id="container">
 
-        <div class="profile-box">
-            <profilePicture/>
-            <div class="profileData">
-                <profileData/>
+        <h1 id="profileTitle">Profilo</h1>
+        <div class="profileContainer">
+            <div id="profileButtons">
+                <a href="/areariservata/prenotazionecorso.php" class="button button-transparent">
+                    CORSI
+                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                </a>
+                <a href="/areariservata/prenotazionescheda.php" class="button button-transparent">
+                    SCHEDE
+                    <span class="material-symbols-outlined">table_rows</span>
+                </a>
+                <a href="/areariservata/prenotazionesessione.php" class="button button-transparent">
+                    SESSIONE
+                    <span class="material-symbols-outlined">schedule</span>
+                </a> 
+                <a href="/areariservata/edit_profile.php" class="button button-transparent">
+                    MODIFICA
+                    <span class="material-symbols-outlined">edit_note</span>
+                </a> 
+                <a href="/php/logout.php" class="button button-transparent">
+                    LOGOUT
+                    <span class="material-symbols-outlined">logout</span>
+                </a> 
             </div>
-        </div>
-
-        <div id="profileButtons">
-            <a href="/php/logout.php" class="button button-purple">Logout</a> 
-            <a href="/php/edit_profile.php" class="button button-purple">Modifica</a> 
+    
+            <div class="profile-box">
+                <profilePicture/>
+                <div class="profileData">
+                    <profileData/>
+                </div>
+            </div>
         </div>
         
     </main>

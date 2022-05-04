@@ -19,9 +19,11 @@ if ($userData['foto_profilo']) {
 $profileData = "
     <ul>
         <li>".$userData['nome']." ".$userData['cognome']."</li>
-        <li>E-mail: ".$userData['email']."</li>
-        <li>Data di nascita: ".$userData['data_nascita']."</li>
-        <li>Telefono: ".$userData['telefono']."</li>
+        <li><span>E-mail:</span><span>".$userData['email']."</span></li>
+        <li><span>Data di nascita:</span><span>".$userData['data_nascita']."</span></li>
+        <li><span>Telefono:</span><span>".$userData['telefono']."</span></li>
+        <li><span>Altezza:</span><span>".$userData['altezza']." cm</span></li>
+        <li><span>Peso:</span><span>".$userData['peso']." kg</span></li>
     </ul>
 ";
 

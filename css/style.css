@@ -641,6 +641,7 @@ abbr[title] {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     padding: 0.5em 1.75em;
+    transition: background-color 0.25s;
 }
 .button-blue {
     background-color: var(--color0-light);
@@ -657,6 +658,14 @@ abbr[title] {
 }
 .button.button-purple:hover{
     background-color: var(--color3);
+    color: white;
+}
+.button.button-transparent {
+    background-color: var(--transparent);
+    color: white;
+}
+.button.button-transparent:hover{
+    background-color: var(--transparent-dark);
     color: white;
 }
 
@@ -763,19 +772,24 @@ main#visScheda h2{
 /* PROFILO */
 
 .profile-box {
-    margin: 2em 0em;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: -webkit-fill-available;
+    background-color: var(--transparent);
+    padding: 4.5em 0em;
 }
 
-main#container.profileContainer {
+.profileContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    background-color: var(--transparent-dark);
-    min-height: 33.3em;
+    min-height: 29em;
+}
+
+#profileTitle {
+    margin-bottom: 0;
 }
 
 img.profilePicture {
@@ -789,6 +803,12 @@ img.profilePicture {
 
 .profileData {
     font-size: 1.4em;
+    min-width: 23em;
+}
+
+.profileData li {
+    display: flex;
+    justify-content: space-between;
 }
 
 .profileData li:first-child {
@@ -807,12 +827,20 @@ a.button {
 #profileButtons {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    padding-right: 1.1em;
 }
 
 #profileButtons .button {
-    margin: 1.5em 0.5em;
-    min-width: 6em;
+    margin: 0.75em 0.1em;
+    border-radius: 0;
+    min-width: 7em;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: normal;
 }
 
 select option {
