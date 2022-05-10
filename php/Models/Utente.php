@@ -1,6 +1,6 @@
 <?php
 
-require_once('php/db.php');
+require_once(SITE_ROOT . '/php/db.php');
 use DB\DBAccess;
 
 class Utente {

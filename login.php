@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once "config.php";
+
 require_once('php/db.php');
 require_once('php/AuthController.php');
 //require_once('php/utilities.php');
@@ -47,7 +49,7 @@ $htmlPage = str_replace("<formErrors/>", $errors, $htmlPage);
 
 // se l'utente ha già effettuato il login non deve visualizzare questa pagina
 if(isset($_SESSION['email']) && $_SESSION['email'] != '') {             
-    header("location: profile.php");
+    header("location: areaprivata/profile.php");
 }
 
 //str_replace finale col conenuto specifico della pagina

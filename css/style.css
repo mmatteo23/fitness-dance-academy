@@ -776,8 +776,8 @@ main#visScheda h2{
     justify-content: center;
     align-items: center;
     width: -webkit-fill-available;
-    background-color: var(--transparent);
-    padding: 4.5em 0em;
+    padding: 3.5em 0em;
+    padding-top: 2.5em;
 }
 
 .profileContainer {
@@ -785,7 +785,6 @@ main#visScheda h2{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-height: 29em;
 }
 
 #profileTitle {
@@ -829,10 +828,12 @@ a.button {
     justify-content: center;
     flex-direction: column;
     padding-right: 1.1em;
+    margin-bottom: auto;
 }
 
 #profileButtons .button {
-    margin: 0.75em 0.1em;
+    margin: 0em;
+    margin-bottom: 0.8em;
     border-radius: 0;
     min-width: 7em;
     text-align: center;
@@ -846,6 +847,12 @@ a.button {
 select option {
     background: var(--color1);
 }
+
+.page-box {
+    width: -webkit-fill-available;
+    background-color: var(--transparent);
+}
+
 /****************CREA PROFILO*******************************/
 #containerCreaPro{
     background-color: var(--transparent-dark);
