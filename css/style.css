@@ -342,7 +342,7 @@ table{
 input[type="text"]{
     font-size: 1.25em;
     height: 1.75em;
-    width: 30%;
+    /* width: 30%; */
     background-color: var(--transparent);
     border: solid 0.1em;
     border-radius: 0.5em;
@@ -370,7 +370,7 @@ input[type="text"]{
     align-items: center;
     display: flex;
     justify-content: center;
-    width:50%;
+    /* width:50%; */
 }
 #altezza{
     float: left;
@@ -474,6 +474,9 @@ div.input-wrapper label {
     padding-bottom: 2em;
 }
 
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
 
 /********************************
  *          CORSI
@@ -857,22 +860,25 @@ select option {
 #containerCreaPro{
     background-color: var(--transparent-dark);
 }
-#loginForm input{
+/* #loginForm input{
     width: 100%;
-}
+} */
 .super-radio-wrapper{
     display: flex;
     justify-content: space-around;
 }
 .radio-wrapper{
     display: flex;
+    align-items: baseline;
 }
 #loginForm .radio-wrapper>input{
     width: auto;
 }
 #consiglio{
-    margin: 0;
+    margin-top: 0;
     font-size: 0.8em;
 }
-
+#creaProfiloBtn{
+    margin-top: 0.7em;
+}
 

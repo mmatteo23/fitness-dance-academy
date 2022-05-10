@@ -17,13 +17,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
         else{
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['userId'] = Utente::getIdFromEmail($_POST['email']);
-            header("location: profile.php");
+            header("location: areaprivata/profile.php");
         }
     }
 }
 
 
-$htmlPage = file_get_contents("html/creaProfilo.html");
+$htmlPage = file_get_contents("html/signup.html");
 
 $footer = file_get_contents("html/components/footer.html");
 

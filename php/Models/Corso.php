@@ -1,5 +1,4 @@
 <?php
-
 require_once(SITE_ROOT . '/php/db.php');
 require_once(SITE_ROOT . '/php/utilities.php');
 use DB\DBAccess;
