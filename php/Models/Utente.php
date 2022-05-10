@@ -146,7 +146,7 @@ class Utente {
         return "";
     }
     public static function checkRegExp($data, $key, $regEx, $name){
-        if(!preg_match($regEx, $data[$key]))
+        if($data[$key]!="" && !preg_match($regEx, $data[$key]))
             return "<li>Il campo '".$name."' contiene input non valido</li>";
         return "";
     }
@@ -163,7 +163,10 @@ class Utente {
                     Utente::checkRegExp($data, "nome", "/^[a-zA-Z\s-]+$/", "nome").
                     Utente::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
                     Utente::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
-                    Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono");
+                    ($data['telefono']!=""?Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
+                    (time() < strtotime('+18 years', strtotime($data['dataNascita']))?"<li>Data di nascita troppo recente</li>":"").
+                    ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
+                    (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
         if($errors != "")
             return "<ul>".$errors."</ul>";
         return true;
@@ -187,8 +190,8 @@ class Utente {
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
                 " . $data['ruolo'] . ",
-                " . $data['altezza'] . ",
-                " . $data['peso'] . "
+                " . ($data['altezza']?:"NULL") . ",
+                " . ($data['peso']?:"NULL") . "
             )";
             
             $queryResults = $connection_manager->executeQuery($query); 

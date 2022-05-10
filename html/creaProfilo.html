@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="js/caricaDateOre.js"></script>
-    <script defer src="js/deleteSession.js"></script>
+    <script defer src="js/creaProfiloValidator.js"></script>
 </head>
 <body>
     <header>
@@ -54,25 +53,26 @@
     <main id="containerCreaPro">
         <div id="loginForm" class="form-wrapper">
             <h1>Crea il tuo Profilo</h1>
+            <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
             <formErrors/>
             <form action="creaProfilo.php" method="POST" id="formCreaProfilo">
                 <div class="input-wrapper">
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" class="transparent-login">
+                    <label for="nome">Nome*</label>
+                    <input type="text" name="nome" id="nome" class="transparent-login" onblur="validaNome()">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="cognome">Cognome</label>
-                    <input type="text" name="cognome" id="cognome" class="transparent-login">
+                    <label for="cognome">Cognome*</label>
+                    <input type="text" name="cognome" id="cognome" class="transparent-login" onblur="validaCognome()">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="email"><span xml:lang="en">E-mail</span></label>
-                    <input type="email" name="email" id="email" class="transparent-login">
+                    <label for="email"><span xml:lang="en">E-mail*</span></label>
+                    <input type="email" name="email" id="email" class="transparent-login" onblur="validaEmail()">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="dataNascita">Data di nascita</label>
+                    <label for="dataNascita">Data di nascita*</label>
                     <input type="date" name="dataNascita" id="dataNascita" class="transparent-login" value="2000-01-01">
                     <p class='error'></p>
                 </div>
@@ -106,12 +106,12 @@
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="password"><span xml:lang="en">Password</span></label>
+                    <label for="password"><span xml:lang="en">Password*</span></label>
                     <input type="password" name="password" id="password" class="transparent-login">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="Rpassword">Ripeti <span xml:lang="en">Password</span></label>
+                    <label for="Rpassword">Ripeti <span xml:lang="en">Password*</span></label>
                     <input type="password" name="Rpassword" id="Rpassword" class="transparent-login">
                     <p class='error'></p>
                 </div>

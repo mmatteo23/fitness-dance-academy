@@ -470,8 +470,8 @@ div.input-wrapper label {
 }
 
 #loginForm{
-    padding-top: 5em;
-    padding-bottom: 5em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 
@@ -869,6 +869,10 @@ select option {
 }
 #loginForm .radio-wrapper>input{
     width: auto;
+}
+#consiglio{
+    margin: 0;
+    font-size: 0.8em;
 }
 
 
