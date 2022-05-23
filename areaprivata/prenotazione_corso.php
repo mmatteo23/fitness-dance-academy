@@ -18,11 +18,12 @@ if(count($corsi)){
             <td>". $corso['data_inizio'] ."</td>
             <td>". $corso['data_fine'] ."</td>
             <td>". $corso['trainer_nome'] ."</td>
+            <td>". $corso['id'] ."</td>
         </tr>";
     }
 }
 
-$htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_corsi.html");
+$htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_corso.html");
 
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 

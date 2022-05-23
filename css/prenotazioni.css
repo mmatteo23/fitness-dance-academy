@@ -1,0 +1,17 @@
+
+.table-prenotazione {
+    margin: 3em 0;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+}
+
+form.filtri {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 80%;
+}
