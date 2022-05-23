@@ -61,17 +61,20 @@ class Corso {
      * 
      *****************************************/
 
-    public function getCorsiByUser(int $utenteId)
+    public function getCorsiByUserId(int $utenteId)
     {
         $connection_manager = new DBAccess();
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
-                INNER JOIN utente ON utente.id = trainer
-                RIGHT JOIN iscrizione_corso ON cliente = utente.id 
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+                (
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                LEFT JOIN utente ON utente.id = trainer
+                ) as corsi
+                LEFT JOIN iscrizione_corso ON corso = id 
                 WHERE cliente =" . $utenteId;
-                
+
             //echo $query;
             $queryResults = $connection_manager->executeQuery($query);
             $connection_manager->closeDBConnection();
