@@ -55,6 +55,33 @@ class Corso {
 
     }
 
+    /******************************************
+     * 
+     *              UTILITIES
+     * 
+     *****************************************/
+
+    public function getCorsiByUser(int $utenteId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                INNER JOIN utente ON utente.id = trainer
+                RIGHT JOIN iscrizione_corso ON cliente = utente.id 
+                WHERE cliente =" . $utenteId;
+                
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
 }
 
 ?>
