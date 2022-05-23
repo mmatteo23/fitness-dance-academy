@@ -31,12 +31,6 @@
                     <a href="corsi.php">CORSI</a>
                 </li>
                 <li>
-                    <a href="schede.php">SCHEDE</a>
-                </li>
-                <li>
-                    <a href="sessione.php">SESSIONE</a>
-                </li>
-                <li>
                     <a href="eventi.php">EVENTI</a>
                 </li>
                 <li id="selectedNavbar">
@@ -55,32 +49,33 @@
     <main id="container">
 
         <div id="private-area-container">
-            <div id="private-area-menu">
-                <a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
+            <ul id="private-area-menu">
+                <li id="private-area-selected"><p class="button button-transparent">DATI<span class="material-symbols-outlined">description</span></p></li>
+                <li><a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
                     CORSI
                     <span class="material-symbols-outlined">sports_gymnastics</span>
-                </a>
-                <a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                </a></li>
+                <li><a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
                     SCHEDE
                     <span class="material-symbols-outlined">table_rows</span>
-                </a>
-                <a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
+                </a></li>
+                <li><a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
                     SESSIONE
                     <span class="material-symbols-outlined">schedule</span>
-                </a> 
-                <a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                </a></li>
+                <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
                     MODIFICA
                     <span class="material-symbols-outlined">edit_note</span>
-                </a> 
-                <a href="/php/logout.php" class="button button-transparent">
-                    LOGOUT
+                </a></li>
+                <li><a href="/php/logout.php" class="button button-transparent">
+                    <span xml:lang="en">LOGOUT</span>
                     <span class="material-symbols-outlined">logout</span>
-                </a> 
-            </div>
+                </a></li>
+            </ul>
     
             <div id="private-area-content">
                 <div class="page-box">
-                    <h1 id="profileTitle">Profilo</h1>
+                    <h1 id="profileTitle">PROFILO</h1>
                     <div class="profile-box">
                         <profilePicture/>
                         <div class="profileData">

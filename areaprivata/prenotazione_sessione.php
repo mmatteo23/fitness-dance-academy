@@ -17,7 +17,7 @@ $tabellaSessioniPrenotate = "
     </div>
 ";
 $headTabellaSessioni = "
-    <table id='tabSessioni'>
+    <table id='tabPrenotate'>
         <thead>
             <tr>
                 <th scope='col'>Data</th>

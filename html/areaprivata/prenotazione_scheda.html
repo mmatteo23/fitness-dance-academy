@@ -30,17 +30,11 @@
                 <li>
                     <a href="prenotazione_corso.php">CORSI</a>
                 </li>
-                <li id="selectedNavbar">
-                    SCHEDE
-                </li>
-                <li>
-                    <a href="prenotazione_sessione.php">SESSIONE</a>
-                </li>
                 <li>
                     <a href="eventi.php">EVENTI</a>
                 </li>
-                <li>
-                    <a href="profile.php">PROFILO</a>
+                <li id="selectedNavbar">
+                    PROFILO
                 </li>
             </ul>
         </navbar>
@@ -48,34 +42,36 @@
     <navbar>
         <ul id="breadcrumb">
             <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li><a href="/areaprivata/profile.php"><span xml:lang="en">Profilo</span></a></li>
             <li id="selectedBreadcrumb">Schede</li>
         </ul>
     </navbar>
     
     <main id="container">
         <div id="private-area-container">
-            <div id="private-area-menu">
-                <a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
+            <ul id="private-area-menu">
+                <li><a href="/areaprivata/profile.php" class="button button-transparent">DATI<span class="material-symbols-outlined">description</span></a></li>
+                <li><a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
                     CORSI
                     <span class="material-symbols-outlined">sports_gymnastics</span>
-                </a>
-                <a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                </a></li>
+                <li id="private-area-selected"><p class="button button-transparent">
                     SCHEDE
                     <span class="material-symbols-outlined">table_rows</span>
-                </a>
-                <a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
+                </p></li>
+                <li><a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
                     SESSIONE
                     <span class="material-symbols-outlined">schedule</span>
-                </a> 
-                <a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                </a></li> 
+                <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
                     MODIFICA
                     <span class="material-symbols-outlined">edit_note</span>
-                </a> 
-                <a href="/php/logout.php" class="button button-transparent">
-                    LOGOUT
+                </a></li> 
+                <li><a href="/php/logout.php" class="button button-transparent">
+                    <span xml:lang="en">LOGOUT</span>
                     <span class="material-symbols-outlined">logout</span>
-                </a> 
-            </div>
+                </a></li> 
+            </ul>
             <div id="private-area-content">
                 <form action="../areaprivata/prenotazione_scheda.php" method="post" id="formSessione">
                     <h2>Prenota una scheda con uno dei nostri Personal Trainer</h2> 

@@ -51,10 +51,12 @@ function meseCambiato(){
 
 function giornoCambiato(){
     var today = new Date();
+    document.getElementById("prenota").disabled = false;
     var date = new Date(today.getFullYear(), document.getElementById("meseSessione").value - 1, document.getElementById("giornoSessione").value);
     console.log(date);console.log(today);
     if(today.setHours(0,0,0,0) > date){   //il giorno è passato
         document.getElementById("selezioneOrari").innerHTML = "<p>Non è possibile prenotare sessioni per giorni passati</p>";
+        document.getElementById("prenota").disabled = true;
         return;
     }
     var dotw = date.getDay();
@@ -67,6 +69,7 @@ function giornoCambiato(){
     }
     else if(dotw == 0){      //è domenica
         document.getElementById("selezioneOrari").innerHTML = "<p>Non è possibile prenotare sessioni di domenica</p>";
+        document.getElementById("prenota").disabled = true;
         return;
     }
     var contenuto = "<div><label for='oraInizio minutoInizio'>Ora d'inizio della sessione:</label><div><select id='oraInizio'>";
@@ -81,7 +84,7 @@ function giornoCambiato(){
         contenuto += "<option value='" + i + "'>" + String(i) + "</option>";
     }
     contenuto += "</select><select id='minutoFine'><option value='0'>00</option><option value='15'>15</option><option value='30' selected>30</option><option value='45'>45</option></select>";
-    contenuto += "</div></div><input type='submit' value='prenota' name='prenota'>";
+    //contenuto += "</div></div><input type='submit' value='prenota' name='prenota'>";
 
     document.getElementById("selezioneOrari").innerHTML = contenuto;
 

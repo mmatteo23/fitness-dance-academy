@@ -60,7 +60,7 @@ img {
 }
 
 #img-logo{
-    max-width: 55%;
+    max-width: 30%;
     margin: 1em 2em;
     transition: transform 0.25s;
     height: auto;
@@ -583,7 +583,7 @@ p.title-card {
     padding-top:1em;
 }
 #formSessione>h2{
-    margin: 0 auto;
+    margin: 0 10%;
     font-size: 2em;
     padding-top:1em;
 }
@@ -594,6 +594,10 @@ p.title-card {
     font-family: inherit;
     font-size: 1.25em;
     background-color: var(--transparent-dark);
+}
+#prenota:disabled{
+    background-color: grey;
+    cursor: initial;
 }
 .form-el-margin-top{
     margin-top: 1.5em;
@@ -818,7 +822,6 @@ main#visScheda h2{
     display: flex;
     flex-direction: row;
     justify-content: center; /*oppure none*/
-    align-items: center;
 }
 
 .selezione-data-e-ora {
@@ -871,11 +874,13 @@ a.button {
 }
 
 #private-area-menu {
-    display: flex;
+    /*display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: auto;*/
+    margin-top: 0;
     padding-right: 1.1em;
-    margin-bottom: auto;
+    list-style-type: none;
 }
 
 #private-area-menu .button {
@@ -889,6 +894,11 @@ a.button {
     justify-content: space-between;
     align-items: center;
     font-weight: normal;
+}
+
+li#private-area-selected p{
+    background-color: #6f418d;
+    cursor: initial;
 }
 
 select option {
