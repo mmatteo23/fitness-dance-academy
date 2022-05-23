@@ -1,7 +1,7 @@
 <?php
 
-require_once('php/db.php');
-require_once('php/utilities.php');
+require_once(SITE_ROOT . '/php/db.php');
+require_once(SITE_ROOT . '/php/utilities.php');
 use DB\DBAccess;
 
 class Scheda {
