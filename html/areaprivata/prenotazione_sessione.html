@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/temp.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="/js/caricaDateOre.js"></script>
@@ -51,190 +53,106 @@
             <li id="selectedBreadcrumb">Sessione</li>
         </ul>
     </navbar>
-    <main id="mainPrenotaSessione">
-        <form action="../areaprivata/prenotazione_sessione.php" method="post" id="formSessione">
-            <h2>Prenota una sessione di allenamento da noi</h2> 
-            <div id="errori"></div>
-            <div id="dataSessione">
-                <div class="form-el-margin-top">
-                    <label for="giornoSessione meseSessione">Data della sessione:</label>
-                </div>
-                <div>
-                    <giornoSessione/>
-                    <!--<p id="giornoSettimana"></p>
-                    <select id="giornoSessione" name="giornoSessione" onchange="giornoCambiato()">
-                        <option value="1" selected>01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                    </select>
-                    <select id="meseSessione" name="meseSessione" onchange="meseCambiato()">
-                        <option value="1" selected>gennaio</option>
-                        <option value="2">febbraio</option>
-                        <option value="3">marzo</option>
-                        <option value="4">aprile</option>
-                        <option value="5">maggio</option>
-                        <option value="6">giugno</option>
-                        <option value="7">luglio</option>
-                        <option value="8">agosto</option>
-                        <option value="9">settembre</option>
-                        <option value="10">ottobre</option>
-                        <option value="11">novembre</option>
-                        <option value="12">dicembre</option>
-                    </select>-->
-                </div>
+    <main id="container">
+        <div id="private-area-container">
+            <div id="private-area-menu">
+                <a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
+                    CORSI
+                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                </a>
+                <a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                    SCHEDE
+                    <span class="material-symbols-outlined">table_rows</span>
+                </a>
+                <a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
+                    SESSIONE
+                    <span class="material-symbols-outlined">schedule</span>
+                </a> 
+                <a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                    MODIFICA
+                    <span class="material-symbols-outlined">edit_note</span>
+                </a> 
+                <a href="/php/logout.php" class="button button-transparent">
+                    LOGOUT
+                    <span class="material-symbols-outlined">logout</span>
+                </a> 
             </div>
-            <div id="selezioneOrari">
-                <div>
-                    <div class="form-el-margin-top">
-                        <label for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+            <div id="private-area-content">
+                <form action="../areaprivata/prenotazione_sessione.php" method="post" id="formSessione">
+                    <h2>Prenota una sessione di allenamento da noi</h2> 
+                    <div id="errori"></div>
+                    <div class="selezione-data-e-ora">
+                        <div id="dataSessione">
+                            <div class="form-el-margin-top">
+                                <label for="giornoSessione meseSessione">Data della sessione:</label>
+                            </div>
+                            <div>
+                                <giornoSessione/>
+                            </div>
+                        </div>
+                        <div id="selezioneOrari">
+                            <div>
+                                <div class="form-el-margin-top">
+                                    <label for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+                                </div>
+                                <div>
+                                    <select id="oraInizio" name="oraInizio">
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                    </select>
+                                    <select id="minutoInizio" name="minutoInizio">
+                                        <option value="0" selected>00</option>
+                                        <option value="15">15</option>
+                                        <option value="30">30</option>
+                                        <option value="45">45</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-el-margin-top">
+                                    <label for="oraFine minutoFine">Ora di fine della sessione:</label>
+                                </div>
+                                <div>
+                                    <select id="oraFine" name="oraFine">
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                    </select>
+                                    <select id="minutoFine" name="minutoFine">
+                                        <option value="0">00</option>
+                                        <option value="15">15</option>
+                                        <option value="30" selected>30</option>
+                                        <option value="45">45</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <select id="oraInizio" name="oraInizio">
-                            <option value="10" selected>10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            <option value="21">21</option>
-                            <option value="22">22</option>
-                        </select>
-                        <select id="minutoInizio" name="minutoInizio">
-                            <option value="0" selected>00</option>
-                            <option value="15">15</option>
-                            <option value="30">30</option>
-                            <option value="45">45</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <div class="form-el-margin-top">
-                        <label for="oraFine minutoFine">Ora di fine della sessione:</label>
-                    </div>
-                    <div>
-                        <select id="oraFine" name="oraFine">
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            <option value="21">21</option>
-                            <option value="22">22</option>
-                        </select>
-                        <select id="minutoFine" name="minutoFine">
-                            <option value="0">00</option>
-                            <option value="15">15</option>
-                            <option value="30" selected>30</option>
-                            <option value="45">45</option>
-                        </select>
-                    </div>
-                </div>
-                <input type="submit" value="Prenota" name="prenota" class="button button-purple">
+                    <input type="submit" value="Prenota" name="prenota" class="button button-purple">
+                </form>
+                <tabellaSessioniPrenotate/>
             </div>
-        </form>
-        <div id="sessioniPrenotate">
-            <h2>Le sessioni che hai già prenotato</h2>
-            <table id="tabSessioni">
-                <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-                        <th scope="col">Dalle</th>
-                        <th scope="col">Alle</th>
-                        <th scope="col">Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <sessionTableBody/>
-                    <!---
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>
-                    <tr>
-                        <td>11/04</td>
-                        <td>10:00</td>
-                        <td>22:30</td>
-                        <td><button id="btn-cancella">Cancella</button></td>
-                    </tr>-->
-                </tbody>
-            </table>
         </div>
     </main>
     

@@ -86,6 +86,7 @@ h1#title{
 navbar{
     display: flex;
     margin: auto;
+    padding: 0 1.5em;
 }
 
 navbar, main {
@@ -544,17 +545,32 @@ p.title-card {
     margin: 0 auto;
 }
 #formSessione{
-    width: 48%;
+    width: -webkit-fill-available;
     text-align: center;
-    background-color: var(--transparent-dark);
+    background-color: var(--transparent);
     color:white;
-    margin: 0 0.5% 1em 1%;
+    margin: 0;
+    padding: 0.7em;
     min-width: 25em;
+}
+#sessioniPrenotate {
+    background-color: var(--transparent);
+    text-align: center;
+    padding: 0.7em;
+    width: -webkit-fill-available;
+    margin: 0;
+    margin-top: 1.5em;
+}
+#dataSessione {
+    padding-right: 3em;
 }
 #dataSessione>div{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#selezioneOrari {
+    padding-left: 3em;
 }
 #giornoSettimana{
     font-size: 1.2em;
@@ -577,6 +593,7 @@ p.title-card {
 #formSessione select{
     font-family: inherit;
     font-size: 1.25em;
+    background-color: var(--transparent-dark);
 }
 .form-el-margin-top{
     margin-top: 1.5em;
@@ -797,15 +814,28 @@ main#visScheda h2{
     padding-top: 2.5em;
 }
 
-.profileContainer {
+#private-area-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center; /*oppure none*/
     align-items: center;
+}
+
+.selezione-data-e-ora {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#private-area-content {
+    /* margin:  da levare; */
+    width: -webkit-fill-available;
+    margin: 0;
 }
 
 #profileTitle {
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 img.profilePicture {
@@ -840,7 +870,7 @@ a.button {
     text-decoration: none;
 }
 
-#profileButtons {
+#private-area-menu {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -848,7 +878,7 @@ a.button {
     margin-bottom: auto;
 }
 
-#profileButtons .button {
+#private-area-menu .button {
     margin: 0em;
     margin-bottom: 0.8em;
     border-radius: 0;
@@ -868,6 +898,7 @@ select option {
 .page-box {
     width: -webkit-fill-available;
     background-color: var(--transparent);
+    padding-top: 2em;
 }
 
 /****************CREA PROFILO*******************************/
@@ -895,4 +926,14 @@ select option {
 #creaProfiloBtn{
     margin-top: 0.7em;
 }
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
 
+body::-webkit-scrollbar-track {
+    background: #483368;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #584474;        /* color of the tracking area */
+}

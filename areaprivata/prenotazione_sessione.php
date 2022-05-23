@@ -9,6 +9,29 @@ $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_sessio
 
 $errors = "";
 
+$content_corsi_prenotati = "";
+$tabellaSessioniPrenotate = "
+    <div id='sessioniPrenotate'>
+        <h2>Le sessioni che hai già prenotato</h2>
+        <headTabellaSessioni/>
+    </div>
+";
+$headTabellaSessioni = "
+    <table id='tabSessioni'>
+        <thead>
+            <tr>
+                <th scope='col'>Data</th>
+                <th scope='col'>Dalle</th>
+                <th scope='col'>Alle</th>
+                <th scope='col'>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            <sessionTableBody/>
+        </tbody>
+    </table>
+";
+
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     $_POST['cliente'] = $_SESSION['userId'];
@@ -56,29 +79,32 @@ for($i=1; $i<=12; $i++){
 }
 $giornoHTML .= "<select/>";
 
-$tabellaSess = "";
+$tabellaSess_content = "";
 if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
     $sessioniPrenot = Sessione::getSessionsOf($_SESSION['userId']);
-    foreach($sessioniPrenot as $sess){
-        $data = explode('-', $sess['data']);
-        $data = $data[2]."/".$data[1];
-        $oraI = substr($sess['ora_inizio'], 0, 5);
-        $oraF = substr($sess['ora_fine'], 0, 5);;
+    if(count($sessioniPrenot)){
+        foreach($sessioniPrenot as $sess){
+            $data = explode('-', $sess['data']);
+            $data = $data[2]."/".$data[1];
+            $oraI = substr($sess['ora_inizio'], 0, 5);
+            $oraF = substr($sess['ora_fine'], 0, 5);;
 
-        //<button onclick = 'deleteSession(".$sess['id'].")' id='btn-cancella'>Cancella</button>
-        $tabellaSess .= "
-            <tr id='sess".$sess['id']."'>
-                <td>".$data."</td>
-                <td>".$oraI."</td>
-                <td>".$oraF."</td>
-                <td>
-                    <button onclick='deleteSession(".$sess['id'].")' class='button button-purple' id='btn-conferma'>Conferma</button>
-                    <button onclick='hideModal(".$sess['id'].")' class='button button-violet' id='btn-annulla'>Annulla</button>
-                    <button onclick = 'showModal(".$sess['id'].")' class='button button-purple' id='btn-cancella'>Cancella</button>
-                </td>
-            </tr>";
+            //<button onclick = 'deleteSession(".$sess['id'].")' id='btn-cancella'>Cancella</button>
+            $tabellaSess_content .= "
+                <tr id='sess".$sess['id']."'>
+                    <td>".$data."</td>
+                    <td>".$oraI."</td>
+                    <td>".$oraF."</td>
+                    <td>
+                        <button onclick='deleteSession(".$sess['id'].")' class='button button-purple' id='btn-conferma'>Conferma</button>
+                        <button onclick='hideModal(".$sess['id'].")' class='button button-violet' id='btn-annulla'>Annulla</button>
+                        <button onclick = 'showModal(".$sess['id'].")' class='button button-purple' id='btn-cancella'>Cancella</button>
+                    </td>
+                </tr>";
+        }
+    } else {
+        $headTabellaSessioni = "<p>Non ti sei prenotato a nessuna sessione</p>";
     }
-
 }
 
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
@@ -86,7 +112,9 @@ $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 $htmlPage = str_replace('<div id="errori"></div>', $errors, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
-$htmlPage = str_replace("<sessionTableBody/>", $tabellaSess, $htmlPage);
+$htmlPage = str_replace("<tabellaSessioniPrenotate/>", $tabellaSessioniPrenotate, $htmlPage);
+$htmlPage = str_replace("<headTabellaSessioni/>", $headTabellaSessioni, $htmlPage);
+$htmlPage = str_replace("<sessionTableBody/>", $tabellaSess_content, $htmlPage);
 
 echo $htmlPage;
 
