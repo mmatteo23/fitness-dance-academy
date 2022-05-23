@@ -141,9 +141,21 @@ class Utente {
     */
 
     public static function getTrainers(){
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+            $query = "SELECT * FROM utente WHERE ruolo = 2";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
-    
+
     public static function isMandatory($data, $key, $name){
         if($data[$key] == "")
             return "<li>Il campo '".$name."' va inserito</li>";

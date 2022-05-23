@@ -33,6 +33,46 @@ class Scheda {
         return NULL;
     }
 
+    public static function prenotazionePendente($userID){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT * FROM prenotazione_scheda WHERE cliente = $userID";
+
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            if(count($queryResults) > 0)
+                return true;
+        }
+
+        return false;
+    }
+
+    public static function creaPrenotazione(array $data){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "INSERT INTO prenotazione_scheda (cliente, trainer, data)
+            VALUE (
+                " . $data['cliente'] . ",
+                " . $data['trainerScheda'] . ",
+                '" . date("yyyy-mm-dd hh:mm:ss") . "'
+            )";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
     public function create(array $data)
     {
 
