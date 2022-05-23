@@ -538,12 +538,12 @@ p.title-card {
 /***********************************
  *          SESSIONE
  **********************************/
-#mainPrenotazione{
+/* #mainPrenotazione{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0 auto;
-}
+} */
 #formSessione{
     width: -webkit-fill-available;
     text-align: center;
@@ -553,7 +553,7 @@ p.title-card {
     padding: 0.7em;
     min-width: 25em;
 }
-#sessioniPrenotate {
+#private-area-table {
     background-color: var(--transparent);
     text-align: center;
     padding: 0.7em;
@@ -600,11 +600,11 @@ p.title-card {
 }
 #tabPrenotate-container{
     text-align: center;
-    width: 48%;
     background-color: var(--transparent-dark);
-    margin: 0 0.5% 1em 1%;
     color:white;
     min-width: 25em;
+    padding-top: 1em;
+    margin-top: 1.5em;
 }
 #tabPrenotate{
     margin: 1em auto;

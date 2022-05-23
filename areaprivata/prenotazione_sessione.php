@@ -11,7 +11,7 @@ $errors = "";
 
 $content_corsi_prenotati = "";
 $tabellaSessioniPrenotate = "
-    <div id='sessioniPrenotate'>
+    <div id='private-area-table'>
         <h2>Le sessioni che hai già prenotato</h2>
         <headTabellaSessioni/>
     </div>

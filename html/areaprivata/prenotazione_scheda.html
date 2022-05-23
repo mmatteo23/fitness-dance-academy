@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="/js/bmi.js"></script>
@@ -27,19 +28,19 @@
                     <a href="/"><span xml:lang="en">HOME</span></a>
                 </li>
                 <li>
-                    <a href="corsi.php">CORSI</a>
+                    <a href="prenotazione_corso.php">CORSI</a>
                 </li>
                 <li id="selectedNavbar">
                     SCHEDE
                 </li>
                 <li>
-                    <a href="sessione.php">SESSIONE</a>
+                    <a href="prenotazione_sessione.php">SESSIONE</a>
                 </li>
                 <li>
                     <a href="eventi.php">EVENTI</a>
                 </li>
                 <li>
-                    <a href="login.php">PROFILO</a>
+                    <a href="profile.php">PROFILO</a>
                 </li>
             </ul>
         </navbar>
@@ -51,34 +52,60 @@
         </ul>
     </navbar>
     
-    <main id="mainPrenotazione">
-        <form action="../areaprivata/prenotazione_scheda.php" method="post" id="formSessione">
-            <h2>Prenota una scheda con uno dei nostri Personal Trainer</h2> 
-            <div id="messaggi"></div>
-            <div id="trainerSchedaDiv">
-                <label for="trainerScheda">Trainer al quale richiedere la scheda: </label>
-                <select id="trainerScheda" name="trainerScheda">
-                    <listaTrainer/>
-                </select>
-                <input type="submit" value="Prenota" name="prenota" class="button button-purple"/>
+    <main id="container">
+        <div id="private-area-container">
+            <div id="private-area-menu">
+                <a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
+                    CORSI
+                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                </a>
+                <a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                    SCHEDE
+                    <span class="material-symbols-outlined">table_rows</span>
+                </a>
+                <a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
+                    SESSIONE
+                    <span class="material-symbols-outlined">schedule</span>
+                </a> 
+                <a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                    MODIFICA
+                    <span class="material-symbols-outlined">edit_note</span>
+                </a> 
+                <a href="/php/logout.php" class="button button-transparent">
+                    LOGOUT
+                    <span class="material-symbols-outlined">logout</span>
+                </a> 
             </div>
-        </form>
-        <div id="tabPrenotate-container">  
-            <h2>Le tue schede</h2>
-            <table id="tabPrenotate">
-                <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-                        <th scope="col">Personal Trainer</th>
-                        <th scope="col">Visualizza</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <sessionTableBody/>
-                </tbody>
-            </table>
+            <div id="private-area-content">
+                <form action="../areaprivata/prenotazione_scheda.php" method="post" id="formSessione">
+                    <h2>Prenota una scheda con uno dei nostri Personal Trainer</h2> 
+                    <div id="messaggi"></div>
+                    <div id="trainerSchedaDiv">
+                        <label for="trainerScheda">Trainer al quale richiedere la scheda: </label>
+                        <select id="trainerScheda" name="trainerScheda">
+                            <listaTrainer/>
+                        </select>
+                        <input type="submit" value="Prenota" name="prenota" class="button button-purple"/>
+                    </div>
+                </form>
+                <div id="private-area-table">  
+                    <h2>Le tue schede</h2>
+                    <table id="tabPrenotate">
+                        <thead>
+                            <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Personal Trainer</th>
+                                <th scope="col">Visualizza</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <sessionTableBody/>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
-
+        
     <pageFooter/>
 </body>
