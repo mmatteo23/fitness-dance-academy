@@ -713,6 +713,12 @@ select#giornoSessione {
     margin-right:0.2em;
 }
 
+/*----PRENOTAZIONE SCHEDA----*/
+#trainerSchedaDiv{
+    margin-top: 2em;
+    display:flex;
+    flex-direction: column;
+}
 
 /*----VISUALIZZA SCHEDA----*/
 main#visScheda{

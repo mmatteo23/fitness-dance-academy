@@ -15,9 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     $errors = Sessione::validator($_POST);
 
-    if ($errors != ""){
-        $htmlPage = str_replace("<div id='errori'></div>", $errors, $htmlPage);
-    } else {
+    if ($errors == ""){
         $returned = Sessione::create($_POST);
     }   
 }
@@ -85,6 +83,7 @@ if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
 
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 
+$htmlPage = str_replace('<div id="errori"></div>', $errors, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
 $htmlPage = str_replace("<sessionTableBody/>", $tabellaSess, $htmlPage);

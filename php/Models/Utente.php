@@ -139,6 +139,11 @@ class Utente {
         $this->peso = $_peso;
     }
     */
+
+    public static function getTrainers(){
+
+    }
+    
     public static function isMandatory($data, $key, $name){
         if($data[$key] == "")
             return "<li>Il campo '".$name."' va inserito</li>";
