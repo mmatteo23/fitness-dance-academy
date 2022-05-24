@@ -561,6 +561,22 @@ p.title-card {
     margin: 0;
     margin-top: 1.5em;
 }
+#head-private-area-top {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+.table-prenotazione {
+    margin: 0;
+    margin-top: 2em;
+    width: 100%;
+}
+table .button.button-filter {
+    margin: auto;
+}
+#private-area-top {
+    background-color: var(--transparent);
+    padding: 1.5em;
+}
 #dataSessione {
     padding-right: 3em;
 }
@@ -571,6 +587,15 @@ p.title-card {
 }
 #selezioneOrari {
     padding-left: 3em;
+}
+.button.button-filter {
+    margin: 0;
+    font-size: 1.2em;
+    padding: 0.3em 0.5em;
+    margin-left: 0.5em;
+}
+.filtri label {
+    margin: 0 1em;
 }
 #giornoSettimana{
     font-size: 1.2em;
@@ -881,6 +906,8 @@ a.button {
     margin-top: 0;
     padding-right: 1.1em;
     list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 #private-area-menu .button {
@@ -897,7 +924,7 @@ a.button {
 }
 
 li#private-area-selected p{
-    background-color: #6f418d;
+    background-color: var(--color2);
     cursor: initial;
 }
 

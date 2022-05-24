@@ -59,7 +59,7 @@ if(count($corsi)){
             <td>". $corso['data_fine'] ."</td>
             <td>". $corso['trainer_nome'] ."</td>
             <td>
-                <button type='submit' name='insert' value=" . $corso['id'] . ">Prenota</button>
+                <button type='submit' name='insert' value=" . $corso['id'] . " class='button button-purple button-filter'>Prenota</button>
             </td>
             
         </tr>";

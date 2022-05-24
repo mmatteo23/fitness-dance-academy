@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="utf-8"/>
-    <title>Schede - FDA</title>
+    <title>Prenotazione Corso - FDA</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
@@ -13,10 +13,12 @@
     <link rel="stylesheet" type="text/css" href="/css/prenotazioni.css"/>
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="/js/bmi.js"></script>
     <script defer src="/js/mobile-menu.js"></script>
+    <script defer src="/js/filtri.js"></script>
 </head>
 <body>
     <header>
@@ -33,10 +35,10 @@
                     <a href="/"><span xml:lang="en">HOME</span></a>
                 </li>
                 <li>
-                    <a href="corsi.php">CORSI</a>
+                    <a href="/corsi.php">CORSI</a>
                 </li>
                 <li>
-                    <a href="eventi.php">EVENTI</a>
+                    <a href="/eventi.php">EVENTI</a>
                 </li>
                 <li id="selectedNavbar">
                     PROFILO
@@ -53,21 +55,59 @@
     </navbar>
     
     <main id="container">
-        <h1>Prenotati ai nostri corsi</h1>
-        <h2>Cerca</h2>
-        <form method="get" class="filtri">
-            <label for="titolo">Nome Corso</label>
-            <input type="text" name="titolo"/>
-            <label for="descrizione">Descrizione</label>
-            <input type="text" name="descrizione"/>
-            <input type="submit" value="Cerca"/>
-        </form>
+        <div id="private-area-container">
+            <ul id="private-area-menu">                
+                <li><a href="/areaprivata/profile.php" class="button button-transparent">
+                    DATI
+                    <span class="material-symbols-outlined">description</span>
+                </a></li>
+                <li id="private-area-selected"><p class="button button-transparent">
+                    CORSI
+                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                </p></li>
+                <li><a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                    SCHEDE
+                    <span class="material-symbols-outlined">table_rows</span>
+                </a></li>
+                <li><a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
+                    SESSIONE
+                    <span class="material-symbols-outlined">schedule</span>
+                </a></li> 
+                <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                    MODIFICA
+                    <span class="material-symbols-outlined">edit_note</span>
+                </a></li> 
+                <li><a href="/php/logout.php" class="button button-transparent">
+                    <span xml:lang="en">LOGOUT</span>
+                    <span class="material-symbols-outlined">logout</span>
+                </a></li> 
+            </ul>
+            <div id="private-area-content">
+                <div id="private-area-top">
+                    <h1 id="head-private-area-top">Prenotati ai nostri corsi</h1>
+                    <form method="get" class="filtri">
+                        <label for="titolo">Nome</label>
+                        <input type="text" name="titolo"/>
+                        <label for="descrizione">Descrizione</label>
+                        <input type="text" name="descrizione"/>
+                        <input type="submit" value="Cerca" class="button button-transparent button-filter"/>
+                    </form>
 
-        <tabellaElencoCorsi/>
+                    <errors/>
 
-        <h1>Corsi a cui sei iscritto</h1>
-        <tabellaCorsiPrenotati/>
-            
+                    <form method='post' action=''>
+                        <tabellaElencoCorsi/>
+                    </form>
+                </div>
+
+                <div id="private-area-table">
+                    <h1>Corsi a cui sei iscritto</h1>
+                    <form method='post' action=''>
+                        <tabellaCorsiPrenotati/>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 
     <pageFooter/>

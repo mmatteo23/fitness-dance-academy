@@ -11,7 +11,21 @@ $modello = new Scheda();
 
 $schede = $modello->index($_GET);
 
-$content = "";
+$content = "
+<table id='tabPrenotate'>
+    <thead>
+        <tr>
+            <th scope='col'>Data</th>
+            <th scope='col'>Personal Trainer</th>
+            <th scope='col'>Visualizza</th>
+        </tr>
+    </thead>
+    <tbody>
+";
+$table_footer = "
+    </tbody>
+</table>
+";
 $trainers = "";
 
 $messaggi = "";
@@ -49,6 +63,7 @@ if(isset($_SESSION['userId'])){
                     <td><a class='button button-purple' href=visualizzaScheda.php?id=".$scheda['id']."><i class=' fa fa-location-arrow'></i></i></a></td>
                 </tr>";
         }
+        $content .= $table_footer;
     } else {
         $content = "<p>Non sono presenti schede per questo utente</p>";
     }

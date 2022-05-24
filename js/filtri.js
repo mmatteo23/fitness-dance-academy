@@ -19,5 +19,5 @@ function setInputValues(item, index, arr) {
         }
     }
     
-    console.log(input[0].name);
+    console.log(input[1].name);
 }
