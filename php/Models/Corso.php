@@ -42,7 +42,19 @@ class Corso {
 
     public function read(int $id)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+
+            $query = "SELECT * FROM corso WHERE id = " . $id;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults[0])?$queryResults[0]:NULL;
+        }
+
+        return NULL;
     }
 
     public function update(int $id, array $data)
@@ -83,6 +95,73 @@ class Corso {
         }
 
         return NULL;
+    }
+
+    public function registerUser(int $corsoId, int $utenteId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "INSERT INTO iscrizione_corso (cliente, corso)
+            VALUE (
+                " . $utenteId . ",
+                " . $corsoId . "
+            )";
+
+            //echo $query;
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
+    public function unregisterUser(int $corsoId, int $utenteId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "DELETE FROM iscrizione_corso
+            WHERE 
+                cliente = '" . $utenteId . "' AND
+                corso = '" . $corsoId . "'";
+
+            //echo $query;
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
+    public function isAlreadyRegistered(int $corsoId, int $utenteId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT * FROM iscrizione_corso
+            WHERE 
+                cliente = '" . $utenteId . "' AND
+                corso = '" . $corsoId . "'";
+
+            //echo $query;
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return isset($queryResults[0]) ? TRUE : FALSE;
+        }
+
+        return false;
     }
 
 }
