@@ -104,6 +104,19 @@
         width: auto;
         margin-bottom: 1.5em;
     }
+
+    .grid-container{
+        grid-template-areas: 
+            "a a"
+            "b b"
+            "c c"
+            "d d"
+            "e e"
+            "f f"
+            "g g";
+        margin: auto;
+        margin-top:0;
+    }
 }
 
 /***************************************
