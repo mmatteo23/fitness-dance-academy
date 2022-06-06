@@ -20,6 +20,8 @@
     --transparent-light: #ffffff2b;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
+    --danger: #e13131;
+    --success: #21ab21;
 }
 
 
@@ -343,7 +345,7 @@ table{
 }
 input[type="text"]{
     font-size: 1.25em;
-    height: 1.75em;
+    /* height: 1.75em; */
     /* width: 30%; */
     background-color: var(--transparent);
     border: solid 0.1em;
@@ -375,7 +377,6 @@ input[type="text"]{
     align-items: center;
     display: flex;
     justify-content: center;
-     width:50%;
 }
 
 #bmi-result{
@@ -949,7 +950,13 @@ select option {
 
 /****************CREA PROFILO*******************************/
 #containerCreaPro{
+    background-color: var(--transparent);
+    width: -webkit-fill-available;
+}
+
+#containerCreaProDark{
     background-color: var(--transparent-dark);
+    width: -webkit-fill-available;
 }
 /* #loginForm input{
     width: 100%;
