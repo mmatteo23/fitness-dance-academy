@@ -18,6 +18,4 @@ function setInputValues(item, index, arr) {
                 input[j].value = params[i][1];
         }
     }
-    
-    console.log(input[1].name);
 }
