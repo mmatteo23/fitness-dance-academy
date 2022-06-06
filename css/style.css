@@ -577,17 +577,6 @@ table .button.button-filter {
     background-color: var(--transparent);
     padding: 1.5em;
 }
-#dataSessione {
-    padding-right: 3em;
-}
-#dataSessione>div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#selezioneOrari {
-    padding-left: 3em;
-}
 .button.button-filter {
     margin: 0;
     font-size: 1.2em;
@@ -746,6 +735,9 @@ abbr[title] {
     margin-top: 0;
     margin-bottom: 0;
 }
+.private-area-button{
+    margin-top: 0;
+}
 select {
     background-color: var(--transparent);
     color: white;
@@ -839,7 +831,7 @@ main#visScheda h2{
     justify-content: center;
     align-items: center;
     width: -webkit-fill-available;
-    padding: 3.5em 0em;
+    padding: 2em 0em;
     padding-top: 2.5em;
 }
 
@@ -853,6 +845,8 @@ main#visScheda h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 2em 5em;
 }
 
 #private-area-content {
@@ -923,6 +917,10 @@ a.button {
     font-weight: normal;
 }
 
+#private-area-menu li:last-child a{
+    margin-bottom: 0;
+}
+
 li#private-area-selected p{
     background-color: var(--color2);
     cursor: initial;
@@ -936,6 +934,17 @@ select option {
     width: -webkit-fill-available;
     background-color: var(--transparent);
     padding-top: 2em;
+}
+
+.inline-selectbox {
+    display: flex;
+    align-items: center;
+    width: -webkit-fill-available;
+    justify-content: center;
+}
+
+.width-fill-available {
+    width: -webkit-fill-available;
 }
 
 /****************CREA PROFILO*******************************/
