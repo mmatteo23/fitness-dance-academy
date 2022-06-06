@@ -80,9 +80,11 @@
                         <h1>Modifica il tuo Profilo</h1>
                         <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
                         <formErrors/>
-                        <form action="creaProfilo.php" method="POST" id="formCreaProfilo">
+                        <form action="edit_profile.php" method="POST" id="formEditProfilo">
                             <formContent/>
-                            <input id="creaProfiloBtn" type="submit" class="button button-purple" value="Conferma Modifiche" name="crea"/>
+                            <input id="creaProfiloBtn" type="submit" class="button button-purple" value="Conferma Modifiche" name="modifica"/>
+                            <p>DANGER ZONE</p>
+                            <input id="deleteProfiloBtn" type="submit" class="button button-violet" value="Cancella Profilo" name="cancella"/>
                         </form>
                     </div>
                 </div>

@@ -50,7 +50,7 @@
             <h1>Crea il tuo Profilo</h1>
             <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
             <formErrors/>
-            <form action="creaProfilo.php" method="POST" id="formCreaProfilo">
+            <form action="signup.php" method="POST" id="formCreaProfilo">
                 <div class="input-wrapper">
                     <label for="nome">Nome*</label>
                     <input type="text" name="nome" id="nome" class="transparent-login" onblur="validaNome()">
@@ -67,8 +67,8 @@
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="dataNascita">Data di nascita*</label>
-                    <input type="date" name="dataNascita" id="dataNascita" class="transparent-login" value="2000-01-01">
+                    <label for="data_nascita">Data di nascita*</label>
+                    <input type="date" name="data_nascita" id="data_nascita" class="transparent-login" value="2000-01-01">
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">

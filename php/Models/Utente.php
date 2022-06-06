@@ -172,7 +172,7 @@ class Utente {
         $errors = "";
         $errors .=  Utente::isMandatory($data, "nome", "nome").
                     Utente::isMandatory($data, "cognome", "cognome").
-                    Utente::isMandatory($data, "dataNascita", "data di nascita").
+                    Utente::isMandatory($data, "data_nascita", "data di nascita").
                     Utente::isMandatory($data, "email", "e-mail").
                     Utente::isMandatory($data, "password", "password").
                     Utente::isMandatory($data, "Rpassword", "ripeti password").
@@ -180,7 +180,7 @@ class Utente {
                     Utente::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
                     Utente::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
                     ($data['telefono']!=""?Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
-                    (time() < strtotime('+18 years', strtotime($data['dataNascita']))?"<li>Data di nascita troppo recente</li>":"").
+                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita troppo recente</li>":"").
                     ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
                     (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
         if($errors != "")
@@ -200,7 +200,7 @@ class Utente {
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
                 '" . $data['email'] . "',
-                '" . $data['dataNascita'] . "',
+                '" . $data['data_nascita'] . "',
                 '" . $data['password'] . "',
                 '" . $data['telefono'] . "',
                 '" . $data['sesso'] . "',

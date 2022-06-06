@@ -13,15 +13,15 @@ $modello = new Utente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     $errors = $modello->validator($_POST);
-    // if (isset($_POST['btnDelete'])) {
-    //     //echo "DELETE";
-    //     deleteUser($_SESSION['username']);
-    //     header('Location: index.php');
-    // } else
+    print_r($_POST);
+    if (isset($_POST['cancella'])) {
+        $modello->delete($_SESSION['userId']);
+        header('Location: index.php');
+    } else
     if($errors === TRUE){
         $_POST['foto_profilo'] = 'default.png';
         $_POST['ruolo'] = 1;
-        if(!$modello->update($_POST)){
+        if(!$modello->update($_SESSION['userId'], $_POST)){
             echo "non ce l'ho fatta";
         }
         else{
@@ -52,8 +52,8 @@ $formContent = "
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
-        <label for='dataNascita'>Data di nascita*</label>
-        <input type='date' value='" . $userData['data_nascita'] . "' name='dataNascita' id='dataNascita' class='transparent-login' value='2000-01-01'>
+        <label for='data_nascita'>Data di nascita*</label>
+        <input type='date' value='" . $userData['data_nascita'] . "' name='data_nascita' id='data_nascita' class='transparent-login' value='2000-01-01'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
