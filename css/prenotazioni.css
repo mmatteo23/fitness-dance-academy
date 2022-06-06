@@ -10,3 +10,17 @@ form.filtri {
     margin: auto;
     width: 80%;
 }
+
+p.response {
+    padding: 1em;
+    border-radius: 16px;
+    color: white;
+}
+
+p.success {
+    background-color: green;
+}
+
+p.danger {
+    background-color: red;
+}
