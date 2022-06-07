@@ -1,10 +1,10 @@
 <?php
 
-session_start();
-
 require_once '../config.php';
 
+require_once(SITE_ROOT . '/php/validSession.php');
 require_once(SITE_ROOT . '/php/Models/Utente.php');
+require_once(SITE_ROOT . '/php/Models/Sessione.php');
 
 $errors = '';
 
@@ -13,10 +13,10 @@ $modello = new Utente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     $errors = $modello->validator($_POST);
-    print_r($_POST);
     if (isset($_POST['cancella'])) {
         $modello->delete($_SESSION['userId']);
-        header('Location: index.php');
+        $_SESSION['email'] = "";
+        header('Location: /index.php');
     } else
     if($errors === TRUE){
         $_POST['foto_profilo'] = 'default.png';
@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
         else{
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['userId'] = $modello->getIdFromEmail($_POST['email']);
-            header('location: areaprivata/profile.php');
+            header('location: profile.php');
         }
     }
 }
