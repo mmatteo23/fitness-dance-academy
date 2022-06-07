@@ -1,6 +1,7 @@
 <?php
 
-    function append_filters(array $filters, array $table_fields, bool $isIndex){
+    // isIndex == TRUE se chiamata da model->index()
+    function append_filters(array $filters, array $table_fields, bool $isIndex = true){
         $partial_query = "";
         
         foreach($filters as $key => $value){

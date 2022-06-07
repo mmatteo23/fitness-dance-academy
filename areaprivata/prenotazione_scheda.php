@@ -1,8 +1,8 @@
 <?php
 
-session_start();
-
 require_once "../config.php";
+
+require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . "/php/Models/Scheda.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 

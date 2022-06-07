@@ -7,6 +7,10 @@ require_once("php/Models/Utente.php");
 
 $errors = "";
 
+if(isset($_SESSION['email'])){    // the user is already registered
+    header("location: areaprivata/profile.php");
+}
+
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
     $errors = Utente::validator($_POST);
     if($errors === TRUE){

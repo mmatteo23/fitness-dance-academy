@@ -1,8 +1,8 @@
 <?php
 
-session_start();
-
 require_once "../config.php";
+
+require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . "/php/Models/Sessione.php");
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_sessione.html");

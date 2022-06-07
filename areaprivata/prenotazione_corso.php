@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
 }
 
-$corsi = $modello->getRegisteredCorsiByUserId($_GET, $_SESSION['userId']);
+$corsi = $modello->getUnregisteredCorsiByUserId($_GET, $_SESSION['userId']);
 
 $corsi_prenotati = $modello->getCorsiByUserId($_SESSION['userId']);
 

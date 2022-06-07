@@ -23,7 +23,7 @@ class Corso {
             $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
                 INNER JOIN utente ON utente.id = trainer";
             // append if there are some filters
-            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields, true);
+            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields);
 
             //echo $query;
             $queryResults = $connection_manager->executeQuery($query);
@@ -97,7 +97,7 @@ class Corso {
         return NULL;
     }
 
-    public function getRegisteredCorsiByUserId(array $filters, int $utenteId)
+    public function getUnregisteredCorsiByUserId(array $filters, int $utenteId)
     {
         $connection_manager = new DBAccess();
         $conn_ok = $connection_manager->openDBConnection();
