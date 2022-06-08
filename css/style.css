@@ -481,11 +481,20 @@ div.input-wrapper label {
 /********************************
  *          CORSI
  *******************************/
+ 
+
+table#corsi-mobile{
+    display: none;
+}
+#mobile-corsi-title{
+    display: none;
+}
 table#corsi>caption {
     font-size: 2em;
     font-weight: bold;
     padding-bottom: 0.5em;
 }
+
 
 table#corsi {
     margin: auto;

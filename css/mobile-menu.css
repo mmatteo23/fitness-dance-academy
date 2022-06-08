@@ -21,7 +21,8 @@
     }
 
     #img-logo {
-        width: 90px;
+        width: 180px;
+        max-width: none;
     }
 
     #main-menu {
@@ -106,16 +107,50 @@
     }
 
     .grid-container{
-        grid-template-areas: 
-            "a a"
-            "b b"
-            "c c"
-            "d d"
-            "e e"
-            "f f"
-            "g g";
+        display: block;
+    }
+    .grid-item{
+        flex-direction: column;
+    }
+    .grid-item>img{
+        margin: 1em auto;
+    }
+    #grid-item-b, #grid-item-e, #grid-item-f{
+        flex-direction: column-reverse;
+    }
+    #grid-item-f>p{
         margin: auto;
-        margin-top:0;
+        padding: 1em;
+    }
+    #bmi-explaination{
+        width: 100%;
+    }
+    #valori-bmi{
+        margin: 1em auto;
+    }
+    #mobile-corsi-title{
+        display: block;
+    }
+    table#corsi{
+        display: none;
+    }
+    table#corsi-mobile{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    table#corsi-mobile tbody{
+        display: flex;
+        flex-direction: column;
+    }
+    table#corsi-mobile tr{
+        display: flex;
+    }
+    table#corsi-mobile td, table#corsi-mobile th{
+        width: 100%;
+    }
+    table#corsi-mobile tr p{
+        margin: 0;
     }
 }
 
