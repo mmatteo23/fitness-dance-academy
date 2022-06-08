@@ -132,6 +132,26 @@ class Scheda {
         return NULL;
     }
 
+    public static function getSchedeRichieste($id){
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = 
+                "SELECT prenotazione_scheda.id as id, data, CONCAT(nome, ' ', cognome) AS utente FROM prenotazione_scheda 
+                INNER JOIN utente on cliente = utente.id 
+                WHERE trainer = ".$id;
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
 }
 
 ?>

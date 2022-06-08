@@ -73,24 +73,13 @@
                 </a></li> 
             </ul>
             <div id="private-area-content">
-                <form action="../areaprivata/prenotazione_scheda.php" method="post" id="formSessione">
-                    <h2>Prenota una scheda con uno dei nostri Personal Trainer</h2> 
-                    <div id="messaggi"></div>
-                    <div id="trainerSchedaDiv">
-                        <label for="trainerScheda">Trainer al quale richiedere la scheda: </label>
-                        <select id="trainerScheda" name="trainerScheda">
-                            <listaTrainer/>
-                        </select>
-                        <input type="submit" value="Prenota" name="prenota" class="button button-purple"/>
-                    </div>
-                </form>
-                <div id="private-area-table">  
+                <div id="scheda-table">  
                     <h2>Le tue schede</h2>
                     <sessionTableBody/>
                 </div>
+                <formPrenotazione/>
             </div>
         </div>
     </main>
-        
     <pageFooter/>
 </body>

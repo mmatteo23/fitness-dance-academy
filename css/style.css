@@ -640,7 +640,8 @@ table .button.button-filter {
     padding: 0.3em;
 }
 #tabPrenotate a{
-    margin: 0 10%;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 1em;
     text-decoration: none;
     color: white;
@@ -759,6 +760,22 @@ select#giornoSessione {
 }
 
 /*----PRENOTAZIONE SCHEDA----*/
+
+#delete-scheda{
+    margin: 0 auto;
+}
+
+#scheda-table{
+background-color: var(--transparent);
+    text-align: center;
+    padding: 1.5em;
+    width: -webkit-fill-available;
+    margin: 0;
+    margin-bottom: 1.5em;
+}
+#scheda-table>h2{
+    font-size: 2em;
+}
 #trainerSchedaDiv{
     margin-top: 2em;
     display:flex;
