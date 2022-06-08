@@ -73,6 +73,33 @@ class Corso {
      * 
      *****************************************/
 
+    public function getAllCorsi(array $filters)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+                (
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                LEFT JOIN utente ON utente.id = trainer
+                ) as corsi
+                LEFT JOIN iscrizione_corso ON corso = id
+                WHERE 1=1";
+
+            // append if there are some filters
+            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields, false);
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
     public function getCorsiByUserId(int $utenteId)
     {
         $connection_manager = new DBAccess();
@@ -86,6 +113,33 @@ class Corso {
                 ) as corsi
                 LEFT JOIN iscrizione_corso ON corso = id 
                 WHERE cliente =" . $utenteId;
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
+    public function getCorsiByTrainerId(array $filters, int $trainerId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+                (
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                LEFT JOIN utente ON utente.id = trainer
+                ) as corsi
+                LEFT JOIN iscrizione_corso ON corso = id 
+                WHERE trainer_id =" . $trainerId;
+            
+            // append if there are some filters
+            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields, false);
 
             //echo $query;
             $queryResults = $connection_manager->executeQuery($query);
@@ -113,6 +167,43 @@ class Corso {
             
             // append if there are some filters
             if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields, false);
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
+    public function getNumeroIscritti(int $corsoId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT COUNT(cliente) as count FROM iscrizione_corso WHERE corso =".$corsoId;
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $queryResults = $queryResults[0]['count'];
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
+    public function getIscritti(int $corsoId)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT * FROM utente WHERE id IN (SELECT cliente FROM iscrizione_corso WHERE corso ='.$corsoId.')";
 
             //echo $query;
             $queryResults = $connection_manager->executeQuery($query);

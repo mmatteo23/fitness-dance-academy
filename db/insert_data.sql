@@ -1,5 +1,5 @@
 INSERT INTO ruolo (id, descrizione)
-VALUES (1, 'Amministratore'), (2, 'Trainer');
+VALUES (1, 'Amministratore'), (2, 'Trainer'), (3, 'Utente');
 
 INSERT INTO utente (
     id,
