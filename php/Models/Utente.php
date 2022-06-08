@@ -318,9 +318,25 @@ class Utente {
         return false;
     }
 
+    public function isAdmin($userId) {
+        $userData = $this->read($userId);
+        if ($userData['ruolo'] == 1)
+            return true;
+        else
+            return false;
+    }
+
     public function isTrainer($userId) {
         $userData = $this->read($userId);
         if ($userData['ruolo'] == 2)
+            return true;
+        else
+            return false;
+    }
+
+    public function isCliente($userId) {
+        $userData = $this->read($userId);
+        if ($userData['ruolo'] == 3)
             return true;
         else
             return false;

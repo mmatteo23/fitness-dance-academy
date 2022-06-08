@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Gestione Scheda - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="/js/bmi.js"></script>
+</head>
+<body>
+    <header>
+        <navbar>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="/img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>    
+            <ul>
+                <li>
+                    <a href="/"><span xml:lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="/corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="/eventi.php">EVENTI</a>
+                </li>
+                <li id="selectedNavbar">
+                    PROFILO
+                </li>
+            </ul>
+        </navbar>
+    </header>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li><a href="/areaprivata/profile.php"><span xml:lang="en">Profilo</span></a></li>
+            <li id="selectedBreadcrumb">Schede</li>
+        </ul>
+    </navbar>
+    
+    <main id="container">
+        <div id="private-area-container">
+            <ul id="private-area-menu">
+                <li><a href="/areaprivata/profile.php" class="button button-transparent">DATI<span class="material-symbols-outlined">description</span></a></li>
+                <li><a href="/areaprivata/gestione_corso.php" class="button button-transparent">
+                    CORSI
+                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                </a></li>
+                <li id="private-area-selected"><p class="button button-transparent">
+                    SCHEDE
+                    <span class="material-symbols-outlined">table_rows</span>
+                </p></li>
+                <li><a href="/areaprivata/gestione_sessione.php" class="button button-transparent">
+                    SESSIONE
+                    <span class="material-symbols-outlined">schedule</span>
+                </a></li> 
+                <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                    MODIFICA
+                    <span class="material-symbols-outlined">edit_note</span>
+                </a></li> 
+                <li><a href="/php/logout.php" class="button button-transparent">
+                    <span xml:lang="en">LOGOUT</span>
+                    <span class="material-symbols-outlined">logout</span>
+                </a></li> 
+            </ul>
+            <div id="private-area-content">
+                <div id="scheda-table">  
+                    <h2>Visualizzazione Schede prenotate</h2>
+                    <sessionTableBody/>
+                </div>
+            </div>
+        </div>
+    </main>
+    <pageFooter/>
+</body>
