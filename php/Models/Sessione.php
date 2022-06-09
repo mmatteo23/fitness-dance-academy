@@ -85,8 +85,7 @@ class Sessione {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $year = date("Y");
-            $query = "DELETE FROM prenotazione_sessione WHERE id = ".$id;
+            $query = "DELETE FROM prenotazione_sessione WHERE id = $id";
 
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();

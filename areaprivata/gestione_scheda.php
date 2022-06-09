@@ -50,10 +50,10 @@ if(isset($_SESSION['userId'])){
         if(count($schedeRichieste) > 0){
             foreach($schedeRichieste as $scheda){
                 $content .= "
-                    <tr>
+                    <tr id='scheda".$scheda['id']."'>
                         <td>".$scheda['id']."</td>
                         <td>".$scheda['utente']."</td>
-                        <td><button id='delete-scheda' class='button button-purple'><i class=' fa fa-window-close'></i></i></button></td>
+                        <td><button id='delete-scheda' onClick='deletePrenotazioneScheda(".$scheda['id'].")' class='button button-purple'><i class=' fa fa-window-close'></i></i></button></td>
                     </tr>";
             }
             $content .= $table_footer;

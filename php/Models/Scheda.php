@@ -90,7 +90,20 @@ class Scheda {
 
     public function delete(int $id)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+            $year = date("Y");
+            $query = "DELETE FROM prenotazione_scheda WHERE id = ".$id;
+
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     public static function getEserciziById($id){
