@@ -11,11 +11,11 @@ $content_corsi_prenotati = "";
 $html_table = "<table class='table-prenotazione'>
     <thead>
         <tr>
-            <td>Titolo</td>
-            <td>Data Inizio</td>
-            <td>Data Fine</td>
-            <td><span xml:lang='en'>Trainer</span></td>
-            <td>Prenotati</td>
+            <th>Titolo</th>
+            <th>Data Inizio</th>
+            <th>Data Fine</th>
+            <th><span xml:lang='en'>Trainer</span></th>
+            <th>Prenotati</th>
         </tr>
     </thead>
     <tbody>";
@@ -62,10 +62,10 @@ if(count($corsi)){
 
     foreach($corsi as $corso){
         $content_corsi .= "<tr>
-            <td>". $corso['titolo'] ."</td>
-            <td>". $corso['data_inizio'] ."</td>
-            <td>". $corso['data_fine'] ."</td>
-            <td>". $corso['trainer_nome'] ."</td>
+            <th>". $corso['titolo'] ."</th>
+            <td data-title='Data Inizio'>". explode(' ', $corso['data_inizio'])[0] ."</td>
+            <td data-title='Data Fine'>". explode(' ',$corso['data_fine'])[0] ."</td>
+            <td data-title='Trainer'>". $corso['trainer_nome'] ."</td>
             <td>
                 <button type='submit' name='insert' value=" . $corso['id'] . " class='button button-purple button-filter'>Prenota</button>
             </td>
@@ -83,10 +83,10 @@ if(count($corsi_prenotati)){
 
     foreach($corsi_prenotati as $corso){
         $content_corsi_prenotati .= "<tr>
-            <td>". $corso['titolo'] ."</td>
-            <td>". $corso['data_inizio'] ."</td>
-            <td>". $corso['data_fine'] ."</td>
-            <td>". $corso['trainer_nome'] ."</td>
+            <th>". $corso['titolo'] ."</th>
+            <td data-title='Data Inizio'>". $corso['data_inizio'] ."</td>
+            <td data-title='Data Fine'>". $corso['data_fine'] ."</td>
+            <td data-title='Trainer'>". $corso['trainer_nome'] ."</td>
             <td>
                 <button type='submit' name='delete' value=" . $corso['id'] . " class='button button-purple button-filter'>Disiscriviti</button>
             </td>

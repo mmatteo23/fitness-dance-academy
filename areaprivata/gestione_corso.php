@@ -59,10 +59,10 @@ if(count($corsi)){
     foreach($corsi as $corso){
         $nIscritti = $modello->getNumeroIscritti($corso['id']);
         $content_corsi .= "<tr>
-            <td>". $corso['titolo'] ."</td>
-            <td>". $corso['data_inizio'] ."</td>
-            <td>". $corso['data_fine'] ."</td>
-            <td>". $nIscritti ."</td>
+            <th>". $corso['titolo'] ."</th>
+            <td data-title='Data Inizio'>". $corso['data_inizio'] ."</td>
+            <td data-title='Data Fine'>". $corso['data_fine'] ."</td>
+            <td data-title='Prenotazioni'>". $nIscritti ."</td>
             <td>
                 <button type='submit' name='view' value=" . $corso['id'] . " class='button button-purple button-filter'>Visualizza</button>
             </td>
@@ -91,11 +91,11 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
         
             foreach($iscritti as $iscritto){
                 $content_corsi .= "<tr>
-                    <td>". $iscritto['nome'] ."</td>
-                    <td>". $iscritto['cognome'] ."</td>
-                    <td>". $iscritto['data_nascita'] ."</td>
-                    <td>". $iscritto['email'] ."</td>
-                    <td>". $iscritto['telefono'] ."</td>
+                    <td data-title='Nome'>". $iscritto['nome'] ."</td>
+                    <td data-title='Cognome'>". $iscritto['cognome'] ."</td>
+                    <td data-title='Data Nascita'>". $iscritto['data_nascita'] ."</td>
+                    <td data-title='email'>". $iscritto['email'] ."</td>
+                    <td data-title='telefono'>". $iscritto['telefono'] ."</td>
                 </tr>";
             }
         

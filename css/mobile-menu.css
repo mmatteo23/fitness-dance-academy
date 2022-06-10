@@ -169,6 +169,72 @@
     .ex-descr :first-child{
         font-size: 1.25em;
     }
+    #aboutus-container dd{
+        padding-bottom: 1em;
+    }
+    /**********************AREA PRIVATA**************************/
+    #private-area-container{
+        display: block;
+    }
+    #private-area-menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-right: 0;
+    }
+    #private-area-menu .button{
+        min-width: 8em;
+        max-width: 8em;
+        padding: 0.25em 0.75em;
+        margin-bottom: 0.25em;
+    }
+    .profile-box{
+        text-align: center;
+        display: block;
+    }
+    .profileData{
+        min-width: 0;
+    }
+    .profileData ul{
+        padding: 0;
+    }
+    .profileData li{
+        max-width: 100%;
+        display: block;
+    }
+    p#giornoSettimana{
+        display: none;
+    }
+    #formSessione .selezione-data-e-ora label{
+        min-width: 10em;
+    }
+    select#giornoSessione{
+        margin-left: 1em;
+    }
+    form.filtri[method="get"]{
+        display: block;
+    }
+    form.filtri input{
+        width: 100%;
+    }
+    form.filtri button.button-filter{
+        margin: auto;
+        margin-top: 1em;
+    }
+    .table-prenotazione thead{
+        display: none;
+    }
+    .table-prenotazione tr, .table-prenotazione th, .table-prenotazione td{
+        display: block;
+
+    }
+    .table-prenotazione td[data-title]:before {
+        content:
+        attr(data-title) ":\00A0";
+    }
+    div.form-wrapper{
+        width: inherit;
+    }
 }
 
 /***************************************

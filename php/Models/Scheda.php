@@ -21,7 +21,7 @@ class Scheda {
         if($conn_ok){
             $query = "SELECT * FROM scheda";
             // append if there are some filters
-            $query .= append_filters($filters, $this->filtrable_fields);
+            //$query .= append_filters($filters, $this->filtrable_fields);
 
             //echo $query;
             $queryResults = $connection_manager->executeQuery($query);
