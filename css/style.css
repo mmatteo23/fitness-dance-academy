@@ -126,6 +126,10 @@ navbar li:hover {
     background-color: var(--color0);
 }
 
+#main-menu li{
+    min-width: 5em;
+}
+
 li#selectedNavbar{
     font-weight: bold;
     background-color: var(--color0-dark);
@@ -1011,4 +1015,36 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background: #584474;        /* color of the tracking area */
+}
+
+/*------------ABOUT US--------------------*/
+main#aboutus-container{
+    background-color: var(--transparent-dark);
+    color: white;
+    padding: 3%;
+    margin: auto;
+}
+main#aboutus-container h2{
+    font-size: 2.5em;
+    margin: 0;
+}
+main#aboutus-container h3{
+    margin: 0;
+}
+main#aboutus-container dt{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+main#aboutus-container p{
+    margin: 0;
+}
+main#aboutus-container dl{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+main#aboutus-container dd{
+    margin-left: 0;
+    padding-right: 5em;
+    font-size: 2em;
 }
