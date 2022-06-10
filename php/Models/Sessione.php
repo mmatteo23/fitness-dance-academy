@@ -102,7 +102,7 @@ class Sessione {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT * FROM prenotazione_sessione WHERE cliente = ".$id;
+            $query = "SELECT * FROM prenotazione_sessione WHERE cliente = ".$id." AND data>DATE_SUB(CURDATE(), INTERVAL 1 DAY) ORDER BY data";
 
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();

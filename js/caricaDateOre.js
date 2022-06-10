@@ -72,18 +72,18 @@ function giornoCambiato(){
         document.getElementById("prenota").disabled = true;
         return;
     }
-    var contenuto = "<div><label for='oraInizio minutoInizio'>Ora d'inizio della sessione:</label><div><select id='oraInizio'>";
+    var contenuto = "<div class='inline-selectbox'><label class='width-fill-available' for='oraInizio minutoInizio'>Ora d'inizio della sessione:</label><div class='inline-selectbox'><select id='oraInizio' name='oraInizio'>";
     contenuto += "<option value='" + dalle + "' selected>" + String(dalle) + "</option>";
     for(i=dalle + 1; i<=alle; i++){
         contenuto += "<option value='" + i + "'>" + String(i) + "</option>";
     }
-    contenuto += "</select><select id='minutoInizio'><option value='0' selected>00</option><option value='15'>15</option><option value='30'>30</option><option value='45'>45</option></select>";
-    contenuto += "</div></div><div><label for='oraFine minutoFine'>Ora di fine della sessione:</label><div><select id='oraFine'>";
-    contenuto += "<option value='" + alle + "' selected>" + String(alle) + "</option>";
+    contenuto += "</select><select id='minutoInizio' name='minutoInizio'><option value='0' selected>00</option><option value='15'>15</option><option value='30'>30</option><option value='45'>45</option></select>";
+    contenuto += "</div></div><div class='inline-selectbox'><label class='width-fill-available' for='oraFine minutoFine'>Ora di fine della sessione:</label><div class='inline-selectbox'><select id='oraFine' name='oraFine'>";
+    contenuto += "<option value='" + dalle + "' selected>" + String(dalle) + "</option>";
     for(i=dalle + 1; i<=alle; i++){
         contenuto += "<option value='" + i + "'>" + String(i) + "</option>";
     }
-    contenuto += "</select><select id='minutoFine'><option value='0'>00</option><option value='15'>15</option><option value='30' selected>30</option><option value='45'>45</option></select>";
+    contenuto += "</select><select id='minutoFine' name='minutoFine'><option value='0'>00</option><option value='15'>15</option><option value='30' selected>30</option><option value='45'>45</option></select>";
     //contenuto += "</div></div><input type='submit' value='prenota' name='prenota'>";
 
     document.getElementById("selezioneOrari").innerHTML = contenuto;

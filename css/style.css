@@ -613,6 +613,7 @@ table .button.button-filter {
 }
 #formSessione label{
     font-size: 1.5em;
+    min-width: 15em;
 }
 #formSessione select{
     font-family: inherit;
@@ -798,7 +799,7 @@ background-color: var(--transparent);
 /*----VISUALIZZA SCHEDA----*/
 main#visScheda{
     text-align: center;
-    background-color: var(--color0);
+    background-color: var(--transparent-dark);
 }
 main#visScheda h2{
     padding: 1em;

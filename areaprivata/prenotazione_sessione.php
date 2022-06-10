@@ -34,6 +34,7 @@ $headTabellaSessioni = "
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
+
     $_POST['cliente'] = $_SESSION['userId'];
 
     $errors = Sessione::validator($_POST);
