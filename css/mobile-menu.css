@@ -152,6 +152,23 @@
     table#corsi-mobile tr p{
         margin: 0;
     }
+    main#visScheda h2{
+        padding: 0.5em 1em; 
+    }
+    #ex-container{
+        display: block;
+        padding-left: 0;
+        padding-bottom: 1em;
+    }
+    .ex{
+        min-width: 0;
+    }
+    .ex-img{
+        max-width: 6em;
+    }
+    .ex-descr :first-child{
+        font-size: 1.25em;
+    }
 }
 
 /***************************************

@@ -1,6 +1,9 @@
 <?php
 
-require_once("php/Models/Scheda.php");
+require_once "../config.php";
+
+require_once(SITE_ROOT . "/php/validSession.php");
+require_once(SITE_ROOT . "/php/Models/Scheda.php");
 
 if(isset($_GET['id']))
 {
@@ -14,7 +17,7 @@ if(isset($_GET['id']))
         $i++;
         $content .= 
             '<li class="ex">
-                <img class="ex-img" src="img/iconeEsercizi/'.$es['id'].'.png"/>
+                <img class="ex-img" src="/img/iconeEsercizi/'.$es['id'].'.png"/>
                 <ul class="ex-descr">
                     <li>'.$i.". ".$es['nome'].'</li>
                     <li>Serie: '.$es['serie'].'</li>
@@ -25,9 +28,9 @@ if(isset($_GET['id']))
     }
     $content .= "</ol>";
 
-    $htmlPage = file_get_contents("html/visualizzaScheda.html");
+    $htmlPage = file_get_contents("../html/areaprivata/visualizzaScheda.html");
 
-    $footer = file_get_contents("html/components/footer.html");
+    $footer = file_get_contents("../html/components/footer.html");
 
     $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
     $htmlPage = str_replace("<esercizi/>", $content, $htmlPage);

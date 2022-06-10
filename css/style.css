@@ -821,6 +821,7 @@ main#visScheda h2{
 .ex-img{
     background-color: var(--color0-verylight);
     max-width: 10em;
+    height: auto;
     border-radius: 1em;
     margin: 1em;
 }
