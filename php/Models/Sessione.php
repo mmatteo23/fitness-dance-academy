@@ -112,6 +112,31 @@ class Sessione {
 
         return false;
     }
+
+    public static function countPrenotati(array $data){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $year = date("Y");
+            $date = $year."-".$data['meseSessione']."-".$data['giornoSessione'];
+            $timeI = $data['oraInizio'].":".$data['minutoInizio'].":00";
+            $timeF = $data['oraFine'].":".$data['minutoFine'].":00";
+            $query = "SELECT COUNT(*) AS n FROM prenotazione_sessione 
+                WHERE data='".$date."' AND 
+                ((ora_inizio <= '$timeI' AND ora_fine >= '$timeF') 
+                OR(ora_inizio <= '$timeF' AND ora_fine >= '$timeF')
+                OR(ora_inizio >= '$timeI' AND ora_fine <= '$timeF'))" ;
+
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults[0]['n'];
+        }
+
+        return false;
+    }
 }
 
 ?>

@@ -675,6 +675,9 @@ table .button.button-filter {
 abbr[title] {
     text-decoration: none;
 }
+#risultatoContatoreSessioni{
+    font-size: 1.5em;
+}
 
 .button {
     font-size: 1.4em;
