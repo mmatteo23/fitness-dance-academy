@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Fitness Dance Academy</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-menu.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="js/bmi.js"></script>
+    <script defer src="js/mobile-menu.js"></script>
+</head>
+<body>
+    <header>
+        <navbar id="navbar">
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                <span id="hamburger"></span>
+            </button>     
+            <ul id="main-menu">
+                <li id="selectedNavbar">
+                    <span xml:lang="en">HOME</span>
+                </li>
+                <li>
+                    <a href="corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="html/aboutus.html">SU DI NOI</a>
+                </li>
+                <li>
+                    <a href="login.php">PROFILO</a>
+                </li>
+            </ul>
+        </navbar>
+    </header>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb" id="selectedBreadcrumb"><span xml:lang="en">Home</span></li>
+        </ul>
+    </navbar>
+    <main class="grid-container">
+        <div class="grid-item" id="grid-item-a">
+            <table id="orari" title="orari di apertura e chiusura della palestra distribuiti nei giorni della settimana">
+                <caption>Gli orari della nostra palestra</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Giorno</th>
+                        <th scope="col">Dalle</th>
+                        <th scope="col">Alle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td abbr="dal lunedì al venerdì">Lunedì-Venerdì</td>
+                        <td abbr="dieci">10:00</td>
+                        <td abbr="ventidue e trenta">22:30</td>
+                    </tr>
+                    <tr>
+                        <td>Sabato</td>
+                        <td abbr="undici">11:00</td>
+                        <td abbr="sedici e trenta">16:30</td>
+                    </tr>
+                    <tr>
+                        <td>Domenica</td>
+                        <td colspan="2" class="cursive">chiuso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="grid-item" id="grid-item-b">
+            <img class="grid-img-vertical" src="img/attrezziQuadrato.jpg" alt="foto della nostra sala attrezzi, include barra per trazioni, panca, pesi vari"/>
+            <p class="grid-item-title-vertical">
+                Prenota una sessione comodamente dal nostro sito.
+            </p>
+        </div>
+        <div class="grid-item" id="grid-item-c">
+            <p class="grid-item-title-vertical">
+                Richiedi la tua scheda fitness con esercizi su misura consigliati dai nostri esperti.
+            </p>
+            <img class="grid-img-vertical" src="img/scheda.jpg" alt="immagine che ritrae uno dei nostri trainer mentre spiega la scheda esercizi ad un cliente"/>
+        </div>
+        <div class="grid-item" id="grid-item-d">
+            <p class="grid-item-title-vertical">
+                Iscriviti a uno dei corsi tenuti nella nostra struttura, ce ne sono per tutti!
+            </p>
+            <img class="grid-img-vertical" src="img/corsoBallo.jpg" alt="foto di ragazze che ballano hip hop durante uno dei nostri corsi"/>
+        </div>
+        <div class="grid-item" id="grid-item-e">
+            <img class="grid-img-vertical" src="img/pizzata.jfif" alt="un evento ricorrente consiste nel mangiare una pizza tutti insieme"/>
+            <p class="grid-item-title-vertical">Visualizza gli eventi che ti permetteranno di conoscere gli altri membri.</p>
+        </div>
+        <div class="grid-item" id="grid-item-f">
+            <img class="grid-img-horizontal" src="img/telefonino.jpg" alt="immagine di una persona che utilizza il nostro sito mentre si allena in palestra"/>
+            <p class="grid-item-title-horizontal">Crea un profilo utente o accedi per poter eseguire le varie operazioni disponibili.</p>
+        </div>        
+        <div class="grid-item" id="grid-item-g">
+            <div id="bmi-explaination">
+                <h3>Che cos'è il <abbr title="Body Mass Index">BMI</abbr>?</h3>
+                <p>Il <span xml:lang="en">Body Mass Index</span> è un sistema di valutazione del peso attraverso la soluzione di una formula che richiede due valori noti (altezza e peso) che permette di stabilire la classe di appartenenza dell'utente.
+                    Il posizionamento nella classe peso-forma è statisticamente collegato al minor rischio di ammalarsi di patologie metaboliche e non solo.    </p>
+            </div>
+            <div id="inserimento-dati">
+                <h2>Calcola il tuo <abbr title = "Body Mass Index">BMI</abbr>!</h2>
+                <div id="altezza">
+                    <label for="text-altezza">Altezza:</label>
+                    <input type="text" id="text-altezza"></input>
+                    <p><abbr title="metri">m</abbr></p>
+                </div>
+                <div id="peso">
+                    <label for="text-altezza">Peso:</label>
+                    <input type="text" id="text-peso"></input>
+                    <p><abbr title="chilogrammi">kg</abbr></p>
+                </div>
+                <button class="button button-purple" onclick="getBMI()">Calcola</button>
+                <p id="bmi-result">Risultato: </p>
+            </div>
+            <div id="classi-bmi">
+                <table id="valori-bmi" title="Associazioni tra valore dell'indice Body Mass e una categoria di salute legata al peso">
+                    <caption>Corrispondenze</caption>
+                    <tr>
+                        <th scope="col">Classe</th>
+                        <th scope="col" abbr="BMI">Valore <abbr title = "Body Mass Index">BMI</abbr></th>
+                    </tr>
+                    <tr>
+                        <td>sottopeso</td>
+                        <td abbr="x minore di 18 virgola 5">x <= 18.5</td>
+                    </tr>
+                    <tr>
+                        <td>pesoforma</td>
+                        <td abbr="x compreso tra 18 virgola 5 e 25">18.5 < x < 25</td>
+                    </tr>
+                    <tr>
+                        <td>sovrappeso</td>
+                        <td abbr="x compreso tra 25 e 30">25 <= x < 30</td>
+                    </tr>
+                    <tr>
+                        <td abbr="x compreso tra 30 e 35">obesità</td>
+                        <td>30 <= x < 35</td>
+                    </tr>
+                    <tr>
+                        <td>obesità severa</td>
+                        <td abbr="x maggiore di 35">x >= 35 </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <pageFooter/>
+</body>
+</html>

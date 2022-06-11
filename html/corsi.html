@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Corsi - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/flip-card.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile-menu.css"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="js/bmi.js"></script>
+    <script defer src="js/mobile-menu.js"></script>
+    <!--
+    -->
+</head>
+<body>
+    <!--
+    <header id="header">
+    <a id="logo" href="">Logo</a>
+        <nav id="nav">
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
+            <span id="hamburger"></span>
+            </button>
+            <ul id="menu" role="menu">
+                <li><a href="/">Sobre</a></li>
+                <li><a href="/">Produtos</a></li>
+                <li><a href="/">Portfólio</a></li>
+                <li><a href="/">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    -->
+
+    <header>
+        <navbar id="navbar">
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>
+            <button aria-label="Apri Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                <span id="hamburger"></span>
+            </button> 
+            <ul id="main-menu">
+                <li>
+                    <a href="/"><span xml:lang="en">HOME</span></a>
+                </li>
+                <li id="selectedNavbar">
+                    CORSI
+                </li>
+                <li>
+                    <a href="html/aboutus.html">SU DI NOI</a>
+                </li>
+                <li>
+                    <a href="login.php">PROFILO</a>
+                </li>
+            </ul>
+        </navbar>
+    </header>
+
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li id="selectedBreadcrumb">Corsi</li>
+        </ul>
+    </navbar>
+    
+    <main id="container">
+        <h1 id="mobile-corsi-title">Orari dei corsi</h1>
+        <div class="table-box">
+            <table id="corsi" title="orari divisi per ore in cui si svolgono i corsi della palestra dal lunedì al venerdì">
+                <caption>Orari dei corsi</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Orario</th>
+                        <th scope="col" abbr="lun">Lunedì</th>
+                        <th scope="col" abbr="mar">Martedì</th>
+                        <th scope="col" abbr="mer">Mercoledì</th>
+                        <th scope="col" abbr="gio">Giovedì</th>
+                        <th scope="col" abbr="ven">Venerdì</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">17:30-18:30</td>                        
+                        <td>Total Body</td>
+                        <td>Yogafit</td>
+                        <td>Total Body</td>
+                        <td>Yogafit</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">18:30-19:30</td>                        
+                        <td>Zumbafit</td>
+                        <td>Functional</td>
+                        <td>Zumbafit</td>
+                        <td>Functional</td>
+                        <td>Break ass</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">19:30-20:30</td>                        
+                        <td>Spinning</td>
+                        <td>Tone up</td>
+                        <td>Spinning</td>
+                        <td>Tone up</td>
+                        <td>Spinning</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">20:30-21:30</td>                        
+                        <td>Fitboxe</td>
+                        <td>Superjump</td>
+                        <td>Fitboxe</td>
+                        <td>Superjump</td>
+                        <td>Calisthenics</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">21:30-22:30</td>                        
+                        <td>Tango</td>
+                        <td>Six pack</td>
+                        <td></td>
+                        <td>Six pack</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="corsi-mobile" title="orari divisi per ore in cui si svolgono i corsi della palestra dal lunedì al venerdì">
+                <caption>Orari dei corsi</caption>
+                <tbody>
+                    <tr><th>Lunedì</th></tr>
+                    <tr><td><p>17:30-18:30 = <span xml:lang="en">Total Body</span></p></td></tr>
+                    <tr><td><p>18:30-19:30 = Zumbafit</p></td></tr>
+                    <tr><td><p>19:30-20:30 = <span xml:lang="en">Spinning</span></p></td></tr>
+                    <tr><td><p>20:30-21:30 = <span xml:lang="en">Fitboxe</span></p></td></tr>
+                    <tr><td><p>21:30-22:30 = Tango</p></td></tr>
+                    <tr><th>Martedì</th></tr>
+                    <tr><td><p>17:30-18:30 = Yogafit</p></td></tr>
+                    <tr><td><p>18:30-19:30 = <span xml:lang="en">Functional</span></p></td></tr>
+                    <tr><td><p>19:30-20:30 = <span xml:lang="en">Tone up</span></p></td></tr>
+                    <tr><td><p>20:30-21:30 = <span xml:lang="en">Superjump</span></p></td></tr>
+                    <tr><td><p>21:30-22:30 = <span xml:lang="en">Six pack</span></p></td></tr>
+                    <tr><th>Mercoledì</th></tr>
+                    <tr><td><p>17:30-18:30 = <span xml:lang="en">Total Body</span></p></td></tr>
+                    <tr><td><p>18:30-19:30 = Zumbafit</p></td></tr>
+                    <tr><td><p>19:30-20:30 = <span xml:lang="en">Spinning</span></p></td></tr>
+                    <tr><td><p>20:30-21:30 = <span xml:lang="en">Fitboxe</span></p></td></tr>
+                    <tr><th>Giovedì</th></tr>
+                    <tr><td><p>17:30-18:30 = Yogafit</p></td></tr>
+                    <tr><td><p>18:30-19:30 = <span xml:lang="en">Functional</span></p></td></tr>
+                    <tr><td><p>19:30-20:30 = <span xml:lang="en">Tone up</span></p></td></tr>
+                    <tr><td><p>20:30-21:30 = <span xml:lang="en">Superjump</span></p></td></tr>
+                    <tr><td><p>21:30-22:30 = <span xml:lang="en">Six pack</span></p></td></tr>
+                    <tr><th>Venerdì</th></tr>
+                    <tr><td><p>18:30-19:30 = <span xml:lang="en">break ass</span></p></td></tr>
+                    <tr><td><p>19:30-20:30 = <span xml:lang="en">Spinning</span></p></td></tr>
+                    <tr><td><p>20:30-21:30 = <span xml:lang="en">Calisthenics</span></p></td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+        <h1>La nostra offerta corsi</h1>
+        <div class="white-box">
+            <elencoCorsi/>
+        </div>
+
+        <!--
+
+            <modalCorsi/>
+        -->
+
+    </main>
+
+    <pageFooter/>
+</body>

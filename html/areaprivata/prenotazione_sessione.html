@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Prenotazione Sessione - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/temp.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="/js/caricaDateOre.js"></script>
+    <script defer src="/js/deleteSession.js"></script>
+</head>
+<body>
+    <header>
+        <navbar>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="/img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>
+            <button aria-label="Apri Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                <span id="hamburger"></span>
+            </button>   
+            <ul id="main-menu">
+                <li>
+                    <a href="/"><span xml:lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="/corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="html/aboutus.html">SU DI NOI</a>
+                </li>
+                <li id="selectedNavbar">
+                    PROFILO
+                </li>
+            </ul>
+        </navbar>
+    </header>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li><a href="/areaprivata/profile.php"><span xml:lang="en">Profilo</span></a></li>
+            <li id="selectedBreadcrumb">Sessione</li>
+        </ul>
+    </navbar>
+    <main id="container">
+        <div id="private-area-container">
+            <ul id="private-area-menu">                
+                <li><a href="/areaprivata/profile.php" class="button button-transparent">
+                    DATI
+                    <span class="material-symbols-outlined">description</span>
+                </a></li>
+                <li><a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
+                    CORSI
+                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                </a></li>
+                <li><a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                    SCHEDE
+                    <span class="material-symbols-outlined">table_rows</span>
+                </a></li>
+                <li id="private-area-selected"><p class="button button-transparent">
+                    SESSIONE
+                    <span class="material-symbols-outlined">schedule</span>
+                </p></li> 
+                <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
+                    MODIFICA
+                    <span class="material-symbols-outlined">edit_note</span>
+                </a></li> 
+                <li><a href="/php/logout.php" class="button button-transparent">
+                    <span xml:lang="en">LOGOUT</span>
+                    <span class="material-symbols-outlined">logout</span>
+                </a></li> 
+            </ul>
+            <div id="private-area-content">
+                <form action="../areaprivata/prenotazione_sessione.php" method="post" id="formSessione">
+                    <h2>Prenota una sessione di allenamento da noi</h2> 
+                    <div id="errori"></div>
+                    <div class="selezione-data-e-ora">
+                        <div class="inline-selectbox">
+                            <div class="width-fill-available">
+                                <label for="giornoSessione meseSessione">Data della sessione:</label>
+                            </div>
+                            <div class="inline-selectbox">
+                                <giornoSessione/>
+                            </div>
+                        </div>
+                        <div id="selezioneOrari">
+                            <div class="inline-selectbox">
+                                <label class="width-fill-available" for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+                                <div class="inline-selectbox">
+                                    <select id="oraInizio" name="oraInizio">
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                    </select>
+                                    <select id="minutoInizio" name="minutoInizio">
+                                        <option value="0" selected>00</option>
+                                        <option value="15">15</option>
+                                        <option value="30">30</option>
+                                        <option value="45">45</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inline-selectbox">
+                                <label class="width-fill-available" for="oraFine minutoFine">Ora di fine della sessione:</label>
+                                <div class="inline-selectbox">
+                                    <select id="oraFine" name="oraFine">
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                    </select>
+                                    <select id="minutoFine" name="minutoFine">
+                                        <option value="0">00</option>
+                                        <option value="15">15</option>
+                                        <option value="30" selected>30</option>
+                                        <option value="45">45</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input id="prenota" type="submit" value="Prenota" name="prenota" class="button button-purple private-area-button">
+                </form>
+                <tabellaSessioniPrenotate/>
+            </div>
+        </div>
+    </main>
+    
+    <pageFooter/>
+</body>

@@ -1,0 +1,27 @@
+
+h2 {
+    text-align: center;
+}
+
+form.filtri {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 2em;
+}
+
+p.response {
+    padding: 1em;
+    border-radius: 16px;
+    color: white;
+}
+
+p.success {
+    background-color: green;
+}
+
+p.danger {
+    background-color: red;
+}

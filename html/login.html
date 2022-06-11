@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Login - FDA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="js/bmi.js"></script>
+</head>
+<body>
+
+    <header>
+        <navbar>
+            <a id="divLogo" href="/">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+            </a>   
+            <ul id="main-menu">
+                <li>
+                    <a href="/"><span xml:lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="html/aboutus.html">SU DI NOI</a>
+                </li>
+                <li id="selectedNavbar">
+                    PROFILO
+                </li>
+            </ul>
+        </navbar>
+    </header>
+    <navbar>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li id="selectedBreadcrumb">Profilo</li>
+        </ul>
+    </navbar>
+    
+    <main id="container">
+        <div id="loginForm" class="form-wrapper">
+            <h1>Accesso Area Privata</h1>
+            <form action="login.php" method="POST" id="formLogin">
+                <div class="input-wrapper">
+                    <label for="email"><span xml:lang="en">E-mail</span></label>
+                    <input type="email" name="email" id="email" class="transparent-login">
+                    <p class='error'></p>
+                </div>
+                <div class="input-wrapper">
+                    <label for="password"><span xml:lang="en">Password</span></label>
+                    <input type="password" name="password" id="password" class="transparent-login">
+                    <p class='error'></p>
+                </div>
+                <formErrors/>
+                <input id="loginBtn" type="submit" class="button button-purple" value="Login" name="login">
+            </form>
+            
+            <p>Sei un nuovo membro? <a href="signup.php">Registrati!</a></p>
+            
+            
+        </div>
+    </main>
+
+    <pageFooter/>
+</body>
+</html>
