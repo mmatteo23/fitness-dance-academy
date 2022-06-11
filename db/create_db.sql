@@ -218,7 +218,8 @@ INSERT INTO corso (
     descrizione,
     data_inizio,
     data_fine,
-    trainer
+    trainer,
+    copertina
   )
 VALUES (
     1,
@@ -226,7 +227,8 @@ VALUES (
     'Allenamento di tutto il corpo con poche pause',
     '2022-01-02',
     '2022-12-02',
-    1
+    1,
+    '1.jpg'
   ),
   (
     2,
@@ -234,7 +236,8 @@ VALUES (
     'Allenamento Full Body a passi di Zumba per tutte le età',
     '2022-01-02',
     '2022-12-02',
-    1
+    1,
+    '2.jpg'
   ),
   (
     3,
@@ -242,7 +245,17 @@ VALUES (
     'Allenamento con <span xml:lang="fr">cyclette</span> professionali Technogym',
     '2022-01-02',
     '2022-12-02',
-    1
+    1,
+    '3.jpg'
+  ),
+  (
+    4,
+    '<span xml:lang="en">Break Ass</span>',
+    'Allenamento che appena tutto il corso usando pause piccole e ritmi di ripetizioni alte. Riuscirai a resistere?',
+    '2022-01-02',
+    '2022-12-02',
+    1,
+    NULL
   );
 
 INSERT INTO categoria(descrizione) 

@@ -53,10 +53,6 @@ a:visited{
     color: var(--color3-light);
 }
 
-img {
-    height: 100%;
-}
-
 .text-bold {
     font-weight: bold;
 }
@@ -348,7 +344,8 @@ table{
     padding-left: 0.25em;
 }
 input[type="text"]{
-    font-size: 1.25em;
+    font-size: 1.2em;
+    padding: 0.5em;
     /* height: 1.75em; */
     /* width: 30%; */
     background-color: var(--transparent-dark);
@@ -522,6 +519,7 @@ table#corsi td {
     margin: 2em 0em;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 div.corso-card {
@@ -531,6 +529,7 @@ div.corso-card {
     display: flex;
     flex-direction: column;
     color: white;
+    margin-bottom: 1em;
 }
 
 span.little-title {

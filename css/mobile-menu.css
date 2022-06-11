@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
     navbar {
         justify-content: space-between;
     }
@@ -29,7 +29,7 @@
         display: block;
         position: absolute;
         width: 100%;
-        top: 70px;
+        top: 100px;
         right: 0px;
         background-color: #3e4291;
         transition: 0.6s;
@@ -98,11 +98,11 @@
     }
 
     div.white-box {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     div.corso-card {
-        width: auto;
+        width: 45%;
         margin-bottom: 1.5em;
     }
 
@@ -176,6 +176,7 @@
     #private-area-container{
         display: block;
     }
+    /*
     #private-area-menu{
         display: flex;
         flex-wrap: wrap;
@@ -188,6 +189,15 @@
         padding: 0.25em 0.75em;
         margin-bottom: 0.25em;
     }
+    */
+
+    #private-area-menu {
+        padding-right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
     .profile-box{
         text-align: center;
         display: block;
@@ -234,6 +244,21 @@
     }
     div.form-wrapper{
         width: inherit;
+    }
+
+    form.filtri input[type="text"] {
+        margin: 0.4em 0 0.8em 0;
+    }
+}
+
+@media (max-width: 750px) {
+    div.corso-card {
+        width: 80%;
+    }
+
+    .white-box {
+        display: flex;
+        justify-content: center;
     }
 }
 
