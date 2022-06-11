@@ -315,6 +315,11 @@ table{
     border-spacing: 0.2em;
 }
 
+thead {
+    font-size: 1.25em;
+    padding: 0.75em 2em;
+}
+
 #orari>caption{
     font-size: 1.7em;
     padding: 0.5em;
@@ -593,7 +598,11 @@ table .button.button-filter {
     margin-left: 0.5em;
 }
 .filtri label {
-    margin: 0 1em;
+    margin-right: 0.75em;
+}
+.filtri input[type=text] {
+    width: 10em;
+    margin-right: 2em;
 }
 #giornoSettimana{
     font-size: 1.2em;
@@ -878,6 +887,10 @@ main#visScheda h2{
     align-items: center;
     flex-direction: column;
     padding: 2em 5em;
+}
+
+#selezioneOrari {
+    width: -webkit-fill-available;
 }
 
 #private-area-content {

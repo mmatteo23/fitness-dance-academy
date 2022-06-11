@@ -41,6 +41,7 @@ $filters = "
         <label for='descrizione'>Descrizione</label>
         <input type='text' name='descrizione'/>
         <button type='submit' class='button button-transparent button-filter'>Cerca</button>
+        <button onClick='resetFilters()' type='reset' class='button button-transparent button-filter'>Reset</button>
     </form>
 ";
 
