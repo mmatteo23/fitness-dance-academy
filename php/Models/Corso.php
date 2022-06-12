@@ -122,7 +122,7 @@ class Corso {
                     Corso::isMandatory($data, "data_fine", "data di fine").
                     Corso::isMandatory($data, "trainer", "trainer").
                     Corso::checkRegExp($data, "titolo", "/^[a-zA-Z\s-]+$/", "titolo").
-                    Corso::checkRegExp($data, "descrizione", "/^[a-zA-Z\s-]+$/", "descrizione").
+                    Corso::checkRegExp($data, "descrizione", "/^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/", "descrizione").
                     (strtotime($data['data_inizio']) < strtotime($data['data_fine'])?"":"<li>La data di inizio deve precedere la data di fine</li>").
                     Corso::trainerExists($data['trainer']);
         if($errors != "")

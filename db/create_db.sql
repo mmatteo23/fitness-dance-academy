@@ -1,13 +1,11 @@
 DROP TABLE IF EXISTS prenotazione_scheda;
 DROP TABLE IF EXISTS esercizio_scheda;
-DROP TABLE IF EXISTS prenotazione_evento;
 DROP TABLE IF EXISTS prenotazione_sessione;
 DROP TABLE IF EXISTS iscrizione_corso;
 DROP TABLE IF EXISTS scheda;
 DROP TABLE IF EXISTS ruolo;
 DROP TABLE IF EXISTS corso;
 DROP TABLE IF EXISTS utente;
-DROP TABLE IF EXISTS evento;
 DROP TABLE IF EXISTS esercizio;
 DROP TABLE IF EXISTS categoria;
 
@@ -34,26 +32,6 @@ CREATE TABLE utente (
 	peso int,
 
 	PRIMARY KEY (id)
-);
-
-CREATE TABLE evento (
-	id int NOT NULL,
-	titolo varchar(255) NOT NULL,
-	descrizione varchar(255) NOT NULL,
-	data_inizio datetime NOT NULL,
-	data_fine datetime NOT NULL,
-	copertina varchar(255) NOT NULL,
-
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE prenotazione_evento (
-	cliente int,
-	evento int,
-
-	PRIMARY KEY (cliente, evento),
-	FOREIGN KEY (cliente) REFERENCES utente(id),
-	FOREIGN KEY (evento) REFERENCES evento(id)
 );
 
 CREATE TABLE scheda (

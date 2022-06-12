@@ -537,6 +537,16 @@ div.corso-card {
     margin-bottom: 1em;
 }
 
+.title-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.descrizione-card {
+    margin: 0 1em;
+    text-align: center;
+}
+
 span.little-title {
     font-size: medium   ;
     font-weight: lighter;
