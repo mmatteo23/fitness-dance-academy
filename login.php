@@ -40,7 +40,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 }
 
 
-
 $footer = file_get_contents("html/components/footer.html");
 
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
@@ -52,7 +51,7 @@ if(isset($_SESSION['email']) && $_SESSION['email'] != '') {
     header("location: areaprivata/profile.php");
 }
 
-//str_replace finale col conenuto specifico della pagina
+//str_replace finale col contenuto specifico della pagina
 echo $htmlPage;     // visualizzo la pagina costruita
 
 ?>

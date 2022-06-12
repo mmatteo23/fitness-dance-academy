@@ -6,25 +6,30 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile-menu.css"/>
     
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script defer src="js/creaProfiloValidator.js"></script>
+    <script defer src="js/mobile-menu.js"></script>
 </head>
 <body>
     <header>
         <navbar>
             <a id="divLogo" href="/">
                 <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
-                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
-            </a>   
+                <h1 id="title"><span xml:lang="en" lang="en">Fitness Dance Academy</span></h1>
+            </a> 
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                <span id="hamburger"></span>
+            </button>     
             <ul id="main-menu">
                 <li>
-                    <a href="/"><span xml:lang="en">HOME</span></a>
+                    <a href="/"><span xml:lang="en" lang="en">HOME</span></a>
                 </li>
                 <li>
                     <a href="corsi.php">CORSI</a>
@@ -40,8 +45,8 @@
     </header>
     <navbar>
         <ul id="breadcrumb">
-            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
-            <li><a href="/login.php"><span xml:lang="en">Profilo</span></a></li>
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en" lang="en">Home</span></a></li>
+            <li><a href="/login.php"><span xml:lang="en" lang="en">Profilo</span></a></li>
             <li id="selectedBreadcrumb">Crea Profilo</li>
         </ul>
     </navbar>
@@ -53,27 +58,27 @@
             <form action="signup.php" method="POST" id="formCreaProfilo">
                 <div class="input-wrapper">
                     <label for="nome">Nome*</label>
-                    <input type="text" name="nome" id="nome" class="transparent-login" onblur="validaNome()">
+                    <input type="text" name="nome" id="nome" class="transparent-login" onblur="validaNome()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="cognome">Cognome*</label>
-                    <input type="text" name="cognome" id="cognome" class="transparent-login" onblur="validaCognome()">
+                    <input type="text" name="cognome" id="cognome" class="transparent-login" onblur="validaCognome()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="email"><span xml:lang="en">E-mail*</span></label>
-                    <input type="email" name="email" id="email" class="transparent-login" onblur="validaEmail()">
+                    <label for="email"><span xml:lang="en" lang="en">E-mail</span>*</label>
+                    <input type="email" name="email" id="email" class="transparent-login" onblur="validaEmail()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="data_nascita">Data di nascita*</label>
-                    <input type="date" name="data_nascita" id="data_nascita" class="transparent-login" value="2000-01-01">
+                    <input type="date" name="data_nascita" id="data_nascita" class="transparent-login" value="2000-01-01"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="telefono">Telefono</label>
-                    <input type="tel" name="telefono" id="telefono" class="transparent-login" pattern="[0-9]{10}">
+                    <input type="tel" name="telefono" id="telefono" class="transparent-login" pattern="[0-9]{10}"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
@@ -92,22 +97,22 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="altezza">Altezza (in centimetri)</label>
-                    <input type="number" name="altezza" id="altezza" class="transparent-login">
+                    <input type="number" name="altezza" id="altezza" class="transparent-login"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="peso">Peso (in chilogrammi)</label>
-                    <input type="number" name="peso" id="peso" class="transparent-login">
+                    <input type="number" name="peso" id="peso" class="transparent-login"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="password"><span xml:lang="en">Password*</span></label>
-                    <input type="password" name="password" id="password" class="transparent-login">
+                    <label for="password"><span xml:lang="en" lang="en">Password</span>*</label>
+                    <input type="password" name="password" id="password" class="transparent-login"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
-                    <label for="Rpassword">Ripeti <span xml:lang="en">Password*</span></label>
-                    <input type="password" name="Rpassword" id="Rpassword" class="transparent-login">
+                    <label for="Rpassword">Ripeti <span xml:lang="en" lang="en">Password</span>*</label>
+                    <input type="password" name="Rpassword" id="Rpassword" class="transparent-login"/>
                     <p class='error'></p>
                 </div>
                 <input id="creaProfiloBtn" type="submit" class="button button-purple" value="Crea Profilo" name="crea"/>
@@ -119,3 +124,4 @@
     
     <pageFooter/>
 </body>
+</html>

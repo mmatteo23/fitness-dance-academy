@@ -180,7 +180,7 @@ class Utente {
                     Utente::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
                     Utente::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
                     ($data['telefono']!=""?Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
-                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita troppo recente</li>":"").
+                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita non corrispondente a persona maggiorenne</li>":"").
                     ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
                     (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
         if($errors != "")

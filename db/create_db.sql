@@ -223,7 +223,7 @@ INSERT INTO corso (
   )
 VALUES (
     1,
-    'Total Body',
+    '<span xml:lang="en" lang="en">Total Body</span>',
     'Allenamento di tutto il corpo con poche pause',
     '2022-01-02',
     '2022-12-02',
@@ -232,8 +232,8 @@ VALUES (
   ),
   (
     2,
-    'ZumbaFit',
-    'Allenamento Full Body a passi di Zumba per tutte le età',
+    '<span xml:lang="en" lang="en">ZumbaFit</span>',
+    'Allenamento <span xml:lang="en" lang="en">Full Body</span> a passi di Zumba per tutte le età',
     '2022-01-02',
     '2022-12-02',
     1,
@@ -241,8 +241,8 @@ VALUES (
   ),
   (
     3,
-    'Spinning',
-    'Allenamento con <span xml:lang="fr">cyclette</span> professionali Technogym',
+    '<span xml:lang="en" lang="en">Spinning</span>',
+    'Allenamento con <span xml:lang="fr">cyclette</span> professionali <span xml:lang="en" lang="en">Technogym</span>',
     '2022-01-02',
     '2022-12-02',
     1,
@@ -250,7 +250,7 @@ VALUES (
   ),
   (
     4,
-    '<span xml:lang="en">Break Ass</span>',
+    '<span xml:lang="en" lang="en">Break Ass</span>',
     'Allenamento che appena tutto il corso usando pause piccole e ritmi di ripetizioni alte. Riuscirai a resistere?',
     '2022-01-02',
     '2022-12-02',
@@ -267,25 +267,25 @@ VALUES
 ('gambe'), 
 ('braccia'), 
 ('glutei'),
-('stretching');
+('<span xml:lang="en" lang="en">stretching</span>');
 
 INSERT INTO esercizio(nome, categoria) 
 VALUES 
-('Plank', 1), 
-('Crunch', 1), 
+('<span xml:lang="en" lang="en">Plank</span>', 1), 
+('<span xml:lang="en" lang="en">Crunch</span>', 1), 
 ('Trazioni', 2), 
 ('Pressa spalla', 3), 
-('Tapis roulant', 4), 
+('<span xml:lang="fr" lang="fr">Tapis roulant</span>', 4), 
 ('Quadricipiti', 5), 
 ('Salto corda', 5), 
 ('Manubri', 6), 
 ('Affondi', 5), 
-('Squat', 7), 
-('Cyclette', 4), 
-('Curl bilancere', 6), 
+('<span xml:lang="en" lang="en">Squat</span>', 7), 
+('<span xml:lang="fr" lang="fr">Cyclette</span>', 4), 
+('<span xml:lang="en" lang="en">Curl</span> bilancere', 6), 
 ('Panca piana', 6), 
-('Plank laterale', 1), 
-('Stretching gambe', 8);
+('<span xml:lang="en" lang="en">Plank</span> laterale', 1), 
+('<span xml:lang="en" lang="en">Stretching</span> gambe', 8);
 
 INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 2, 1);
 
