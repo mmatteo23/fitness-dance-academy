@@ -6,7 +6,6 @@ require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . "/php/Models/Scheda.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
-// get all corsi from db
 $modelloScheda = new Scheda();
 $modelloUtente = new Utente();
 

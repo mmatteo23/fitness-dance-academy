@@ -4,6 +4,14 @@ require_once "../config.php";
 
 require_once(SITE_ROOT . '/php/validSession.php');
 require_once(SITE_ROOT . "/php/Models/Corso.php");
+require_once(SITE_ROOT . "/php/Models/Utente.php");
+
+$modello = new Corso;
+$modelloUtente = new Utente;
+
+if(!isset($_SESSION['userId']) || !$modelloUtente->isCliente($_SESSION['userId'])) {
+    header("location: /login.php");
+}
 
 // html pieces
 $content_corsi = "";
@@ -21,8 +29,6 @@ $html_table = "<table class='table-prenotazione'>
     <tbody>";
 $html_table_footer = "</tbody></table>";
 $response = "";
-
-$modello = new Corso;
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 

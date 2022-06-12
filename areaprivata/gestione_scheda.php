@@ -10,6 +10,10 @@ require_once(SITE_ROOT . "/php/Models/Utente.php");
 $modelloScheda = new Scheda();
 $modelloUtente = new Utente();
 
+if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])) {
+    header("location: /login.php");
+}
+
 $schede = $modelloScheda->index($_GET);
 
 $content = "
