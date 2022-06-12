@@ -13,8 +13,8 @@ const setError = (element, message) => {
     const errorDisplay = inputWrapper.querySelector('.error');
 
     errorDisplay.innerText = message;
-    //inputWrapper.classList.add('error');
-    //inputWrapper.classList.remove('success');
+    inputWrapper.classList.add('error');
+    inputWrapper.classList.remove('success');
 }
 
 const setSuccess = element => {
@@ -72,19 +72,19 @@ function validaDate(){
     }
 }
 
-function validaAltImmagine(){
-    // var alt_copertinaV = alt_copertina.value.trim();
-    // if(alt_copertinaV==""){
-    //     setError(alt_copertina, "Il campo 'descrizione copertina' va inserito");
-    // }
-    // else if(!ReDescrizione.test(alt_copertinaV)){
-    //     setError(alt_copertina, "Il campo 'descrizione copertina' contiene caratteri non validi");
-    // }
-    // else{
-    //     setSuccess(alt_copertina);
-    // }
+function validaAltImmagine() {
+    const fileInput = document.getElementById("copertina")
+    var file = fileInput.files[0];
+    if (file) {
+        var alt_copertinaV = alt_copertina.value.trim();
+        if(alt_copertinaV==""){
+            setError(alt_copertina, "Il campo 'descrizione copertina' va inserito");
+        }
+        else if(!ReDescrizione.test(alt_copertinaV)){
+            setError(alt_copertina, "Il campo 'descrizione copertina' contiene caratteri non validi");
+        }
+        else{
+            setSuccess(alt_copertina);
+        }
+    }
 }
-
-// function validaImg() {
-//     console.log("NON VALI NIENTE")
-// }

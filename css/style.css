@@ -8,7 +8,7 @@
     --color0-verylight: #B6C3F6;
     --color1: #553772;
     --color1-dark: #291834;
-    --color2: #8F3B76;
+    --color2: #8D3A74;
     --color3: #C7417B;
     --color3-light: #F5B2CD;
     --color4: #F5487F;
@@ -20,8 +20,10 @@
     --transparent-light: #ffffff2b;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
-    --danger: #e13131;
+    --error: #ff70ba;
+    --error-background: #140f21;
     --success: #21ab21;
+    --success-background: var(--color2);
 }
 
 
@@ -451,7 +453,7 @@ div.form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 70%;
     margin: auto;
 }
 
@@ -535,6 +537,7 @@ div.corso-card {
     flex-direction: column;
     color: white;
     margin-bottom: 1em;
+    justify-content: flex-end;
 }
 
 .title-card {
@@ -697,6 +700,9 @@ table .button.button-filter {
 }
 abbr[title] {
     text-decoration: none;
+}
+div.input-wrapper.alt_img {
+    display: none;
 }
 #risultatoContatoreSessioni{
     font-size: 1.5em;
@@ -1081,4 +1087,30 @@ main#aboutus-container dd{
     margin-left: 0;
     padding-right: 5em;
     font-size: 1.5em;
+}
+
+/*----------------ERROR/SUCCESS----------------*/
+div.input-wrapper.error p.error{
+    width: fit-content;
+    padding: 0.1em 1em;
+    border-radius: 0.3em;
+    color: var(--error);
+    background-color: var(--error-background);
+}
+
+div.input-wrapper.error .transparent-login {
+    background-color: var(--error-background);
+}
+
+div.input-wrapper.success .transparent-login {
+    background-color: var(--success-background);
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--success-background) inset !important;
+    -webkit-text-fill-color: white !important;
 }

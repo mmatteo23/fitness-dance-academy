@@ -3,25 +3,35 @@
 require_once '../config.php';
 
 require_once(SITE_ROOT . '/php/validSession.php');
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . '/php/Models/Corso.php');
 require_once(SITE_ROOT . '/php/Models/Utente.php');
 
-$errors = '';
+$valid = '';
 
 $modelloCorso = new Corso();
 $modelloUtente = new Utente();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
-    $errors = $modelloCorso->validator($_POST);
-    if($errors === TRUE){
-        $_POST['copertina'] = "default.jpg";
-        $_POST['alt_copertina'] = "Immagine del corso di default";
-        if(!Corso::create($_POST)){
-            $errors = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
-        }
-        else{
-            header("location: gestione_corso.php");
-        }
+if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
+    $allCorsi = $modelloCorso->getAllCorsi(array());
+    $newId = count($allCorsi) + 1;
+    $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $newId, "default.jpg");
+    if($response[1] == "") {
+        $valid = $modelloCorso->validator($_POST);
+        if($valid == TRUE){
+            $_POST['copertina'] = $response[0];
+            if($_POST['alt_copertina'] == "") {
+                $_POST['alt_copertina'] = "Immagine del logo del sito: teschio con ossa e scritta FDA";
+            }
+            if(!$modelloCorso->create($_POST)){
+                $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
+            }
+            else{
+                header("location: gestione_corso.php");
+            }
+        } 
+    } else {
+        $valid .= $response[1];
     }
 }
 
@@ -41,20 +51,20 @@ $formContent = "
     </div>
     <div class='input-wrapper'>
         <label for='data_inizio'>Data di inizio*</label>
-        <input type='date' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01'>
+        <input type='date' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01' onchange='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
         <label for='data_fine'>Data di fine*</label>
-        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onblur='validaDate()'>
+        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onchange='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
         <label for='copertina'>Copertina del corso</label>
-        <input type='file' name='copertina' id='copertina' class='transparent-login' accept='image/png, image/jpeg' onblur='validaImg()'>       
+        <input type='file' name='copertina' id='copertina' class='transparent-login' accept='image/png, image/jpeg' onchange='validateImage(\"copertina\")'>       
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper alt_img'>
         <label for='alt_copertina'>Descrizione copertina* (se scelta)</label>
         <input type='text' name='alt_copertina' id='alt_copertina' class='transparent-login' onblur='validaAltImmagine()'>
         <p class='error'></p>
@@ -85,7 +95,7 @@ $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<trainerOptions/>', $trainerOptions, $htmlPage);
-$htmlPage = str_replace('<formErrors/>', $errors, $htmlPage);
+$htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
 
 echo $htmlPage;
