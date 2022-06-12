@@ -13,21 +13,14 @@ $modelloUtente = new Utente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     $errors = $modelloCorso->validator($_POST);
-    if (isset($_POST['cancella'])) {
-        $modelloUtente->delete($_SESSION['userId']);
-        $_SESSION['email'] = "";
-        header('Location: /index.php');
-    } else
     if($errors === TRUE){
-        $_POST['foto_profilo'] = 'default.png';
-        $_POST['ruolo'] = 1;
-        if(!$modelloUtente->update($_SESSION['userId'], $_POST)){
-            echo "non ce l'ho fatta";
+        $_POST['copertina'] = "default.png";
+        $_POST['alt_copertina'] = "Immagine del corso di default";
+        if(!Corso::create($_POST)){
+            $errors = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
         }
         else{
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['userId'] = $modelloUtente->getIdFromEmail($_POST['email']);
-            header('location: profile.php');
+            header("location: gestione_corso.php");
         }
     }
 }

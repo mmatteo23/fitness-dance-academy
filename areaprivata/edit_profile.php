@@ -20,6 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     } else
     if($errors === TRUE){
         $_POST['foto_profilo'] = 'default.png';
+        $_POST['alt_foto_profilo'] = 'Foto profilo di default';
         $_POST['ruolo'] = 1;
         if(!$modello->update($_SESSION['userId'], $_POST)){
             echo "non ce l'ho fatta";

@@ -1,6 +1,7 @@
 <?php
 require_once(SITE_ROOT . '/php/db.php');
 require_once(SITE_ROOT . '/php/utilities.php');
+require_once(SITE_ROOT . '/php/Models/Utente.php');
 use DB\DBAccess;
 
 class Corso {
@@ -35,9 +36,30 @@ class Corso {
         return NULL;
     }
 
-    public function create(array $data)
+    public static function create(array $data)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+            $query = "INSERT INTO corso (titolo, descrizione, data_inizio, data_fine, copertina, alt_copertina, trainer)
+            VALUE (
+                '" . $data['titolo'] . "',
+                '" . $data['descrizione'] . "',
+                '" . $data['data_inizio'] . "',
+                '" . $data['data_fine'] . "',
+                '" . $data['copertina'] . "',
+                '" . $data['alt_copertina'] . "',
+                '" . $data['trainer'] . "'
+            )";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     public function read(int $id)
@@ -73,15 +95,21 @@ class Corso {
      * 
      *****************************************/
 
-    public static function isMandatory($data, $key, $name){
+    public static function isMandatory($data, $key, $name) {
         if($data[$key] == "")
             return "<li>Il campo '".$name."' va inserito</li>";
         return "";
     }
 
-    public static function checkRegExp($data, $key, $regEx, $name){
+    public static function checkRegExp($data, $key, $regEx, $name) {
         if($data[$key]!="" && !preg_match($regEx, $data[$key]))
             return "<li>Il campo '".$name."' contiene input non valido</li>";
+        return "";
+    }
+
+    public static function trainerExists($trainerId) {
+        if(!Utente::isTrainer($trainerId))
+            return "<li>Il trainer inserito non esiste</li>";
         return "";
     }
 
@@ -93,13 +121,10 @@ class Corso {
                     Corso::isMandatory($data, "data_inizio", "data di inizio").
                     Corso::isMandatory($data, "data_fine", "data di fine").
                     Corso::isMandatory($data, "trainer", "trainer").
-                    Corso::checkRegExp($data, "nome", "/^[a-zA-Z\s-]+$/", "nome").
-                    Corso::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
-                    Corso::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
-                    ($data['telefono']!=""?Corso::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
-                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita troppo recente</li>":"").
-                    ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
-                    (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
+                    Corso::checkRegExp($data, "titolo", "/^[a-zA-Z\s-]+$/", "titolo").
+                    Corso::checkRegExp($data, "descrizione", "/^[a-zA-Z\s-]+$/", "descrizione").
+                    (strtotime($data['data_inizio']) < strtotime($data['data_fine'])?"":"<li>La data di inizio deve precedere la data di fine</li>").
+                    Corso::trainerExists($data['trainer']);
         if($errors != "")
             return "<ul>".$errors."</ul>";
         return true;

@@ -195,7 +195,7 @@ class Utente {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
+            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, alt_foto_profilo, ruolo, altezza, peso)
             VALUE (
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
@@ -205,6 +205,7 @@ class Utente {
                 '" . $data['telefono'] . "',
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
+                '" . $data['alt_foto_profilo'] . "',
                 " . $data['ruolo'] . ",
                 " . ($data['altezza']?:"NULL") . ",
                 " . ($data['peso']?:"NULL") . "
@@ -251,6 +252,7 @@ class Utente {
                 telefono = '" . $data['telefono'] . "',
                 sesso = '" . $data['sesso'] . "',
                 foto_profilo = '" . $data['foto_profilo'] . "',
+                alt_foto_profilo = '" . $data['alt_foto_profilo'] . "',
                 ruolo = " . $data['ruolo'] . ",
                 altezza = " . $data['altezza'] . ",
                 peso = " . $data['peso'] . "

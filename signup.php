@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
     $errors = Utente::validator($_POST);
     if($errors === TRUE){
         $_POST['foto_profilo'] = "default.png";
+        $_POST['alt_foto_profilo'] = "Foto profilo di default";
         $_POST['ruolo'] = 3;
         if(!Utente::create($_POST)){
             $errors = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
