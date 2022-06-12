@@ -1,13 +1,11 @@
 DROP TABLE IF EXISTS prenotazione_scheda;
 DROP TABLE IF EXISTS esercizio_scheda;
-DROP TABLE IF EXISTS prenotazione_evento;
 DROP TABLE IF EXISTS prenotazione_sessione;
 DROP TABLE IF EXISTS iscrizione_corso;
 DROP TABLE IF EXISTS scheda;
 DROP TABLE IF EXISTS ruolo;
 DROP TABLE IF EXISTS corso;
 DROP TABLE IF EXISTS utente;
-DROP TABLE IF EXISTS evento;
 DROP TABLE IF EXISTS esercizio;
 DROP TABLE IF EXISTS categoria;
 
@@ -28,31 +26,12 @@ CREATE TABLE utente (
 	telefono varchar(10),
 	sesso char NOT NULL,
 	foto_profilo varchar(255),
+  alt_foto_profilo varchar(255),
 	ruolo int NOT NULL,
 	altezza int,
 	peso int,
 
 	PRIMARY KEY (id)
-);
-
-CREATE TABLE evento (
-	id int NOT NULL,
-	titolo varchar(255) NOT NULL,
-	descrizione varchar(255) NOT NULL,
-	data_inizio datetime NOT NULL,
-	data_fine datetime NOT NULL,
-	copertina varchar(255) NOT NULL,
-
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE prenotazione_evento (
-	cliente int,
-	evento int,
-
-	PRIMARY KEY (cliente, evento),
-	FOREIGN KEY (cliente) REFERENCES utente(id),
-	FOREIGN KEY (evento) REFERENCES evento(id)
 );
 
 CREATE TABLE scheda (
@@ -123,6 +102,7 @@ CREATE TABLE corso (
 	data_inizio datetime NOT NULL,
 	data_fine datetime NOT NULL,
 	copertina varchar(255),
+  alt_copertina varchar(255),
 	trainer int NOT NULL,
 
 	PRIMARY KEY (id),
@@ -151,6 +131,7 @@ INSERT INTO utente (
     telefono,
     sesso,
     foto_profilo,
+    alt_foto_profilo,
     ruolo,
     altezza,
     peso)
@@ -165,12 +146,28 @@ VALUES
     '34567897894',
     'M',
     NULL,
+    NULL,
     2,
     177,
     70
 ),
 (
     2,
+    'Selly',
+    'Scheggia',
+    'selly.scheggia@fda.it',
+    '2000-07-15',
+    'braccioTiAmo',
+    '3859689456',
+    'F',
+    NULL,
+    NULL,
+    2,
+    165,
+    65
+),
+(
+    3,
     'Danilo',
     'Stojkovic',
     'ds@ds.it',
@@ -179,12 +176,13 @@ VALUES
     '33333333333',
     'M',
     NULL,
+    NULL,
     3,
     185,
     68
 ),
 (
-    3,
+    4,
     'Matteo',
     'Casonato',
     'matteo@casonato.com',
@@ -193,12 +191,13 @@ VALUES
     '3923240890',
     'M',
     "3.png",
+    "La mia bella foto profilo",
     1,
     186,
     78
 ),
 (
-    4,
+    5,
     'Mattia',
     'Quasinato',
     'mattia@quasinato.com',
@@ -207,6 +206,7 @@ VALUES
     '3923240890',
     'M',
     "3.png",
+    "La mia bellissima foto profilo",
     3,
     186,
     78
@@ -219,42 +219,47 @@ INSERT INTO corso (
     data_inizio,
     data_fine,
     trainer,
-    copertina
+    copertina,
+    alt_copertina
   )
 VALUES (
     1,
-    'Total Body',
+    '<span xml:lang="en" lang="en">Total Body</span>',
     'Allenamento di tutto il corpo con poche pause',
     '2022-01-02',
     '2022-12-02',
     1,
-    '1.jpg'
+    '1.jpg',
+    'Due persone in posizione squat con un peso in mano'
   ),
   (
     2,
-    'ZumbaFit',
-    'Allenamento Full Body a passi di Zumba per tutte le età',
+    '<span xml:lang="en" lang="en">ZumbaFit</span>',
+    'Allenamento <span xml:lang="en" lang="en">Full Body</span> a passi di Zumba per tutte le et&agrave;',
     '2022-01-02',
     '2022-12-02',
     1,
-    '2.jpg'
+    '2.jpg',
+    'Ragazze che fanno esercizi di Zumba'
   ),
   (
     3,
-    'Spinning',
-    'Allenamento con <span xml:lang="fr">cyclette</span> professionali Technogym',
+    '<span xml:lang="en" lang="en">Spinning</span>',
+    'Allenamento con <span xml:lang="fr">cyclette</span> professionali <span xml:lang="en" lang="en">Technogym</span>',
     '2022-01-02',
     '2022-12-02',
     1,
-    '3.jpg'
+    '3.jpg',
+    'Il nostro set di spin bike'
   ),
   (
     4,
-    '<span xml:lang="en">Break Ass</span>',
+    '<span xml:lang="en" lang="en">Break Ass</span>',
     'Allenamento che appena tutto il corso usando pause piccole e ritmi di ripetizioni alte. Riuscirai a resistere?',
     '2022-01-02',
     '2022-12-02',
     1,
+    NULL,
     NULL
   );
 
@@ -267,25 +272,25 @@ VALUES
 ('gambe'), 
 ('braccia'), 
 ('glutei'),
-('stretching');
+('<span xml:lang="en" lang="en">stretching</span>');
 
 INSERT INTO esercizio(nome, categoria) 
 VALUES 
-('Plank', 1), 
-('Crunch', 1), 
+('<span xml:lang="en" lang="en">Plank</span>', 1), 
+('<span xml:lang="en" lang="en">Crunch</span>', 1), 
 ('Trazioni', 2), 
 ('Pressa spalla', 3), 
-('Tapis roulant', 4), 
+('<span xml:lang="fr" lang="fr">Tapis roulant</span>', 4), 
 ('Quadricipiti', 5), 
 ('Salto corda', 5), 
 ('Manubri', 6), 
 ('Affondi', 5), 
-('Squat', 7), 
-('Cyclette', 4), 
-('Curl bilancere', 6), 
+('<span xml:lang="en" lang="en">Squat</span>', 7), 
+('<span xml:lang="fr" lang="fr">Cyclette</span>', 4), 
+('<span xml:lang="en" lang="en">Curl</span> bilancere', 6), 
 ('Panca piana', 6), 
-('Plank laterale', 1), 
-('Stretching gambe', 8);
+('<span xml:lang="en" lang="en">Plank</span> laterale', 1), 
+('<span xml:lang="en" lang="en">Stretching</span> gambe', 8);
 
 INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 2, 1);
 

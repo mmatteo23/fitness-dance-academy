@@ -11,12 +11,13 @@ $corsi = $modello->index($_GET);
 
 $htmlCorsi = "";
 $modalCorsi = "";
+
 if(count($corsi) > 0){
     foreach($corsi as $corso){
         $htmlCorsi .= "<div class='corso-card'>
             <img class='img-card' src='img/corsi/" . ($corso['copertina']?:'default.jpg') . "'/>
-            <p class='title-card'>" . $corso['titolo'] . "<span class='little-title'><span xml:lang='en'> by</span> " . $corso['trainer_nome'] . "</span></p>
-            <p>" . $corso['descrizione'] . "</p>
+            <p class='title-card'>" . $corso['titolo'] . "<span class='little-title'><span xml:lang='en'> by</span> " . $corso['trainer_nome'] . " " . $corso['trainer_cognome'] . "</span></p>
+            <p class='descrizione-card'>" . $corso['descrizione'] . "</p>
             <a href='areariservata/prenotazionecorso.php?corso=" . $corso['id'] . "' class='button button-purple'>Prenota</a>
     </div>";
         

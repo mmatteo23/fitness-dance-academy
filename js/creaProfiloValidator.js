@@ -17,8 +17,8 @@ const setError = (element, message) => {
     const errorDisplay = inputWrapper.querySelector('.error');
 
     errorDisplay.innerText = message;
-    //inputWrapper.classList.add('error');
-    //inputWrapper.classList.remove('success');
+    inputWrapper.classList.add('error');
+    inputWrapper.classList.remove('success');
 }
 
 const setSuccess = element => {
@@ -68,3 +68,7 @@ function validaEmail(){
         setSuccess(email);
     }
 }
+
+// function validaImg() {
+//     console.log("NON VALI NIENTE")
+// }

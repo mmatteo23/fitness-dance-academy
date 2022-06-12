@@ -4,25 +4,32 @@ require_once "../config.php";
 
 require_once(SITE_ROOT . '/php/validSession.php');
 require_once(SITE_ROOT . "/php/Models/Corso.php");
+require_once(SITE_ROOT . "/php/Models/Utente.php");
+
+$modello = new Corso;
+$modelloUtente = new Utente;
+
+if(!isset($_SESSION['userId']) || !$modelloUtente->isCliente($_SESSION['userId'])) {
+    header("location: /login.php");
+}
 
 // html pieces
 $content_corsi = "";
 $content_corsi_prenotati = "";
-$html_table = "<table class='table-prenotazione'>
-    <thead>
-        <tr>
-            <th>Titolo</th>
-            <th>Data Inizio</th>
-            <th>Data Fine</th>
-            <th><span xml:lang='en'>Trainer</span></th>
-            <th>Prenotati</th>
-        </tr>
-    </thead>
-    <tbody>";
+$html_table = "
+    <table class='table-prenotazione'>
+        <thead>
+            <tr>
+                <th scope='col'>Titolo</th>
+                <th scope='col'>Data Inizio</th>
+                <th scope='col'>Data Fine</th>
+                <th scope='col'><span xml:lang='en'>Trainer</span></th>
+                <th scope='col'>Prenotati</th>
+            </tr>
+        </thead>
+        <tbody>";
 $html_table_footer = "</tbody></table>";
 $response = "";
-
-$modello = new Corso;
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
@@ -62,7 +69,7 @@ if(count($corsi)){
 
     foreach($corsi as $corso){
         $content_corsi .= "<tr>
-            <th>". $corso['titolo'] ."</th>
+            <th scope='row'>". $corso['titolo'] ."</th>
             <td data-title='Data Inizio'>". explode(' ', $corso['data_inizio'])[0] ."</td>
             <td data-title='Data Fine'>". explode(' ',$corso['data_fine'])[0] ."</td>
             <td data-title='Trainer'>". $corso['trainer_nome'] ."</td>
@@ -83,9 +90,9 @@ if(count($corsi_prenotati)){
 
     foreach($corsi_prenotati as $corso){
         $content_corsi_prenotati .= "<tr>
-            <th>". $corso['titolo'] ."</th>
-            <td data-title='Data Inizio'>". $corso['data_inizio'] ."</td>
-            <td data-title='Data Fine'>". $corso['data_fine'] ."</td>
+            <th scope='row'>". $corso['titolo'] ."</th>
+            <td data-title='Data Inizio'>". explode(' ', $corso['data_inizio'])[0] ."</td>
+            <td data-title='Data Fine'>". explode(' ', $corso['data_fine'])[0] ."</td>
             <td data-title='Trainer'>". $corso['trainer_nome'] ."</td>
             <td>
                 <button type='submit' name='delete' value=" . $corso['id'] . " class='button button-purple button-filter'>Disiscriviti</button>

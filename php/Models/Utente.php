@@ -180,7 +180,7 @@ class Utente {
                     Utente::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
                     Utente::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
                     ($data['telefono']!=""?Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
-                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita troppo recente</li>":"").
+                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita non corrispondente a persona maggiorenne</li>":"").
                     ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
                     (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
         if($errors != "")
@@ -195,7 +195,7 @@ class Utente {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
+            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, alt_foto_profilo, ruolo, altezza, peso)
             VALUE (
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
@@ -205,6 +205,7 @@ class Utente {
                 '" . $data['telefono'] . "',
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
+                '" . ($data['alt_foto_profilo']?:"NULL") . "',
                 " . $data['ruolo'] . ",
                 " . ($data['altezza']?:"NULL") . ",
                 " . ($data['peso']?:"NULL") . "
@@ -219,7 +220,7 @@ class Utente {
         return false;
     }
 
-    public function read(int $id)
+    public static function read(int $id)
     {
         $connection_manager = new DBAccess();
         $conn_ok = $connection_manager->openDBConnection();
@@ -251,6 +252,7 @@ class Utente {
                 telefono = '" . $data['telefono'] . "',
                 sesso = '" . $data['sesso'] . "',
                 foto_profilo = '" . $data['foto_profilo'] . "',
+                alt_foto_profilo = '" . $data['alt_foto_profilo'] . "',
                 ruolo = " . $data['ruolo'] . ",
                 altezza = " . $data['altezza'] . ",
                 peso = " . $data['peso'] . "
@@ -318,24 +320,24 @@ class Utente {
         return false;
     }
 
-    public function isAdmin($userId) {
-        $userData = $this->read($userId);
+    public static function isAdmin($userId) {
+        $userData = Utente::read($userId);
         if ($userData['ruolo'] == 1)
             return true;
         else
             return false;
     }
 
-    public function isTrainer($userId) {
-        $userData = $this->read($userId);
+    public static function isTrainer($userId) {
+        $userData = Utente::read($userId);
         if ($userData['ruolo'] == 2)
             return true;
         else
             return false;
     }
 
-    public function isCliente($userId) {
-        $userData = $this->read($userId);
+    public static function isCliente($userId) {
+        $userData = Utente::read($userId);
         if ($userData['ruolo'] == 3)
             return true;
         else

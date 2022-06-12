@@ -4,6 +4,14 @@ require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . "/php/Models/Sessione.php");
+require_once(SITE_ROOT . "/php/Models/Utente.php");
+
+$modelloSessione = new Sessione;
+$modelloUtente = new Utente;
+
+if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])) {
+    header("location: /login.php");
+}
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_sessione.html");
 
@@ -36,7 +44,7 @@ $contatorePersone = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
-    $n = Sessione::countPrenotati($_POST);
+    $n = $modelloSessione->countPrenotati($_POST);
     $contatorePersone = "<p id='risultatoContatoreSessioni'>Abbiamo trovato $n persone prenotate per questo orario.</p>";
 
 }
@@ -83,8 +91,6 @@ $htmlPage = str_replace('<div id="errori"></div>', $errors, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
 $htmlPage = str_replace("<contatore/>", $contatorePersone, $htmlPage);
-
-
 
 echo $htmlPage;
 

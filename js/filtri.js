@@ -19,3 +19,7 @@ function setInputValues(item, index, arr) {
         }
     }
 }
+
+function resetFilters() {
+    window.location = window.location.href.split("?")[0];
+}

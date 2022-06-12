@@ -1,6 +1,7 @@
 <?php
 require_once(SITE_ROOT . '/php/db.php');
 require_once(SITE_ROOT . '/php/utilities.php');
+require_once(SITE_ROOT . '/php/Models/Utente.php');
 use DB\DBAccess;
 
 class Corso {
@@ -20,7 +21,7 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
                 INNER JOIN utente ON utente.id = trainer";
             // append if there are some filters
             if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields);
@@ -35,9 +36,30 @@ class Corso {
         return NULL;
     }
 
-    public function create(array $data)
+    public static function create(array $data)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+            $query = "INSERT INTO corso (titolo, descrizione, data_inizio, data_fine, copertina, alt_copertina, trainer)
+            VALUE (
+                '" . $data['titolo'] . "',
+                '" . $data['descrizione'] . "',
+                '" . $data['data_inizio'] . "',
+                '" . $data['data_fine'] . "',
+                '" . $data['copertina'] . "',
+                '" . $data['alt_copertina'] . "',
+                '" . $data['trainer'] . "'
+            )";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     public function read(int $id)
@@ -72,6 +94,42 @@ class Corso {
      *              UTILITIES
      * 
      *****************************************/
+
+    public static function isMandatory($data, $key, $name) {
+        if($data[$key] == "")
+            return "<li>Il campo '".$name."' va inserito</li>";
+        return "";
+    }
+
+    public static function checkRegExp($data, $key, $regEx, $name) {
+        if($data[$key]!="" && !preg_match($regEx, $data[$key]))
+            return "<li>Il campo '".$name."' contiene input non valido</li>";
+        return "";
+    }
+
+    public static function trainerExists($trainerId) {
+        if(!Utente::isTrainer($trainerId))
+            return "<li>Il trainer inserito non esiste</li>";
+        return "";
+    }
+
+    public static function validator(array $data = NULL)
+    {
+        $errors = "";
+        $errors .=  Corso::isMandatory($data, "titolo", "titolo").
+                    Corso::isMandatory($data, "descrizione", "descrizione").
+                    Corso::isMandatory($data, "data_inizio", "data di inizio").
+                    Corso::isMandatory($data, "data_fine", "data di fine").
+                    Corso::isMandatory($data, "trainer", "trainer").
+                    Corso::checkRegExp($data, "titolo", "/^[a-zA-Z\s-]+$/", "titolo").
+                    Corso::checkRegExp($data, "descrizione", "/^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/", "descrizione").
+                    Corso::checkRegExp($data, "alt_copertina", "/^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/", "alt_copertina").
+                    (strtotime($data['data_inizio']) < strtotime($data['data_fine'])?"":"<li>La data di inizio deve precedere la data di fine</li>").
+                    Corso::trainerExists($data['trainer']);
+        if($errors != "")
+            return "<ul>".$errors."</ul>";
+        return true;
+    }
 
     public function getAllCorsi(array $filters)
     {
