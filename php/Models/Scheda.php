@@ -61,7 +61,7 @@ class Scheda {
             VALUE (
                 " . $data['cliente'] . ",
                 " . $data['trainerScheda'] . ",
-                '" . date("yyyy-mm-dd hh:mm:ss") . "'
+                '" . date("Y-m-d 00:00:00") . "'
             )";
             
             $queryResults = $connection_manager->executeQuery($query); 
