@@ -4,6 +4,14 @@ require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . "/php/Models/Sessione.php");
+require_once(SITE_ROOT . "/php/Models/Utente.php");
+
+$modelloSessione = new Sessione();
+$modelloUtente = new Utente();
+
+if(!isset($_SESSION['userId']) || !$modelloUtente->isCliente($_SESSION['userId'])) {
+    header("location: /login.php");
+}
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_sessione.html");
 
@@ -37,10 +45,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     $_POST['cliente'] = $_SESSION['userId'];
 
-    $errors = Sessione::validator($_POST);
+    $errors = $modelloSessione->validator($_POST);
 
     if ($errors == ""){
-        $returned = Sessione::create($_POST);
+        $returned = $modelloSessione->create($_POST);
     }   
 }
 
@@ -82,7 +90,7 @@ $giornoHTML .= "<select/>";
 
 $tabellaSess_content = "";
 if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
-    $sessioniPrenot = Sessione::getSessionsOf($_SESSION['userId']);
+    $sessioniPrenot = $modelloSessione->getSessionsOf($_SESSION['userId']);
     if(count($sessioniPrenot)){
         foreach($sessioniPrenot as $sess){
             $data = explode('-', $sess['data']);
