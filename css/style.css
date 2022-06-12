@@ -974,6 +974,7 @@ a.button {
     justify-content: space-between;
     align-items: center;
     font-weight: normal;
+    padding: 0.5em 0.75em;
 }
 
 #private-area-menu li:last-child a{
