@@ -205,7 +205,7 @@ class Utente {
                 '" . $data['telefono'] . "',
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
-                '" . $data['alt_foto_profilo'] . "',
+                '" . ($data['alt_foto_profilo']?:"NULL") . "',
                 " . $data['ruolo'] . ",
                 " . ($data['altezza']?:"NULL") . ",
                 " . ($data['peso']?:"NULL") . "
