@@ -220,7 +220,7 @@ class Utente {
         return false;
     }
 
-    public function read(int $id)
+    public static function read(int $id)
     {
         $connection_manager = new DBAccess();
         $conn_ok = $connection_manager->openDBConnection();
@@ -320,24 +320,24 @@ class Utente {
         return false;
     }
 
-    public function isAdmin($userId) {
-        $userData = $this->read($userId);
+    public static function isAdmin($userId) {
+        $userData = Utente::read($userId);
         if ($userData['ruolo'] == 1)
             return true;
         else
             return false;
     }
 
-    public function isTrainer($userId) {
-        $userData = $this->read($userId);
+    public static function isTrainer($userId) {
+        $userData = Utente::read($userId);
         if ($userData['ruolo'] == 2)
             return true;
         else
             return false;
     }
 
-    public function isCliente($userId) {
-        $userData = $this->read($userId);
+    public static function isCliente($userId) {
+        $userData = Utente::read($userId);
         if ($userData['ruolo'] == 3)
             return true;
         else

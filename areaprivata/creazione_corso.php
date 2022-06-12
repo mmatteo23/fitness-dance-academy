@@ -14,7 +14,7 @@ $modelloUtente = new Utente();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     $errors = $modelloCorso->validator($_POST);
     if($errors === TRUE){
-        $_POST['copertina'] = "default.png";
+        $_POST['copertina'] = "default.jpg";
         $_POST['alt_copertina'] = "Immagine del corso di default";
         if(!Corso::create($_POST)){
             $errors = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
@@ -46,7 +46,7 @@ $formContent = "
     </div>
     <div class='input-wrapper'>
         <label for='data_fine'>Data di fine*</label>
-        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01'>
+        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onblur='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
@@ -55,8 +55,8 @@ $formContent = "
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
-        <label for='descrizione'>Descrizione copertina* (se scelta)</label>
-        <input type='text' name='descrizione' id='descrizione' class='transparent-login' onblur='validaDescrizione()'>
+        <label for='alt_copertina'>Descrizione copertina* (se scelta)</label>
+        <input type='text' name='alt_copertina' id='alt_copertina' class='transparent-login' onblur='validaAltImmagine()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>

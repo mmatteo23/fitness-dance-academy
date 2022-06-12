@@ -1,11 +1,6 @@
 /*******************************
  *          PALETTE
  ******************************/
-span[lang="en"]{
-    background-color: aqua !important;
-    color: black !important;
-}
-
  :root{  
     --color0: #1f306e;
     --color0-dark: #1a2240;
