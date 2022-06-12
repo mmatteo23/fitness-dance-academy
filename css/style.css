@@ -587,7 +587,12 @@ p.title-card {
 }
 .table-prenotazione {
     margin: 0;
+    margin-top: 0.5em;
     width: 100%;
+}
+.link-sopra-table {
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
 }
 table .button.button-filter {
     margin: auto;
@@ -1045,6 +1050,7 @@ main#aboutus-container{
     color: white;
     padding: 3%;
     margin: auto;
+    font-size: 1.2em;
 }
 main#aboutus-container h2{
     font-size: 2.5em;
@@ -1054,7 +1060,6 @@ main#aboutus-container h3{
     margin: 0;
 }
 main#aboutus-container dt{
-    font-size: 1.25em;
     font-weight: bold;
 }
 main#aboutus-container p{
@@ -1064,9 +1069,10 @@ main#aboutus-container dl{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 main#aboutus-container dd{
     margin-left: 0;
     padding-right: 5em;
-    font-size: 2em;
+    font-size: 1.5em;
 }

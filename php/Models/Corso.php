@@ -73,6 +73,38 @@ class Corso {
      * 
      *****************************************/
 
+    public static function isMandatory($data, $key, $name){
+        if($data[$key] == "")
+            return "<li>Il campo '".$name."' va inserito</li>";
+        return "";
+    }
+
+    public static function checkRegExp($data, $key, $regEx, $name){
+        if($data[$key]!="" && !preg_match($regEx, $data[$key]))
+            return "<li>Il campo '".$name."' contiene input non valido</li>";
+        return "";
+    }
+
+    public static function validator(array $data = NULL)
+    {
+        $errors = "";
+        $errors .=  Corso::isMandatory($data, "titolo", "titolo").
+                    Corso::isMandatory($data, "descrizione", "descrizione").
+                    Corso::isMandatory($data, "data_inizio", "data di inizio").
+                    Corso::isMandatory($data, "data_fine", "data di fine").
+                    Corso::isMandatory($data, "trainer", "trainer").
+                    Corso::checkRegExp($data, "nome", "/^[a-zA-Z\s-]+$/", "nome").
+                    Corso::checkRegExp($data, "cognome", "/^[a-zA-Z\s-]+$/", "cognome").
+                    Corso::checkRegExp($data, "email", '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', "e-mail").
+                    ($data['telefono']!=""?Corso::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
+                    (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita troppo recente</li>":"").
+                    ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
+                    (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
+        if($errors != "")
+            return "<ul>".$errors."</ul>";
+        return true;
+    }
+
     public function getAllCorsi(array $filters)
     {
         $connection_manager = new DBAccess();

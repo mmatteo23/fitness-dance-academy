@@ -68,3 +68,7 @@ function validaEmail(){
         setSuccess(email);
     }
 }
+
+// function validaImg() {
+//     console.log("NON VALI NIENTE")
+// }

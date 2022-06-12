@@ -28,6 +28,7 @@ CREATE TABLE utente (
 	telefono varchar(10),
 	sesso char NOT NULL,
 	foto_profilo varchar(255),
+  alt_foto_profilo varchar(255),
 	ruolo int NOT NULL,
 	altezza int,
 	peso int,
@@ -123,6 +124,7 @@ CREATE TABLE corso (
 	data_inizio datetime NOT NULL,
 	data_fine datetime NOT NULL,
 	copertina varchar(255),
+  alt_copertina varchar(255),
 	trainer int NOT NULL,
 
 	PRIMARY KEY (id),
@@ -151,6 +153,7 @@ INSERT INTO utente (
     telefono,
     sesso,
     foto_profilo,
+    alt_foto_profilo,
     ruolo,
     altezza,
     peso)
@@ -165,12 +168,28 @@ VALUES
     '34567897894',
     'M',
     NULL,
+    NULL,
     2,
     177,
     70
 ),
 (
     2,
+    'Selly',
+    'Scheggia',
+    'selly.scheggia@fda.it',
+    '2000-07-15',
+    'braccioTiAmo',
+    '3859689456',
+    'F',
+    NULL,
+    NULL,
+    2,
+    165,
+    65
+),
+(
+    3,
     'Danilo',
     'Stojkovic',
     'ds@ds.it',
@@ -179,12 +198,13 @@ VALUES
     '33333333333',
     'M',
     NULL,
+    NULL,
     3,
     185,
     68
 ),
 (
-    3,
+    4,
     'Matteo',
     'Casonato',
     'matteo@casonato.com',
@@ -193,12 +213,13 @@ VALUES
     '3923240890',
     'M',
     "3.png",
+    "La mia bella foto profilo",
     1,
     186,
     78
 ),
 (
-    4,
+    5,
     'Mattia',
     'Quasinato',
     'mattia@quasinato.com',
@@ -207,6 +228,7 @@ VALUES
     '3923240890',
     'M',
     "3.png",
+    "La mia bellissima foto profilo",
     3,
     186,
     78
@@ -219,7 +241,8 @@ INSERT INTO corso (
     data_inizio,
     data_fine,
     trainer,
-    copertina
+    copertina,
+    alt_copertina
   )
 VALUES (
     1,
@@ -228,16 +251,18 @@ VALUES (
     '2022-01-02',
     '2022-12-02',
     1,
-    '1.jpg'
+    '1.jpg',
+    'Due persone in posizione squat con un peso in mano'
   ),
   (
     2,
     '<span xml:lang="en" lang="en">ZumbaFit</span>',
-    'Allenamento <span xml:lang="en" lang="en">Full Body</span> a passi di Zumba per tutte le età',
+    'Allenamento <span xml:lang="en" lang="en">Full Body</span> a passi di Zumba per tutte le et&agrave;',
     '2022-01-02',
     '2022-12-02',
     1,
-    '2.jpg'
+    '2.jpg',
+    'Ragazze che fanno esercizi di Zumba'
   ),
   (
     3,
@@ -246,7 +271,8 @@ VALUES (
     '2022-01-02',
     '2022-12-02',
     1,
-    '3.jpg'
+    '3.jpg',
+    'Il nostro set di spin bike'
   ),
   (
     4,
@@ -255,6 +281,7 @@ VALUES (
     '2022-01-02',
     '2022-12-02',
     1,
+    NULL,
     NULL
   );
 

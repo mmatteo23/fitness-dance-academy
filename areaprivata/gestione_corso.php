@@ -50,6 +50,7 @@ $filters = "
         <button type='submit' class='button button-transparent button-filter'>Cerca</button>
         <button onClick='resetFilters()' type='reset' class='button button-transparent button-filter'>Reset</button>
     </form>
+    <a class='link-sopra-table' href='creazione_corso.php'>Aggiungi un nuovo corso</a>
 ";
 
 $isTrainer = $modelloUtente->isTrainer($_SESSION['userId']);
@@ -88,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
         $corsoId = $_GET['view'];
         $corso = $modello->read($corsoId);
         $pageTitle = "<h1 id='head-private-area-top'>Prenotazioni corso ".$corso['titolo']."</h1>";
-        $filters = "<a href='/areaprivata/gestione_corso.php' class=''>Torna alla lista dei corsi</a>";
+        $filters = "<a class='link-sopra-table' href='/areaprivata/gestione_corso.php' class=''>Torna alla lista dei corsi</a>";
         $nIscritti = $modello->getNumeroIscritti($corsoId);
         if($nIscritti){
             $content_corsi = $iscritti_table;
