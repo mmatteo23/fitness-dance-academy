@@ -246,8 +246,11 @@
     select#giornoSessione{
         margin-left: 1em;
     }
-    form.filtri[method="get"]{
-        display: block;
+
+    form.filtri {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
     }
     form.filtri input{
         width: 100%;
