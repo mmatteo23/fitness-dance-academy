@@ -189,7 +189,7 @@
         padding-bottom: 1em;
     }
     .ex{
-        min-width: 0;
+       width: auto;
     }
     .ex-img{
         max-width: 6em;

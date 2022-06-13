@@ -972,7 +972,7 @@ background-color: var(--transparent);
 .ex{
     background-color: var(--transparent);
     display: flex;
-    min-width: 25em;
+    width: 25em;
     margin-bottom: 1em;
 }
 .ex-img{
