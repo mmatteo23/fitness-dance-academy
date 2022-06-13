@@ -467,6 +467,10 @@ div.input-wrapper {
     width: 100%;
 }
 
+div.input-wrapper-with-image {
+    text-align: center;
+}
+
 div.input-wrapper input {
     padding: 0.5em 0.4em;
     font-size: 1em;
@@ -932,6 +936,14 @@ img.profilePicture {
     border-radius: 10em;
     border-color: #ffffff1a;
     object-fit: cover;
+}
+
+.input-label-img {
+    text-align: initial;
+}
+
+.hint {
+    font-size: 0.7em;
 }
 
 .profileData {

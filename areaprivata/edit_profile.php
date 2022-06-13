@@ -3,37 +3,42 @@
 require_once '../config.php';
 
 require_once(SITE_ROOT . '/php/validSession.php');
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . '/php/Models/Utente.php');
 require_once(SITE_ROOT . '/php/Models/Sessione.php');
 
-$errors = '';
+$valid = '';
 
-$modello = new Utente();
+$modelloUtente = new Utente();
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
-    $errors = $modello->validator($_POST);
     if (isset($_POST['cancella'])) {
-        $modello->delete($_SESSION['userId']);
+        $modelloUtente->delete($_SESSION['userId']);
         header('Location: /php/logout.php');
     } else
-    if($errors === TRUE){
-        $_POST['foto_profilo'] = 'default.png';
-        $_POST['alt_foto_profilo'] = 'Foto profilo di default';
-        $_POST['ruolo'] = 1;
-        if(!$modello->update($_SESSION['userId'], $_POST)){
-            echo "non ce l'ho fatta";
-        }
-        else{
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['userId'] = $modello->getIdFromEmail($_POST['email']);
-            header('location: profile.php');
-        }
+    $response = checkAndUploadImage(SITE_ROOT . "/img/fotoProfilo/", "profile-img", $_SESSION['userId'], "default.png");
+    if($response[1] == "") {
+        $valid = $modelloUtente->validator($_POST);
+        if($valid == TRUE){
+            $_POST['foto_profilo'] = $response[0];
+            $_POST['ruolo'] = $modelloUtente->getRole($_SESSION['userId']);
+            if(!$modelloUtente->update($_SESSION['userId'], $_POST)){
+                $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
+            }
+            else{
+                $_SESSION['email'] = $_POST['email'];
+                $_SESSION['userId'] = $modelloUtente->getIdFromEmail($_POST['email']);
+                header("location: profile.php");
+            }
+        } 
+    } else {
+        $valid .= $response[1];
     }
 }
 
 // TAKE OLD USER INFO
-$userData = $modello->read($_SESSION['userId']);
+$userData = $modelloUtente->read($_SESSION['userId']);
 
 $formContent = "
     <div class='input-wrapper'>
@@ -49,6 +54,18 @@ $formContent = "
     <div class='input-wrapper'>
         <label for='email'><span xml:lang='en'>E-mail*</span></label>
         <input type='email' value='" . $userData['email'] . "' name='email' id='email' class='transparent-login' onblur='validaEmail()'>
+        <p class='error'></p>
+    </div>
+    <div class='input-wrapper input-wrapper-with-image'>
+        <label for='profile_img'>
+            <img src='/img/fotoProfilo/" . ($userData['foto_profilo']?$userData['foto_profilo']:'default.png') . "' id='user-profile-img' class='profilePicture' alt='user profile image'>
+            <div class='input-label-img'>
+                <span>Foto profilo<span>
+                <br>
+                <span class='hint'>Grandezza massima della foto 2<abbr title='megabyte'>MB</abbr></span>
+            </div>
+        </label>
+        <input type='file' value='" . $userData['foto_profilo'] . "' name='profile-img' id='profile-img' class='transparent-login' accept='image/png, image/jpeg' onchange='validateImage(\"profile-img\")'>       
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
@@ -101,7 +118,7 @@ $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/edit_profile.html')
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
-$htmlPage = str_replace('<formErrors/>', $errors, $htmlPage);
+$htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
 
 echo $htmlPage;

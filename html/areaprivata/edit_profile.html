@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="/js/creaProfiloValidator.js"></script>
+    <script defer src="/js/image_validator.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
 </head>
 <body>
@@ -82,9 +83,10 @@
                         <h1>Modifica il tuo Profilo</h1>
                         <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
                         <formErrors/>
-                        <form action="edit_profile.php" method="POST" id="formEditProfilo">
+                        <form action="edit_profile.php" method="POST" id="formEditProfilo" enctype="multipart/form-data">
                             <formContent/>
                             <input id="creaBtn" type="submit" class="button button-purple" value="Conferma Modifiche" name="modifica"/>
+                            <a id="annullaBtn" href="profile.php" class="button button-purple">Annulla Modifiche</a>
                             <input id="deleteProfiloBtn" type="submit" class="button button-violet" value="Cancella Profilo" name="cancella"/>
                         </form>
                     </div>
