@@ -23,6 +23,7 @@ $html_table = "<table class='table-prenotazione'>
             <th>Data Fine</td>
             <th>Prenotazioni</td>
             <th>Visualizza</td>
+            <th>Modifica</td>
         </tr>
     </thead>
     <tbody>";
@@ -40,7 +41,12 @@ $iscritti_table = "
     <tbody>
 ";
 $html_table_footer = "</tbody></table>";
-$pageTitle = "<h1 id='head-private-area-top'>Lista dei tuoi corsi</h1>";
+$pageTitle = "
+    <div class='private-area-title-and-button'>
+        <h1 id='head-private-area-top'>Lista dei tuoi corsi</h1>
+        <a class='link-sopra-table button button-purple' href='creazione_corso.php'>Aggiungi un nuovo corso</a>
+    </div>
+";
 $filters = "
     <form method='get' class='filtri'>
         <label for='titolo'>Nome</label>
@@ -50,7 +56,6 @@ $filters = "
         <button type='submit' class='button button-transparent button-filter'>Cerca</button>
         <button onClick='resetFilters()' type='reset' class='button button-transparent button-filter'>Reset</button>
     </form>
-    <a class='link-sopra-table' href='creazione_corso.php'>Aggiungi un nuovo corso</a>
 ";
 
 $isTrainer = $modelloUtente->isTrainer($_SESSION['userId']);
@@ -72,7 +77,9 @@ if(count($corsi)){
             <td>
                 <button type='submit' name='view' value=" . $corso['id'] . " class='button button-purple button-filter'>Visualizza</button>
             </td>
-            
+            <td>
+                <a class='button button-purple button-filter' href=\"/areaprivata/modifica_corso.php?id=".$corso['id']."\">Modifica</a>
+            </td>
         </tr>";
     }
 
@@ -101,7 +108,6 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
         $corsoId = $_GET['view'];
         $corso = $modello->read($corsoId);
         $pageTitle = "
-            <a class='link-sopra-table' href=\"/areaprivata/modifica_corso.php?id=".$corsoId."\">Modifica il corso</a>
             <h1 id='head-private-area-top'>".$corso['titolo']."</h1>
             <p>".$corso['descrizione']."</p>
         ";

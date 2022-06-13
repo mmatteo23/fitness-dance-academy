@@ -102,11 +102,6 @@ $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<trainerOptions/>', $trainerOptions, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
-$htmlPage = str_replace(
-    '<visualizzaBreadcrumb/>', 
-    "<li><a href='gestione_corso.php?view=".$_GET['id']."'>Visualizza</a></li>", 
-    $htmlPage
-);
 
 echo $htmlPage;
 
