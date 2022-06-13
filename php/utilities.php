@@ -65,7 +65,8 @@
 
     function preventMaliciousCode (array &$inputs) {
         foreach ($inputs as &$in){
-            $in = preg_replace('/<[^>]*>/', '', $in);  
+            $in = preg_replace('/<[^>]*>/', '', $in);
+            $in = htmlspecialchars($in, ENT_QUOTES);
         }
     }
 
