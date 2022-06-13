@@ -105,17 +105,17 @@ a.skip-to-content:focus {
     background-color: var(--color0-dark);
 }
 
-navbar{
+nav{
     display: flex;
     margin: auto;
     padding: 0 1.5em;
 }
 
-navbar, main {
+nav, main {
     max-width: 1200px;
 }
 
-navbar ul{
+nav ul{
     display: flex;
     list-style-type: none;
     margin: auto;
@@ -124,7 +124,7 @@ navbar ul{
     margin-right: 2em;
 }
 
-navbar li{
+nav li{
     font-size: 1.3em;
     padding: 0.25em 1.5em;
     color: white;
@@ -132,17 +132,17 @@ navbar li{
     transition: background-color 0.25s;
 }
 
-navbar li > a {
+nav li > a {
     text-decoration: none;
     color: inherit;
     background-color: inherit;
 }
 
-navbar li > a:visited{
+nav li > a:visited{
     color: inherit;
 }
 
-navbar li:hover {
+nav li:hover {
     background-color: var(--color0);
 }
 
