@@ -89,6 +89,23 @@
     /*****************************
      *          TABLES
      ****************************/
+
+    #tabPrenotate{
+        width: 100%;
+    }
+
+    #tabPrenotate thead{
+        display: none;
+    }
+
+    #tabPrenotate tr, #tabPrenotate th, #tabPrenotate td{
+        display: block;
+    }
+
+    #tabPrenotate th[data-title]:before, #tabPrenotate td[data-title]:before{
+        content:attr(data-title) ":\00A0";
+    }
+
     div.table-box {
         overflow-x: auto !important;
     }
@@ -182,14 +199,11 @@
         flex-wrap: wrap;
         justify-content: space-between;
         padding-right: 0;
-    }
+    }*/
     #private-area-menu .button{
-        min-width: 8em;
-        max-width: 8em;
-        padding: 0.25em 0.75em;
-        margin-bottom: 0.25em;
+        min-width: 6em;
+        width: 50%;
     }
-    */
 
     #private-area-menu {
         padding-right: 0;

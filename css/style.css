@@ -134,6 +134,7 @@ li#selectedNavbar{
 }
 
 ul#breadcrumb{
+    width: 100%;
     font-size: 0.8em;
     padding: 0;
     display: flex;
@@ -143,7 +144,6 @@ ul#breadcrumb{
     margin-top: 0.2em;
     margin-bottom: 0.2em;
     max-width: 1200px;
-    justify-content: center;
 }
 
 #breadcrumb li{
@@ -482,8 +482,7 @@ div.input-wrapper label {
 }
 
 #loginForm{
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding: 2em 1em;
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -801,7 +800,7 @@ select#giornoSessione {
 
 /*----PRENOTAZIONE SCHEDA----*/
 
-#delete-scheda{
+#btn-crea-scheda{
     margin: 0 auto;
 }
 
@@ -985,14 +984,14 @@ a.button {
     margin: 0em;
     margin-bottom: 0.8em;
     border-radius: 0;
-    min-width: 7em;
+    min-width: 8em;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-weight: normal;
-    padding: 0.5em 0.75em;
+    padding: 0.5em 0.5em;
 }
 
 #private-area-menu li:last-child a{
