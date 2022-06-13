@@ -19,7 +19,7 @@ if(isset($_GET['id']))
             '<li class="ex">
                 <img class="ex-img" src="/img/iconeEsercizi/'.$es['id'].'.png"/>
                 <ul class="ex-descr">
-                    <li>'.$i.". ".$es['nome'].'</li>
+                    <li class="ex-titolo">'.$i.". ".$es['nome'].'</li>
                     <li>Serie: '.$es['serie'].'</li>
                     <li>Ripetizioni: '.$es['ripetizioni'].'</li>
                     <li>Pausa: '.$es['riposo'].'s</li>

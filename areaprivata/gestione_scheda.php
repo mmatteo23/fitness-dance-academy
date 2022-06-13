@@ -41,6 +41,7 @@ if(isset($_SESSION['userId'])){
                 <tr>
                     <th scope='col'>id</th>
                     <th scope='col'>Cliente</th>
+                    <th scope='col'>Data prenotazione</th>
                     <th scope='col'>Elimina</th>
                 </tr>
             </thead>
@@ -57,6 +58,7 @@ if(isset($_SESSION['userId'])){
                     <tr id='scheda".$scheda['id']."'>
                         <td>".$scheda['id']."</td>
                         <td>".$scheda['utente']."</td>
+                        <td>".$scheda['data']."</td>
                         <td><button id='delete-scheda' onClick='deletePrenotazioneScheda(".$scheda['id'].")' class='button button-purple'><i class=' fa fa-window-close'></i></i></button></td>
                     </tr>";
             }

@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS prenotazione_scheda;
 DROP TABLE IF EXISTS esercizio_scheda;
 DROP TABLE IF EXISTS prenotazione_sessione;
@@ -8,6 +9,7 @@ DROP TABLE IF EXISTS corso;
 DROP TABLE IF EXISTS utente;
 DROP TABLE IF EXISTS esercizio;
 DROP TABLE IF EXISTS categoria;
+SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE ruolo (
 	id int,
@@ -285,7 +287,7 @@ VALUES
 ('<span xml:lang="en" lang="en">Plank</span> laterale', 1), 
 ('<span xml:lang="en" lang="en">Stretching</span> gambe', 8);
 
-INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 2, 1);
+INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 3, 1);
 
 INSERT INTO esercizio_scheda(scheda, esercizio, serie, ripetizioni, riposo) VALUES
 (1, 3, 3, 10, 0),

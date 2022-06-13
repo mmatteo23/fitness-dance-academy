@@ -829,27 +829,21 @@ background-color: var(--transparent);
 }
 
 /*----VISUALIZZA SCHEDA----*/
-main#visScheda{
-    text-align: center;
-    background-color: var(--transparent-dark);
-}
-main#visScheda h2{
-    padding: 1em;
-    font-size: 2em;
-    margin: 0 auto;
-}
-
 #ex-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 3em;
 }
 
 .ex{
-    margin: 1em;
     background-color: var(--transparent);
     display: flex;
-    min-width: 30em;
+    min-width: 25em;
+    margin-bottom: 1em;
 }
 .ex-img{
     background-color: var(--color0-verylight);
@@ -866,12 +860,18 @@ main#visScheda h2{
     list-style-type: none;
     text-align: left;
 }
+
+li.ex-titolo {
+    font-size: 1.6em;
+}
+/*
 .ex-descr :first-child{
     font-size: 2em;
 }
 .ex-descr :last-child{
     margin: 0;
 }
+*/
 .pausa{
     max-width: 12em;
     margin: 1em;

@@ -83,7 +83,7 @@ if(isset($trainers)){
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/creazione_scheda.html');
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
-$htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
+//$htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<trainerOptions/>', $trainerOptions, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $errors, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);

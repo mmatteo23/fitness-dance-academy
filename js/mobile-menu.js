@@ -3,7 +3,7 @@ const btnMobile = document.getElementById('btn-mobile');
 function toggleMenu(event) {
   if (event.type === 'touchstart') event.preventDefault();
   const nav = document.getElementById('navbar');
-  console.log(nav)
+  //console.log(nav)
   nav.classList.toggle('active');
   const active = nav.classList.contains('active');
   event.currentTarget.setAttribute('aria-expanded', active);
