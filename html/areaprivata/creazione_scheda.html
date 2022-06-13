@@ -81,18 +81,43 @@
                 </a></li> 
             </ul>
             <div id="private-area-content">
-                <div id="containerCreaPro">
-                    <div id="loginForm" class="form-wrapper">
-                        <h1>Crea una nuova scheda</h1>
-                        <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
-                        <formErrors/>
-                        <form action="creazione_scheda.php" method="POST" id="formCreaScheda">
-                            <formContent/>
+                <div id="private-area-top">
+                    <h1 id="head-private-area-top">Crea una nuova scheda</h1>
+                    <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
+                    <formErrors/>
+                    <form action="creazione_scheda.php" method="POST" id="formCreaScheda">
+                        <!--<formContent/>-->
+                        <div class="inline-selectbox">
+                            <label class="width-fill-available" for="esercizio">Selezionare l'esercizio:</label>
+
+                            <select id="esercizio" name="esercizio">
+                                <optionsEsercizi/>
+                            </select>
+                        </div>
                             
-                            
-                            <input id="creaBtn" type="submit" class="button button-purple" value="Crea Scheda" name="crea"/>
-                        </form>
-                    </div>
+                        <div>
+                            <label for="serie">Inseririre il numero di serie:</label>
+                            <input type="number" name="serie"/>
+                        </div>
+
+                        <div>
+                            <label for="ripetizioni">Inseririre il numero di ripetizioni per serie:</label>
+                            <input type="number" name="ripetizioni"/>
+                        </div>
+
+                        <div>
+                            <label for="pausa">Inseririre la pausa in secondi:</label>
+                            <input type="number" name="pausa"/>
+                        </div>
+
+                        <input id="creaBtn" type="submit" class="button button-purple" value="Crea Scheda" name="crea"/>
+                    </form>
+                </div>
+                <div id="private-area-table">
+                    <h1>Riepilogo della scheda</h1>
+                    <form method='post' action=''>
+                        <tableEserciziScheda/>
+                    </form>
                 </div>
             </div>
         </div>
