@@ -205,12 +205,17 @@ li#selectedBreadcrumb{
     margin-top:0;
 }
 
+.grid-container#content {
+    background-color: transparent;
+}
+
 .grid-item{
     color: white;
     display: flex;
     /* background-color: var(--color0); */
     background-color: var(--transparent-dark);
     box-shadow: 0 0 10px var(--color0-dark);
+    margin-bottom: em;
 }
 
 #grid-item-a{
@@ -273,7 +278,6 @@ p.grid-item-title-vertical{
 
 #grid-item-c>.grid-img-vertical{
     margin-bottom: 1em;
-    margin-top: auto;
 }
 
 #grid-item-g h2{
