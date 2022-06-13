@@ -73,9 +73,70 @@ class Scheda {
         return false;
     }
 
-    public function create(array $data)
-    {
+    public static function getPrenotazione($id){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+            $query = "SELECT * FROM prenotazione_scheda WHERE id=$id";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults[0];
+        }
+
+        return false;
+    }
+
+    public static function deletePrenotazione($id){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "DELETE FROM prenotazione_scheda WHERE id=$id";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
+    public static function validate($input){
+        $errors = "";
+        if(!isset($input) || $input == ""){
+            $errors .= "<li>Nessun esercizio inserito</li>";
+        }
+        if($errors != "")
+            return "<ul>".$errors."</ul>";
+        return TRUE;
+    }
+
+    public static function create($client, $trainer)
+    {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "INSERT INTO scheda (cliente, trainer, data)
+            VALUE (
+                " . $client . ",
+                " . $trainer . ",
+                '" . date("Y-m-d 00:00:00") . "'
+            )";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     public function read(int $id)

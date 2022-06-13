@@ -804,6 +804,67 @@ select#giornoSessione {
     margin: 0 auto;
 }
 
+#formCreaScheda{
+    text-align: center;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+#formCreaScheda select{
+    font-size: 0.75em;
+    width: 33%;
+    min-width: 12em;
+    margin: 0 auto;
+    font-family: inherit;
+    margin-bottom: 1em;
+}
+
+#formCreaScheda input{
+    font-size: 0.75em;
+    font-family: inherit;
+    width: 33%;
+    margin: 0 auto;
+    min-width: 6em;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+#formCreaScheda #creaBtn{
+    margin-top: 1em;
+}
+
+#creaSchedaInput{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#creaSchedaInput>div{
+display: flex;
+flex-direction: column;
+margin: 0 1em;
+margin-bottom: 1em;
+}
+
+#creaSchedaInput p.error{
+    font-size: 0.5em;
+    margin: 0 auto;
+    background-color: darkred;
+    padding: 0 0.5em;
+    width: fit-content;
+    border-radius: 0.25em;
+}
+
+#addExBtn{
+    font-size: 0.75em;
+    margin: 0 auto;
+}
+
+#tabEx{
+    margin: 0 auto;
+}
+
 #scheda-table{
 background-color: var(--transparent);
     text-align: center;

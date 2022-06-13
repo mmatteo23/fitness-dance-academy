@@ -27,6 +27,24 @@ class Esercizio {
         return NULL;
     }
 
+    public static function addEsercizio($idScheda, $idEs, $nSerie, $nRip, $pausa){
+        
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "INSERT INTO esercizio_scheda (scheda, esercizio, serie, ripetizioni, riposo)
+            VALUE ($idScheda, $idEs, $nSerie, $nRip, $pausa)";
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
+    }
+
 }
 
 ?>
