@@ -15,8 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     $errors = $modello->validator($_POST);
     if (isset($_POST['cancella'])) {
         $modello->delete($_SESSION['userId']);
-        $_SESSION['email'] = "";
-        header('Location: /index.php');
+        header('Location: /php/logout.php');
     } else
     if($errors === TRUE){
         $_POST['foto_profilo'] = 'default.png';

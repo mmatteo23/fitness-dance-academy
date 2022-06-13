@@ -77,68 +77,6 @@ class Utente {
     {
         return $this->peso;
     }
-    /*
-    // SET METHODS
-    public function setId(int $_id)
-    {
-        $this->id = $_id;
-    }
-
-    public function setNome(string $_nome)
-    {
-        $this->nome = $_nome;
-    }
-
-    public function setCognome(string $_cognome)
-    {
-        $this->cognome = $_cognome;
-    }
-
-    public function setEmail(string $_email)
-    {
-        $this->email = $_email;
-    }
-
-    public function setDataNascita(string $_data_nascita)
-    {
-        $this->data_nascita = $_data_nascita;
-    }
-
-    public function setPassword(string $_password)
-    {
-        $this->password = $_password;
-    }
-
-    public function setTelefono(string $_telefono)
-    {
-        $this->telefono = $_telefono;
-    }
-
-    public function setSesso(char $_sesso)
-    {
-        $this->sesso = $_sesso;
-    }
-
-    public function setFotoProfilo(string $_foto_profilo)
-    {
-        $this->foto_profilo = $_foto_profilo;
-    }
-
-    public function setRuolo(string $_ruolo)
-    {
-        $this->ruolo = $_ruolo;
-    }
-
-    public function setAltezza(string $_altezza)
-    {
-        $this->altezza = $_altezza;
-    }
-
-    public function setPeso(string $_peso)
-    {
-        $this->peso = $_peso;
-    }
-    */
 
     public static function getTrainers(){
         $connection_manager = new DBAccess();
@@ -187,6 +125,25 @@ class Utente {
             return "<ul>".$errors."</ul>";
         return true;
     }
+    
+    public static function index(array $filters) {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT * FROM utente";
+            // append if there are some filters
+            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields);
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
 
     // CRUD OPERATIONS
     public static function create(array $data)
@@ -195,7 +152,7 @@ class Utente {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, alt_foto_profilo, ruolo, altezza, peso)
+            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
             VALUE (
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
@@ -205,7 +162,6 @@ class Utente {
                 '" . $data['telefono'] . "',
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
-                '" . ($data['alt_foto_profilo']?:"NULL") . "',
                 " . $data['ruolo'] . ",
                 " . ($data['altezza']?:"NULL") . ",
                 " . ($data['peso']?:"NULL") . "
@@ -252,7 +208,6 @@ class Utente {
                 telefono = '" . $data['telefono'] . "',
                 sesso = '" . $data['sesso'] . "',
                 foto_profilo = '" . $data['foto_profilo'] . "',
-                alt_foto_profilo = '" . $data['alt_foto_profilo'] . "',
                 ruolo = " . $data['ruolo'] . ",
                 altezza = " . $data['altezza'] . ",
                 peso = " . $data['peso'] . "

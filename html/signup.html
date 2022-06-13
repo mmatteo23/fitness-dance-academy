@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script defer src="js/creaProfiloValidator.js"></script>
+    <script defer src="/js/image_validator.js"></script>
     <script defer src="js/mobile-menu.js"></script>
 </head>
 <body>
@@ -71,11 +72,11 @@
                     <input type="email" name="email" id="email" class="transparent-login" onblur="validaEmail()"/>
                     <p class='error'></p>
                 </div>
-                <!-- <div class="input-wrapper">
+                <div class="input-wrapper">
                     <label for="profile-img">Foto profilo</label>
-                    <input type="file" name="profile-img" id="profile-img" class="transparent-login" accept="image/png, image/jpeg" onblur="validaImg()">       
+                    <input type="file" name="profile-img" id="profile-img" class="transparent-login" accept="image/png, image/jpeg" onchange="validateImage('profile-img')">       
                     <p class='error'></p>
-                </div> -->
+                </div>
                 <div class="input-wrapper">
                     <label for="data_nascita">Data di nascita*</label>
                     <input type="date" name="data_nascita" id="data_nascita" class="transparent-login" value="2000-01-01"/>
