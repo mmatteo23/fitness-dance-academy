@@ -5,12 +5,15 @@ require_once "../config.php";
 require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Scheda.php");
+require_once(SITE_ROOT . "/php/Models/Utente.php");
+
 
 preventMaliciousCode($_GET);
 if(isset($_GET['id']))
 {
     $schedaId = $_GET['id'];
-
+    $modelloUtente = new Utente;
+    
     $esercizi = Scheda::getEserciziById($schedaId);
 
     $content = '<ol id="ex-container">';
@@ -36,6 +39,20 @@ if(isset($_GET['id']))
 
     $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
     $htmlPage = str_replace("<esercizi/>", $content, $htmlPage);
+
+    $ruoloUtente = $modelloUtente->getRole($_SESSION['userId']);
+    if ($ruoloUtente < 3) {
+        $htmlPage = str_replace(
+            "<a href='/areaprivata/prenotazione_corso.php' class='button button-transparent'>", 
+            "<a href='/areaprivata/gestione_corso.php' class='button button-transparent'>", 
+            $htmlPage
+        );
+        $htmlPage = str_replace(
+            "<a href='/areaprivata/prenotazione_sessione.php' class='button button-transparent'>", 
+            "<a href='/areaprivata/gestione_sessione.php' class='button button-transparent'>", 
+            $htmlPage
+        );
+    }
 
     echo $htmlPage;
 }
