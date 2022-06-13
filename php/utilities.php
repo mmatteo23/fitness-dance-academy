@@ -26,7 +26,7 @@
     function checkAndUploadImage(string $target_dir, string $idInputForm, string $img_name, string $defaultImage) {
         $image = "";
         $errors = "";
-
+        
         if(isset($_FILES[$idInputForm]) && $_FILES[$idInputForm]['name']){
 
             $target_file = $target_dir . basename($_FILES[$idInputForm]["name"]);

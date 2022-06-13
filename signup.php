@@ -14,12 +14,12 @@ if(isset($_SESSION['email'])){    // the user is already registered
 }
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
-    $allUtenti = $modelloUtente->index(array());
-    $newId = count($allUtenti) + 1;
+    $newId = $modelloUtente->getNewId();
     $response = checkAndUploadImage("img/fotoProfilo/", "profile-img", $newId, "default.png");
     if($response[1] == "") {
         $valid = $modelloUtente->validator($_POST);
         if($valid == TRUE){
+            $_POST['id'] = $newId;
             $_POST['foto_profilo'] = $response[0];
             $_POST['ruolo'] = 3;
             if(!$modelloUtente->create($_POST)){

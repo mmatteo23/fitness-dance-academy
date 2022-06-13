@@ -56,7 +56,7 @@
             <h1>Crea il tuo Profilo</h1>
             <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
             <formErrors/>
-            <form action="signup.php" method="POST" id="formCreaProfilo">
+            <form action="signup.php" method="POST" id="formCreaProfilo" enctype="multipart/form-data">
                 <div class="input-wrapper">
                     <label for="nome">Nome*</label>
                     <input type="text" name="nome" id="nome" class="transparent-login" onblur="validaNome()"/>

@@ -6,6 +6,7 @@ require_once(SITE_ROOT . '/php/validSession.php');
 require_once(SITE_ROOT . '/php/Models/Utente.php');
 
 $modello = new Utente();
+
 $userData = $modello->read($_SESSION['userId']);
 
 $fotoProfiloDIR = 'img/fotoProfilo/';

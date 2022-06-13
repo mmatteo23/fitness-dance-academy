@@ -17,7 +17,7 @@ CREATE TABLE ruolo (
 );
 
 CREATE TABLE utente (
-	id int NOT NULL AUTO_INCREMENT,
+	id int NOT NULL,
 	nome varchar(200) NOT NULL,
 	cognome varchar(200) NOT NULL,
 	email varchar(255) NOT NULL UNIQUE,
@@ -95,7 +95,7 @@ CREATE TABLE prenotazione_sessione (
 );
 
 CREATE TABLE corso (
-	id int AUTO_INCREMENT,
+	id int,
 	titolo varchar(200) NOT NULL,
 	descrizione varchar(255) NOT NULL,
 	data_inizio date NOT NULL,

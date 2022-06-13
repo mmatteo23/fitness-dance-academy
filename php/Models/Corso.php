@@ -42,8 +42,9 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO corso (titolo, descrizione, data_inizio, data_fine, copertina, alt_copertina, trainer)
+            $query = "INSERT INTO corso (id, titolo, descrizione, data_inizio, data_fine, copertina, alt_copertina, trainer)
             VALUE (
+                '" . $data['id'] . "',
                 '" . $data['titolo'] . "',
                 '" . $data['descrizione'] . "',
                 '" . $data['data_inizio'] . "',
@@ -153,6 +154,22 @@ class Corso {
             $connection_manager->closeDBConnection();
 
             return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
+    public static function getNewId() {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT id FROM corso ORDER BY id DESC";
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?($queryResults[0]['id']+1):1;
         }
 
         return NULL;

@@ -145,6 +145,22 @@ class Utente {
         return NULL;
     }
 
+    public static function getNewId() {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT id FROM utente ORDER BY id DESC";
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?($queryResults[0]['id']+1):1;
+        }
+
+        return NULL;
+    }
+
     // CRUD OPERATIONS
     public static function create(array $data)
     {
@@ -152,8 +168,9 @@ class Utente {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
+            $query = "INSERT INTO utente (id, nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
             VALUE (
+                '" . $data['id'] . "',
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
                 '" . $data['email'] . "',
@@ -166,7 +183,6 @@ class Utente {
                 " . ($data['altezza']?:"NULL") . ",
                 " . ($data['peso']?:"NULL") . "
             )";
-            
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
