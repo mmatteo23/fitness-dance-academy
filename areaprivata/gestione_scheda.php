@@ -14,6 +14,7 @@ if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])
     header("location: /login.php");
 }
 
+preventMaliciousCode($_GET);
 $schede = $modelloScheda->index($_GET);
 
 $content = "

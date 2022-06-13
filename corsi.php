@@ -18,7 +18,7 @@ if(count($corsi) > 0){
             <img class='img-card' src='img/corsi/" . ($corso['copertina']?:'default.jpg') . "'/>
             <p class='title-card'>" . $corso['titolo'] . "<span class='little-title'><span xml:lang='en'> by</span> " . $corso['trainer_nome'] . " " . $corso['trainer_cognome'] . "</span></p>
             <p class='descrizione-card'>" . $corso['descrizione'] . "</p>
-            <a href='areariservata/prenotazionecorso.php?corso=" . $corso['id'] . "' class='button button-purple'>Prenota</a>
+            <a href='areariservata/prenotazione_corso.php?corso=" . $corso['id'] . "' class='button button-purple'>Prenota</a>
     </div>";
         
         

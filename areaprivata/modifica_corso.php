@@ -13,6 +13,7 @@ $modelloCorso = new Corso();
 $modelloUtente = new Utente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
+    preventMaliciousCode($_POST);
     $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $_POST['id'], "default.jpg");
     if($response[1] == "") {
         $valid = $modelloCorso->validator($_POST);
@@ -30,6 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
     }
 }
 
+preventMaliciousCode($_GET);
 $corso = $modelloCorso->read($_GET['id']);
 
 $titolo = preg_replace('/<[^>]*>/', '', $corso['titolo']);

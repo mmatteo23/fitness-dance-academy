@@ -6,7 +6,7 @@ require_once "config.php";
 
 require_once('php/db.php');
 require_once('php/AuthController.php');
-//require_once('php/utilities.php');
+require_once('php/utilities.php');
 require_once('php/Models/Utente.php');
 use DB\DBAccess;
 
@@ -18,6 +18,7 @@ $htmlPage = file_get_contents('html/login.html');
 $errors = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
+    preventMaliciousCode($_POST);
     $email = $_POST['email'];           // prendo i dati inseriti dall'utente
     $password = $_POST['password'];
 

@@ -32,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
+    preventMaliciousCode($_POST);
     $errors = Scheda::validate($_POST['listaEs']);
     
     if($errors === TRUE){  //input valido

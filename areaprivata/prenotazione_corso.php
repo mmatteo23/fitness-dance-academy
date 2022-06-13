@@ -3,6 +3,7 @@
 require_once "../config.php";
 
 require_once(SITE_ROOT . '/php/validSession.php');
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Corso.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
@@ -32,7 +33,7 @@ $html_table_footer = "</tbody></table>";
 $response = "";
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
-
+    preventMaliciousCode($_POST);
     // Check if there is an insert or a delete
     if(isset($_POST['insert'])){
         if(!$modello->isAlreadyRegistered($_POST['insert'], $_SESSION['userId'])){
@@ -60,6 +61,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
 }
 
+preventMaliciousCode($_GET);
 $corsi = $modello->getUnregisteredCorsiByUserId($_GET, $_SESSION['userId']);
 
 $corsi_prenotati = $modello->getCorsiByUserId($_SESSION['userId']);

@@ -3,6 +3,7 @@
 require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Sessione.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
@@ -43,7 +44,7 @@ $headTabellaSessioni = "
 $contatorePersone = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
-
+    preventMaliciousCode($_POST);
     $n = $modelloSessione->countPrenotati($_POST);
     $contatorePersone = "<p id='risultatoContatoreSessioni'>Abbiamo trovato $n persone prenotate per questo orario.</p>";
 

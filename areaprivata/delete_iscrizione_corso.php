@@ -6,6 +6,7 @@ require_once(SITE_ROOT . '/php/validSession.php');
 require_once(SITE_ROOT . "/php/Models/Corso.php");
 
 // Get post params
+preventMaliciousCode($_POST);
 $id_corso = $_POST['id_corso'];
 
 $modello = new Corso;

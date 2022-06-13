@@ -14,6 +14,7 @@ $modelloUtente = new Utente();
 $ruoloUtente = $modelloUtente->getRole($_SESSION['userId']);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
+    preventMaliciousCode($_POST);
     if (isset($_POST['cancella'])) {
         $modelloUtente->delete($_SESSION['userId']);
         header('Location: /php/logout.php');

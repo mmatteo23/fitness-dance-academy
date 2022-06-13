@@ -3,8 +3,10 @@
 require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Scheda.php");
 
+preventMaliciousCode($_GET);
 if(isset($_GET['id']))
 {
     $schedaId = $_GET['id'];

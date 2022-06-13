@@ -3,6 +3,7 @@
 require_once "../config.php";
 
 require_once(SITE_ROOT . '/php/validSession.php');
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Corso.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
@@ -58,6 +59,7 @@ $filters = "
     </form>
 ";
 
+preventMaliciousCode($_GET);
 $isTrainer = $modelloUtente->isTrainer($_SESSION['userId']);
 if ($isTrainer)
     $corsi = $modello->getCorsiByTrainerId($_GET, $_SESSION['userId']);

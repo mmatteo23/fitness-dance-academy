@@ -3,12 +3,14 @@
 require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Scheda.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
 $modelloScheda = new Scheda();
 $modelloUtente = new Utente();
 
+preventMaliciousCode($_GET);
 $schede = $modelloScheda->index($_GET);
 
 $content = "
@@ -45,7 +47,7 @@ $form = '
 
 if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId'])){
     if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
-
+        preventMaliciousCode($_POST);
         $_POST['cliente'] = $_SESSION['userId'];
     
         $returned = Scheda::creaPrenotazione($_POST);

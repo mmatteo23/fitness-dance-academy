@@ -3,6 +3,7 @@
 require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Sessione.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
@@ -42,7 +43,7 @@ $headTabellaSessioni = "
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
-
+    preventMaliciousCode($_POST);
     $_POST['cliente'] = $_SESSION['userId'];
 
     $errors = $modelloSessione->validator($_POST);

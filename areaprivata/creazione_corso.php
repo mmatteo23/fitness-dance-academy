@@ -13,6 +13,7 @@ $modelloCorso = new Corso();
 $modelloUtente = new Utente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
+    preventMaliciousCode($_POST);
     $newId = $modelloCorso->getNewId();
     $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $newId, "default.jpg");
     if($response[1] == "") {
