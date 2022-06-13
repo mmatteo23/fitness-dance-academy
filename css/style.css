@@ -83,6 +83,28 @@ h1#title{
     position: absolute;
 }
 
+a.skip-to-content {
+    position: absolute;
+    z-index: 300;
+    left: 0;
+    transform: translateY(-110%);
+    background-color: var(--color0-dark);
+    padding: .5em 2em;
+    color: white;
+    transition: transform .2s ease-out;
+    font-size: 1.2em;
+}
+
+a.skip-to-content:visited,
+a.skip-to-content:link {
+    color: white;
+}
+
+a.skip-to-content:focus {
+    transform: translateY(0);
+    background-color: var(--color0-dark);
+}
+
 navbar{
     display: flex;
     margin: auto;
@@ -434,7 +456,7 @@ footer>p{
     margin: 0;
 }
 
-main#container {
+main#content {
     /* background-color: var(--color0); */
     background-color: var(--transparent-dark);
     color: white;
