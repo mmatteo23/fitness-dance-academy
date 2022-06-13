@@ -253,7 +253,8 @@
         flex-direction: column;
     }
     form.filtri input{
-        width: 100%;
+        width: 96%;
+        max-width: none;
     }
     form.filtri button.button-filter{
         margin: auto;
