@@ -755,8 +755,8 @@ p.danger {
 abbr[title] {
     text-decoration: none;
 }
-div.input-wrapper.alt_img {
-    display: none;
+#formModificaCorso div.input-wrapper.alt_img {
+    display: flex;
 }
 #risultatoContatoreSessioni{
     font-size: 1.5em;
@@ -776,6 +776,7 @@ div.input-wrapper.alt_img {
     margin-bottom: 1.5em;
     padding: 0.5em 1.75em;
     transition: background-color 0.25s;
+    text-align: center;
 }
 .button-blue {
     background-color: var(--color0-light);
@@ -808,8 +809,7 @@ div.input-wrapper.alt_img {
     color: white;
 }
 .button.button-violet:hover{
-    background-color: var(--color3-light);
-    color: var(--color1-dark);
+    background-color: black;
 }
 
 .button-light{
@@ -1049,12 +1049,16 @@ img.profilePicture {
     object-fit: cover;
 }
 
+label[for="copertina"] .profilePicture {
+    border-radius: 1em;
+}
+
 .input-label-img {
     text-align: initial;
 }
 
 .hint {
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
 .profileData {
@@ -1166,6 +1170,25 @@ select option {
 }
 #creaBtn{
     margin-top: 0.7em;
+}
+#deleteBtn{
+    margin-top: 0;
+}
+#annullaBtn{
+    background-color: var(--color1);
+}
+#annullaBtn:hover{
+    background-color: var(--color1-dark);
+}
+#creaBtn, #deleteBtn, #annullaBtn {
+    min-width: 5em;
+}
+#inline-buttons {
+    display: flex;
+}
+#inline-buttons #creaBtn {
+    margin-bottom: 0;
+    margin: auto;
 }
 body::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */

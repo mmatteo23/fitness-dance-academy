@@ -81,15 +81,31 @@ if(count($corsi)){
     $content_corsi = "<p>Non ci sono corsi che combaciano con i tuoi parametri di ricerca</p>";
 }
 
+$htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_corso.html");
 
 if($_SERVER['REQUEST_METHOD'] === "GET"){
 
     // Se si sta richiedendo un corso specifico con 'view' allora:
     if(isset($_GET['view'])){
+        $htmlPage = str_replace(
+            "<li id='selectedBreadcrumb'>Corsi</li>", 
+            "<li><a href='gestione_corso.php'>Corsi</a></li>", 
+            $htmlPage
+        );
+        $htmlPage = str_replace(
+            "<modificaBreadcrumb/>", 
+            "<li id='selectedBreadcrumb'>Visualizza</li>", 
+            $htmlPage
+        );
+
         $corsoId = $_GET['view'];
         $corso = $modello->read($corsoId);
-        $pageTitle = "<h1 id='head-private-area-top'>Prenotazioni corso ".$corso['titolo']."</h1>";
-        $filters = "<a class='link-sopra-table' href='/areaprivata/gestione_corso.php' class=''>Torna alla lista dei corsi</a>";
+        $pageTitle = "
+            <a class='link-sopra-table' href=\"/areaprivata/modifica_corso.php?id=".$corsoId."\">Modifica il corso</a>
+            <h1 id='head-private-area-top'>".$corso['titolo']."</h1>
+            <p>".$corso['descrizione']."</p>
+        ";
+        $filters = "";
         $nIscritti = $modello->getNumeroIscritti($corsoId);
         if($nIscritti){
             $content_corsi = $iscritti_table;
@@ -112,8 +128,6 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     }
 
 }
-
-$htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_corso.html");
 
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 

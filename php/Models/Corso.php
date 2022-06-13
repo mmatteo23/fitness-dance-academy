@@ -82,7 +82,29 @@ class Corso {
 
     public function update(int $id, array $data)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+
+            $query = "UPDATE corso SET 
+                titolo = '" . $data['titolo'] . "', 
+                descrizione = '" . $data['descrizione'] . "',
+                data_inizio = '" . $data['data_inizio'] . "',
+                data_fine = '" . $data['data_fine'] . "',
+                copertina = '" . $data['copertina'] . "',
+                alt_copertina = '" . $data['alt_copertina'] . "',
+                trainer = " . $data['trainer'] . "
+                
+                WHERE id = " . $id;
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     public function delete(int $id)
@@ -121,6 +143,7 @@ class Corso {
                     Corso::isMandatory($data, "descrizione", "descrizione").
                     Corso::isMandatory($data, "data_inizio", "data di inizio").
                     Corso::isMandatory($data, "data_fine", "data di fine").
+                    Corso::isMandatory($data, "alt_copertina", "descrizione copertina").
                     Corso::isMandatory($data, "trainer", "trainer").
                     Corso::checkRegExp($data, "titolo", "/^[a-zA-Z\s-]+$/", "titolo").
                     Corso::checkRegExp($data, "descrizione", "/^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/", "descrizione").

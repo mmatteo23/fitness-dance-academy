@@ -11,6 +11,7 @@ $valid = '';
 
 $modelloUtente = new Utente();
 
+$ruoloUtente = $modelloUtente->getRole($_SESSION['userId']);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     if (isset($_POST['cancella'])) {
@@ -22,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
         $valid = $modelloUtente->validator($_POST);
         if($valid == TRUE){
             $_POST['foto_profilo'] = $response[0];
-            $_POST['ruolo'] = $modelloUtente->getRole($_SESSION['userId']);
+            $_POST['ruolo'] = $ruoloUtente;
             if(!$modelloUtente->update($_SESSION['userId'], $_POST)){
                 $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
             }
@@ -41,22 +42,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
 $userData = $modelloUtente->read($_SESSION['userId']);
 
 $formContent = "
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='nome'>Nome*</label>
         <input type='text' value='" . $userData['nome'] . "' name='nome' id='nome' class='transparent-login' onblur='validaNome()'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='cognome'>Cognome*</label>
         <input type='text' value='" . $userData['cognome'] . "' name='cognome' id='cognome' class='transparent-login' onblur='validaCognome()'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='email'><span xml:lang='en'>E-mail*</span></label>
         <input type='email' value='" . $userData['email'] . "' name='email' id='email' class='transparent-login' onblur='validaEmail()'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper input-wrapper-with-image'>
+    <div class='input-wrapper input-wrapper-with-image success'>
         <label for='profile_img'>
             <img src='/img/fotoProfilo/" . ($userData['foto_profilo']?$userData['foto_profilo']:'default.png') . "' id='user-profile-img' class='profilePicture' alt='user profile image'>
             <div class='input-label-img'>
@@ -65,20 +66,20 @@ $formContent = "
                 <span class='hint'>Grandezza massima della foto 2<abbr title='megabyte'>MB</abbr></span>
             </div>
         </label>
-        <input type='file' value='" . $userData['foto_profilo'] . "' name='profile-img' id='profile-img' class='transparent-login' accept='image/png, image/jpeg' onchange='validateImage(\"profile-img\")'>       
+        <input type='file' value='" . ($userData['foto_profilo']?$userData['foto_profilo']:'default.png') . "' name='profile-img' id='profile-img' class='transparent-login' accept='image/png, image/jpeg' onchange='validateImage(\"profile-img\")'>       
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='data_nascita'>Data di nascita*</label>
         <input type='date' value='" . $userData['data_nascita'] . "' name='data_nascita' id='data_nascita' class='transparent-login' value='2000-01-01'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='telefono'>Telefono</label>
         <input type='tel' value='" . $userData['telefono'] . "' name='telefono' id='telefono' class='transparent-login' pattern='[0-9]{10}'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='sesso'>Sesso</label>
             <div class='super-radio-wrapper'>
             <div class='radio-wrapper'>
@@ -92,22 +93,22 @@ $formContent = "
         </div>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='altezza'>Altezza (in centimetri)</label>
         <input type='number' value='" . $userData['altezza'] . "' name='altezza' id='altezza' class='transparent-login'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='peso'>Peso (in chilogrammi)</label>
         <input type='number' value='" . $userData['peso'] . "' name='peso' id='peso' class='transparent-login'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='password'><span xml:lang='en'>Password*</span></label>
         <input type='password' value='" . $userData['password'] . "' name='password' id='password' class='transparent-login'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper'>
+    <div class='input-wrapper success'>
         <label for='Rpassword'>Ripeti <span xml:lang='en'>Password*</span></label>
         <input type='password' value='" . $userData['password'] . "' name='Rpassword' id='Rpassword' class='transparent-login'>
         <p class='error'></p>
@@ -120,6 +121,24 @@ $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
+
+if ($ruoloUtente < 3) {
+    $htmlPage = str_replace(
+        "<a href='/areaprivata/prenotazione_corso.php' class='button button-transparent'>", 
+        "<a href='/areaprivata/gestione_corso.php' class='button button-transparent'>", 
+        $htmlPage
+    );
+    $htmlPage = str_replace(
+        "<a href='/areaprivata/prenotazione_scheda.php' class='button button-transparent'>", 
+        "<a href='/areaprivata/gestione_scheda.php' class='button button-transparent'>", 
+        $htmlPage
+    );
+    $htmlPage = str_replace(
+        "<a href='/areaprivata/prenotazione_sessione.php' class='button button-transparent'>", 
+        "<a href='/areaprivata/gestione_sessione.php' class='button button-transparent'>", 
+        $htmlPage
+    );
+}
 
 echo $htmlPage;
 

@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="utf-8"/>
-    <title>Creazione corso - FDA</title>
+    <title>Modifica Corso - FDA</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
@@ -20,9 +20,9 @@
     <script defer src="../js/mobile-menu.js"></script>
 </head>
 <body>
-    <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
     <header>
-        <navbar id="navbar">
+        <navbar>
+            <a id="divLogo" href="/">
                 <img id="img-logo" src="/img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
                 <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
             </a>   
@@ -34,7 +34,7 @@
                     <a href="/corsi.php">CORSI</a>
                 </li>
                 <li>
-                    <a href="/html/aboutus.html">SU DI NOI</a>
+                    <a href="html/aboutus.html">SU DI NOI</a>
                 </li>
                 <li id="selectedNavbar">
                     PROFILO
@@ -47,7 +47,8 @@
             <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
             <li><a href="profile.php">Profilo</a></li>
             <li><a href="gestione_corso.php">Corso</a></li>
-            <li id="selectedBreadcrumb">Crea</li>
+            <visualizzaBreadcrumb/>
+            <li id="selectedBreadcrumb">Modifica</li>
         </ul>
     </navbar>
     <main id="content">
@@ -81,12 +82,16 @@
             <div id="private-area-content">
                 <div id="containerCreaPro">
                     <div id="loginForm" class="form-wrapper">
-                        <h1>Aggiungi un nuovo corso</h1>
+                        <h1>Modifica corso</h1>
                         <p id="consiglio">I campi contrassegnati con '*' sono obbligatori.</p>
                         <formErrors/>
-                        <form action="creazione_corso.php" method="POST" id="formCreaCorso" enctype="multipart/form-data">
+                        <form action="modifica_corso.php" method="POST" id="formModificaCorso" enctype="multipart/form-data">
                             <formContent/>
-                            <input id="creaBtn" type="submit" class="button button-purple" value="Crea Corso" name="crea"/>
+                            <div id="inline-buttons">
+                                <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
+                                <a id="annullaBtn" href="gestione_corso.php" class="button button-purple">Annulla</a>
+                            </div>
+                            <input id="deleteBtn" type="submit" class="button button-violet" value="Elimina Corso" name="cancella"/>
                         </form>
                     </div>
                 </div>

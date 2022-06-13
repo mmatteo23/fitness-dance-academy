@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="utf-8"/>
-    <title>Edit profile - FDA</title>
+    <title>Modifica profilo - FDA</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
@@ -56,19 +56,19 @@
     <main id="content">
         <div id="private-area-container">
             <ul id="private-area-menu">                
-                <li><a href="/areaprivata/profile.php" class="button button-transparent">
+                <li><a href='/areaprivata/profile.php' class='button button-transparent'>
                     DATI
-                    <span class="material-symbols-outlined">description</span>
+                    <span class='material-symbols-outlined'>description</span>
                 </a></li>
-                <li><a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
+                <li><a href='/areaprivata/prenotazione_corso.php' class='button button-transparent'>
                     CORSI
-                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                    <span class='material-symbols-outlined'>sports_gymnastics</span>
                 </a></li>
-                <li><a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
+                <li><a href='/areaprivata/prenotazione_scheda.php' class='button button-transparent'>
                     SCHEDE
-                    <span class="material-symbols-outlined">table_rows</span>
+                    <span class='material-symbols-outlined'>table_rows</span>
                 </a></li>
-                <li><a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
+                <li><a href='/areaprivata/prenotazione_sessione.php' class='button button-transparent'>
                     SESSIONE
                     <span class="material-symbols-outlined">schedule</span>
                 </a></li> 
@@ -89,9 +89,11 @@
                         <formErrors/>
                         <form action="edit_profile.php" method="POST" id="formEditProfilo" enctype="multipart/form-data">
                             <formContent/>
-                            <input id="creaBtn" type="submit" class="button button-purple" value="Conferma Modifiche" name="modifica"/>
-                            <a id="annullaBtn" href="profile.php" class="button button-purple">Annulla Modifiche</a>
-                            <input id="deleteProfiloBtn" type="submit" class="button button-violet" value="Cancella Profilo" name="cancella"/>
+                            <div id="inline-buttons">
+                                <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
+                                <a id="annullaBtn" href="profile.php" class="button button-purple">Annulla</a>
+                            </div>
+                            <input id="deleteBtn" type="submit" class="button button-violet" value="Elimina Profilo" name="cancella"/>
                         </form>
                     </div>
                 </div>

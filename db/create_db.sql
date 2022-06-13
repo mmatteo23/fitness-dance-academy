@@ -201,7 +201,7 @@ VALUES
     'admin',
     '3923240890',
     'M',
-    "3.png",
+    NULL,
     3,
     186,
     78
@@ -255,7 +255,7 @@ VALUES (
     '2022-12-02',
     1,
     NULL,
-    NULL
+    "Immagine del corso di default con il logo del sito, teschio con ossa e acronimo"
   );
 
 INSERT INTO categoria(descrizione) 

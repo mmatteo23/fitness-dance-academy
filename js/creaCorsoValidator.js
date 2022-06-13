@@ -5,7 +5,7 @@ const data_fine = document.getElementById('data_fine');
 const alt_copertina = document.getElementById('alt_copertina');
 
 const ReTitolo = /^[a-zA-Z\s-]+$/;
-const ReDescrizione = /^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/;
+const ReDescrizione = /^[a-zA-Z\s\.\,\!\"\&\*\#\:-]+$/;
 const ReEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 
 const setError = (element, message) => {
@@ -73,18 +73,14 @@ function validaDate(){
 }
 
 function validaAltImmagine() {
-    const fileInput = document.getElementById("copertina")
-    var file = fileInput.files[0];
-    if (file) {
-        var alt_copertinaV = alt_copertina.value.trim();
-        if(alt_copertinaV==""){
-            setError(alt_copertina, "Il campo 'descrizione copertina' va inserito");
-        }
-        else if(!ReDescrizione.test(alt_copertinaV)){
-            setError(alt_copertina, "Il campo 'descrizione copertina' contiene caratteri non validi");
-        }
-        else{
-            setSuccess(alt_copertina);
-        }
+    var alt_copertinaV = alt_copertina.value.trim();
+    if(alt_copertinaV==""){
+        setError(alt_copertina, "Il campo 'descrizione copertina' va inserito");
+    }
+    else if(!ReDescrizione.test(alt_copertinaV)){
+        setError(alt_copertina, "Il campo 'descrizione copertina' contiene caratteri non validi");
+    }
+    else{
+        setSuccess(alt_copertina);
     }
 }
