@@ -24,7 +24,7 @@ $html_table = "
                 <th scope='col'>Titolo</th>
                 <th scope='col'>Data Inizio</th>
                 <th scope='col'>Data Fine</th>
-                <th scope='col'><span xml:lang='en'>Trainer</span></th>
+                <th scope='col'><span xml:lang='en' lang='en'>Trainer</span></th>
                 <th scope='col'>Prenotati</th>
             </tr>
         </thead>

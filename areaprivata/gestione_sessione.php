@@ -75,7 +75,7 @@ for($i=1; $i<=$n; $i++){
     else
         $giornoHTML .= "<option value=".$i.">".$giorno."</option>";
 }
-$giornoHTML .= "<select/>";
+$giornoHTML .= "</select>";
 
 $giornoHTML .= "<select id='meseSessione' name='meseSessione' onchange='meseCambiato()'>";
 for($i=1; $i<=12; $i++){
@@ -84,7 +84,7 @@ for($i=1; $i<=12; $i++){
     else
         $giornoHTML .= "<option value=".$i.">".$mesi[$i-1]."</option>";
 }
-$giornoHTML .= "<select/>";
+$giornoHTML .= "</select>";
 
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 

@@ -31,7 +31,7 @@ $menuPrivateAreaUtente = "
             <span class='material-symbols-outlined'>edit_note</span>
         </a></li>
         <li><a href='/php/logout.php' class='button button-transparent'>
-            <span xml:lang='en'>LOGOUT</span>
+            <span xml:lang='en' lang='en'>LOGOUT</span>
             <span class='material-symbols-outlined'>logout</span>
         </a></li>
     </ul>
@@ -64,9 +64,9 @@ $menuPrivateAreaGestione = "
 
 // fetch foto profilo, se c'è nel db la mette altrimenti mette quella di default
 if ($userData['foto_profilo']) {
-    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$userData['foto_profilo']."'/>";
+    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$userData['foto_profilo']."' alt=''/>";
 } else {
-    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$fotoDefault."'/>";
+    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$fotoDefault."' alt=''/>";
 }
 
 $profileData = '

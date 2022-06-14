@@ -532,6 +532,9 @@ table#corsi>caption {
     padding-bottom: 0.5em;
 }
 
+#corsoDescription{
+    text-align: center;
+}
 
 table#corsi {
     margin: auto;
@@ -870,14 +873,14 @@ select#giornoSessione {
     margin: 0 auto;
 }
 
-#formCreaScheda{
+.formCreaScheda{
     text-align: center;
     font-size: 1.5em;
     display: flex;
     flex-direction: column;
 }
 
-#formCreaScheda select{
+.formCreaScheda select{
     font-size: 0.75em;
     width: 33%;
     min-width: 12em;
@@ -886,7 +889,7 @@ select#giornoSessione {
     margin-bottom: 1em;
 }
 
-#formCreaScheda input{
+.formCreaScheda input{
     font-size: 0.75em;
     font-family: inherit;
     width: 33%;
@@ -896,7 +899,7 @@ select#giornoSessione {
     text-align: center;
 }
 
-#formCreaScheda #creaBtn{
+.formCreaScheda #creaBtn{
     margin-top: 1em;
 }
 
@@ -1063,9 +1066,15 @@ img.profilePicture {
     border-color: #ffffff1a;
     object-fit: cover;
 }
+#user-profile-img{
+    margin: auto;
+}
 
 label[for="copertina"] .profilePicture {
     border-radius: 1em;
+}
+label[for="profile-img"]>:first-child{
+    margin-bottom: 0;
 }
 
 .input-label-img {
@@ -1073,6 +1082,7 @@ label[for="copertina"] .profilePicture {
 }
 
 .hint {
+    margin-top: 0;
     font-size: 0.8em;
 }
 

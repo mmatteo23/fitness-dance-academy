@@ -89,23 +89,23 @@
                     <h1 id="head-private-area-top">Prenotati ai nostri corsi</h1>
                     <form method="get" class="filtri">
                         <label for="titolo">Nome</label>
-                        <input type="text" name="titolo"/>
+                        <input type="text" id="titolo" name="titolo"/>
                         <label for="descrizione">Descrizione</label>
-                        <input type="text" name="descrizione"/>
+                        <input type="text" id="descrizione" name="descrizione"/>
                         <button type="submit" class="button button-transparent button-filter">Cerca</button>
                         <button onClick="resetFilters()" type="reset" class="button button-transparent button-filter">Reset</button>
                     </form>
 
                     <response/>
 
-                    <form method='post' action=''>
+                    <form method='post' action='/areaprivata/prenotazione_corso.php'>
                         <tabellaElencoCorsi/>
                     </form>
                 </div>
 
                 <div id="private-area-table">
                     <h1>Corsi a cui sei iscritto</h1>
-                    <form method='post' action=''>
+                    <form method='post' action='/areaprivata/prenotazione_corso.php'>
                         <tabellaCorsiPrenotati/>
                     </form>
                 </div>
@@ -115,3 +115,4 @@
 
     <pageFooter/>
 </body>
+</html>

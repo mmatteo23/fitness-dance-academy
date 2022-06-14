@@ -73,7 +73,7 @@ if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId']))
                 <tr>
                     <td>".$data."</td>
                     <td>".$scheda['trainer']."</td>
-                    <td><a class='button button-purple' href=visualizzaScheda.php?id=".$scheda['id']."><i class=' fa fa-location-arrow'></i></i></a></td>
+                    <td><a class='button button-purple' href='visualizzaScheda.php?id=".$scheda['id']."'><i class=' fa fa-location-arrow'></i></a></td>
                 </tr>";
         }
         $content .= $table_footer;

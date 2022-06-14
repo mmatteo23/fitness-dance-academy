@@ -19,12 +19,12 @@ $content_corsi = "";
 $html_table = "<table class='table-prenotazione'>
     <thead>
         <tr>
-            <th>Titolo</td>
-            <th>Data Inizio</td>
-            <th>Data Fine</td>
-            <th>Prenotazioni</td>
-            <th>Visualizza</td>
-            <th>Modifica</td>
+            <th scope='col'>Titolo</th>
+            <th scope='col'>Data Inizio</th>
+            <th scope='col'>Data Fine</th>
+            <th scope='col'>Prenotazioni</th>
+            <th scope='col'>Visualizza</th>
+            <th scope='col'>Modifica</th>
         </tr>
     </thead>
     <tbody>";
@@ -32,11 +32,10 @@ $iscritti_table = "
 <table class='table-prenotazione'>
     <thead>
         <tr>
-            <th>Nome</td>
-            <th>Cognome</td>
-            <th>Data di nascita</td>
-            <th>Email</td>
-            <th>Telefono</td>
+            <th scope='col'>Nome</th>
+            <th scope='col'>Data di nascita</th>
+            <th scope='col'>Email</th>
+            <th scope='col'>Telefono</th>
         </tr>
     </thead>
     <tbody>
@@ -51,13 +50,14 @@ $pageTitle = "
 $filters = "
     <form method='get' class='filtri'>
         <label for='titolo'>Nome</label>
-        <input type='text' name='titolo'/>
+        <input type='text' name='titolo' id='titolo'/>
         <label for='descrizione'>Descrizione</label>
-        <input type='text' name='descrizione'/>
+        <input type='text' name='descrizione' id='descrizione'/>
         <button type='submit' class='button button-transparent button-filter'>Cerca</button>
         <button onClick='resetFilters()' type='reset' class='button button-transparent button-filter'>Reset</button>
     </form>
 ";
+$modifica_breadcrumb = "";
 
 preventMaliciousCode($_GET);
 $isTrainer = $modelloUtente->isTrainer($_SESSION['userId']);
@@ -101,17 +101,13 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
             "<li><a href='gestione_corso.php'>Corsi</a></li>", 
             $htmlPage
         );
-        $htmlPage = str_replace(
-            "<modificaBreadcrumb/>", 
-            "<li id='selectedBreadcrumb'>Visualizza</li>", 
-            $htmlPage
-        );
+        $modifica_breadcrumb = "<li id='selectedBreadcrumb'>Visualizza</li>";
 
         $corsoId = $_GET['view'];
         $corso = $modello->read($corsoId);
         $pageTitle = "
             <h1 id='head-private-area-top'>".$corso['titolo']."</h1>
-            <p>".$corso['descrizione']."</p>
+            <p id='corsoDescription'>".$corso['descrizione']."</p>
         ";
         $filters = "";
         $nIscritti = $modello->getNumeroIscritti($corsoId);
@@ -121,8 +117,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
         
             foreach($iscritti as $iscritto){
                 $content_corsi .= "<tr>
-                    <td data-title='Nome'>". $iscritto['nome'] ."</td>
-                    <td data-title='Cognome'>". $iscritto['cognome'] ."</td>
+                    <th data-title='Nome' scope='row'>". $iscritto['nome']." ".$iscritto['cognome'] ."</th>
                     <td data-title='Data Nascita'>". $iscritto['data_nascita'] ."</td>
                     <td data-title='email'>". $iscritto['email'] ."</td>
                     <td data-title='telefono'>". $iscritto['telefono'] ."</td>
@@ -140,10 +135,12 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 
 // tag substitutions
+
 $htmlPage = str_replace("<pageTitle/>", $pageTitle, $htmlPage);
 $htmlPage = str_replace("<filters/>", $filters, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<tabellaElencoCorsi/>", $content_corsi, $htmlPage);
+$htmlPage = str_replace("<modificaBreadcrumb/>", $modifica_breadcrumb, $htmlPage);
 
 echo $htmlPage;
 
