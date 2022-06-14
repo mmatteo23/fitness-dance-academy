@@ -60,7 +60,7 @@ $formContent = "
         <p class='error'></p>
     </div>
     <div class='input-wrapper input-wrapper-with-image success'>
-        <img src='/img/fotoProfilo/" . ($userData['foto_profilo']?$userData['foto_profilo']:'default.png') . "' id='user-profile-img' class='profilePicture' alt='user profile image'>
+        <img src='../img/fotoProfilo/" . ($userData['foto_profilo']?$userData['foto_profilo']:'default.png') . "' id='user-profile-img' class='profilePicture' alt='user profile image'>
         <label for='profile-img'>
             Foto profilo
         </label>

@@ -74,7 +74,7 @@ $formContent = "
         <p class='error'></p>
     </div>
     <div class='input-wrapper input-wrapper-with-image success'>
-        <img src='/img/corsi/" . ($corso['copertina']?$corso['copertina']:'default.jpg') . "' id='copertina-img' class='profilePicture' alt='user profile image'>
+        <img src='../img/corsi/" . ($corso['copertina']?$corso['copertina']:'default.jpg') . "' id='copertina-img' class='profilePicture' alt='user profile image'>
         <label for='copertina'>
             Copertina del corso
         </label>
