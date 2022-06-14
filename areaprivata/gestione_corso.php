@@ -64,10 +64,10 @@ if(count($corsi)){
             <td data-title='Data Fine'>". $corso['data_fine'] ."</td>
             <td data-title='Prenotazioni'>". $nIscritti ."</td>
             <td>
-                <a class='button button-purple button-filter' href=\"/areaprivata/visualizza_corso.php?id=".$corso['id']."\">Visualizza</a>
+                <a class='button button-purple button-filter' href=\"../areaprivata/visualizza_corso.php?id=".$corso['id']."\">Visualizza</a>
             </td>
             <td>
-                <a class='button button-purple button-filter' href=\"/areaprivata/modifica_corso.php?id=".$corso['id']."\">Modifica</a>
+                <a class='button button-purple button-filter' href=\"../areaprivata/modifica_corso.php?id=".$corso['id']."\">Modifica</a>
             </td>
         </tr>";
     }

@@ -114,12 +114,75 @@ $formContent = "
     </div>
 ";
 
+$menuPrivateAreaUtente = "
+    <ul id='private-area-menu'>
+        <li><a href='../areaprivata/profile.php' class='button button-transparent'>
+            DATI
+            <span class='material-symbols-outlined'>description</span>
+        </a></li>
+        <li><a href='../areaprivata/prenotazione_corso.php' class='button button-transparent'>
+            CORSI
+            <span class='material-symbols-outlined'>sports_gymnastics</span>
+        </a></li>
+        <li><a href='../areaprivata/prenotazione_scheda.php' class='button button-transparent'>
+            SCHEDE
+            <span class='material-symbols-outlined'>table_rows</span>
+        </a></li>
+        <li><a href='../areaprivata/prenotazione_sessione.php' class='button button-transparent'>
+            SESSIONE
+            <span class='material-symbols-outlined'>schedule</span>
+        </a></li>
+        <li id='private-area-selected'><p class='button button-transparent'>
+            MODIFICA
+            <span class='material-symbols-outlined'>edit_note</span>
+        </p></li>
+        <li><a href='../php/logout.php' class='button button-transparent'>
+            <span xml:lang='en' lang='en'>LOGOUT</span>
+            <span class='material-symbols-outlined'>logout</span>
+        </a></li>
+    </ul>
+";
+$menuPrivateAreaGestione = "
+    <ul id='private-area-menu'>
+        <li><a href='../areaprivata/profile.php' class='button button-transparent'>
+            DATI
+            <span class='material-symbols-outlined'>description</span>
+        </a></li>
+        <li><a href='../areaprivata/gestione_corso.php' class='button button-transparent'>
+            CORSI
+            <span class='material-symbols-outlined' aria-hidden='true'>sports_gymnastics</span>
+        </a></li>
+        <li><a href='../areaprivata/gestione_scheda.php' class='button button-transparent'>
+            SCHEDE
+            <span class='material-symbols-outlined' aria-hidden='true'>table_rows</span>
+        </a></li>
+        <li><a href='../areaprivata/gestione_sessione.php' class='button button-transparent'>
+            SESSIONE
+            <span class='material-symbols-outlined' aria-hidden='true'>schedule</span>
+        </a></li>
+        <li id='private-area-selected'><p class='button button-transparent'>
+            MODIFICA
+            <span class='material-symbols-outlined'>edit_note</span>
+        </p></li>
+        <li><a href='../php/logout.php' class='button button-transparent'>
+            <span xml:lang='en'>LOGOUT</span>
+            <span class='material-symbols-outlined' aria-hidden='true'>logout</span>
+        </a></li>
+    </ul>
+";
+
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/edit_profile.html');
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
+
+if($userData['ruolo'] == 3)
+    $htmlPage = str_replace('<menuPrivateArea/>', $menuPrivateAreaUtente, $htmlPage);
+else
+    $htmlPage = str_replace('<menuPrivateArea/>', $menuPrivateAreaGestione, $htmlPage);
+
 
 if ($ruoloUtente < 3) {
     $htmlPage = str_replace(
