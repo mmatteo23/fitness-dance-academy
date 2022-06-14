@@ -18,7 +18,7 @@
     #inserimento-dati{
         display: none;
     }
-    navbar li{
+    nav li{
         color: black;
     }
     .img-card{
@@ -43,4 +43,7 @@
         display: none;
     }
     #formSessione{display: none;}
+    .ex-descr{
+        color: black;
+    }
 }
