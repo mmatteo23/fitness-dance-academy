@@ -18,24 +18,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     if (isset($_POST['cancella'])) {
         $modelloUtente->delete($_SESSION['userId']);
         header('Location: /php/logout.php');
-    } else
-    $response = checkAndUploadImage(SITE_ROOT . "/img/fotoProfilo/", "profile-img", $_SESSION['userId'], "default.png");
-    if($response[1] == "") {
-        $valid = $modelloUtente->validator($_POST);
-        if($valid == TRUE){
-            $_POST['foto_profilo'] = $response[0];
-            $_POST['ruolo'] = $ruoloUtente;
-            if(!$modelloUtente->update($_SESSION['userId'], $_POST)){
-                $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
-            }
-            else{
-                $_SESSION['email'] = $_POST['email'];
-                $_SESSION['userId'] = $modelloUtente->getIdFromEmail($_POST['email']);
-                header("location: profile.php");
-            }
-        } 
     } else {
-        $valid .= $response[1];
+        $response = checkAndUploadImage(SITE_ROOT . "/img/fotoProfilo/", "profile-img", $_SESSION['userId'], "default.png");
+        if($response[1] == "") {
+            $valid = $modelloUtente->validator($_POST);
+            if($valid == TRUE){
+                $_POST['foto_profilo'] = $response[0];
+                $_POST['ruolo'] = $ruoloUtente;
+                if(!$modelloUtente->update($_SESSION['userId'], $_POST)){
+                    $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
+                }
+                else{
+                    $_SESSION['email'] = $_POST['email'];
+                    $_SESSION['userId'] = $modelloUtente->getIdFromEmail($_POST['email']);
+                    header("location: profile.php");
+                }
+            } 
+        } else {
+            $valid .= $response[1];
+        }
     }
 }
 

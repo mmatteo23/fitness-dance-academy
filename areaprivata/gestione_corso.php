@@ -28,18 +28,6 @@ $html_table = "<table class='table-prenotazione'>
         </tr>
     </thead>
     <tbody>";
-$iscritti_table = "
-<table class='table-prenotazione'>
-    <thead>
-        <tr>
-            <th scope='col'>Nome</th>
-            <th scope='col'>Data di nascita</th>
-            <th scope='col'>Email</th>
-            <th scope='col'>Telefono</th>
-        </tr>
-    </thead>
-    <tbody>
-";
 $html_table_footer = "</tbody></table>";
 $pageTitle = "
     <div class='private-area-title-and-button'>
@@ -57,7 +45,6 @@ $filters = "
         <button onClick='resetFilters()' type='reset' class='button button-transparent button-filter'>Reset</button>
     </form>
 ";
-$modifica_breadcrumb = "";
 
 preventMaliciousCode($_GET);
 $isTrainer = $modelloUtente->isTrainer($_SESSION['userId']);
@@ -77,7 +64,7 @@ if(count($corsi)){
             <td data-title='Data Fine'>". $corso['data_fine'] ."</td>
             <td data-title='Prenotazioni'>". $nIscritti ."</td>
             <td>
-                <button type='submit' name='view' value=" . $corso['id'] . " class='button button-purple button-filter'>Visualizza</button>
+                <a class='button button-purple button-filter' href=\"/areaprivata/visualizza_corso.php?id=".$corso['id']."\">Visualizza</a>
             </td>
             <td>
                 <a class='button button-purple button-filter' href=\"/areaprivata/modifica_corso.php?id=".$corso['id']."\">Modifica</a>
@@ -91,56 +78,13 @@ if(count($corsi)){
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_corso.html");
-
-if($_SERVER['REQUEST_METHOD'] === "GET"){
-
-    // Se si sta richiedendo un corso specifico con 'view' allora:
-    if(isset($_GET['view'])){
-        $htmlPage = str_replace(
-            "<li id='selectedBreadcrumb'>Corsi</li>", 
-            "<li><a href='gestione_corso.php'>Corsi</a></li>", 
-            $htmlPage
-        );
-        $modifica_breadcrumb = "<li id='selectedBreadcrumb'>Visualizza</li>";
-
-        $corsoId = $_GET['view'];
-        $corso = $modello->read($corsoId);
-        $pageTitle = "
-            <h1 id='head-private-area-top'>".$corso['titolo']."</h1>
-            <p id='corsoDescription'>".$corso['descrizione']."</p>
-        ";
-        $filters = "";
-        $nIscritti = $modello->getNumeroIscritti($corsoId);
-        if($nIscritti){
-            $content_corsi = $iscritti_table;
-            $iscritti = $modello->getIscritti($corsoId);
-        
-            foreach($iscritti as $iscritto){
-                $content_corsi .= "<tr>
-                    <th data-title='Nome' scope='row'>". $iscritto['nome']." ".$iscritto['cognome'] ."</th>
-                    <td data-title='Data Nascita'>". $iscritto['data_nascita'] ."</td>
-                    <td data-title='email'>". $iscritto['email'] ."</td>
-                    <td data-title='telefono'>". $iscritto['telefono'] ."</td>
-                </tr>";
-            }
-        
-            $content_corsi .= $html_table_footer;
-        } else {
-            $content_corsi = "<p>Non ci sono utenti iscritti a questo corso.</p>";
-        }
-    }
-
-}
-
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 
 // tag substitutions
-
 $htmlPage = str_replace("<pageTitle/>", $pageTitle, $htmlPage);
 $htmlPage = str_replace("<filters/>", $filters, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<tabellaElencoCorsi/>", $content_corsi, $htmlPage);
-$htmlPage = str_replace("<modificaBreadcrumb/>", $modifica_breadcrumb, $htmlPage);
 
 echo $htmlPage;
 

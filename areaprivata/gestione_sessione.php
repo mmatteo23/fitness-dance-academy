@@ -22,10 +22,8 @@ $prenotazioni_table = "
 <table class='table-prenotazione table-prenotazione-e-utenti'>
     <thead>
         <tr>
-            <th scope='col'>Ora inizio</td>
-            <th scope='col'>Ora fine</td>
+            <th scope='col'>Fascia oraria</td>
             <th scope='col'>Nome</td>
-            <th scope='col'>Cognome</td>
             <th scope='col'>Email</td>
             <th scope='col'>Telefono</td>
         </tr>
@@ -47,10 +45,8 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
         
             foreach($listaPrenotazioni as $prenotazione){
                 $content_prenotazioni .= "<tr>
-                    <td data-title='Ora inizio'>". $prenotazione['ora_inizio'] ."</td>
-                    <td data-title='Ora fine'>". $prenotazione['ora_fine'] ."</td>
-                    <td data-title='Nome'>". $prenotazione['nome'] ."</td>
-                    <td data-title='Cognome'>". $prenotazione['cognome'] ."</td>
+                    <td data-title='Fascia oraria'>". $prenotazione['ora_inizio'] ."-". $prenotazione['ora_fine'] ."</td>
+                    <td data-title='Nome'>". $prenotazione['nome'] . " " . $prenotazione['cognome'] ."</td>
                     <td data-title='Email'>". $prenotazione['email'] ."</td>
                     <td data-title='Telefono'>". $prenotazione['telefono'] ."</td>
                 </tr>";

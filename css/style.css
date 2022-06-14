@@ -1097,6 +1097,9 @@ img.profilePicture {
     border-color: #ffffff1a;
     object-fit: cover;
 }
+.input-wrapper img.profilePicture {
+    margin: auto;
+}
 #user-profile-img{
     margin: auto;
 }

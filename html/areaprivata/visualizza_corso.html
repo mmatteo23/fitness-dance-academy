@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="utf-8"/>
-    <title>Gestione Corso - FDA</title>
+    <title>Visualizza Corso - FDA</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
@@ -52,7 +52,8 @@
         <ul id="breadcrumb">
             <li class="firstBreadcrumb"><a href="/"><span xml:lang="en" lang="en">Home</span></a></li>
             <li><a href="profile.php">Profilo</a></li>
-            <li id='selectedBreadcrumb'>Corsi</li>
+            <li><a href="gestione_corso.php">Corsi</a></li>
+            <li id='selectedBreadcrumb'>Visualizza</li>
         </ul>
     </nav>
     
@@ -88,10 +89,7 @@
                 <div id="private-area-top">
                     <pageTitle/>
                     <filters/>
-                    
-                    <form method='get' action='/areaprivata/gestione_corso.php'>
-                        <tabellaElencoCorsi/>
-                    </form>
+                    <elencoIscritti/>
                 </div>
             </div>
         </div>

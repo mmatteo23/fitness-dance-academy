@@ -12,6 +12,10 @@ $valid = '';
 $modelloCorso = new Corso();
 $modelloUtente = new Utente();
 
+if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])) {
+    header("location: /login.php");
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
     preventMaliciousCode($_POST);
     $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $_POST['id'], "default.jpg");
@@ -33,6 +37,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
 
 preventMaliciousCode($_GET);
 $corso = $modelloCorso->read($_GET['id']);
+// CHECK TRAINER AUTORIZZATO
+if ($modelloUtente->isTrainer($_SESSION['userId'])) {
+    if($corso['trainer'] != $_SESSION['userId']) {
+        header("location: gestione_corso.php");
+    }
+}
 
 $titolo = preg_replace('/<[^>]*>/', '', $corso['titolo']);
 $descrizione = preg_replace('/<[^>]*>/', '', $corso['descrizione']);
