@@ -21,7 +21,7 @@ $errors = "";
 $content_corsi_prenotati = "";
 $tabellaSessioniPrenotate = "
     <div id='private-area-table'>
-        <h2>Le sessioni che hai già prenotato</h2>
+        <h1>Le sessioni che hai già prenotato</h1>
         <headTabellaSessioni/>
     </div>
 ";
@@ -45,6 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     preventMaliciousCode($_POST);
     $_POST['cliente'] = $_SESSION['userId'];
+    //print_r($_POST);
 
     $errors = $modelloSessione->validator($_POST);
 
@@ -52,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
         $returned = $modelloSessione->create($_POST);
     }   
 }
-
+/*
 $giornoHTML = "";
 $settimana = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
 $giornoHTML .= "<p id='giornoSettimana'>".$settimana[date("w")]."</p>";
@@ -89,6 +90,7 @@ for($i=1; $i<=12; $i++){
 }
 $giornoHTML .= "</select>";
 
+*/
 $tabellaSess_content = "";
 if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
     $sessioniPrenot = $modelloSessione->getSessionsOf($_SESSION['userId']);
@@ -116,12 +118,11 @@ if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
         $headTabellaSessioni = "<p>Non ti sei prenotato a nessuna sessione</p>";
     }
 }
-
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 
 $htmlPage = str_replace('<div id="errori"></div>', $errors, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
-$htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
+//$htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
 $htmlPage = str_replace("<tabellaSessioniPrenotate/>", $tabellaSessioniPrenotate, $htmlPage);
 $htmlPage = str_replace("<headTabellaSessioni/>", $headTabellaSessioni, $htmlPage);
 $htmlPage = str_replace("<sessionTableBody/>", $tabellaSess_content, $htmlPage);

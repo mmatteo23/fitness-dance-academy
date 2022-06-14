@@ -31,12 +31,15 @@ class Sessione {
     public static function validator(array $data)
     {
         $errors = "";
-        $giorno = $data['giornoSessione'];
-        $mese = $data['meseSessione'];
-        $oraI = $data['oraInizio'];
-        $minI = $data['minutoInizio'];
-        $oraF = $data['oraFine'];
-        $minF = $data['minutoFine'];
+        $date = strtotime($data['data']);
+        $giorno = date('d', $date);
+        $mese = date('m', $date);
+        $time = strtotime($data['ora_inizio']);
+        $oraI = date('H', $time);
+        $minI = date('i', $time);
+        $time2 = strtotime($data['ora_fine']);
+        $oraF = date('H', $time2);
+        $minF = date('i', $time2);
         if($mese < date("m") || $mese == date("m") && $giorno < date("d")){
             $errors .= "<li>Non puoi prenotare sessioni per giorni passati.</li>";
         }
@@ -65,9 +68,9 @@ class Sessione {
             $year = date("Y");
             $query = "INSERT INTO prenotazione_sessione (data, ora_inizio, ora_fine, cliente)
             VALUES (
-                '" . ($year."-".$data['meseSessione']."-".$data['giornoSessione']) . "',
-                '" . $data['oraInizio'].":".$data['minutoInizio'].":00',
-                '" . $data['oraFine'].":".$data['minutoFine'].":00',
+                '" . ($data['data']) . "',
+                '" . $data['ora_inizio'] . ":00',
+                '" . $data['ora_fine'].":00',
                 " . $data['cliente'] . "
             )";
 

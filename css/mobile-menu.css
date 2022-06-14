@@ -293,6 +293,20 @@
     .grid-item p {
         font-size: 1.2em;
     }
+
+    .inline-selectbox {
+        flex-direction: column;
+        margin-bottom: 1.5em;
+    }
+
+    div.inline-selectbox input {
+        padding: 0.5em;
+        margin-top: 0.4em;
+    }
+
+    .selezione-data-e-ora {
+        padding: 1em;
+    }
 }
 
 @media (max-width: 600px) {

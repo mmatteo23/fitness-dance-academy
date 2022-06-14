@@ -32,18 +32,20 @@ $html_table = "
 $html_table_footer = "</tbody></table>";
 $response = "";
 
-if($_SERVER['REQUEST_METHOD'] === "POST"){
+if($_SERVER['REQUEST_METHOD'] === "POST" || isset($_GET["corso"])){
+    preventMaliciousCode($_GET);
     preventMaliciousCode($_POST);
     // Check if there is an insert or a delete
-    if(isset($_POST['insert'])){
-        if(!$modello->isAlreadyRegistered($_POST['insert'], $_SESSION['userId'])){
-            $result = $modello->registerUser($_POST['insert'], $_SESSION['userId']);
+    if(isset($_POST['insert']) || isset($_GET['corso'])){
+        $corsoId = isset($_POST['insert'])?$_POST['insert']:$_GET['corso'];
+        if(!$modello->isAlreadyRegistered($corsoId, $_SESSION['userId'])){
+            $result = $modello->registerUser($corsoId, $_SESSION['userId']);
             if($result)
                 $response = "<p class='response success' autofocus>Registrazione avvenuta con successo.</p>";
             else
                 $response = "<p class='response danger' autofocus>Errore durante la registrazione. Si prega di riprovare o contattare l'assistenza.</p>";
         } else {
-            $response = "<p class='response danger' autofocus>Cosa pensi di fare? Ti sei già registrato.</p>";
+            $response = "<p class='response danger' autofocus>Sembra che questo corso ti piaccia proprio tanto. Sei già iscritto, ti aspettiamo!</p>";
         }
     }
 
@@ -55,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             else
                 $response = "<p class='response danger' autofocus>Errore durante la registrazione. Si prega di riprovare o contattare l'assistenza.</p>";
         } else {
-            $response = "<p class='response danger' autofocus>Cosa pensi di fare? Non puoi disiscriverti da un corso a cui non sei iscritto.</p>";
+            $response = "<p class='response danger' autofocus>Ops, sembra che tu non sia iscritto al corso da cui ti stai cancellando.</p>";
         }
     }
 

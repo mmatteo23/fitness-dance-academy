@@ -609,13 +609,15 @@ p.title-card {
     margin: 0 auto;
 } */
 #formSessione{
-    width: -webkit-fill-available;
     text-align: center;
     background-color: var(--transparent);
     color:white;
     margin: 0;
     padding: 0.7em;
+    /*
     min-width: 25em;
+    width: -webkit-fill-available;
+    */
 }
 #private-area-table {
     background-color: var(--transparent);
@@ -718,7 +720,7 @@ p.danger {
 }
 #formSessione label{
     font-size: 1.5em;
-    min-width: 15em;
+    /* min-width: 15em; */
 }
 .inline-selectbox #label-solo-data {
     min-width: 0em;
@@ -1183,9 +1185,15 @@ select option {
 
 .inline-selectbox {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1em;
     align-items: center;
-    width: -webkit-fill-available;
-    justify-content: center;
+}
+
+.inline-selectbox input {
+    padding: 0.5em 0.4em;
+    font-size: 1em;
 }
 
 .width-fill-available {
