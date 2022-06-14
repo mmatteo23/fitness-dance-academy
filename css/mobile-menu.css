@@ -90,21 +90,29 @@
      *          TABLES
      ****************************/
 
-    #tabPrenotate{
-        width: 100%;
-    }
-
-    #tabPrenotate thead{
+     
+    table#corsi{
         display: none;
     }
-
-    #tabPrenotate tr, #tabPrenotate th, #tabPrenotate td{
+    table#corsi-mobile{
         display: block;
+        width: 100%;
+        margin: 0;
+    }
+    table#corsi-mobile tbody{
+        display: flex;
+        flex-direction: column;
+    }
+    table#corsi-mobile tr{
+        display: flex;
+    }
+    table#corsi-mobile td, table#corsi-mobile th{
+        width: 100%;
+    }
+    table#corsi-mobile tr p{
+        margin: 0;
     }
 
-    #tabPrenotate th[data-title]:before, #tabPrenotate td[data-title]:before{
-        content:attr(data-title) ":\00A0";
-    }
 
     div.table-box {
         overflow-x: auto !important;
@@ -158,27 +166,6 @@
     }
     #mobile-corsi-title{
         display: block;
-    }
-    table#corsi{
-        display: none;
-    }
-    table#corsi-mobile{
-        display: block;
-        width: 100%;
-        margin: 0;
-    }
-    table#corsi-mobile tbody{
-        display: flex;
-        flex-direction: column;
-    }
-    table#corsi-mobile tr{
-        display: flex;
-    }
-    table#corsi-mobile td, table#corsi-mobile th{
-        width: 100%;
-    }
-    table#corsi-mobile tr p{
-        margin: 0;
     }
     main#visScheda h2{
         padding: 0.5em 1em; 
@@ -260,6 +247,16 @@
         margin: auto;
         margin-top: 1em;
     }
+    div.form-wrapper{
+        width: inherit;
+    }
+
+    form.filtri input[type="text"] {
+        margin: 0.4em 0 0.8em 0;
+    }
+}
+
+@media (max-width: 750px) {
     .table-prenotazione thead{
         display: none;
     }
@@ -271,16 +268,26 @@
         content:
         attr(data-title) ":\00A0";
     }
-    div.form-wrapper{
-        width: inherit;
+
+    #tabPrenotate{
+        width: 100%;
     }
 
-    form.filtri input[type="text"] {
-        margin: 0.4em 0 0.8em 0;
+    #tabPrenotate thead{
+        display: none;
     }
-}
 
-@media (max-width: 750px) {
+    #tabPrenotate tr, #tabPrenotate th, #tabPrenotate td{
+        display: block;
+    }
+
+    #tabPrenotate th[data-title]:before, #tabPrenotate td[data-title]:before{
+        content:attr(data-title) ":\00A0";
+    }
+
+
+
+
     #inserimento-dati{
         width: 80%;
     }

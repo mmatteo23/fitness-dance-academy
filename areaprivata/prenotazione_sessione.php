@@ -104,7 +104,7 @@ if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
             //<button onclick = 'deleteSession(".$sess['id'].")' id='btn-cancella'>Cancella</button>
             $tabellaSess_content .= "
                 <tr id='sess".$sess['id']."'>
-                    <td data-title='data'>".$data."</td>
+                    <th data-title='data'>".$data."</th>
                     <td data-title='dalle'>".$oraI."</td>
                     <td data-title='alle'>".$oraF."</td>
                     <td>

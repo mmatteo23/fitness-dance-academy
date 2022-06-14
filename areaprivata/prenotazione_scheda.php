@@ -17,8 +17,8 @@ $content = "
 <table id='tabPrenotate'>
     <thead>
         <tr>
-            <th scope='col'>Data</th>
             <th scope='col'>Personal Trainer</th>
+            <th scope='col'>Data</th>
             <th scope='col'>Visualizza</th>
         </tr>
     </thead>
@@ -71,9 +71,9 @@ if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId']))
             $data = $data[2]."/".$data[1];
             $content .= "
                 <tr>
-                    <td>".$data."</td>
-                    <td>".$scheda['trainer']."</td>
-                    <td><a class='button button-purple' href='visualizzaScheda.php?id=".$scheda['id']."'><i class=' fa fa-location-arrow'></i></a></td>
+                    <th data-title='Trainer' scope='row'>".$scheda['trainer']."</th>
+                    <td data-title='Data'>".$data."</td>
+                    <td data-title='Visualizza'><a class='button button-purple' href='visualizzaScheda.php?id=".$scheda['id']."'><i class=' fa fa-location-arrow'></i></a></td>
                 </tr>";
         }
         $content .= $table_footer;
