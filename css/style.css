@@ -426,6 +426,10 @@ footer{
     box-shadow: -2px 4px 9px 0px #1a2240;
 }
 
+footer a, footer a:visited{
+    color: white;
+}
+
 footer li > a {
     color: inherit;
     background-color: inherit;

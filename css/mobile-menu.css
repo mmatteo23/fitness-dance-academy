@@ -281,6 +281,10 @@
 }
 
 @media (max-width: 750px) {
+    #inserimento-dati{
+        width: 80%;
+    }
+
     div.corso-card {
         width: 80%;
     }
