@@ -4,9 +4,8 @@ const data_inizio = document.getElementById('data_inizio');
 const data_fine = document.getElementById('data_fine');
 const alt_copertina = document.getElementById('alt_copertina');
 
-const ReTitolo = /^[a-zA-Z\s-]+$/;
-const ReDescrizione = /^[a-zA-Z\s\.\,\!\"\&\*\#\:-]+$/;
-const ReEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
+const ReTitolo = /^[a-zA-ZÀ-ÿ\s-]+$/;
+const ReDescrizione = /^[a-zA-ZÀ-ÿ\s\.\,\!\"\&\*\#\:-]+$/;
 
 const setError = (element, message) => {
     const inputWrapper = element.parentElement;

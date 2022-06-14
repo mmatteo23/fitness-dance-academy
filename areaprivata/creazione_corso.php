@@ -46,12 +46,12 @@ $formContent = "
     </div>
     <div class='input-wrapper'>
         <label for='data_inizio'>Data di inizio*</label>
-        <input type='date' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01' onchange='validaDate()'>
+        <input type='date' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01' onblur='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
         <label for='data_fine'>Data di fine*</label>
-        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onchange='validaDate()'>
+        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onblur='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>

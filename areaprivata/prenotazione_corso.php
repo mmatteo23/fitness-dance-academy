@@ -32,12 +32,11 @@ $html_table = "
 $html_table_footer = "</tbody></table>";
 $response = "";
 
-if($_SERVER['REQUEST_METHOD'] === "POST" || isset($_GET["corso"])){
-    preventMaliciousCode($_GET);
+if($_SERVER['REQUEST_METHOD'] === "POST"){
     preventMaliciousCode($_POST);
     // Check if there is an insert or a delete
-    if(isset($_POST['insert']) || isset($_GET['corso'])){
-        $corsoId = isset($_POST['insert'])?$_POST['insert']:$_GET['corso'];
+    if(isset($_POST['insert'])){
+        $corsoId = $_POST['insert'];
         if(!$modello->isAlreadyRegistered($corsoId, $_SESSION['userId'])){
             $result = $modello->registerUser($corsoId, $_SESSION['userId']);
             if($result)
