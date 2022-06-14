@@ -1,6 +1,7 @@
 <?php
 
-require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/php/db.php");
+require_once(SITE_ROOT . "/php/db.php");
+
 use DB\DBAccess;
 
 class Sessione {

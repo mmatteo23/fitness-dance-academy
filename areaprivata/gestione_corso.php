@@ -44,7 +44,7 @@ $html_table_footer = "</tbody></table>";
 $pageTitle = "
     <div class='private-area-title-and-button'>
         <h1 id='head-private-area-top'>Lista dei tuoi corsi</h1>
-        <a class='link-sopra-table button button-purple' href='creazione_corso.php'>Aggiungi un nuovo corso</a>
+        <a class='link-sopra-table button button-purple' href='creazione_corso.php'>Crea un corso</a>
     </div>
 ";
 $filters = "
