@@ -7,7 +7,7 @@ require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Corso.php");
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
-$modello = new Corso;
+$modelloCorso = new Corso;
 $modelloUtente = new Utente;
 
 if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])) {
@@ -37,7 +37,12 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     // Se si sta richiedendo un corso specifico con 'view' allora:
     if(isset($_GET['id'])){
         $corsoId = $_GET['id'];
-        $corso = $modello->read($corsoId);
+        // CHECK CORSO ESISTE
+        $lastIdPiuUno = $modelloCorso->getNewId();
+        if ($_GET['id'] >= $lastIdPiuUno) {
+            header("location: gestione_corso.php");
+        }
+        $corso = $modelloCorso->read($corsoId);
         // CHECK TRAINER AUTORIZZATO
         if ($modelloUtente->isTrainer($_SESSION['userId'])) {
             if($corso['trainer'] != $_SESSION['userId']) {
@@ -49,10 +54,10 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
             <p id='corsoDescription'>".$corso['descrizione']."</p>
         ";
         $filters = "";
-        $nIscritti = $modello->getNumeroIscritti($corsoId);
+        $nIscritti = $modelloCorso->getNumeroIscritti($corsoId);
         if($nIscritti){
             $content_corsi = $iscritti_table;
-            $iscritti = $modello->getIscritti($corsoId);
+            $iscritti = $modelloCorso->getIscritti($corsoId);
         
             foreach($iscritti as $iscritto){
                 $content_corsi .= "<tr>
