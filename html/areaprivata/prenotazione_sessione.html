@@ -60,27 +60,27 @@
             <ul id="private-area-menu">                
                 <li><a href="/areaprivata/profile.php" class="button button-transparent">
                     DATI
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">description</span>
                 </a></li>
                 <li><a href="/areaprivata/prenotazione_corso.php" class="button button-transparent">
                     CORSI
-                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">sports_gymnastics</span>
                 </a></li>
                 <li><a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
                     SCHEDE
-                    <span class="material-symbols-outlined">table_rows</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">table_rows</span>
                 </a></li>
                 <li id="private-area-selected"><p class="button button-transparent">
                     SESSIONE
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
                 </p></li> 
                 <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
                     MODIFICA
-                    <span class="material-symbols-outlined">edit_note</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
                 </a></li> 
                 <li><a href="/php/logout.php" class="button button-transparent">
                     <span xml:lang="en" lang="en">LOGOUT</span>
-                    <span class="material-symbols-outlined">logout</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">logout</span>
                 </a></li> 
             </ul>
             <div id="private-area-content">
@@ -90,7 +90,7 @@
                     <div class="selezione-data-e-ora">
                         <div class="inline-selectbox">
                             <div class="width-fill-available">
-                                <label for="giornoSessione meseSessione">Data della sessione:</label>
+                                <label for="giornoSessione">Data della sessione:</label>
                             </div>
                             <div class="inline-selectbox">
                                 <giornoSessione/>
@@ -98,7 +98,7 @@
                         </div>
                         <div id="selezioneOrari">
                             <div class="inline-selectbox">
-                                <label class="width-fill-available" for="oraInizio minutoInizio">Ora d'inizio della sessione:</label>
+                                <label class="width-fill-available" for="oraInizio">Ora d'inizio della sessione:</label>
                                 <div class="inline-selectbox">
                                     <select id="oraInizio" name="oraInizio">
                                         <option value="10" selected>10</option>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="inline-selectbox">
-                                <label class="width-fill-available" for="oraFine minutoFine">Ora di fine della sessione:</label>
+                                <label class="width-fill-available" for="oraFine">Ora di fine della sessione:</label>
                                 <div class="inline-selectbox">
                                     <select id="oraFine" name="oraFine">
                                         <option value="10" selected>10</option>
@@ -160,3 +160,4 @@
     
     <pageFooter/>
 </body>
+</html>

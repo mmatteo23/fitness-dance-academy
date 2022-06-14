@@ -7,13 +7,14 @@ function addEsercizio(){
     var esercizi = document.getElementById("esercizio");
     var esNome = esercizi.options[esercizi.selectedIndex].text;
     var esID = esercizi.selectedIndex + 1;
-    var tab = document.getElementById("tabEx");
+    var tab = document.getElementById("tabExbody");
     if(validate()){
         var nSerie = serie.value;
         var nRip = ripetizioni.value;
         var pausa = pausaEl.value;
-        tab.innerHTML = tab.innerHTML + 
-            "<tr><th data-title='Esercizio' scope='row'>"+esNome+"</th><td data-title='Serie'>"+nSerie+"</td><td data-title='Ripetizioni'>"+nRip+"</td><td data-title='Pausa'>"+pausa+"s</td></tr>";
+        var row = tab.insertRow();
+        row.innerHTML = 
+                    "<th data-title='Esercizio' scope='row'>"+esNome+"</th><td data-title='Serie'>"+nSerie+"</td><td data-title='Ripetizioni'>"+nRip+"</td><td data-title='Pausa'>"+pausa+"s</td>";
         hidden.value = hidden.value + esID + ":" + nSerie + ":" + nRip + ":" + pausa + ";";
     }
 }

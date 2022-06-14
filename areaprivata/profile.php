@@ -31,7 +31,7 @@ $menuPrivateAreaUtente = "
             <span class='material-symbols-outlined'>edit_note</span>
         </a></li>
         <li><a href='/php/logout.php' class='button button-transparent'>
-            <span xml:lang='en'>LOGOUT</span>
+            <span xml:lang='en' lang='en'>LOGOUT</span>
             <span class='material-symbols-outlined'>logout</span>
         </a></li>
     </ul>
@@ -41,32 +41,32 @@ $menuPrivateAreaGestione = "
         <li id='private-area-selected'><p class='button button-transparent'>DATI<span class='material-symbols-outlined'>description</span></p></li>
         <li><a href='/areaprivata/gestione_corso.php' class='button button-transparent'>
             CORSI
-            <span class='material-symbols-outlined'>sports_gymnastics</span>
+            <span class='material-symbols-outlined' aria-hidden='true'>sports_gymnastics</span>
         </a></li>
         <li><a href='/areaprivata/gestione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <span class='material-symbols-outlined'>table_rows</span>
+            <span class='material-symbols-outlined' aria-hidden='true'>table_rows</span>
         </a></li>
         <li><a href='/areaprivata/gestione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <span class='material-symbols-outlined'>schedule</span>
+            <span class='material-symbols-outlined' aria-hidden='true'>schedule</span>
         </a></li>
         <li><a href='/areaprivata/edit_profile.php' class='button button-transparent'>
             MODIFICA
-            <span class='material-symbols-outlined'>edit_note</span>
+            <span class='material-symbols-outlined' aria-hidden='true'>edit_note</span>
         </a></li>
         <li><a href='/php/logout.php' class='button button-transparent'>
             <span xml:lang='en'>LOGOUT</span>
-            <span class='material-symbols-outlined'>logout</span>
+            <span class='material-symbols-outlined' aria-hidden='true'>logout</span>
         </a></li>
     </ul>
 ";
 
 // fetch foto profilo, se c'è nel db la mette altrimenti mette quella di default
 if ($userData['foto_profilo']) {
-    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$userData['foto_profilo']."'/>";
+    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$userData['foto_profilo']."' alt=''/>";
 } else {
-    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$fotoDefault."'/>";
+    $profilePicture = "<img class='profilePicture' src='/".$fotoProfiloDIR.$fotoDefault."' alt=''/>";
 }
 
 $profileData = '

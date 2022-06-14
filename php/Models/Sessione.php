@@ -138,6 +138,44 @@ class Sessione {
 
         return false;
     }
+
+    public static function getSessioniByGiorno($giorno) {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+
+            $query = "SELECT 
+                        sessione.ora_inizio,
+                        sessione.ora_fine,
+                        utente.nome,
+                        utente.cognome,
+                        utente.email,
+                        utente.telefono
+                    FROM 
+                        prenotazione_sessione AS sessione
+                    JOIN (
+                        SELECT 
+                            id, nome, cognome, email, telefono
+                        FROM 
+                            utente
+                    ) AS utente
+                    ON 
+                        sessione.cliente=utente.id
+                    WHERE
+                        sessione.data='$giorno'
+                    ORDER BY
+                        sessione.ora_inizio";
+            // echo($query);
+
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
 }
 
 ?>

@@ -479,7 +479,7 @@ div.form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -491,6 +491,10 @@ div.input-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.inline-selectbox div.input-wrapper {
+    width: auto;
 }
 
 div.input-wrapper-with-image {
@@ -532,6 +536,9 @@ table#corsi>caption {
     padding-bottom: 0.5em;
 }
 
+#corsoDescription{
+    text-align: center;
+}
 
 table#corsi {
     margin: auto;
@@ -637,6 +644,9 @@ p.title-card {
     margin-top: 0.5em;
     width: 100%;
 }
+.table-prenotazione.table-prenotazione-e-utenti {
+    padding: 1em 2em;
+}
 .link-sopra-table {
     margin-left: 0.5em;
     margin-bottom: 0.5em;
@@ -709,6 +719,11 @@ p.danger {
 #formSessione label{
     font-size: 1.5em;
     min-width: 15em;
+}
+.inline-selectbox #label-solo-data {
+    min-width: 0em;
+    margin-right: 2em;
+
 }
 #formSessione select{
     font-family: inherit;
@@ -870,14 +885,14 @@ select#giornoSessione {
     margin: 0 auto;
 }
 
-#formCreaScheda{
+.formCreaScheda{
     text-align: center;
     font-size: 1.5em;
     display: flex;
     flex-direction: column;
 }
 
-#formCreaScheda select{
+.formCreaScheda select{
     font-size: 0.75em;
     width: 33%;
     min-width: 12em;
@@ -886,7 +901,7 @@ select#giornoSessione {
     margin-bottom: 1em;
 }
 
-#formCreaScheda input{
+.formCreaScheda input{
     font-size: 0.75em;
     font-family: inherit;
     width: 33%;
@@ -896,7 +911,7 @@ select#giornoSessione {
     text-align: center;
 }
 
-#formCreaScheda #creaBtn{
+.formCreaScheda #creaBtn{
     margin-top: 1em;
 }
 
@@ -1040,6 +1055,21 @@ li.ex-titolo {
     padding: 2em 5em;
 }
 
+.selezione-data-e-ora.selezione-data{
+    margin: 0 8em;
+    display: flex;
+    flex-direction: row;
+}
+
+.selezione-data-e-ora.selezione-data .button{
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+.selezione-data-e-ora.selezione-data .inline-selectbox{
+    justify-content: flex-start;
+}
+
 #selezioneOrari {
     width: -webkit-fill-available;
 }
@@ -1063,9 +1093,15 @@ img.profilePicture {
     border-color: #ffffff1a;
     object-fit: cover;
 }
+#user-profile-img{
+    margin: auto;
+}
 
 label[for="copertina"] .profilePicture {
     border-radius: 1em;
+}
+label[for="profile-img"]>:first-child{
+    margin-bottom: 0;
 }
 
 .input-label-img {
@@ -1073,6 +1109,7 @@ label[for="copertina"] .profilePicture {
 }
 
 .hint {
+    margin-top: 0;
     font-size: 0.8em;
 }
 

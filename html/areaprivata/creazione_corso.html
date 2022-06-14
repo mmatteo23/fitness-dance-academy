@@ -24,12 +24,13 @@
     <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
     <header>
         <nav id="navbar">
+            <a id="divLogo" href="/">
                 <img id="img-logo" src="/img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
-                <h1 id="title"><span xml:lang="en">Fitness Dance Academy</span></h1>
+                <h1 id="title"><span xml:lang="en" lang="en">Fitness Dance Academy</span></h1>
             </a>   
             <ul id="main-menu">
                 <li>
-                    <a href="/"><span xml:lang="en">HOME</span></a>
+                    <a href="/"><span xml:lang="en" lang="en">HOME</span></a>
                 </li>
                 <li>
                     <a href="/corsi.php">CORSI</a>
@@ -45,7 +46,7 @@
     </header>
     <nav>
         <ul id="breadcrumb">
-            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en" lang="en">Home</span></a></li>
             <li><a href="profile.php">Profilo</a></li>
             <li><a href="gestione_corso.php">Corsi</a></li>
             <li id="selectedBreadcrumb">Crea</li>
@@ -56,11 +57,11 @@
             <ul id="private-area-menu">                
                 <li><a href="/areaprivata/profile.php" class="button button-transparent">
                     DATI
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">description</span>
                 </a></li>
                 <li id="private-area-selected"><p class="button button-transparent">
                     CORSI
-                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">sports_gymnastics</span>
                 </p></li>
                 <li><a href="/areaprivata/gestione_scheda.php" class="button button-transparent">
                     SCHEDE
@@ -68,15 +69,15 @@
                 </a></li>
                 <li><a href="/areaprivata/gestione_sessione.php" class="button button-transparent">
                     SESSIONE
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
                 </a></li> 
                 <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
                     MODIFICA
-                    <span class="material-symbols-outlined">edit_note</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
                 </a></li> 
                 <li><a href="/php/logout.php" class="button button-transparent">
-                    <span xml:lang="en">LOGOUT</span>
-                    <span class="material-symbols-outlined">logout</span>
+                    <span xml:lang="en" lang="en">LOGOUT</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">logout</span>
                 </a></li> 
             </ul>
             <div id="private-area-content">
@@ -97,3 +98,4 @@
     
     <pageFooter/>
 </body>
+</html>

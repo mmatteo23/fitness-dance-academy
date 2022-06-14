@@ -78,7 +78,7 @@ for($i=1; $i<=$n; $i++){
     else
         $giornoHTML .= "<option value=".$i.">".$giorno."</option>";
 }
-$giornoHTML .= "<select/>";
+$giornoHTML .= "</select>";
 
 $giornoHTML .= "<select id='meseSessione' name='meseSessione' onchange='meseCambiato()'>";
 for($i=1; $i<=12; $i++){
@@ -87,7 +87,7 @@ for($i=1; $i<=12; $i++){
     else
         $giornoHTML .= "<option value=".$i.">".$mesi[$i-1]."</option>";
 }
-$giornoHTML .= "<select/>";
+$giornoHTML .= "</select>";
 
 $tabellaSess_content = "";
 if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){

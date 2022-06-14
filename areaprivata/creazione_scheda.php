@@ -22,7 +22,7 @@ $html_table = "
                 <th scope='col'>Pausa</th>
             </tr>
         </thead>
-        <tbody>";
+        <tbody id='tabExbody'>";
 $html_table_footer = "</tbody></table>";
 
 $hiddenInput = "";
@@ -61,7 +61,11 @@ $esercizi = $modelloEsercizio->index();
 // crea options per selectbox degli esercizi
 $optionsEsercizi = "";
 foreach($esercizi as $esercizio){
-    $optionsEsercizi .= "<option value=". $esercizio["id"] . ">" . $esercizio["nome"] . "</option>";
+    $nome = $esercizio["nome"];
+    if(str_contains($nome, "<span")){
+        $nome = explode("<", explode(">", $nome)[1])[0];
+    }
+    $optionsEsercizi .= "<option value='". $esercizio["id"] . "'>" . $nome . "</option>";
 }
 
 

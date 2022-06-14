@@ -50,24 +50,21 @@ $formContent = "
     </div>
     <div class='input-wrapper success'>
         <label for='data_inizio'>Data di inizio*</label>
-        <input type='date' value='" . $corso['data_inizio'] . "' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01' onchange='validaDate()'>
+        <input type='date' value='" . $corso['data_inizio'] . "' name='data_inizio' id='data_inizio' class='transparent-login' onchange='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
         <label for='data_fine'>Data di fine*</label>
-        <input type='date' value='" . $corso['data_fine'] . "' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onchange='validaDate()'>
+        <input type='date' value='" . $corso['data_fine'] . "' name='data_fine' id='data_fine' class='transparent-login' onchange='validaDate()'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper input-wrapper-with-image success'>
+        <img src='/img/corsi/" . ($corso['copertina']?$corso['copertina']:'default.jpg') . "' id='copertina-img' class='profilePicture' alt='user profile image'>
         <label for='copertina'>
-            <img src='/img/corsi/" . ($corso['copertina']?$corso['copertina']:'default.jpg') . "' id='copertina-img' class='profilePicture' alt='user profile image'>
-            <div class='input-label-img'>
-                <span>Copertina del corso<span>
-                <br>
-                <span class='hint'>Grandezza massima della foto 2<abbr title='megabyte'>MB</abbr></span>
-            </div>
+            Copertina del corso
         </label>
-        <input type='file' value='" . ($corso['copertina']?$corso['copertina']:'default.jpg') . "' name='copertina' id='copertina' class='transparent-login' accept='image/png, image/jpeg' onchange='validateImage(\"copertina\")'>       
+        <p class='hint'>Grandezza massima della foto 2<abbr title='megabyte'>MB</abbr></p>
+        <input type='file' name='copertina' id='copertina' class='transparent-login' accept='image/png, image/jpeg' onchange='validateImage(\"copertina\")'>       
         <p class='error'></p>
     </div>
     <div class='input-wrapper alt_img success'>

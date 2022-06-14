@@ -61,27 +61,27 @@
             <ul id="private-area-menu">                
                 <li><a href="/areaprivata/profile.php" class="button button-transparent">
                     DATI
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">description</span>
                 </a></li>
                 <li id="private-area-selected"><p class="button button-transparent">
                     CORSI
-                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">sports_gymnastics</span>
                 </p></li>
                 <li><a href="/areaprivata/prenotazione_scheda.php" class="button button-transparent">
                     SCHEDE
-                    <span class="material-symbols-outlined">table_rows</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">table_rows</span>
                 </a></li>
                 <li><a href="/areaprivata/prenotazione_sessione.php" class="button button-transparent">
                     SESSIONE
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
                 </a></li> 
                 <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
                     MODIFICA
-                    <span class="material-symbols-outlined">edit_note</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
                 </a></li> 
                 <li><a href="/php/logout.php" class="button button-transparent">
                     <span xml:lang="en" lang="en">LOGOUT</span>
-                    <span class="material-symbols-outlined">logout</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">logout</span>
                 </a></li> 
             </ul>
             <div id="private-area-content">
@@ -89,23 +89,23 @@
                     <h1 id="head-private-area-top">Prenotati ai nostri corsi</h1>
                     <form method="get" class="filtri">
                         <label for="titolo">Nome</label>
-                        <input type="text" name="titolo"/>
+                        <input type="text" id="titolo" name="titolo"/>
                         <label for="descrizione">Descrizione</label>
-                        <input type="text" name="descrizione"/>
+                        <input type="text" id="descrizione" name="descrizione"/>
                         <button type="submit" class="button button-transparent button-filter">Cerca</button>
                         <button onClick="resetFilters()" type="reset" class="button button-transparent button-filter">Reset</button>
                     </form>
 
                     <response/>
 
-                    <form method='post' action=''>
+                    <form method='post' action='/areaprivata/prenotazione_corso.php'>
                         <tabellaElencoCorsi/>
                     </form>
                 </div>
 
                 <div id="private-area-table">
                     <h1>Corsi a cui sei iscritto</h1>
-                    <form method='post' action=''>
+                    <form method='post' action='/areaprivata/prenotazione_corso.php'>
                         <tabellaCorsiPrenotati/>
                     </form>
                 </div>
@@ -115,3 +115,4 @@
 
     <pageFooter/>
 </body>
+</html>

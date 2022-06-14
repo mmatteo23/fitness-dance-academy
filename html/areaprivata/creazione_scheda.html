@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="utf-8"/>
-    <title>Edit profile - FDA</title>
+    <title>Crea scheda - FDA</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
@@ -48,7 +48,7 @@
     </header>
     <nav>
         <ul id="breadcrumb">
-            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en">Home</span></a></li>
+            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en" lang="en">Home</span></a></li>
             <li><a href="profile.php">Profilo</a></li>
             <li><a href="gestione_scheda.php">Scheda</a></li>
             <li id="selectedBreadcrumb">Crea</li>
@@ -59,15 +59,15 @@
             <ul id="private-area-menu">                
                 <li><a href="/areaprivata/profile.php" class="button button-transparent">
                     DATI
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">description</span>
                 </a></li>
                 <li><a href="/areaprivata/gestione_corso.php" class="button button-transparent">
                     CORSI
-                    <span class="material-symbols-outlined">sports_gymnastics</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">sports_gymnastics</span>
                 </a></li>
                 <li id="private-area-selected"><p class="button button-transparent">
                     SCHEDE
-                    <span class="material-symbols-outlined">table_rows</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">table_rows</span>
                 </p></li>
                 <li><a href="/areaprivata/gestione_sessione.php" class="button button-transparent">
                     SESSIONE
@@ -75,18 +75,18 @@
                 </a></li> 
                 <li><a href="/areaprivata/edit_profile.php" class="button button-transparent">
                     MODIFICA
-                    <span class="material-symbols-outlined">edit_note</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
                 </a></li> 
                 <li><a href="/php/logout.php" class="button button-transparent">
-                    <span xml:lang="en">LOGOUT</span>
-                    <span class="material-symbols-outlined">logout</span>
+                    <span xml:lang="en" lang="en">LOGOUT</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">logout</span>
                 </a></li> 
             </ul>
             <div id="private-area-content">
                 <div id="private-area-top">
                     <h1 id="head-private-area-top">Crea una nuova scheda</h1>
                     <formErrors/>
-                    <div id="formCreaScheda">
+                    <div class="formCreaScheda">
                         <!--<formContent/>-->
                         <label class="width-fill-available" for="esercizio">Selezionare l'esercizio:</label>
 
@@ -116,7 +116,7 @@
                 <div id="private-area-table">
                     <h1>Riepilogo della scheda</h1>
                     <tableEserciziScheda/>
-                    <form action="creazione_scheda.php" method="POST" id="formCreaScheda">
+                    <form action="creazione_scheda.php" method="POST" class="formCreaScheda">
                         <hiddenInput/>
                         <input type="hidden" id="listaEs" name="listaEs" value="">
                         <input id="creaBtn" type="submit" class="button button-purple" value="Crea scheda" name="crea"/>
@@ -128,3 +128,4 @@
     
     <pageFooter/>
 </body>
+</html>
