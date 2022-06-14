@@ -5,7 +5,7 @@ function getBMI(){
         height = height.replace(",", ".");
     height = parseInt(height);
     if(isNaN(height)){
-        errorString = "Errore inserimento altezza";
+        errorString = "Attenzione, inserire l'altezza correttamente.";
     }
     var weight = document.getElementById("text-peso").value;
     if(weight.includes(","))
@@ -13,7 +13,7 @@ function getBMI(){
     weight = parseFloat(weight);
     if(isNaN(weight)){
         if(errorString=="")
-            errorString = "Errore inserimento peso";
+            errorString = "Attenzione, inserire il peso correttamente.";
         else
             errorString += " e peso";
     }

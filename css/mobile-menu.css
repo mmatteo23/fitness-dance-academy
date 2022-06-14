@@ -108,6 +108,10 @@
     }
     table#corsi-mobile td, table#corsi-mobile th{
         width: 100%;
+        margin: 0.17em;
+    }
+    table#corsi-mobile th{
+        margin-top: 1.5em;
     }
     table#corsi-mobile tr p{
         margin: 0;
@@ -262,11 +266,15 @@
     }
     .table-prenotazione tr, .table-prenotazione th, .table-prenotazione td{
         display: block;
-
+        margin: 0.3em 0;
     }
-    .table-prenotazione td[data-title]:before {
+    .table-prenotazione th{
+        margin-top: 1.5em;
+    }
+    .table-prenotazione th[data-title]:before, .table-prenotazione td[data-title]:before {
         content:
         attr(data-title) ":\00A0";
+        display: block;
     }
 
     #tabPrenotate{
@@ -279,10 +287,14 @@
 
     #tabPrenotate tr, #tabPrenotate th, #tabPrenotate td{
         display: block;
+        margin: 0.3em 0;
     }
-
+    #tabPrenotate th{
+        margin-top: 1.5em;
+    }
     #tabPrenotate th[data-title]:before, #tabPrenotate td[data-title]:before{
         content:attr(data-title) ":\00A0";
+        display: block;
     }
 
 

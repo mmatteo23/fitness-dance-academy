@@ -1095,7 +1095,8 @@ li.ex-titolo {
 
 img.profilePicture {
     /* max-width: 25%; */
-    max-width: 11em;
+    height: 13em;
+    width: 13em;
     border: solid 0.4em;
     border-radius: 10em;
     border-color: #ffffff1a;

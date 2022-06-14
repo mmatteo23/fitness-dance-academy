@@ -19,6 +19,7 @@
     <script defer src="../js/bmi.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
     <script defer src="../js/filtri.js"></script>
+    <script defer src="../js/preventSubmission.js"></script>
 </head>
 <body>
     <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
@@ -104,7 +105,7 @@
 
                 <div id="private-area-table">
                     <h1>Corsi a cui sei iscritto</h1>
-                    <form method='post' action='/areaprivata/prenotazione_corso.php'>
+                    <form class="preventSubmission" method='post' action='/areaprivata/prenotazione_corso.php'>
                         <tabellaCorsiPrenotati/>
                     </form>
                 </div>
