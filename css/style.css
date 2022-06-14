@@ -207,6 +207,7 @@ li#selectedBreadcrumb{
 
 .grid-container#content {
     background-color: transparent;
+    padding-top: 0;
 }
 
 .grid-item{
@@ -724,7 +725,7 @@ p.danger {
 }
 .inline-selectbox #label-solo-data {
     min-width: 0em;
-    margin-right: 2em;
+    margin-right: 1em;
 
 }
 #formSessione select{
@@ -1064,7 +1065,8 @@ li.ex-titolo {
 }
 
 .selezione-data-e-ora.selezione-data .button{
-    margin-bottom: 0;
+    margin: 0;
+    margin-left: auto;
     font-size: 1.2em;
 }
 

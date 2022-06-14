@@ -149,8 +149,9 @@ class Sessione {
         if($conn_ok){
 
             $query = "SELECT 
-                        sessione.ora_inizio,
-                        sessione.ora_fine,
+                        -- per togliere i secondi
+                        DATE_FORMAT(sessione.ora_inizio,'%k:%i') as `ora_inizio`,
+                        DATE_FORMAT(sessione.ora_fine,'%k:%i') as `ora_fine`,
                         utente.nome,
                         utente.cognome,
                         utente.email,
