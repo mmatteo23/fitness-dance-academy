@@ -256,6 +256,36 @@ VALUES (
     1,
     NULL,
     "Immagine del corso di default con il logo del sito, teschio con ossa e acronimo"
+  ),
+  (
+    5,
+    '<span xml:lang="en" lang="en">Calisthenics</span>',
+    'Allenamento senza pesi. Qui userai solo il tuo corpo, niente pesi e macchinari. Dovrai imparare a controllare il tuo baricentro e il respiro',
+    '2022-06-23',
+    '2022-12-23',
+    2,
+    '5.png',
+    'Un uomo che fa la bandiera su un palo a petto nudo'
+  ),
+  (
+    6,
+    '<span xml:lang="en" lang="en">Six Pack</span>',
+    'Corso basato su pause corte con lo scopo di colpire la parte addominale del tuo corpo. Alla fine del percorso sarai pronto per la prova costume',
+    '2022-06-23',
+    '2022-12-23',
+    2,
+    '6.png',
+    'Donna distesa a terra con top nero che fa gli addominali'
+  ),
+  (
+    7,
+    '<span xml:lang="en" lang="en">Fit Boxe</span>',
+    'Vieni a sfogarti su i nostri sacchi e impara a difenderti a ritmo di musica. La nostra istruttrice ti guider&agrave; per tutto l''allenamento',
+    '2022-06-23',
+    '2022-12-23',
+    2,
+    '7.jpg',
+    'Donna che segue il corso di fronte all''istruttore con top e guantini neri'
   );
 
 INSERT INTO categoria(descrizione) 
