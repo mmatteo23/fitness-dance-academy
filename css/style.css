@@ -479,7 +479,7 @@ div.form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -491,6 +491,10 @@ div.input-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.inline-selectbox div.input-wrapper {
+    width: auto;
 }
 
 div.input-wrapper-with-image {
@@ -640,6 +644,9 @@ p.title-card {
     margin-top: 0.5em;
     width: 100%;
 }
+.table-prenotazione.table-prenotazione-e-utenti {
+    padding: 1em 2em;
+}
 .link-sopra-table {
     margin-left: 0.5em;
     margin-bottom: 0.5em;
@@ -712,6 +719,11 @@ p.danger {
 #formSessione label{
     font-size: 1.5em;
     min-width: 15em;
+}
+.inline-selectbox #label-solo-data {
+    min-width: 0em;
+    margin-right: 2em;
+
 }
 #formSessione select{
     font-family: inherit;
@@ -1041,6 +1053,21 @@ li.ex-titolo {
     align-items: center;
     flex-direction: column;
     padding: 2em 5em;
+}
+
+.selezione-data-e-ora.selezione-data{
+    margin: 0 8em;
+    display: flex;
+    flex-direction: row;
+}
+
+.selezione-data-e-ora.selezione-data .button{
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+.selezione-data-e-ora.selezione-data .inline-selectbox{
+    justify-content: flex-start;
 }
 
 #selezioneOrari {
