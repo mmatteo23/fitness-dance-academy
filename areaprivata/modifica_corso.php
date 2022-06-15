@@ -136,6 +136,7 @@ if($corsoId !== false){
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/modifica_corso.html');
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.html');
+$import_script = '<script defer src="../js/modalManager.js"></script>';
 $form_conferma = '
     <form action="modifica_corso.php" method="post">
         <input type="text" value="' . $corsoId . '" name="id" id="id" hidden="hidden">
@@ -150,6 +151,7 @@ $htmlPage = str_replace('<trainerOptions/>', $trainerOptions, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
 $htmlPage = str_replace('<modal/>', $modal, $htmlPage);
+$htmlPage = str_replace('<modalManagerJs/>', $import_script, $htmlPage);
 $htmlPage = str_replace('<buttonElimina/>', $buttonElimina, $htmlPage);
 
 echo $htmlPage;

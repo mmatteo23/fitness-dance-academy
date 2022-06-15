@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
     $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $newId, "default.jpg");
     if($response[1] == "") {
         $valid = $modelloCorso->validator($_POST);
-        if($valid == TRUE){
+        if($valid === TRUE){
             $_POST['id'] = $newId;
             $_POST['copertina'] = $response[0];
             if(!$modelloCorso->create($_POST)){

@@ -175,6 +175,7 @@ $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/modifica_profilo.ht
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
 if(!Utente::isTrainer($_SESSION['userId'])){
+    $import_script = '<script defer src="../js/modalManager.js"></script>';
     $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.html');
     $form_conferma = '
         <form action="modifica_profilo.php" method="post">
@@ -186,12 +187,14 @@ if(!Utente::isTrainer($_SESSION['userId'])){
 } else {
     $modal = "";
     $buttonElimina = "";
+    $import_script = "";
 }
 
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
 $htmlPage = str_replace('<modal/>', $modal, $htmlPage);
+$htmlPage = str_replace('<modalManagerJs/>', $import_script, $htmlPage);
 $htmlPage = str_replace('<buttonElimina/>', $buttonElimina, $htmlPage);
 
 
