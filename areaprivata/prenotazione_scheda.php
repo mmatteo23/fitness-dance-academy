@@ -13,17 +13,11 @@ $modelloUtente = new Utente();
 preventMaliciousCode($_GET);
 $schede = $modelloScheda->index($_GET);
 
-$content = "
-<table id='tabPrenotate'>
-    <thead>
-        <tr>
-            <th scope='col'>Personal Trainer</th>
-            <th scope='col'>Data</th>
-            <th scope='col'>Azioni</th>
-        </tr>
-    </thead>
-    <tbody>
-";
+/*************************************************************************
+ * 
+ *                          CODICE HTML UTILE
+ * 
+ ************************************************************************/
 $table_footer = "
     </tbody>
 </table>
@@ -40,17 +34,22 @@ $form = '<div id="trainerSchedaDiv">
             <input type="submit" value="Prenota" name="prenota" class="button button-purple"/>
         </div>';
 
-if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId'])){
+if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
+    $prenotazione_pendente = Scheda::prenotazionePendente($_SESSION['userId']);
     if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
         preventMaliciousCode($_POST);
         $_POST['cliente'] = $_SESSION['userId'];
-    
-        if(!Scheda::prenotazionePendente($_SESSION['userId'])) $returned = Scheda::creaPrenotazione($_POST);
-        else $returned = false;
-        if($returned !== false)
-            $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Prenotazione effettuata con successo</p>";
-        else
-            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";
+        
+        if(!$prenotazione_pendente){
+            $returned = Scheda::creaPrenotazione($_POST);
+            if($returned !== false){
+                $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Prenotazione effettuata con successo</p>";
+                $prenotazione_pendente = true;
+            } else 
+                $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";  
+        } else {
+            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Ti sei già prenotato per ricevere una scheda. Puoi prenotarti per una sola scheda alla volta</p>";
+        }
     }
     
     $schedeUtente = Scheda::getSchedeByUtente($_SESSION['userId']);
@@ -59,7 +58,18 @@ if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId']))
         $trainers .= "<option value='".$trainerSingolo['id']."'>".$trainerSingolo['nome']." ".$trainerSingolo["cognome"]."</option>";
     }
     
-    if(count($schedeUtente) > 0){
+    if(count($schedeUtente) > 0){   // l'utente ha qualche scheda => gliela mostro
+        $content = "
+            <table id='tabPrenotate'>
+                <thead>
+                    <tr>
+                        <th scope='col'><span xml:lang='en'>Personal Trainer</span></th>
+                        <th scope='col'>Data</th>
+                        <th scope='col'>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+            ";
         foreach($schedeUtente as $scheda){
             $data = explode('-', $scheda['data']);
             $data = $data[2]."/".$data[1];
@@ -71,15 +81,18 @@ if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId']))
                 </tr>";
         }
         $content .= $table_footer;
-    } else {
-        
-        if(Scheda::prenotazionePendente($_SESSION['userId'])){
+    } else {    // L'utente non ha nemmeno una scheda compilata
+
+        if($prenotazione_pendente){
             $content = '<p>La tua richiesta di ricevere una nuova scheda è stata presa in carico, la visualizzerai qui quando il <span xml:lang="en">trainer</span> l\'avr&agrave; compilata</p>';
-            $btnPrenota = '<input type="submit" value="Prenota" name="prenota" class="button button-purple" disabled="disabled"/>';
         } else {         
             $content = "<p>Non sono presenti schede per questo utente</p>";
         }
     }
+
+    if($prenotazione_pendente)
+        $btnPrenota = '<input type="submit" value="Prenota" name="prenota" class="button button-purple" disabled="disabled"/>';
+        
 } else {
     header("location: /login.php");
 }
