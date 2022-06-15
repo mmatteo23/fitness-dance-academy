@@ -37,10 +37,14 @@ $pageTitle = "
 ";
 $filters = "
     <form method='get' class='filtri'>
-        <label for='titolo'>Nome</label>
-        <input type='text' name='titolo' id='titolo'/>
-        <label for='descrizione'>Descrizione</label>
-        <input type='text' name='descrizione' id='descrizione'/>
+        <div>
+            <label for='titolo'>Nome</label>
+            <input type='text' name='titolo' id='titolo'/>
+        </div>
+        <div>
+            <label for='descrizione'>Descrizione</label>
+            <input type='text' name='descrizione' id='descrizione'/>
+        </div>
         <button type='submit' class='button button-transparent button-filter'>Cerca</button>
         <button onClick='resetFilters()' type='reset' class='button button-transparent button-filter'>Reset</button>
     </form>
@@ -63,11 +67,11 @@ if(count($corsi)){
             <td data-title='Data Inizio'>". $corso['data_inizio'] ."</td>
             <td data-title='Data Fine'>". $corso['data_fine'] ."</td>
             <td data-title='Prenotazioni'>". $nIscritti ."</td>
-            <td>
+            <td class='btn-vis-corso'>
                 <a class='button button-purple button-filter' href=\"../areaprivata/visualizza_corso.php?id=".$corso['id']."\">Visualizza</a>
             </td>
             <td>
-                <a class='button button-purple button-filter' href=\"../areaprivata/modifica_corso.php?id=".$corso['id']."\">Modifica</a>
+                <a class='button button-purple button-filter btn-mod-corso' href=\"../areaprivata/modifica_corso.php?id=".$corso['id']."\">Modifica</a>
             </td>
         </tr>";
     }

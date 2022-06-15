@@ -75,9 +75,9 @@ if(count($corsi)){
             <th scope='row'>". $corso['titolo'] ."</th>
             <td data-title='Data Inizio'>". explode(' ', $corso['data_inizio'])[0] ."</td>
             <td data-title='Data Fine'>". explode(' ',$corso['data_fine'])[0] ."</td>
-            <td data-title='Trainer'>". $corso['trainer_nome'] ."</td>
+            <td data-title='Trainer'>". $corso['trainer_nome'] . " " . $corso['trainer_cognome'] ."</td>
             <td>
-                <button type='submit' name='insert' value=" . $corso['id'] . " class='button button-purple button-filter'>Prenota</button>
+                <button type='submit' name='insert' value=" . $corso['id'] . " class='button button-purple'>Prenota</button>
             </td>
             
         </tr>";
@@ -96,7 +96,7 @@ if(count($corsi_prenotati)){
             <th scope='row'>". $corso['titolo'] ."</th>
             <td data-title='Data Inizio'>". explode(' ', $corso['data_inizio'])[0] ."</td>
             <td data-title='Data Fine'>". explode(' ', $corso['data_fine'])[0] ."</td>
-            <td data-title='Trainer'>". $corso['trainer_nome'] ."</td>
+            <td data-title='Trainer'>". $corso['trainer_nome'] . " " . $corso['trainer_cognome'] ."</td>
             <td>
                 <button type='submit' name='delete' value=" . $corso['id'] . " class='button button-purple button-filter'>Disiscriviti</button>
             </td>

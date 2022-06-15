@@ -89,10 +89,14 @@
                 <div id="private-area-top">
                     <h1 id="head-private-area-top">Prenotati ai nostri corsi</h1>
                     <form method="get" class="filtri">
-                        <label for="titolo">Nome</label>
-                        <input type="text" id="titolo" name="titolo"/>
-                        <label for="descrizione">Descrizione</label>
-                        <input type="text" id="descrizione" name="descrizione"/>
+                        <div>
+                            <label for="titolo">Nome</label>
+                            <input type="text" id="titolo" name="titolo"/>
+                        </div>
+                        <div>
+                            <label for="descrizione">Descrizione</label>
+                            <input type="text" id="descrizione" name="descrizione"/>
+                        </div>
                         <button type="submit" class="button button-transparent button-filter">Cerca</button>
                         <button onClick="resetFilters()" type="reset" class="button button-transparent button-filter">Reset</button>
                     </form>

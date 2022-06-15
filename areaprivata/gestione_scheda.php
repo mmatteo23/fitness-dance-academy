@@ -43,7 +43,7 @@ if(isset($_SESSION['userId'])){
                 <tr>
                     <th scope='col'>Cliente</th>
                     <th scope='col'>Data prenotazione</th>
-                    <th scope='col'>Crea scheda</th>
+                    <th scope='col'>Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,7 +59,7 @@ if(isset($_SESSION['userId'])){
                     <tr id='scheda".$scheda['id']."'>
                         <th scope='row' data-title='Cliente'>".$scheda['utente']."</td>
                         <td data-title='Data'>". explode(' ', $scheda['data'])[0] ."</td>
-                        <td data-title='Crea scheda'><a id='btn-crea-scheda' href='creazione_scheda.php?id=".$scheda['id']."' class='button button-purple'><i class=' fa fa-edit'></i></i></button></td>
+                        <td><a id='btn-crea-scheda' href='creazione_scheda.php?id=".$scheda['id']."' class='button button-purple'>Crea Scheda</button></td>
                     </tr>";
             }
             $content .= $table_footer;

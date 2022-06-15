@@ -19,7 +19,7 @@ $content = "
         <tr>
             <th scope='col'>Personal Trainer</th>
             <th scope='col'>Data</th>
-            <th scope='col'>Visualizza</th>
+            <th scope='col'>Azioni</th>
         </tr>
     </thead>
     <tbody>
@@ -67,7 +67,7 @@ if(isset($_SESSION['userId']) && $modelloUtente->isCliente($_SESSION['userId']))
                 <tr>
                     <th data-title='Trainer' scope='row'>".$scheda['trainer']."</th>
                     <td data-title='Data'>".$data."</td>
-                    <td data-title='Visualizza'><a class='button button-purple' href='visualizzaScheda.php?id=".$scheda['id']."'><i class=' fa fa-location-arrow'></i></a></td>
+                    <td><a class='button button-purple' aria-label='Visualizza la scheda' href='visualizzaScheda.php?id=".$scheda['id']."'>Visualizza</a></td>
                 </tr>";
         }
         $content .= $table_footer;

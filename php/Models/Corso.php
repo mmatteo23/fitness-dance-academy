@@ -204,9 +204,9 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome, trainer_cognome FROM
                 (
-                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
                 LEFT JOIN utente ON utente.id = trainer
                 ) as corsi
                 LEFT JOIN iscrizione_corso ON corso = id 
@@ -255,9 +255,9 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome, trainer_cognome FROM
                 (
-                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
                 LEFT JOIN utente ON utente.id = trainer
                 ) as corsi
                 LEFT JOIN iscrizione_corso ON corso = id 

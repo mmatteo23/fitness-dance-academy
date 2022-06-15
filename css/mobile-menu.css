@@ -86,6 +86,7 @@
     }
 
 
+
     /*****************************
      *          TABLES
      ****************************/
@@ -108,7 +109,7 @@
     }
     table#corsi-mobile td, table#corsi-mobile th{
         width: 100%;
-        margin: 0.17em;
+        margin: 0.08em;
     }
     table#corsi-mobile th{
         margin-top: 1.5em;
@@ -195,6 +196,9 @@
     #private-area-container{
         display: block;
     }
+    #private-area-table>h1{
+        margin: 0;
+    }
     /*
     #private-area-menu{
         display: flex;
@@ -243,6 +247,9 @@
         align-items: flex-start;
         flex-direction: column;
     }
+    form.filtri>div{
+        width: 100%;
+    }
     form.filtri input{
         width: 96%;
         max-width: none;
@@ -261,12 +268,72 @@
 }
 
 @media (max-width: 750px) {
+    form.filtri{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .private-area-title-and-button{
+        display: block;
+    }
+    .private-area-title-and-button>a{
+        width: auto;
+    }
+     nav{
+        padding: 0 0.5em;
+    }
+    ul#breadcrumb{
+        padding: 0.9em 0;
+    }
+    
+    main#aboutus-container dl {
+        display: block;
+    }
+    main#aboutus-container{
+        padding: 3% 7%;
+    }
+
+    ul#private-area-menu>li>p>span, ul#private-area-menu>li>a>span[class]{
+        display: none;
+    }
+    #private-area-menu .button {
+        min-width: 5em;
+    }
+    #contatti, #social, #Indirizzo{
+        width: 22%;
+        padding: 5%;
+    }
+    .profile-box{
+        padding: 2em 7%;
+    }
+    .profileData>ul>li>:first-child{
+        margin-top: 0.5em;
+        display: block;
+        background-color: var(--transparent);
+
+    }.profileData>ul>li>:last-child{
+        display: block;
+        background-color: var(--transparent-dark);
+    }
+    .table-prenotazione{
+        font-size: 1.2em;
+    }
     .table-prenotazione thead{
         display: none;
     }
     .table-prenotazione tr, .table-prenotazione th, .table-prenotazione td{
         display: block;
-        margin: 0.3em 0;
+        margin: 0.15em 0;
+    }
+    .table-prenotazione tr:first-child th{
+        margin-top: 0;
+    }
+    .table-prenotazione td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione td[data-title="Pausa"]:last-child, .table-prenotazione td[data-title="Telefono"]:last-child{
+        border-width: 0.2em;
+        padding: 0.5em;
     }
     .table-prenotazione th{
         margin-top: 1.5em;
@@ -275,6 +342,30 @@
         content:
         attr(data-title) ":\00A0";
         display: block;
+    }
+    .table-prenotazione .button{
+        border-radius: 0;
+        font-size: 1em;
+        width: 100%;
+        margin:0;
+        padding: 0.7em;
+    }
+    .btn-vis-corso{
+        border:0;
+        padding: 0;
+    }
+    .btn-vis-corso>.button{
+        width: auto;
+    }
+    .table-prenotazione .btn-mod-corso{
+        width: auto;
+    }
+
+    #creaBtn{
+        width: auto;
+    }
+    #tabExbody th{
+        margin-top: 0;
     }
 
     #tabPrenotate{
@@ -287,17 +378,51 @@
 
     #tabPrenotate tr, #tabPrenotate th, #tabPrenotate td{
         display: block;
-        margin: 0.3em 0;
+        margin: 0.15em 0;
     }
     #tabPrenotate th{
         margin-top: 1.5em;
+    }
+    #tabPrenotate tr:first-child th{
+        margin-top:0;
+    }
+    #tabPrenotate tr>:last-child{
+        padding: 0;
+        border: 0;
+    }
+    #btn-cancella{
+        border-radius: 0;
+        width: 100%;
+        padding:0.7em;
     }
     #tabPrenotate th[data-title]:before, #tabPrenotate td[data-title]:before{
         content:attr(data-title) ":\00A0";
         display: block;
     }
+    #tabPrenotate a.button{
+        width: auto;
+        border-radius: 0;
+        padding: 0.7em;
+    }
+    #tabPrenotate td[data-title="Data"]:before, #tabPrenotate th[data-title="Data"]:before, 
+    #tabPrenotate td[data-title="Dalle"]:before, #tabPrenotate td[data-title="Alle"]:before,
+    .table-prenotazione td[data-title="Prenotazioni"]:before, .table-prenotazione td[data-title="Serie"]:before,
+    .table-prenotazione td[data-title="Ripetizioni"]:before, .table-prenotazione td[data-title="Pausa"]:before,
+    .table-prenotazione td[data-title="Esercizio"]:before {
+        display:inline-block;
+    }
 
+    #trainerScheda{
+        width:auto
+    }
+    #scheda-table h2{
+        margin: 0;
+    }
 
+    .selezione-data-e-ora.selezione-data .button {
+        margin-left: 0;
+        margin-top: 1em;    
+    }
 
 
     #inserimento-dati{
@@ -329,6 +454,22 @@
 
     .selezione-data-e-ora {
         padding: 1em;
+    }
+
+    #ex-container{
+        width: 100%;
+    }
+    #private-area-top{
+        padding: 1em;
+    }
+    .ex-descr{
+        padding: 0;
+    }
+    p#consiglio{
+        text-align: center;
+    }
+    #inline-buttons{
+        display: block;
     }
 }
 
