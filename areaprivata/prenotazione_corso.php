@@ -40,11 +40,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         if(!$modello->isAlreadyRegistered($corsoId, $_SESSION['userId'])){
             $result = $modello->registerUser($corsoId, $_SESSION['userId']);
             if($result)
-                $response = "<p class='response success' autofocus>Registrazione avvenuta con successo.</p>";
+                $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Registrazione avvenuta con successo.</p>";
             else
-                $response = "<p class='response danger' autofocus>Errore durante la registrazione. Si prega di riprovare o contattare l'assistenza.</p>";
+                $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la registrazione. Si prega di riprovare o contattare l'assistenza.</p>";
         } else {
-            $response = "<p class='response danger' autofocus>Sembra che questo corso ti piaccia proprio tanto. Sei già iscritto, ti aspettiamo!</p>";
+            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Sembra che questo corso ti piaccia proprio tanto. Sei già iscritto, ti aspettiamo!</p>";
         }
     }
 
@@ -52,11 +52,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         if($modello->isAlreadyRegistered($_POST['delete'], $_SESSION['userId'])){
             $result = $modello->unregisterUser($_POST['delete'], $_SESSION['userId']);
             if($result)
-                $response = "<p class='response success' autofocus>Ti sei disiscritto dal corso.</p>";
+                $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Ti sei disiscritto dal corso.</p>";
             else
-                $response = "<p class='response danger' autofocus>Errore durante la registrazione. Si prega di riprovare o contattare l'assistenza.</p>";
+                $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la registrazione. Si prega di riprovare o contattare l'assistenza.</p>";
         } else {
-            $response = "<p class='response danger' autofocus>Ops, sembra che tu non sia iscritto al corso da cui ti stai cancellando.</p>";
+            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Ops, sembra che tu non sia iscritto al corso da cui ti stai cancellando.</p>";
         }
     }
 

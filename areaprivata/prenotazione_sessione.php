@@ -17,6 +17,7 @@ if(!isset($_SESSION['userId']) || !$modelloUtente->isCliente($_SESSION['userId']
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_sessione.html");
 
 $errors = "";
+$response = "";
 
 $content_corsi_prenotati = "";
 $tabellaSessioniPrenotate = "
@@ -51,7 +52,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     if ($errors == ""){
         $returned = $modelloSessione->create($_POST);
-    }   
+        if($returned !== false)
+            $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Prenotazione effettuata con successo per la sessione scelta</p>";
+        else
+            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";
+    } else {
+        $errors = "<div id='errori'>".$errors."</div>";
+    }  
 }
 /*
 $giornoHTML = "";
@@ -120,7 +127,8 @@ if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
 }
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 
-$htmlPage = str_replace('<div id="errori"></div>', $errors, $htmlPage);
+$htmlPage = str_replace('<errori/>', $errors, $htmlPage);
+$htmlPage = str_replace('<response/>', $response, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 //$htmlPage = str_replace("<giornoSessione/>", $giornoHTML, $htmlPage);
 $htmlPage = str_replace("<tabellaSessioniPrenotate/>", $tabellaSessioniPrenotate, $htmlPage);

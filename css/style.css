@@ -22,8 +22,9 @@
     --content-max_width: 1200px;
     --error: #ff70ba;
     --error-background: #140f21;
-    --success: #21ab21;
+    --success: rgb(25,135,84);
     --success-background: var(--color2);
+    --danger: #ff4136;
 }
 
 
@@ -693,15 +694,28 @@ p.response {
     padding: 1em;
     border-radius: 16px;
     color: white;
+    width: 80%;
+    margin: 1.2em auto;
+    font-weight: 600;
+    font-size: 1.2em;
 }
 
 p.success {
-    background-color: green;
+    background-color: var(--success);
 }
 
 p.danger {
-    background-color: red;
+    background-color: var(--danger);
 }
+
+div#errori {
+    background: var(--danger);
+    padding: 0.8em;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1em;
+}
+
 .filtri label {
     margin-right: 0.75em;
 }

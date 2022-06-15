@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script defer src="../js/bmi.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
+    <script defer src="../js/setFocusToResponse.js"></script>
 </head>
 <body>
     <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
@@ -84,7 +85,12 @@
                     <h2>Le tue schede</h2>
                     <sessionTableBody/>
                 </div>
-                <formPrenotazione/>
+                <form action="../areaprivata/prenotazione_scheda.php" method="post" id="formSessione">
+                    <h2>Prenota una scheda con uno dei nostri Personal Trainer</h2> 
+                    
+                    <formPrenotazione/>
+                    <response/>
+                </form>
             </div>
         </div>
     </main>

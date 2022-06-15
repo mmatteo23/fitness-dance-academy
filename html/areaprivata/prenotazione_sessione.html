@@ -21,6 +21,7 @@
     <script defer src="../js/deleteSession.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
     <script defer src="../js/setDefaultDate.js"></script>
+    <script defer src="../js/setFocusToResponse.js"></script>
 </head>
 <body>
     <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
@@ -87,7 +88,7 @@
             <div id="private-area-content">
                 <form action="../areaprivata/prenotazione_sessione.php" method="post" id="formSessione">
                     <h1 id="head-private-area-top">Prenota una sessione di allenamento</h1> 
-                    <div id="errori"></div>
+                    <errori/>
                     <div class="selezione-data-e-ora">
                         <div class="inline-selectbox">
                             <label for="giornoSessione">Data della sessione:</label>
@@ -102,6 +103,7 @@
                             <input type="time" class="transparent-login" id="ora_fine" name="ora_fine">
                         </div>
                     </div>
+                    <response/>
                     <input id="prenota" type="submit" value="Prenota" name="prenota" class="button button-purple private-area-button">
                 </form>
                 <tabellaSessioniPrenotate/>
