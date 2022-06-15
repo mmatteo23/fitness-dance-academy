@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
     $response = checkAndUploadImage("img/fotoProfilo/", "profile-img", $newId, "default.png");
     if($response[1] == "") {
         $valid = $modelloUtente->validator($_POST);
-        if($valid == TRUE){
+        if($valid === TRUE){
             $_POST['id'] = $newId;
             $_POST['foto_profilo'] = $response[0];
             $_POST['ruolo'] = 3;

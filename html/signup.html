@@ -18,6 +18,7 @@
     <script defer src="js/creaProfiloValidator.js"></script>
     <script defer src="js/image_validator.js"></script>
     <script defer src="js/mobile-menu.js"></script>
+    <script defer src="js/setDefaultDate.js"></script>
 </head>
 <body>
     <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
@@ -81,12 +82,12 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="data_nascita">Data di nascita*</label>
-                    <input type="date" name="data_nascita" id="data_nascita" class="transparent-login" value="2000-01-01"/>
+                    <input type="date" name="data_nascita" id="data_nascita" class="transparent-login" onblur="validaDataNascita()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="telefono">Telefono</label>
-                    <input type="tel" name="telefono" id="telefono" class="transparent-login" pattern="[0-9]{10}"/>
+                    <input type="tel" name="telefono" id="telefono" class="transparent-login" onblur="validaTelefono()" pattern="[0-9]{10}"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
@@ -105,22 +106,22 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="altezza">Altezza (in centimetri)</label>
-                    <input type="number" name="altezza" id="altezza" class="transparent-login"/>
+                    <input type="number" name="altezza" id="altezza" class="transparent-login" onblur="validaAltezza()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="peso">Peso (in chilogrammi)</label>
-                    <input type="number" name="peso" id="peso" class="transparent-login"/>
+                    <input type="number" name="peso" id="peso" class="transparent-login" onblur="validaPeso()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="password"><span xml:lang="en" lang="en">Password</span>*</label>
-                    <input type="password" name="password" id="password" class="transparent-login"/>
+                    <input type="password" name="password" id="password" class="transparent-login" onblur="validaPassword()"/>
                     <p class='error'></p>
                 </div>
                 <div class="input-wrapper">
                     <label for="Rpassword">Ripeti <span xml:lang="en" lang="en">Password</span>*</label>
-                    <input type="password" name="Rpassword" id="Rpassword" class="transparent-login"/>
+                    <input type="password" name="Rpassword" id="Rpassword" class="transparent-login" onblur="validaPassword()"/>
                     <p class='error'></p>
                 </div>
                 <input id="creaBtn" type="submit" class="button button-purple" value="Crea Profilo" name="crea"/>

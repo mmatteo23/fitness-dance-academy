@@ -37,12 +37,11 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     // Se si sta richiedendo un corso specifico con 'view' allora:
     if(isset($_GET['id'])){
         $corsoId = $_GET['id'];
-        // CHECK CORSO ESISTE
-        $lastIdPiuUno = $modelloCorso->getNewId();
-        if ($_GET['id'] >= $lastIdPiuUno) {
+        // // CHECK CORSO ESISTE
+        $corso = $modelloCorso->read($corsoId);
+        if (!$corso) {
             header("location: gestione_corso.php");
         }
-        $corso = $modelloCorso->read($corsoId);
         // CHECK TRAINER AUTORIZZATO
         if ($modelloUtente->isTrainer($_SESSION['userId'])) {
             if($corso['trainer'] != $_SESSION['userId']) {

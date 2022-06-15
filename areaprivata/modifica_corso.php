@@ -39,11 +39,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
 
 preventMaliciousCode($_GET);
 // CHECK CORSO ESISTE
-$lastIdPiuUno = $modelloCorso->getNewId();
-if ($_GET['id'] >= $lastIdPiuUno) {
+$corso = $modelloCorso->read($_GET['id']);
+if (!$corso) {
     header("location: gestione_corso.php");
 }
-$corso = $modelloCorso->read($_GET['id']);
 // CHECK TRAINER AUTORIZZATO
 if ($modelloUtente->isTrainer($_SESSION['userId'])) {
     if($corso['trainer'] != $_SESSION['userId']) {

@@ -120,6 +120,7 @@ class Utente {
                     ($data['telefono']!=""?Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
                     (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita non corrispondente a persona maggiorenne</li>":"").
                     ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
+                    ($data['sesso']=="M"||$data['sesso']=="F"?"":"<li>Il sesso deve essere F per femmina o M per maschio</li>").
                     (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
         if($errors != "")
             return "<ul>".$errors."</ul>";
@@ -176,7 +177,7 @@ class Utente {
                 '" . $data['email'] . "',
                 '" . $data['data_nascita'] . "',
                 '" . $data['password'] . "',
-                '" . $data['telefono'] . "',
+                '" . ($data['telefono']?:"NULL") . "',
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
                 " . $data['ruolo'] . ",
@@ -221,15 +222,15 @@ class Utente {
                 cognome = '" . $data['cognome'] . "',
                 data_nascita = '" . $data['data_nascita'] . "',
                 password = '" . $data['password'] . "',
-                telefono = '" . $data['telefono'] . "',
+                telefono = '" . ($data['telefono']?:"NULL") . "',
                 sesso = '" . $data['sesso'] . "',
                 foto_profilo = '" . $data['foto_profilo'] . "',
                 ruolo = " . $data['ruolo'] . ",
-                altezza = " . $data['altezza'] . ",
-                peso = " . $data['peso'] . "
+                altezza = " . ($data['altezza']?:"NULL") . ",
+                peso = " . ($data['peso']?:"NULL") . "
                 
                 WHERE id = " . $id;
-            
+                
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
@@ -293,25 +294,37 @@ class Utente {
 
     public static function isAdmin($userId) {
         $userData = Utente::read($userId);
-        if ($userData['ruolo'] == 1)
-            return true;
-        else
-            return false;
+        if ($userData) {
+            if ($userData['ruolo'] == 1)
+                return true;
+            else
+                return false;
+        }
+
+        return false;
     }
 
     public static function isTrainer($userId) {
         $userData = Utente::read($userId);
-        if ($userData['ruolo'] == 2)
-            return true;
-        else
-            return false;
+        if($userData) {
+            if ($userData['ruolo'] == 2)
+                return true;
+            else
+                return false;
+        }
+
+        return false;
     }
 
     public static function isCliente($userId) {
         $userData = Utente::read($userId);
-        if ($userData['ruolo'] == 3)
-            return true;
-        else
-            return false;
+        if ($userData) {
+            if ($userData['ruolo'] == 3)
+                return true;
+            else
+                return false;
+        }
+
+        return false;
     }
 }

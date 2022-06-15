@@ -5,6 +5,7 @@ var day         = date.getDate(),
     tomorrow    = date.getDate() + 1,
     month       = date.getMonth() + 1,
     year        = date.getFullYear(),
+    maggiorenne = year-18,
     hour1       = date.getHours(),
     min1        = date.getMinutes(),
     hour2       = date_end.getHours(),
@@ -20,11 +21,15 @@ min2 = (min2 < 10 ? "0" : "") + min2;
 
 var today           = year + "-" + month + "-" + day,
     tomorrow        = year + "-" + month + "-" + tomorrow,
+    maggiorenne     = maggiorenne + "-" + month + "-" + day,
     displayTime     = hour1 + ":" + min1,
     displayTime2    = hour2 + ":" + min2;
   
 if(document.getElementById('data')) {
     document.getElementById('data').value=today;
+}
+if(document.getElementById('data_nascita')) {
+    document.getElementById('data_nascita').value=maggiorenne;
 }
 if(document.getElementById('data_inizio')) {
     document.getElementById('data_inizio').value=today;
