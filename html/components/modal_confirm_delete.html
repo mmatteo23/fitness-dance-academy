@@ -1,0 +1,11 @@
+<div id="backdrop" class="backdrop"></div>
+<section id="delete-box" class="confirm-delete-box">        
+    <h2>Sei sicuro di voler procedere con l'eliminazione?</h2>
+    <h3>Questa operazione non è reversibile!</h3>
+    <div class="delete-box-buttons">
+        <button id = 'cancelDelete' class="button" onClick='hideModal()'>Annulla</button>
+        <form action="edit_profile.php" method="post">
+            <input id = 'confirmDelete' class="button" type="submit" value="Cancella" name="cancella" />
+        </form>
+        </div>
+</section>

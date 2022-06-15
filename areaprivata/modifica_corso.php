@@ -18,6 +18,8 @@ if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
     preventMaliciousCode($_POST);
+
+
     $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $_POST['id'], "default.jpg");
     if($response[1] == "") {
         $valid = $modelloCorso->validator($_POST);

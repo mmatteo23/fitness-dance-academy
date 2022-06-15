@@ -42,7 +42,7 @@ CREATE TABLE scheda (
 	trainer int NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (cliente) REFERENCES utente(id) ON DELETE CASCADE,
 	FOREIGN KEY (trainer) REFERENCES utente(id)
 );
 
@@ -53,7 +53,7 @@ CREATE TABLE prenotazione_scheda (
 	data 			datetime NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (cliente) REFERENCES utente(id) ON DELETE CASCADE,
 	FOREIGN KEY (trainer) REFERENCES utente(id)
 );
 
@@ -82,7 +82,8 @@ CREATE TABLE esercizio_scheda (
 	/*foto_esercizio varchar(255) NOT NULL,*/
 
 	PRIMARY KEY (scheda, esercizio),
-	FOREIGN KEY (esercizio) REFERENCES esercizio(id)
+	FOREIGN KEY (esercizio) REFERENCES esercizio(id),
+  FOREIGN KEY (scheda) REFERENCES scheda(id) ON DELETE CASCADE
 );
 
 CREATE TABLE prenotazione_sessione (
@@ -93,7 +94,7 @@ CREATE TABLE prenotazione_sessione (
 	cliente int NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (cliente) REFERENCES utente(id)
+	FOREIGN KEY (cliente) REFERENCES utente(id) ON DELETE CASCADE
 );
 
 CREATE TABLE corso (
@@ -115,7 +116,7 @@ CREATE TABLE iscrizione_corso (
 	corso int,
 
 	PRIMARY KEY (cliente, corso),
-	FOREIGN KEY (cliente) REFERENCES utente(id),
+	FOREIGN KEY (cliente) REFERENCES utente(id) ON DELETE CASCADE,
 	FOREIGN KEY (corso) REFERENCES corso(id)
 );
 

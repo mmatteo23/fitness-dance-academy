@@ -15,7 +15,7 @@ $ruoloUtente = $modelloUtente->getRole($_SESSION['userId']);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     preventMaliciousCode($_POST);
-    if (isset($_POST['cancella'])) {
+    if (isset($_POST['cancella']) && !Utente::isTrainer($_SESSION['userId'])) {
         $modelloUtente->delete($_SESSION['userId']);
         header('Location: /php/logout.php');
     } else {
@@ -174,9 +174,21 @@ $menuPrivateAreaGestione = "
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/edit_profile.html');
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
+if(!Utente::isTrainer($_SESSION['userId'])){
+    $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.html');
+    $buttonElimina = file_get_contents(SITE_ROOT . '/html/components/button_elimina.html');
+} else {
+    $modal = "";
+    $buttonElimina = "";
+}
+
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<formErrors/>', $valid, $htmlPage);
 $htmlPage = str_replace('<pageFooter/>', $footer, $htmlPage);
+$htmlPage = str_replace('<modal/>', $modal, $htmlPage);
+$htmlPage = str_replace('<buttonElimina/>', $buttonElimina, $htmlPage);
+
+
 
 if($userData['ruolo'] == 3)
     $htmlPage = str_replace('<menuPrivateArea/>', $menuPrivateAreaUtente, $htmlPage);

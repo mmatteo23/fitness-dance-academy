@@ -19,6 +19,7 @@
     <script defer src="../js/creaProfiloValidator.js"></script>
     <script defer src="../js/image_validator.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
+    <script defer src="../js/modalManager.js"></script>
 </head>
 <body>
     <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
@@ -70,14 +71,16 @@
                                 <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
                                 <a id="annullaBtn" href="profile.php" class="button button-purple">Annulla</a>
                             </div>
-                            <input id="deleteBtn" type="submit" class="button button-violet" value="Elimina Profilo" name="cancella"/>
                         </form>
+                        <buttonElimina/>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     
+    <modal/>
+
     <pageFooter/>
 </body>
 </html>

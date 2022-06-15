@@ -19,6 +19,7 @@
     <script defer src="../js/creaCorsoValidator.js"></script>
     <script defer src="../js/image_validator.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
+    <script defer src="../js/modalManager.js"></script>
 </head>
 <body>
     <header>
@@ -94,13 +95,15 @@
                                 <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
                                 <a id="annullaBtn" href="gestione_corso.php" class="button button-purple">Annulla</a>
                             </div>
-                            <input id="deleteBtn" type="submit" class="button button-violet" value="Elimina Corso" name="cancella"/>
+                            <buttonElimina/>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <modal/>
     
     <pageFooter/>
 </body>
