@@ -189,9 +189,6 @@
     .ex-descr :first-child{
         font-size: 1.25em;
     }
-    #aboutus-container dd{
-        padding-bottom: 1em;
-    }
     /**********************AREA PRIVATA**************************/
     #private-area-container{
         display: block;
@@ -285,11 +282,13 @@
         padding: 0.9em 0;
     }
     
-    main#aboutus-container dl {
-        display: block;
-    }
     main#aboutus-container{
-        padding: 3% 7%;
+        padding: 10% 7%;
+    }
+
+    main#aboutus-container img {
+        width: 100%;
+        margin: 1em auto;
     }
 
     ul#private-area-menu>li>p>span, ul#private-area-menu>li>a>span[class]{
