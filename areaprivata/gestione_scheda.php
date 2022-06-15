@@ -19,7 +19,7 @@ preventMaliciousCode($_GET);
 $schede = $modelloScheda->index($_GET);
 
 $content = "
-<table id='tabPrenotate'>
+<table id='tabPrenotate' class='full-button'>
     <thead>
         <tr>
             <th scope='col'>Data</th>
@@ -38,7 +38,7 @@ if(isset($_SESSION['userId'])){
     $userId = $_SESSION['userId'];
     if(!$modelloUtente->isCliente($userId)){
         $content = "
-        <table id='tabPrenotate'>
+        <table id='tabPrenotate' class='full-button'>
             <thead>
                 <tr>
                     <th scope='col'>Cliente</th>

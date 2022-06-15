@@ -832,9 +832,6 @@ div#errori > ul {
     width: auto;
     border-radius: 0;
 }
-#tabPrenotate a:hover{
-    color: var(--color1-dark);
-}
 
 #btn-cancella{
     font-family: "Poppins";
@@ -1018,6 +1015,8 @@ select#giornoSessione {
     padding: 0 0.5em;
     width: fit-content;
     border-radius: 0.25em;
+    font-size: 0.9em;
+    margin-top: 0.8em;
 }
 
 #addExBtn{
@@ -1467,6 +1466,7 @@ div.input-wrapper.success .transparent-login {
 
 .standard-text {
     font-size: 1.2em;
+    padding: 0 12em;
 }
 
 /* Change the white to any color */
