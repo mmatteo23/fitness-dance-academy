@@ -26,7 +26,7 @@ $menuPrivateAreaUtente = "
             SESSIONE
             <span class='material-symbols-outlined'>schedule</span>
         </a></li>
-        <li><a href='../areaprivata/edit_profile.php' class='button button-transparent'>
+        <li><a href='../areaprivata/modifica_profilo.php' class='button button-transparent'>
             MODIFICA
             <span class='material-symbols-outlined'>edit_note</span>
         </a></li>
@@ -51,7 +51,7 @@ $menuPrivateAreaGestione = "
             SESSIONE
             <span class='material-symbols-outlined' aria-hidden='true'>schedule</span>
         </a></li>
-        <li><a href='../areaprivata/edit_profile.php' class='button button-transparent'>
+        <li><a href='../areaprivata/modifica_profilo.php' class='button button-transparent'>
             MODIFICA
             <span class='material-symbols-outlined' aria-hidden='true'>edit_note</span>
         </a></li>
@@ -80,7 +80,7 @@ $profileData = '
     </ul>
 ';
 
-$htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/profile.html');
+$htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/profilo.html');
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
 if($userData['ruolo'] == 3)

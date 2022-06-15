@@ -49,7 +49,7 @@ $htmlPage = str_replace("<formErrors/>", $errors, $htmlPage);
 
 // se l'utente ha già effettuato il login non deve visualizzare questa pagina
 if(isset($_SESSION['email']) && $_SESSION['email'] != '') {             
-    header("location: areaprivata/profile.php");
+    header("location: areaprivata/profilo.php");
 }
 
 //str_replace finale col contenuto specifico della pagina

@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
                 else{
                     $_SESSION['email'] = $_POST['email'];
                     $_SESSION['userId'] = $modelloUtente->getIdFromEmail($_POST['email']);
-                    header("location: profile.php");
+                    header("location: profilo.php");
                 }
             } 
         } else {
@@ -116,7 +116,7 @@ $formContent = "
 
 $menuPrivateAreaUtente = "
     <ul id='private-area-menu'>
-        <li><a href='../areaprivata/profile.php' class='button button-transparent'>
+        <li><a href='../areaprivata/profilo.php' class='button button-transparent'>
             DATI
             <span class='material-symbols-outlined'>description</span>
         </a></li>
@@ -144,7 +144,7 @@ $menuPrivateAreaUtente = "
 ";
 $menuPrivateAreaGestione = "
     <ul id='private-area-menu'>
-        <li><a href='../areaprivata/profile.php' class='button button-transparent'>
+        <li><a href='../areaprivata/profilo.php' class='button button-transparent'>
             DATI
             <span class='material-symbols-outlined'>description</span>
         </a></li>
@@ -171,11 +171,17 @@ $menuPrivateAreaGestione = "
     </ul>
 ";
 
-$htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/edit_profile.html');
+$htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/modifica_profilo.html');
 $footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
 
 if(!Utente::isTrainer($_SESSION['userId'])){
     $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.html');
+    $form_conferma = '
+        <form action="modifica_profilo.php" method="post">
+            <input id = "confirmDelete" class="button" type="submit" value="Cancella" name="cancella" />
+        </form>
+    ';
+    $modal = str_replace('<formCancella/>', $form_conferma, $modal);
     $buttonElimina = file_get_contents(SITE_ROOT . '/html/components/button_elimina.html');
 } else {
     $modal = "";

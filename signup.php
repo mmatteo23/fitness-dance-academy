@@ -10,7 +10,7 @@ $modelloUtente = new Utente;
 $valid = "";
 
 if(isset($_SESSION['email'])){    // the user is already registered
-    header("location: areaprivata/profile.php");
+    header("location: areaprivata/profilo.php");
 }
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
             else{
                 $_SESSION['email'] = $_POST['email'];
                 $_SESSION['userId'] = $newId;
-                header("location: areaprivata/profile.php");
+                header("location: areaprivata/profilo.php");
             }
         } 
     } else {

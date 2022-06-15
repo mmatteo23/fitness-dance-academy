@@ -69,7 +69,7 @@ if(isset($_SESSION['userId'])){
         }
     }
     else{
-        // redirect to profile.html
+        // redirect to profilo.html
     }
 }
 
