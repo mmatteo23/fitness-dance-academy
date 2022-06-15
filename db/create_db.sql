@@ -74,6 +74,7 @@ CREATE TABLE esercizio (
 );
 
 CREATE TABLE esercizio_scheda (
+  id int PRIMARY KEY AUTO_INCREMENT,
 	scheda int NOT NULL,
 	esercizio int NOT NULL,
 	serie int NOT NULL,
@@ -81,7 +82,6 @@ CREATE TABLE esercizio_scheda (
 	riposo int NOT NULL,
 	/*foto_esercizio varchar(255) NOT NULL,*/
 
-	PRIMARY KEY (scheda, esercizio),
 	FOREIGN KEY (esercizio) REFERENCES esercizio(id),
   FOREIGN KEY (scheda) REFERENCES scheda(id) ON DELETE CASCADE
 );
@@ -206,6 +206,48 @@ VALUES
     3,
     186,
     78
+),
+(
+    6,
+    'admin',
+    'admin',
+    'admin',
+    '2000-01-01',
+    'admin',
+    '3111111111',
+    'M',
+    NULL,
+    1,
+    200,
+    100
+),
+(
+    7,
+    'trainer',
+    'trainer',
+    'trainer',
+    '2000-02-02',
+    'trainer',
+    '3222222222',
+    'F',
+    NULL,
+    2,
+    160,
+    55
+),
+(
+    8,
+    'client',
+    'client',
+    'client',
+    '2000-03-03',
+    'client',
+    '3333333333',
+    'M',
+    NULL,
+    3,
+    180,
+    70
 );
 
 INSERT INTO corso (
