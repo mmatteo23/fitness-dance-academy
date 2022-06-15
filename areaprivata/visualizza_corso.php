@@ -62,8 +62,8 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
                 $content_corsi .= "<tr>
                     <th data-title='Nome' scope='row'>". $iscritto['nome']." ".$iscritto['cognome'] ."</th>
                     <td data-title='Data Nascita'>". $iscritto['data_nascita'] ."</td>
-                    <td data-title='email'>". $iscritto['email'] ."</td>
-                    <td data-title='telefono'>". $iscritto['telefono'] ."</td>
+                    <td data-title='Email'>". $iscritto['email'] ."</td>
+                    <td data-title='Telefono'>". $iscritto['telefono'] ."</td>
                 </tr>";
             }
         

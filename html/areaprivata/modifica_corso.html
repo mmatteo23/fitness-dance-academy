@@ -92,12 +92,14 @@
                         <formErrors/>
                         <form action="modifica_corso.php" method="POST" id="formModificaCorso" enctype="multipart/form-data">
                             <formContent/>
-                            <div id="inline-buttons">
-                                <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
-                                <a id="annullaBtn" href="gestione_corso.php" class="button button-purple">Annulla</a>
+                            <div class="triple-buttons">
+                                <div id="inline-buttons">
+                                    <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
+                                    <a id="annullaBtn" href="gestione_corso.php" class="button button-purple">Annulla</a>
+                                </div>
+                                <buttonElimina/>
                             </div>
                         </form>
-                        <buttonElimina/>
                     </div>
                 </div>
             </div>

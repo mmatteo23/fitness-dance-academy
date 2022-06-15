@@ -16,7 +16,7 @@ if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])
 
 // html pieces
 $content_corsi = "";
-$html_table = "<table class='table-prenotazione lista-corsi'>
+$html_table = "<table class='table-prenotazione lista-corsi full-button'>
     <thead>
         <tr>
             <th scope='col'>Titolo</th>
@@ -31,7 +31,7 @@ $html_table = "<table class='table-prenotazione lista-corsi'>
 $html_table_footer = "</tbody></table>";
 $pageTitle = "
     <div class='private-area-title-and-button'>
-        <h1 id='head-private-area-top'>Lista dei tuoi corsi</h1>
+        <h1 id='head-private-area-top'>I tuoi corsi</h1>
         <a class='link-sopra-table button button-purple' href='creazione_corso.php'>Crea un corso</a>
     </div>
 ";

@@ -202,26 +202,16 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
-
-    .profile-box{
-        text-align: center;
-        display: block;
-    }
-    .profileData{
-        min-width: 0;
-    }
-    .profileData ul{
-        padding: 0;
-    }
-    .profileData li{
-        max-width: 100%;
-        display: block;
-    }
     p#giornoSettimana{
         display: none;
     }
     #formSessione .selezione-data-e-ora label{
         min-width: 10em;
+        font-size: 1.3em;
+        text-align: center;
+    }
+    #formSessione .selezione-data-e-ora.selezione-data label {
+        min-width: 0;
     }
     select#giornoSessione{
         margin-left: 1em;
@@ -230,7 +220,8 @@
     form.filtri {
         display: flex;
         align-items: flex-start;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     form.filtri>div{
         width: 100%;
@@ -282,6 +273,13 @@
     #creaSchedaInput {
         flex-wrap: wrap;
         flex-direction: column;
+        padding: 0;
+    }
+    #creaSchedaInput>div{
+        margin-bottom: 1em;
+    }
+    #addExBtn {
+        margin-top: 1.5em;
     }
 
     ul#private-area-menu > li {
@@ -309,19 +307,101 @@
 
     }
 
+    .profileData{
+        min-width: 0;
+    }
+    .profileData ul{
+        padding: 0;
+    }
+    .profileData li{
+        max-width: 100%;
+        display: block;
+    }
+    .profileData>ul>li>:first-child{
+        margin-top: 0.5em;
+        display: block;
+        background-color: var(--transparent);
+        padding: 0.3em;
+    }
+    .profileData>ul>li>:last-child{
+        display: block;
+        background-color: var(--transparent-dark);
+        word-break: break-all;
+        white-space: normal;
+        padding: 0.3em;
+    }
+    .profileData li:first-child{
+        margin-bottom: 0.7em;
+    }
+    .profile-box{
+        text-align: center;
+        display: block;
+        padding: 2em 7%;
+    }
+    .selezione-data-e-ora .inline-selectbox {
+        /* flex-direction: column; */
+        margin-bottom: 1.5em;
+    }
+    .selezione-data-e-ora .inline-selectbox input {
+        float: none;
+    }
+    .selezione-data-e-ora.selezione-data {
+        padding: 2em 0;
+    }
+    .table-prenotazione.lista-corsi{
+        font-size: 1.2em;
+    }
+    .table-prenotazione.lista-corsi thead{
+        display: none;
+    }
+    .table-prenotazione.lista-corsi tr, 
+    .table-prenotazione.lista-corsi th, 
+    .table-prenotazione.lista-corsi td{
+        display: block;
+        margin: 0.15em 0;
+    }
+    .table-prenotazione.lista-corsi tr:first-child th{
+        margin-top: 0;
+    }
+    .table-prenotazione.lista-corsi td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione.lista-corsi td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione.lista-corsi td[data-title="Pausa"]:last-child, 
+    .table-prenotazione.lista-corsi td[data-title="Telefono"]:last-child{
+        border-width: 0.2em;
+        padding: 0.5em;
+    }
+    .table-prenotazione.lista-corsi th{
+        margin-top: 1.5em;
+    }
+    .table-prenotazione.lista-corsi th[data-title]:before, 
+    .table-prenotazione.lista-corsi td[data-title]:before {
+        content:
+        attr(data-title) ":\00A0";
+        display: block;
+    }
+    .table-prenotazione.lista-corsi .button{
+        border-radius: 0;
+        font-size: 1em;
+        width: 100%;
+        margin:0;
+        padding: 0.7em;
+    }
 }
 
 @media (max-width: 750px) {
 
-    form.filtri{
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
     .private-area-title-and-button{
         display: block;
     }
     .private-area-title-and-button>a{
-        width: auto;
+        margin: auto;
+        margin-top: 3em;
     }
      nav{
         padding: 0 0.5em;
@@ -345,21 +425,10 @@
     #private-area-menu .button {
         min-width: 5em;
     }
+    
     #contatti, #social, #Indirizzo{
         width: 22%;
         padding: 5%;
-    }
-    .profile-box{
-        padding: 2em 7%;
-    }
-    .profileData>ul>li>:first-child{
-        margin-top: 0.5em;
-        display: block;
-        background-color: var(--transparent);
-
-    }.profileData>ul>li>:last-child{
-        display: block;
-        background-color: var(--transparent-dark);
     }
     .table-prenotazione{
         font-size: 1.2em;
@@ -375,6 +444,10 @@
         margin-top: 0;
     }
     .table-prenotazione.lista-corsi td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione td:last-child{
         border: 0;
         padding: 0;
     }
@@ -407,9 +480,22 @@
     .table-prenotazione .btn-mod-corso{
         width: auto;
     }
-
-    #creaBtn{
+    .table-prenotazione.table-prenotazione-e-utenti {
+        padding: 0 0.5em;
+        padding-bottom: 1.75em;
+    }
+    #creaBtn, #annullaBtn, #confirmElimination{
+        width: -webkit-fill-available;
+    }
+    #annullaBtn, #confirmElimination {
+        margin: 0.5em 0;
+    }
+    .formCreaScheda #creaBtn {
         width: auto;
+    }
+    div.triple-buttons{
+        margin-top: 2em;
+        /* padding: 0.5em 3em; */
     }
     #tabExbody th{
         margin-top: 1em;
@@ -436,6 +522,14 @@
     #tabPrenotate tr>:last-child{
         padding: 0;
         border: 0;
+        display: flex;
+    }
+    #tabPrenotate tr>:last-child #btn-conferma,
+    #tabPrenotate tr>:last-child #btn-conferma{
+        margin: auto;
+    }
+    div#errori {
+        margin: 1em 1em;
     }
     #btn-cancella{
         border-radius: 0;
@@ -447,7 +541,8 @@
         display: block;
     }
     #tabPrenotate a.button{
-        width: auto;
+        margin: 0;
+        width: -webkit-fill-available;
         border-radius: 0;
         padding: 0.7em;
     }
@@ -464,6 +559,7 @@
     }
     #scheda-table h2{
         margin: 0;
+        font-size: 1.8em;
     }
 
     .selezione-data-e-ora.selezione-data .button {
@@ -507,7 +603,7 @@
         width: 100%;
     }
     #private-area-top{
-        padding: 1em;
+        padding: 1.5em;
     }
     .ex-descr{
         padding: 0;
@@ -517,6 +613,9 @@
     }
     #inline-buttons{
         display: block;
+    }
+    .formCreaScheda input {
+        width: 50%;
     }
 }
 
@@ -560,7 +659,7 @@
     }
 
     ul#private-area-menu > li {
-        flex: 1 0 100%;
+        flex: 1 0 45%;
     }
 
     #private-area-menu .button {
@@ -569,12 +668,26 @@
     }
 
     #private-area-menu > li:nth-child(1),
-    #private-area-menu > li:nth-child(2),
     #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(5) {
+        padding: 0;
+        padding-right: 0.125em;
+    }
+
+    #private-area-menu > li:nth-child(2),
     #private-area-menu > li:nth-child(4),
-    #private-area-menu > li:nth-child(5),
     #private-area-menu > li:nth-child(6) {
         padding: 0;
+        padding-left: 0.125em;
+    }
+
+    h1, h2 {
+        font-size: 1.8em;
+
+    }
+
+    #formSessione>h2 {
+        font-size: 1.8em;
     }
     
 }

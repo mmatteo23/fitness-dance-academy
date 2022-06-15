@@ -52,6 +52,10 @@ input {
     font-family: inherit;
 }
 
+h2 {
+    font-size: 1.5em;
+}
+
 a{
     color: var(--color0-verylight)
 }
@@ -511,6 +515,10 @@ div.input-wrapper-with-image {
     text-align: center;
 }
 
+div.input-wrapper-with-image > #copertina-img {
+    margin: auto !important;
+}
+
 div.input-wrapper input {
     padding: 0.5em 0.4em;
     font-size: 1em;
@@ -659,6 +667,25 @@ p.title-card {
 .table-prenotazione.table-prenotazione-e-utenti {
     padding: 1em 2em;
 }
+.table-prenotazione button {
+    margin: 0;
+    width: -webkit-fill-available;
+    border-radius: 0;
+}
+#tabPrenotate.full-button tr > td:last-child,
+.full-button tr > td:last-child,
+.lista-corsi.full-button tr > td:nth-last-child(2){
+    padding: 0;
+    border: 0;
+}
+.lista-corsi.full-button tr > td > a.button {
+    margin: 0;
+    width: auto;
+    border-radius: 0;
+}
+.full-button .button.button-filter {
+    padding: 0.5em 1.75em;
+}
 .link-sopra-table {
     margin-left: 0.5em;
     margin-bottom: 0.5em;
@@ -718,6 +745,13 @@ div#errori {
     border-radius: 16px;
     font-weight: 600;
     font-size: 1em;
+    margin: 0 6em;
+}
+
+div#errori > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .filtri label {
@@ -751,15 +785,16 @@ div#errori {
 
 }
 .selezione-data-e-ora .inline-selectbox{
-    justify-content: space-evenly; 
+    /* justify-content: space-evenly;  */
 }
 .selezione-data-e-ora .inline-selectbox .error{
-    height: 1.5em;
+    /* height: 1.5em; */
     width: 20em;
     margin:0;
 }
 .selezione-data-e-ora label{
-    height: 2em;
+    /* height: 2em; */
+    text-align: left;
 }
 #formSessione select{
     font-family: inherit;
@@ -790,11 +825,12 @@ div#errori {
     padding: 0.3em;
 }
 #tabPrenotate a{
-    margin-top: 0;
-    margin-bottom: 0;
     font-size: 1em;
     text-decoration: none;
     color: white;
+    margin: 0;
+    width: auto;
+    border-radius: 0;
 }
 #tabPrenotate a:hover{
     color: var(--color1-dark);
@@ -817,6 +853,16 @@ div#errori {
 }
 #btn-annulla{
     margin-top: 0.2em;
+}
+#tabPrenotate #btn-conferma, #tabPrenotate #btn-annulla {
+    margin: auto;
+}
+#tabPrenotate.full-button #btn-cancella,
+#tabPrenotate.full-button #btn-conferma,
+#tabPrenotate.full-button #btn-annulla {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.8em 0;
 }
 abbr[title] {
     text-decoration: none;
@@ -1092,10 +1138,11 @@ li.ex-titolo {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2em 5em;
+    padding: 2em 9em;
 }
 
 .selezione-data-e-ora.selezione-data{
+    padding: 2em 4em;
     margin: 0 8em;
     display: flex;
     flex-direction: row;
@@ -1169,7 +1216,9 @@ label[for="profile-img"]>:first-child{
 }
 
 .profileData li:first-child {
-    font-size: 1.8em;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
 }
 
 .profileData ul {
@@ -1238,6 +1287,9 @@ select option {
 .inline-selectbox input {
     padding: 0.5em 0.4em;
 }
+.selezione-data-e-ora .inline-selectbox input {
+    float: right;
+}
 
 .width-fill-available {
     width: -webkit-fill-available;
@@ -1283,9 +1335,12 @@ select option {
 #annullaBtn:hover{
     background-color: var(--color1-dark);
 }
-#creaBtn, #deleteBtn, #annullaBtn {
+#creaBtn, #deleteBtn, #annullaBtn, #confirmElimination {
     width: auto;
     min-width: 5em;
+}
+#confirmElimination{
+    margin-top: 0;
 }
 #inline-buttons {
     display: flex;

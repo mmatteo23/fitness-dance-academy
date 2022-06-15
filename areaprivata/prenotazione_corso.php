@@ -18,7 +18,7 @@ if(!isset($_SESSION['userId']) || !$modelloUtente->isCliente($_SESSION['userId']
 $content_corsi = "";
 $content_corsi_prenotati = "";
 $html_table = "
-    <table class='table-prenotazione'>
+    <table class='table-prenotazione full-button'>
         <thead>
             <tr>
                 <th scope='col'>Titolo</th>

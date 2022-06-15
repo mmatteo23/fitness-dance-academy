@@ -61,7 +61,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
     
     if(count($schedeUtente) > 0){   // l'utente ha qualche scheda => gliela mostro
         $content = "
-            <table id='tabPrenotate'>
+            <table id='tabPrenotate' class='full-button'>
                 <thead>
                     <tr>
                         <th scope='col'><span xml:lang='en'>Personal Trainer</span></th>
