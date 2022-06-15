@@ -33,6 +33,7 @@ $form = '<div id="trainerSchedaDiv">
             </select>
             <input type="submit" value="Prenota" name="prenota" class="button button-purple"/>
         </div>';
+$msg_pendente = "";
 
 if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
     $prenotazione_pendente = Scheda::prenotazionePendente($_SESSION['userId']);
@@ -43,19 +44,19 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
         if(!$prenotazione_pendente){
             $returned = Scheda::creaPrenotazione($_POST);
             if($returned !== false){
-                $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Prenotazione effettuata con successo</p>";
+                $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus' role='alert'>Prenotazione effettuata con successo</p>";
                 $prenotazione_pendente = true;
             } else 
-                $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";  
+                $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus' role='alert'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";  
         } else {
-            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Ti sei già prenotato per ricevere una scheda. Puoi prenotarti per una sola scheda alla volta</p>";
+            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus' role='alert'>Ti sei già prenotato per ricevere una scheda. Puoi prenotarti per una sola scheda alla volta</p>";
         }
     }
     
     $schedeUtente = Scheda::getSchedeByUtente($_SESSION['userId']);
     $trainersArr = $modelloUtente->getTrainers();
     foreach($trainersArr as $trainerSingolo){
-        $trainers .= "<option value='".$trainerSingolo['id']."'>".$trainerSingolo['nome']." ".$trainerSingolo["cognome"]."</option>";
+        $trainers .= "<option value='".$trainerSingolo['id']."' role='option'>".$trainerSingolo['nome']." ".$trainerSingolo["cognome"]."</option>";
     }
     
     if(count($schedeUtente) > 0){   // l'utente ha qualche scheda => gliela mostro
@@ -90,8 +91,10 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
         }
     }
 
-    if($prenotazione_pendente)
+    if($prenotazione_pendente){
         $btnPrenota = '<input type="submit" value="Prenota" name="prenota" class="button button-purple" disabled="disabled"/>';
+        $msg_pendente = '<p class="standard-text">Abbiamo notificato il tuo <span xml:lang="en">Personal Trainer</span> della richiesta di una nuova scheda.</p>';
+    }
         
 } else {
     header("location: /login.php");
@@ -102,6 +105,7 @@ $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_scheda
 $footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
 
 $htmlPage = str_replace('<response/>', $response, $htmlPage);
+$htmlPage = str_replace('<msgPendente/>', $msg_pendente, $htmlPage);
 $htmlPage = str_replace("<sessionTableBody/>", $content, $htmlPage);
 $htmlPage = str_replace("<formPrenotazione/>", $form, $htmlPage);
 $htmlPage = str_replace("<listaTrainer/>", $trainers, $htmlPage);

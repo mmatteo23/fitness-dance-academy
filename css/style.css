@@ -1410,6 +1410,10 @@ div.input-wrapper.success .transparent-login {
     gap: 1em;
 }
 
+.standard-text {
+    font-size: 1.2em;
+}
+
 /* Change the white to any color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

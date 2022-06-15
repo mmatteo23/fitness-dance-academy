@@ -65,7 +65,7 @@ foreach($esercizi as $esercizio){
     if(str_contains($nome, "<span")){
         $nome = explode("<", explode(">", $nome)[1])[0];
     }
-    $optionsEsercizi .= "<option value='". $esercizio["id"] . "'>" . $nome . "</option>";
+    $optionsEsercizi .= "<option value='". $esercizio["id"] . "' role='option'>" . $nome . "</option>";
 }
 
 

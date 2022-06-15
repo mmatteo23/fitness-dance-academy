@@ -52,9 +52,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
     if ($errors == ""){
         $returned = Sessione::create($_POST);
         if($returned !== false)
-            $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Prenotazione effettuata con successo per la sessione scelta</p>";
+            $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus' role='alert'>Prenotazione effettuata con successo per la sessione scelta</p>";
         else
-            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";
+            $response = "<p class='response danger' id='feedbackResponse' autofocus='autofocus' role='alert'>Errore durante la richiesta di prenotazione. Si prega di riprovare o contattare l'assistenza.</p>";
     } else {
         $errors = "<div id='errori'>".$errors."</div>";
     }  

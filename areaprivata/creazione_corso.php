@@ -80,9 +80,9 @@ if(isset($trainers)){
     $trainerOptions = '';
     foreach ($trainers as $trainer) {
         if($trainer['id']==0)
-            $trainerOptions .= "<option value='" . $trainer['id'] . "' selected>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
+            $trainerOptions .= "<option value='" . $trainer['id'] . "' selected='selected' role='option'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
         else
-            $trainerOptions .= "<option value='" . $trainer['id'] . "'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
+            $trainerOptions .= "<option value='" . $trainer['id'] . "' role='option'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
     }
 }
 
