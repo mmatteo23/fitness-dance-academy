@@ -14,7 +14,7 @@ function addEsercizio(){
         var pausa = pausaEl.value;
         var row = tab.insertRow();
         row.innerHTML = 
-                    "<th data-title='Esercizio' scope='row'>"+esNome+"</th><td data-title='Serie'>"+nSerie+"</td><td data-title='Ripetizioni'>"+nRip+"</td><td data-title='Pausa'>"+pausa+"s</td>";
+                    "<th data-title='Esercizio' scope='row'>"+esNome+"</th><td data-title='Serie'>"+nSerie+"</td><td data-title='Ripetizioni'>"+nRip+"</td><td data-title='Pausa'>"+pausa+"<abbr title='secondi'>s</abbr></td>";
         hidden.value = hidden.value + esID + ":" + nSerie + ":" + nRip + ":" + pausa + ";";
     }
 }
