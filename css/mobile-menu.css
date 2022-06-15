@@ -196,18 +196,6 @@
     #private-area-table>h1{
         margin: 0;
     }
-    /*
-    #private-area-menu{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding-right: 0;
-    }*/
-    #private-area-menu .button{
-        min-width: 6em;
-        width: 50%;
-    }
-
     #private-area-menu {
         padding-right: 0;
         display: flex;
@@ -248,7 +236,7 @@
         width: 100%;
     }
     form.filtri input{
-        width: 96%;
+        width: -webkit-fill-available;
         max-width: none;
     }
     form.filtri button.button-filter{
@@ -262,9 +250,69 @@
     form.filtri input[type="text"] {
         margin: 0.4em 0 0.8em 0;
     }
+
+    #private-area-menu {
+        margin-bottom: 1em;
+    }
+
+    ul#private-area-menu > li {
+        flex: 1 0 5%;
+    }
+
+    #private-area-menu .button {
+        width: auto;
+        margin-bottom: 0.25em;
+    }
+
+    #private-area-menu .button{
+        min-width: -webkit-fill-available;
+        width: 50%;
+    }
+
+    #private-area-menu > li:nth-child(1),
+    #private-area-menu > li:nth-child(2),
+    #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(4),
+    #private-area-menu > li:nth-child(5) {
+        padding-right: 0.25em;
+    }
+}
+
+@media (max-width: 1000px) {
+    #creaSchedaInput {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    ul#private-area-menu > li {
+        flex: 1 0 30%;
+    }
+
+    #private-area-menu .button {
+        width: auto;
+    }
+
+    #private-area-menu > li:nth-child(2),
+    #private-area-menu > li:nth-child(5) {
+        padding: 0 0.125em;
+    }
+
+    #private-area-menu > li:nth-child(1),
+    #private-area-menu > li:nth-child(4) {
+        padding-right: 0.125em;
+    }
+
+    #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(6) {
+        padding-left: 0.125em;
+        padding-right: 0;
+
+    }
+
 }
 
 @media (max-width: 750px) {
+
     form.filtri{
         flex-direction: row;
         flex-wrap: wrap;
@@ -292,7 +340,7 @@
     }
 
     ul#private-area-menu>li>p>span, ul#private-area-menu>li>a>span[class]{
-        display: none;
+        /* display: none; */
     }
     #private-area-menu .button {
         min-width: 5em;
@@ -326,7 +374,7 @@
     .table-prenotazione tr:first-child th{
         margin-top: 0;
     }
-    .table-prenotazione td:last-child{
+    .table-prenotazione.lista-corsi td:last-child{
         border: 0;
         padding: 0;
     }
@@ -364,7 +412,7 @@
         width: auto;
     }
     #tabExbody th{
-        margin-top: 0;
+        margin-top: 1em;
     }
 
     #tabPrenotate{
@@ -505,6 +553,28 @@
 
     .grid-img-horizontal, .grid-img-vertical {
         width: 80%;
+    }
+
+    #private-area-menu {
+        margin-bottom: 1em;
+    }
+
+    ul#private-area-menu > li {
+        flex: 1 0 100%;
+    }
+
+    #private-area-menu .button {
+        width: auto;
+        margin-bottom: 0.25em;
+    }
+
+    #private-area-menu > li:nth-child(1),
+    #private-area-menu > li:nth-child(2),
+    #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(4),
+    #private-area-menu > li:nth-child(5),
+    #private-area-menu > li:nth-child(6) {
+        padding: 0;
     }
     
 }

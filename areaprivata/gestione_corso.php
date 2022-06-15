@@ -16,7 +16,7 @@ if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])
 
 // html pieces
 $content_corsi = "";
-$html_table = "<table class='table-prenotazione'>
+$html_table = "<table class='table-prenotazione lista-corsi'>
     <thead>
         <tr>
             <th scope='col'>Titolo</th>

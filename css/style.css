@@ -48,6 +48,10 @@ header{
     box-shadow: -5px -3px 9px 0px #1a2240;
 }
 
+input {
+    font-family: inherit;
+}
+
 a{
     color: var(--color0-verylight)
 }
@@ -378,8 +382,8 @@ thead {
     font-size:1.25em;
     padding-left: 0.25em;
 }
-input[type="text"]{
-    font-size: 1.2em;
+input[type="text"], input[type="number"]{
+    font-size: 1.1em;
     padding: 0.5em;
     /* height: 1.75em; */
     /* width: 30%; */
@@ -908,7 +912,7 @@ select#giornoSessione {
 
 .formCreaScheda{
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.3em;
     display: flex;
     flex-direction: column;
 }
@@ -919,7 +923,7 @@ select#giornoSessione {
     min-width: 12em;
     margin: 0 auto;
     font-family: inherit;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 .formCreaScheda input{
@@ -934,19 +938,20 @@ select#giornoSessione {
 
 .formCreaScheda #creaBtn{
     margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #creaSchedaInput{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    padding: 0 2em;
 }
 
 #creaSchedaInput>div{
-display: flex;
-flex-direction: column;
-margin: 0 1em;
-margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+    margin-bottom: 2em;
 }
 
 #creaSchedaInput p.error{
@@ -961,10 +966,13 @@ margin-bottom: 1em;
 #addExBtn{
     font-size: 0.75em;
     margin: 0 auto;
+    margin-bottom: 1.5em;
 }
 
 #tabEx{
     margin: 0 auto;
+    margin-bottom: 1em;
+    padding: 0 2em;
 }
 
 #scheda-table{
@@ -1265,6 +1273,7 @@ select option {
     background-color: var(--color1-dark);
 }
 #creaBtn, #deleteBtn, #annullaBtn {
+    width: auto;
     min-width: 5em;
 }
 #inline-buttons {
