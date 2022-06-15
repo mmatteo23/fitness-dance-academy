@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="../js/caricaDateOre.js"></script>
+
+    <script defer src="../js/sessioneValidator.js"></script>
     <script defer src="../js/deleteSession.js"></script>
     <script defer src="../js/mobile-menu.js"></script>
     <script defer src="../js/setDefaultDate.js"></script>
@@ -91,16 +92,25 @@
                     <errori/>
                     <div class="selezione-data-e-ora">
                         <div class="inline-selectbox">
-                            <label for="giornoSessione">Data della sessione:</label>
-                            <input type='date' name='data' id='data' class='transparent-login' value='2000-01-01' placeholder="DD-MM-yyyy" onchange='validaDate()'>
+                            <label for="data">Data della sessione:</label>
+                            <div>
+                                <input type='date' name='data' id='data' class='transparent-login' value='2000-01-01'><!--onchange='validateDate()'>-->
+                                <p class='error'></p>
+                            </div>
                         </div>
                         <div class="inline-selectbox">
                             <label for="ora_inizio">Ora d'inizio della sessione:</label>
-                            <input type="time" class="transparent-login" id="ora_inizio" name="ora_inizio" format="HH:ii">
+                            <div>
+                                <input type="time" class="transparent-login" id="ora_inizio" name="ora_inizio"><!-- onchange = 'validateOraI()'>-->
+                                <p class='error'></p>
+                            </div>
                         </div>
                         <div class="inline-selectbox">
                             <label for="ora_fine">Ora di fine della sessione:</label>
-                            <input type="time" class="transparent-login" id="ora_fine" name="ora_fine">
+                            <div>
+                                <input type="time" class="transparent-login" id="ora_fine" name="ora_fine"><!--onchange = 'validateOraF()'>-->
+                                <p class='error'></p>
+                            </div>
                         </div>
                     </div>
                     <response/>

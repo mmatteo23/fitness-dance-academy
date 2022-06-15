@@ -46,12 +46,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
 
     preventMaliciousCode($_POST);
     $_POST['cliente'] = $_SESSION['userId'];
-    //print_r($_POST);
 
-    $errors = $modelloSessione->validator($_POST);
+    $errors = Sessione::validator($_POST);
 
     if ($errors == ""){
-        $returned = $modelloSessione->create($_POST);
+        $returned = Sessione::create($_POST);
         if($returned !== false)
             $response = "<p class='response success' id='feedbackResponse' autofocus='autofocus'>Prenotazione effettuata con successo per la sessione scelta</p>";
         else
@@ -60,44 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
         $errors = "<div id='errori'>".$errors."</div>";
     }  
 }
-/*
-$giornoHTML = "";
-$settimana = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
-$giornoHTML .= "<p id='giornoSettimana'>".$settimana[date("w")]."</p>";
-$mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
-$mese = $mesi[intval(date("m"))-1];
 
-$n = 31;
-if($mese == "novembre" || $mese == "aprile" || $mese == "giugno" || $mese == "settembre")
-    $n = 30;
-else if($mese == "febbraio"){
-    $n = 28;
-    if(date("y")%4==0)
-        $n = 29;
-}
-
-$giornoHTML .= "<select id='giornoSessione' name='giornoSessione' onchange='giornoCambiato()'>";
-for($i=1; $i<=$n; $i++){
-    $giorno = $i;
-    if($i<10)
-        $giorno = "0".$i;
-    if($i == date("d"))
-        $giornoHTML .= "<option value=".$i." selected>".$giorno."</option>";
-    else
-        $giornoHTML .= "<option value=".$i.">".$giorno."</option>";
-}
-$giornoHTML .= "</select>";
-
-$giornoHTML .= "<select id='meseSessione' name='meseSessione' onchange='meseCambiato()'>";
-for($i=1; $i<=12; $i++){
-    if($i == date("m"))
-        $giornoHTML .= "<option value=".$i." selected>".$mesi[$i-1]."</option>";
-    else
-        $giornoHTML .= "<option value=".$i.">".$mesi[$i-1]."</option>";
-}
-$giornoHTML .= "</select>";
-
-*/
 $tabellaSess_content = "";
 if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
     $sessioniPrenot = $modelloSessione->getSessionsOf($_SESSION['userId']);

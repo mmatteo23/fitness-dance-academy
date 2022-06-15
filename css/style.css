@@ -750,6 +750,17 @@ div#errori {
     margin-right: 1em;
 
 }
+.selezione-data-e-ora .inline-selectbox{
+    justify-content: space-evenly; 
+}
+.selezione-data-e-ora .inline-selectbox .error{
+    height: 1.5em;
+    width: 20em;
+    margin:0;
+}
+.selezione-data-e-ora label{
+    height: 2em;
+}
 #formSessione select{
     font-family: inherit;
     font-size: 1.25em;

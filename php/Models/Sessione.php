@@ -14,9 +14,9 @@ class Sessione {
         if($conn_ok){
             $query = "SELECT * FROM prenotazione_sessione 
                         WHERE cliente = $clientID AND data = '$date'
-                        AND ((ora_inizio <= '$timeI' AND ora_fine >= '$timeF') 
+                        AND ((ora_inizio <= '$timeI' AND ora_fine >= '$timeI') 
                            OR(ora_inizio <= '$timeF' AND ora_fine >= '$timeF')
-                           OR(ora_inizio >= '$timeI' AND ora_fine <= '$timeF'))";
+                           OR(ora_inizio >= '$timeF' AND ora_fine <= '$timeF'))";
 
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
@@ -24,6 +24,23 @@ class Sessione {
             if(count($queryResults) > 0){
                 return true;
             }
+        }
+        return false;
+    }
+
+    public static function gymIsClosed($date, $time, $time2){
+        $dow = date('w', $date);
+        if($dow == 0){
+            return "<li>La palestra è chiusa di domenica</li>";
+        }
+        if($dow === 6 && 
+          ($time < strtotime("11:00") || $time > strtotime("16:30") ||
+          $time2 < strtotime("11:00") || $time2 > strtotime("16:30"))){
+            return "<li>La palestra apre dalle 11:00 alle 16:30 di sabato</li>";
+        }
+        if($time < strtotime("10:00") || $time > strtotime("22:30") ||
+          $time2 < strtotime("11:00") || $time2 > strtotime("22:30")){
+            return "<li>La palestra apre dalle 10:00 alle 22:30 dal lunedì al venerdì</li>";
         }
         return false;
     }
@@ -40,18 +57,19 @@ class Sessione {
         $time2 = strtotime($data['ora_fine']);
         $oraF = date('H', $time2);
         $minF = date('i', $time2);
-        if($mese < date("m") || $mese == date("m") && $giorno < date("d")){
-            $errors .= "<li>Non puoi prenotare sessioni per giorni passati.</li>";
+        if(date('y', $date) < date("y") || $mese < date("m") || $mese == date("m") && $giorno < date("d")){
+            $errors .= "<li>Non puoi andare indietro nel tempo</li>";
         }
         if($mese == date("m") && $giorno == date("d") && ($oraI < date("h") || $oraI == date("h") && $minI < date("m"))){
-            $errors .= "<li>Non puoi prenotare sessioni per ore passate.</li>";
+            $errors .= "<li>Il momento è passato</li>";
         }
         if($oraF < $oraI || $oraF == $oraI && $minF <= $minI){
-            $errors .= "<li>La sessione non può finire prima che inizi.</li>";
+            $errors .= "<li>La sessione non può finire prima che inizi</li>";
         }
-        if(Sessione::isBusy(date("Y")."-".$mese."-".$giorno, $oraI.":".$minI.":00", $oraF.":".$minF.":00", $data['cliente'])){
+        if(Sessione::isBusy(date("Y", $date)."-".$mese."-".$giorno, $oraI.":".$minI.":00", $oraF.":".$minF.":00", $data['cliente'])){
             $errors .= "<li>Questo ho utente ha già prenotato una sessione per questo orario</li>";
         }
+        $errors .= Sessione::gymIsClosed($date, $time, $time2);
         if($errors != "")
             return "<ul>".$errors."</ul>";
         return $errors;
