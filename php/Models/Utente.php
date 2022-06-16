@@ -269,7 +269,8 @@ class Utente {
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
-            return $queryResults[0]['id'];
+            if(count($queryResults) > 0)
+                return $queryResults[0]['id'];
         }
 
         return false;

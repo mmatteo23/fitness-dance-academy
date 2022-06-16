@@ -54,7 +54,7 @@ $formContent = "
     </div>
     <div class='input-wrapper'>
         <label for='email'><span xml:lang='en' lang='en'>E-mail</span></label>
-        <input type='email' value='" . $userData['email'] . "' name='email' id='email' class='transparent-login' disabled='disabled'>
+        <input type='email' value='" . $userData['email'] . "' name='email' id='email' class='transparent-login' readonly='readonly'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper input-wrapper-with-image success'>
