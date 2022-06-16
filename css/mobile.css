@@ -398,6 +398,16 @@
 }
 
 @media (max-width: 750px) {
+   
+    #errorFlex div{
+        width: 100%;
+    }
+    #errorFlex img{
+        margin-top: 2em;
+    }
+    .errorMain h2{
+        font-size:1.2em;
+    }
 
     .private-area-title-and-button{
         display: block;
