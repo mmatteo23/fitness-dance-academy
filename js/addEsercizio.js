@@ -2,6 +2,9 @@ var serie = document.getElementById("serie");
 var ripetizioni = document.getElementById("ripetizioni");
 var pausaEl = document.getElementById("pausa");
 var hidden = document.getElementById("listaEs");
+var serie = document.getElementById("serie");
+var tabEx = document.getElementById("tabEx");
+var form = document.getElementById("formCreaScheda");
 
 function addEsercizio(){
     var esercizi = document.getElementById("esercizio");
@@ -18,6 +21,19 @@ function addEsercizio(){
         hidden.value = hidden.value + esID + ":" + nSerie + ":" + nRip + ":" + pausa + ";";
     }
 }
+
+form.addEventListener('submit', e => {
+    console.log("HELLO")
+    e.preventDefault();
+
+    var esAggiunti = document.getElementById("tabExbody")
+    var haEsercizi = esAggiunti.hasChildNodes()
+    
+    if(haEsercizi)
+        form.submit()
+    else
+        setError(ripetizioni, "Inserire almeno un esercizio per creare una scheda.");
+});
 
 const setError = (element, message) => {
     const inputWrapper = element.parentElement;

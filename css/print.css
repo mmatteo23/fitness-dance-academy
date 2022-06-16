@@ -46,4 +46,10 @@
     .ex-descr{
         color: black;
     }
+    #img-logo {
+        filter: invert(1);
+    }
+    .ex-img {
+        filter: none;
+    }
 }

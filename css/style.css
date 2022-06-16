@@ -18,6 +18,7 @@
     --transparent: #ffffff14;
     --transparent-full: #ffffff00;
     --transparent-dark: #20131345;
+    --transparent-dark-inverted: #ffffff5e;
     --transparent-light: #ffffff2b;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
@@ -275,11 +276,13 @@ li#selectedBreadcrumb{
 
 p.grid-item-title-horizontal{
     margin: auto 1em;
+    font-size: 1.3em;
 }
 
 p.grid-item-title-vertical{
     margin: auto;
-    padding: 1em;
+    font-size: 1.3em;
+    padding: 1em 1.8em;
 }
 
 .grid-img-horizontal, .grid-img-vertical{
@@ -288,8 +291,16 @@ p.grid-item-title-vertical{
     margin: 1em;
 }
 
+.grid-img-horizontal {
+    margin-left: 2em;
+}
+
 .grid-img-vertical{
     margin: 1em auto;
+}
+
+div.grid-item > img.profilePicture {
+    border-radius: 0;
 }
 
 #grid-item-c>.grid-img-vertical{
@@ -311,7 +322,7 @@ p.grid-item-title-vertical{
 #bmi-explaination p{
     text-align: center;
     font-size: 1em;
-    margin: 0 1em;
+    margin: 0 2.5em;
     margin-bottom: 1em;
     max-width: none;
 }
@@ -1089,7 +1100,7 @@ background-color: var(--transparent);
 }
 .ex-img{
     filter: invert(1);
-    background-color: var(--color2-inverted);
+    background-color: var(--transparent-dark-inverted);
     max-width: 10em;
     height: auto;
     border-radius: 0.5em;

@@ -158,10 +158,11 @@
 
     #grid-item-f>p{
         margin: auto;
-        padding: 1em;
+    }
+    .grid-item > p {
     }
     p.grid-item-title-vertical {
-        padding: 1em 0em;
+        padding: 0;
     }
     #bmi-explaination{
         width: 100%;
@@ -682,7 +683,11 @@
     }
 
     p.grid-item-title-vertical {
-        padding: 1em;
+        padding: 1em 2.5em;
+    }
+
+    #grid-item-f>p {
+        padding: 1em 2.5em;
     }
 
     .grid-img-horizontal, .grid-img-vertical {
