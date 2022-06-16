@@ -22,7 +22,7 @@ function addEsercizio(){
 const setError = (element, message) => {
     const inputWrapper = element.parentElement;
     const errorDisplay = inputWrapper.querySelector('.error');
-
+    errorDisplay.setAttribute("role", "alert");
     errorDisplay.innerText = message;
 }
 
@@ -36,16 +36,16 @@ const setSuccess = element => {
 function validate(){
     var nSerie = serie.value;
     var corretto = true;
-    if(nSerie <= 0 || nSerie > 10){
-        setError(serie, "valore non ammesso");
+    if(nSerie <= 0 || nSerie > 20){
+        setError(serie, "Inserire un numero tra 1 e 20");
         corretto = false;
     }
     else{
         setSuccess(serie);
     }
     var nRip = ripetizioni.value;
-    if(nRip <= 0 || nRip > 100){
-        setError(ripetizioni, "valore non ammesso");
+    if(nRip <= 0 || nRip > 50){
+        setError(ripetizioni, "Inserire un numero tra 1 e 50");
         corretto = false;
     }
     else{
@@ -53,7 +53,7 @@ function validate(){
     }
     var pausa = pausaEl.value;
     if(pausa <= 0){
-        setError(pausaEl, "valore non ammesso");
+        setError(pausaEl, "Inserire un numero positivo");
         corretto = false;
     }
     else{

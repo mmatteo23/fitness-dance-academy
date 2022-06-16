@@ -39,7 +39,7 @@ class Sessione {
             return "<li>La palestra apre dalle 11:00 alle 16:30 di sabato</li>";
         }
         if($time < strtotime("10:00") || $time > strtotime("22:30") ||
-          $time2 < strtotime("11:00") || $time2 > strtotime("22:30")){
+          $time2 < strtotime("10:00") || $time2 > strtotime("22:30")){
             return "<li>La palestra apre dalle 10:00 alle 22:30 dal lunedì al venerdì</li>";
         }
         return false;

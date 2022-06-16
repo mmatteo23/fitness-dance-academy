@@ -1,6 +1,6 @@
 <?php
 
-$htmlPage = file_get_contents("html/home2.html");
+$htmlPage = file_get_contents("html/home.html");
 
 $footer = file_get_contents("html/components/footer.html");
 
