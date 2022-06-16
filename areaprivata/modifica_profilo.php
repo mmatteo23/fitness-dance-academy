@@ -94,12 +94,12 @@ $formContent = "
     </div>
     <div class='input-wrapper success'>
         <label for='altezza'>Altezza (in centimetri)</label>
-        <input type='number' value='" . $userData['altezza'] . "' name='altezza' id='altezza' onblur='validaAltezza()' class='transparent-login'>
+        <input type='number' value='" . ($userData['altezza']?:"") . "' name='altezza' id='altezza' onblur='validaAltezza()' class='transparent-login'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
         <label for='peso'>Peso (in chilogrammi)</label>
-        <input type='number' value='" . $userData['peso'] . "' name='peso' id='peso' onblur='validaPeso()' class='transparent-login'>
+        <input type='number' value='" . ($userData['peso']?:"") . "' name='peso' id='peso' onblur='validaPeso()' class='transparent-login'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>

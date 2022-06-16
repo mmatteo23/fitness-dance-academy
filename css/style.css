@@ -9,6 +9,7 @@
     --color1: #553772;
     --color1-dark: #291834;
     --color2: #8D3A74;
+    --color2-inverted: #72c58b;
     --color3: #C7417B;
     --color3-light: #F5B2CD;
     --color4: #F5487F;
@@ -556,6 +557,7 @@ table#corsi>caption {
 
 #corsoDescription{
     text-align: center;
+    padding: 0 10em;
 }
 
 table#corsi {
@@ -1074,12 +1076,14 @@ background-color: var(--transparent);
     display: flex;
     width: 25em;
     margin-bottom: 1em;
+    border-radius: 1em;
 }
 .ex-img{
-    background-color: var(--color0-verylight);
+    filter: invert(1);
+    background-color: var(--color2-inverted);
     max-width: 10em;
     height: auto;
-    border-radius: 1em;
+    border-radius: 0.5em;
     margin: 1em;
 }
 .ex-descr{

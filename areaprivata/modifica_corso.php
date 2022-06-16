@@ -55,7 +55,7 @@ if($corsoId !== false){
             $response = checkAndUploadImage(SITE_ROOT . "/img/corsi/", "copertina", $corsoId, "default.jpg");
             if($response[1] == "") {
                 $valid = $modelloCorso->validator($_POST);
-                if($valid == TRUE){
+                if($valid === TRUE){
                     $_POST['copertina'] = $response[0];
                     if(!$modelloCorso->update($corsoId, $_POST)){
                         $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";

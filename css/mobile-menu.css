@@ -392,6 +392,9 @@
         margin:0;
         padding: 0.7em;
     }
+    #corsoDescription {
+        padding: 0 3em;
+    }
 }
 
 @media (max-width: 750px) {
@@ -688,6 +691,13 @@
 
     #formSessione>h2 {
         font-size: 1.8em;
+    }
+
+    div.form-wrapper form {
+        width: 100%;
+    }
+    #corsoDescription {
+        padding: 0;
     }
     
 }
