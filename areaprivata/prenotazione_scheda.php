@@ -102,7 +102,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_scheda.html");
 
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 $htmlPage = str_replace('<response/>', $response, $htmlPage);
 $htmlPage = str_replace('<msgPendente/>', $msg_pendente, $htmlPage);

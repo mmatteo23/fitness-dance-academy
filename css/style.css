@@ -70,6 +70,15 @@ a:visited{
     color: var(--color3-light);
 }
 
+.icon{
+    width: 15px;
+    height: auto;
+}
+.iconAP{
+    width: 20px;
+    height: auto;
+}
+
 .text-bold {
     font-weight: bold;
 }

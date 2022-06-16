@@ -110,7 +110,7 @@ if(count($corsi_prenotati)){
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_corso.html");
 
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 // tag substitutions
 $htmlPage = str_replace("<response/>", $response, $htmlPage);

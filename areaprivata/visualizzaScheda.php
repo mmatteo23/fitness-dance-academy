@@ -36,7 +36,7 @@ if(isset($_GET['id'])) {
 
 $htmlPage = file_get_contents("../html/areaprivata/visualizzaScheda.html");
 
-$footer = file_get_contents("../html/components/footer.html");
+$footer = file_get_contents("../html/components/footer2.html");
 
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<esercizi/>", $content, $htmlPage);

@@ -87,7 +87,7 @@ if(isset($trainers)){
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/creazione_corso.html');
-$footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
+$footer = file_get_contents(SITE_ROOT . '/html/components/footer2.html');
 
 $htmlPage = str_replace('<formContent/>', $formContent, $htmlPage);
 $htmlPage = str_replace('<trainerOptions/>', $trainerOptions, $htmlPage);

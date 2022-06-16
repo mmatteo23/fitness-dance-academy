@@ -134,7 +134,7 @@ if($corsoId !== false){
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/modifica_corso.html');
-$footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
+$footer = file_get_contents(SITE_ROOT . '/html/components/footer2.html');
 $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.html');
 $import_script = '<script defer src="../js/modalManager.js"></script>';
 $form_conferma = '

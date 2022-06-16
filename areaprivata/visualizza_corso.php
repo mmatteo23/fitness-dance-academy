@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/visualizza_corso.html");
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 // tag substitutions
 $htmlPage = str_replace("<pageTitle/>", $pageTitle, $htmlPage);
