@@ -32,7 +32,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
             $_SESSION['email'] = $email;
             $_SESSION['userId'] = Utente::getIdFromEmail($email);
 
-        } else {    // utente non registrato o credenziali errate
+        } else if ($isValid === -1){
+            header("location: error.php");
+        }        
+        else {    // utente non registrato o credenziali errate
             $errors = "<p class='error'>
                 Your credentials are wrong!
             </p>";

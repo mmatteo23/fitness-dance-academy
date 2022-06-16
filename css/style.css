@@ -5,7 +5,7 @@
     --color0: #1f306e;
     --color0-dark: #1a2240;
     --color0-light: #2c4396;
-    --color0-verylight: #B6C3F6;
+    --color0-verylight: #C6C6DC;
     --color1: #553772;
     --color1-dark: #291834;
     --color2: #8D3A74;
@@ -58,7 +58,11 @@ h2 {
 }
 
 a{
-    color: var(--color0-verylight)
+    display: inline-block;
+    color: var(--color0-verylight);
+    background-color: var(--color0);
+    padding: 0 0.5em;
+    border-radius: 0.5em;
 }
 
 a:visited{
@@ -146,6 +150,7 @@ nav li > a {
     text-decoration: none;
     color: inherit;
     background-color: inherit;
+    padding: 0;
 }
 
 nav li > a:visited{
@@ -473,6 +478,10 @@ footer h3{
 
 footer>p{
     margin: 0;
+}
+
+#link-indirizzo{
+    background-color: transparent;
 }
 
 main#content {
@@ -1486,8 +1495,12 @@ input:-webkit-autofill:active{
     display: flex;
     flex-wrap: wrap;
 }
+#errorFlex div:first-child{
+    background-color: var(--transparent);
+}
 #errorFlex div{
-    padding: 3% 1.5%;
+    margin-top: 1.5%;
+    padding: 1.5%;
     width: 45%;
 }
 #errorFlex img{
@@ -1500,7 +1513,6 @@ input:-webkit-autofill:active{
     margin:0;
 }
 #serverError {
-    background-color: var(--transparent);
     padding: 2em;
     border-radius: 1em;
 }

@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
             $_POST['foto_profilo'] = $response[0];
             $_POST['ruolo'] = 3;
             if(!$modelloUtente->create($_POST)){
-                $valid = "<p>Qualcosa è andato storto, ci scusiamo per il disagio</p>";
+                header("location: error.php");
             }
             else{
                 $_SESSION['email'] = $_POST['email'];
