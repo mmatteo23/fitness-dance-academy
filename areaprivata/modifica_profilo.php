@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     preventMaliciousCode($_POST);
     if (isset($_POST['cancella']) && !Utente::isTrainer($_SESSION['userId'])) {
         $modelloUtente->delete($_SESSION['userId']);
-        header('Location: /php/logout.php');
+        header('Location: ../php/logout.php');
     } else {
         $response = checkAndUploadImage(SITE_ROOT . "/img/fotoProfilo/", "profile-img", $_SESSION['userId'], "default.png");
         if($response[1] == "") {
