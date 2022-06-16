@@ -171,20 +171,19 @@ class Utente {
         if($conn_ok){
             $query = "INSERT INTO utente (id, nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
             VALUE (
-                '" . $data['id'] . "',
+                " . $data['id'] . ",
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
                 '" . $data['email'] . "',
                 '" . $data['data_nascita'] . "',
                 '" . $data['password'] . "',
-                '" . ($data['telefono']?:NULL) . "',
+                " . ($data['telefono']?:"NULL") . ",
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
                 " . $data['ruolo'] . ",
-                '" . ($data['altezza']?:NULL) . "',
-                '" . ($data['peso']?:NULL) . "'
+                " . ($data['altezza']?:"NULL") . ",
+                " . ($data['peso']?:"NULL") . "
             )";
-            
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
