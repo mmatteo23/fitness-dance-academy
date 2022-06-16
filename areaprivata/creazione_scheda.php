@@ -62,7 +62,7 @@ $esercizi = $modelloEsercizio->index();
 $optionsEsercizi = "";
 foreach($esercizi as $esercizio){
     $nome = $esercizio["nome"];
-    if(str_contains($nome, "<span")){
+    if(strpos($nome, "<span") !== false){
         $nome = explode("<", explode(">", $nome)[1])[0];
     }
     $optionsEsercizi .= "<option value='". $esercizio["id"] . "' role='option'>" . $nome . "</option>";

@@ -23,8 +23,7 @@ $html_table = "<table class='table-prenotazione lista-corsi full-button'>
             <th scope='col'>Data Inizio</th>
             <th scope='col'>Data Fine</th>
             <th scope='col'>Prenotazioni</th>
-            <th scope='col'>Visualizza</th>
-            <th scope='col'>Modifica</th>
+            <th scope='col' colspan='2'>Azioni</th>
         </tr>
     </thead>
     <tbody>";

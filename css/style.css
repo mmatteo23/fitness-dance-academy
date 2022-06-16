@@ -1121,6 +1121,7 @@ background-color: var(--transparent);
 
 li.ex-titolo {
     font-size: 1.6em;
+    font-weight: 600;
 }
 /*
 .ex-descr :first-child{
