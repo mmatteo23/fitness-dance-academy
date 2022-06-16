@@ -116,27 +116,27 @@ $menuPrivateAreaUtente = "
     <ul id='private-area-menu'>
         <li><a href='../areaprivata/profilo.php' class='button button-transparent'>
             DATI
-            <span class='material-symbols-outlined'>description</span>
+            <i class='fa-solid fa-file-lines' role='icon'></i>
         </a></li>
         <li><a href='../areaprivata/prenotazione_corso.php' class='button button-transparent'>
             CORSI
-            <span class='material-symbols-outlined'>sports_gymnastics</span>
+            <i class='fa-solid fa-person-running' aria-hidden='true'></i>
         </a></li>
         <li><a href='../areaprivata/prenotazione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <span class='material-symbols-outlined'>table_rows</span>
+            <i class='fa-solid fa-folder-closed' aria-hidden='true'></i>
         </a></li>
         <li><a href='../areaprivata/prenotazione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <span class='material-symbols-outlined'>schedule</span>
+            <i class='fa-regular fa-clock' aria-hidden='true'></i>
         </a></li>
         <li id='private-area-selected'><p class='button button-transparent'>
             MODIFICA
-            <span class='material-symbols-outlined'>edit_note</span>
+            <i class='fa-solid fa-pen-to-square' aria-hidden='true'></i>
         </p></li>
         <li><a href='../php/logout.php' class='button button-transparent'>
             <span xml:lang='en' lang='en'>LOGOUT</span>
-            <span class='material-symbols-outlined'>logout</span>
+            <i class='fa-solid fa-right-from-bracket' aria-hidden='true'></i>
         </a></li>
     </ul>
 ";
@@ -144,27 +144,27 @@ $menuPrivateAreaGestione = "
     <ul id='private-area-menu'>
         <li><a href='../areaprivata/profilo.php' class='button button-transparent'>
             DATI
-            <span class='material-symbols-outlined'>description</span>
+            <i class='fa-solid fa-file-lines' role='icon'></i>
         </a></li>
         <li><a href='../areaprivata/gestione_corso.php' class='button button-transparent'>
             CORSI
-            <span class='material-symbols-outlined' aria-hidden='true'>sports_gymnastics</span>
+            <i class='fa-solid fa-person-running' aria-hidden='true'></i>
         </a></li>
         <li><a href='../areaprivata/gestione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <span class='material-symbols-outlined' aria-hidden='true'>table_rows</span>
+            <i class='fa-solid fa-folder-closed' aria-hidden='true'></i>
         </a></li>
         <li><a href='../areaprivata/gestione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <span class='material-symbols-outlined' aria-hidden='true'>schedule</span>
+            <i class='fa-regular fa-clock' aria-hidden='true'></i>
         </a></li>
         <li id='private-area-selected'><p class='button button-transparent'>
             MODIFICA
-            <span class='material-symbols-outlined'>edit_note</span>
+            <i class='fa-solid fa-pen-to-square' aria-hidden='true'></i>
         </p></li>
         <li><a href='../php/logout.php' class='button button-transparent'>
             <span xml:lang='en'>LOGOUT</span>
-            <span class='material-symbols-outlined' aria-hidden='true'>logout</span>
+            <i class='fa-solid fa-right-from-bracket' aria-hidden='true'></i>
         </a></li>
     </ul>
 ";
