@@ -141,9 +141,9 @@ VALUES
     1,
     'Alberto',
     'Danieletto',
-    'braccio.carota@fda.it',
+    'alberto.danieletto@fda.it',
     '2000-11-03',
-    'selly6figa',
+    'alberto',
     '3456789789',
     'M',
     NULL,
@@ -157,7 +157,7 @@ VALUES
     'Scheggia',
     'selly.scheggia@fda.it',
     '2000-07-15',
-    'braccioTiAmo',
+    'selly',
     '3859689456',
     'F',
     NULL,
@@ -266,7 +266,7 @@ VALUES (
     'Allenamento di tutto il corpo con poche pause',
     '2022-01-02',
     '2022-12-02',
-    1,
+    7,
     '1.jpg',
     'Due persone in posizione squat con un peso in mano'
   ),
@@ -276,7 +276,7 @@ VALUES (
     'Allenamento <span xml:lang="en" lang="en">Full Body</span> a passi di Zumba per tutte le et&agrave;',
     '2022-01-02',
     '2022-12-02',
-    1,
+    7,
     '2.jpg',
     'Ragazze che fanno esercizi di Zumba'
   ),
@@ -286,7 +286,7 @@ VALUES (
     'Allenamento con <span xml:lang="fr" lang="fr">cyclette</span> professionali <span xml:lang="en" lang="en">Technogym</span>',
     '2022-01-02',
     '2022-12-02',
-    1,
+    7,
     '3.jpg',
     'Il nostro set di spin bike'
   ),
@@ -296,7 +296,7 @@ VALUES (
     'Allenamento che appena tutto il corso usando pause piccole e ritmi di ripetizioni alte. Riuscirai a resistere?',
     '2022-01-02',
     '2022-12-02',
-    1,
+    7,
     NULL,
     "Immagine del corso di default con il logo del sito, teschio con ossa e acronimo"
   ),
@@ -360,7 +360,9 @@ VALUES
 ('<span xml:lang="en" lang="en">Plank</span> laterale', 1), 
 ('<span xml:lang="en" lang="en">Stretching</span> gambe', 8);
 
-INSERT INTO  scheda(data, cliente, trainer) VALUES ("2022-04-26", 3, 1);
+INSERT INTO  scheda(data, cliente, trainer) VALUES 
+("2022-04-26", 3, 1),
+("2022-06-17", 8, 7);
 
 INSERT INTO esercizio_scheda(scheda, esercizio, serie, ripetizioni, riposo) VALUES
 (1, 3, 3, 10, 0),
@@ -371,4 +373,25 @@ INSERT INTO esercizio_scheda(scheda, esercizio, serie, ripetizioni, riposo) VALU
 (1, 10, 3, 3, 0),
 (1, 5, 4, 5, 60),
 (1, 9, 5, 5, 0),
-(1, 2, 3, 20, 0);
+(1, 2, 3, 20, 0),
+
+(2, 4, 3, 20, 30),
+(2, 1, 4, 10, 60),
+(2, 11, 5, 5, 30),
+(2, 8, 3, 15, 45),
+(2, 5, 4, 20, 60),
+(2, 12, 5, 10, 45),
+(2, 6, 3, 20, 60),
+(2, 9, 4, 10, 30),
+(2, 10, 5, 15, 45);
+
+INSERT INTO iscrizione_corso VALUES 
+(8, 3),
+(8, 6),
+(8, 2),
+(8, 4);
+
+INSERT INTO prenotazione_sessione (data, ora_inizio, ora_fine, cliente) VALUES
+("2022-07-18", "10:30", "11:30", 8),
+("2022-07-01", "14:30", "15:00", 8),
+("2022-07-05", "21:30", "22:30", 8);
