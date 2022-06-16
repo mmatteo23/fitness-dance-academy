@@ -184,7 +184,7 @@ class Utente {
                 '" . ($data['altezza']?:NULL) . "',
                 '" . ($data['peso']?:NULL) . "'
             )";
-            echo($query);
+            
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
