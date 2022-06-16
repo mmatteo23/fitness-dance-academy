@@ -29,7 +29,7 @@ const setError = (element, message) => {
 const setSuccess = element => {
     const inputWrapper = element.parentElement;
     const errorDisplay = inputWrapper.querySelector('.error');
-
+    errorDisplay.removeAttribute("role");
     errorDisplay.innerText = '';
 };
 

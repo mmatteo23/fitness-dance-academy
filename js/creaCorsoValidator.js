@@ -40,6 +40,7 @@ const setError = (element, message) => {
     const inputWrapper = element.parentElement;
     const errorDisplay = inputWrapper.querySelector('.error');
 
+    errorDisplay.setAttribute("role", "alert");
     errorDisplay.innerText = message;
     inputWrapper.classList.add('error');
     inputWrapper.classList.remove('success');
@@ -49,6 +50,7 @@ const setSuccess = element => {
     const inputWrapper = element.parentElement;
     const errorDisplay = inputWrapper.querySelector('.error');
 
+    errorDisplay.removeAttribute("role");
     errorDisplay.innerText = '';
     inputWrapper.classList.add('success');
     inputWrapper.classList.remove('error');

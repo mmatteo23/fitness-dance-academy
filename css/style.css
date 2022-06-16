@@ -1499,3 +1499,8 @@ input:-webkit-autofill:active{
 .errorMain h2{
     margin:0;
 }
+#serverError {
+    background-color: var(--transparent);
+    padding: 2em;
+    border-radius: 1em;
+}

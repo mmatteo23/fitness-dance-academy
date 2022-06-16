@@ -402,9 +402,6 @@
     #errorFlex div{
         width: 100%;
     }
-    #errorFlex img{
-        margin-top: 2em;
-    }
     .errorMain h2{
         font-size:1.2em;
     }
@@ -441,7 +438,7 @@
     
     #contatti, #social, #Indirizzo{
         width: 22%;
-        padding: 5%;
+        padding: 2%;
     }
     .table-prenotazione{
         font-size: 1.2em;
@@ -630,6 +627,31 @@
     .formCreaScheda input {
         width: 50%;
     }
+    #serverError {
+        padding: 1em;
+    }
+    #contatti-social {
+        flex-direction: column;
+        align-items: center;
+    }
+    #contatti-social ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    #contatti-social ul li {
+        display: flex;
+        align-items: center;
+        margin: 0 0.5em;
+        margin-top: 0.5em
+    }
+    #contatti-social ul li i {
+        margin-right: 0.3em;
+    }
+    #contatti-social > div {
+        width: -webkit-fill-available;
+    }
 }
 
 @media (max-width: 600px) {
@@ -706,10 +728,9 @@
     div.form-wrapper form {
         width: 100%;
     }
-    #corsoDescription {
+    /* #corsoDescription {
         padding: 0;
-    }
-    
+    } */
 }
 
 /***************************************

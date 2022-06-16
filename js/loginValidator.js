@@ -1,5 +1,5 @@
 const formLogin = document.getElementById('formLogin');
-const username = document.getElementById('username');
+const email = document.getElementById('email');
 const password = document.getElementById('password');
 
 formLogin.addEventListener('submit', e => {
@@ -15,6 +15,7 @@ const setError = (element, message) => {
     const inputWrapper = element.parentElement;
     const errorDisplay = inputWrapper.querySelector('.error');
 
+    errorDisplay.setAttribute("role", "alert");
     errorDisplay.innerText = message;
     inputWrapper.classList.add('error');
     inputWrapper.classList.remove('success');
@@ -24,19 +25,20 @@ const setSuccess = element => {
     const inputWrapper = element.parentElement;
     const errorDisplay = inputWrapper.querySelector('.error');
 
+    errorDisplay.removeAttribute("role");
     errorDisplay.innerText = '';
     inputWrapper.classList.add('success');
     inputWrapper.classList.remove('error');
 };
 
-function validateUsername(){
-    const usernameValue = username.value.trim();    // trim remove white space
+function validateEmail(){
+    const emailValue = email.value.trim();    // trim remove white space
     
-    if(usernameValue === '') {
-        setError(username, 'Username is required')
+    if(emailValue == '') {
+        setError(email, 'Email is required')
         return false
     } else {
-        setSuccess(username)
+        setSuccess(email)
     }
 
     return true
@@ -45,7 +47,7 @@ function validateUsername(){
 function validatePassword(){
     const passwordValue = password.value.trim();
 
-    if(passwordValue === '') {
+    if(passwordValue == '') {
         setError(password, 'Password is required')
         return false
     } else {
@@ -59,7 +61,7 @@ function validateInputs () {
 
     var validInput = true
  
-    validInput = (validInput & validateUsername())
+    validInput = (validInput & validateEmail())
     validInput = (validInput & validatePassword())
 
     return validInput
