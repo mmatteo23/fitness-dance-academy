@@ -27,9 +27,9 @@ if(isset($_GET['id'])) {
                     <li class="ex-titolo">'.$i.". ".$es['nome'].'</li>
                     <li>Serie: '.$es['serie'].'</li>
                     <li>Ripetizioni: '.$es['ripetizioni'].'</li>
-                    <li>Pausa: '.$es['riposo'].'s</li>
+                    <li>Pausa: '.$es['riposo']."<abbr title='secondi'>s</abbr></li>
                 </ul>
-            </li>';
+            </li>";
     }
     $content .= "</ol>";
 }

@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
                     <th data-title='Nome' scope='row'>". $iscritto['nome']." ".$iscritto['cognome'] ."</th>
                     <td data-title='Data Nascita'>". $iscritto['data_nascita'] ."</td>
                     <td data-title='Email'>". $iscritto['email'] ."</td>
-                    <td data-title='Telefono'>". ($iscritto['telefono']?:"/") ."</td>
+                    <td data-title='Telefono'>". ($iscritto['telefono']?:"<span aria-label='telefono assente'>/</span>") ."</td>
                 </tr>";
             }
         

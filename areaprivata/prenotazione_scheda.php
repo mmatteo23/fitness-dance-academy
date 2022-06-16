@@ -77,7 +77,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
             $content .= "
                 <tr>
                     <th data-title='Trainer' scope='row'>".$scheda['trainer']."</th>
-                    <td data-title='Data'>".$data."</td>
+                    <td data-title='Data'>".$scheda['data']."</td>
                     <td><a class='button button-purple' aria-label='Visualizza la scheda' href='visualizzaScheda.php?id=".$scheda['id']."'>Visualizza</a></td>
                 </tr>";
         }
