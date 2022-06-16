@@ -14,25 +14,29 @@ if(isset($_SESSION['email'])){    // the user is already registered
 }
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
-    $newId = $modelloUtente->getNewId();
-    $response = checkAndUploadImage("img/fotoProfilo/", "profile-img", $newId, "default.png");
-    if($response[1] == "") {
-        $valid = $modelloUtente->validator($_POST);
-        if($valid === TRUE){
-            $_POST['id'] = $newId;
-            $_POST['foto_profilo'] = $response[0];
-            $_POST['ruolo'] = 3;
-            if(!$modelloUtente->create($_POST)){
-                header("location: error.php");
-            }
-            else{
-                $_SESSION['email'] = $_POST['email'];
-                $_SESSION['userId'] = $newId;
-                header("location: areaprivata/profilo.php");
-            }
-        } 
+    if(Utente::getIdFromEmail($_POST['email']) === false){
+        $newId = $modelloUtente->getNewId();
+        $response = checkAndUploadImage("img/fotoProfilo/", "profile-img", $newId, "default.png");
+        if($response[1] == "") {
+            $valid = $modelloUtente->validator($_POST);
+            if($valid === TRUE){
+                $_POST['id'] = $newId;
+                $_POST['foto_profilo'] = $response[0];
+                $_POST['ruolo'] = 3;
+                if(!$modelloUtente->create($_POST)){
+                    header("location: error.php");
+                }
+                else{
+                    $_SESSION['email'] = $_POST['email'];
+                    $_SESSION['userId'] = $newId;
+                    header("location: areaprivata/profilo.php");
+                }
+            } 
+        } else {
+            $valid .= $response[1];
+        }
     } else {
-        $valid .= $response[1];
+        $valid = "<p class='response danger' id='feedbackResponse' autofocus='autofocus' role='alert'>Un utente con questa <span xml:lang='en'>email</span> è già registrato.</p>";
     }
 }
 

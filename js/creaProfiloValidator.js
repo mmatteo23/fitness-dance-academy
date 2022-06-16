@@ -22,7 +22,7 @@ formCrea ?
 
 form.addEventListener('submit', e => {
     e.preventDefault();
-    console.log(form)
+
     var validForm = validateInputs();
     
     if(validForm)
@@ -36,10 +36,13 @@ function validateInputs() {
     validInput = (
         validInput & 
         validaNome() & validaCognome() &
-        validaEmail() & validaDataNascita() &
+        validaDataNascita() &
         validaTelefono() & validaAltezza() &
-        validaPeso() & validaPassword()
+        validaPeso() & validaPassword() & validateImage("profile-img")
     )
+    
+    if(!email.disabled)
+        validInput = validInput & validaEmail();
 
     return validInput
 }

@@ -42,11 +42,11 @@
             );
 
             if(($_FILES[$idInputForm]['size'] >= $maxsize) || ($_FILES[$idInputForm]["size"] == 0)) {
-                $errors .= '<li class="error">File too large. File must be less than 2 MB.</li>';
+                $errors .= '<li>File too large. File must be less than 2 MB.</li>';
             }
 
             if((!in_array($_FILES[$idInputForm]['type'], $acceptable)) && (!empty($_FILES["uploaded_file"]["type"]))) {
-                $errors .= '<li class="error">Invalid file type. Only JPG, GIF and PNG types are accepted.</li>';
+                $errors .= '<li>Invalid file type. Only JPG, GIF and PNG types are accepted.</li>';
             }
 
             if($errors == "") {
@@ -57,7 +57,7 @@
             if ($defaultImage != "")
                 $image = $defaultImage;
             else 
-                $errors = "Image is required";
+                $errors = "<li>Image is required</li>";
         }
         
         return [$image, $errors];

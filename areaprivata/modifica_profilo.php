@@ -22,20 +22,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
         $response = checkAndUploadImage(SITE_ROOT . "/img/fotoProfilo/", "profile-img", $_SESSION['userId'], "default.png");
         if($response[1] == "") {
             $valid = $modelloUtente->validator($_POST);
-            if($valid == TRUE){
+            if($valid === TRUE){
                 $_POST['foto_profilo'] = $response[0];
                 $_POST['ruolo'] = $ruoloUtente;
                 if(!$modelloUtente->update($_SESSION['userId'], $_POST)){
                     header("location: ../error.php");
                 }
                 else{
-                    $_SESSION['email'] = $_POST['email'];
-                    $_SESSION['userId'] = $modelloUtente->getIdFromEmail($_POST['email']);
                     header("location: profilo.php");
                 }
-            } 
+            }
         } else {
-            $valid .= $response[1];
+            $valid .= "<ul class='response danger' role='alert'>" . $response[1] . "</ul>";
         }
     }
 }
@@ -54,9 +52,9 @@ $formContent = "
         <input type='text' value='" . $userData['cognome'] . "' name='cognome' id='cognome' class='transparent-login' onblur='validaCognome()'>
         <p class='error'></p>
     </div>
-    <div class='input-wrapper success'>
-        <label for='email'><span xml:lang='en' lang='en'>E-mail*</span></label>
-        <input type='email' value='" . $userData['email'] . "' name='email' id='email' class='transparent-login' onblur='validaEmail()'>
+    <div class='input-wrapper'>
+        <label for='email'><span xml:lang='en' lang='en'>E-mail</span></label>
+        <input type='email' value='" . $userData['email'] . "' name='email' id='email' class='transparent-login' disabled='disabled'>
         <p class='error'></p>
     </div>
     <div class='input-wrapper input-wrapper-with-image success'>

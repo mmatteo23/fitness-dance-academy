@@ -430,9 +430,6 @@
         margin: 1em auto;
     }
 
-    ul#private-area-menu>li>p>span, ul#private-area-menu>li>a>span[class]{
-        /* display: none; */
-    }
     #private-area-menu .button {
         min-width: 5em;
     }
@@ -506,7 +503,6 @@
     }
     div.triple-buttons{
         margin-top: 2em;
-        /* padding: 0.5em 3em; */
     }
     #tabExbody th{
         margin-top: 1em;
@@ -733,9 +729,21 @@
     div.form-wrapper form {
         width: 100%;
     }
-    /* #corsoDescription {
-        padding: 0;
-    } */
+
+    .confirm-delete-box {
+        max-width: none;
+        width: 70%;
+        gap: 0;
+    }
+    
+    .confirm-delete-box .delete-box-buttons {
+        flex-direction: column;
+    }
+
+    .delete-box-buttons .button {
+        margin: 0em auto;
+    }
+
 }
 
 /***************************************

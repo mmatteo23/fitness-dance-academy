@@ -222,12 +222,12 @@ class Utente {
                 cognome = '" . $data['cognome'] . "',
                 data_nascita = '" . $data['data_nascita'] . "',
                 password = '" . $data['password'] . "',
-                telefono = '" . ($data['telefono']?:NULL) . "',
+                telefono = " . ($data['telefono']?:"NULL") . ",
                 sesso = '" . $data['sesso'] . "',
                 foto_profilo = '" . $data['foto_profilo'] . "',
                 ruolo = " . $data['ruolo'] . ",
-                altezza = '" . ($data['altezza']?:NULL) . "',
-                peso = '" . ($data['peso']?:NULL) . "'
+                altezza = " . ($data['altezza']?:"NULL") . ",
+                peso = " . ($data['peso']?:"NULL") . "
                 
                 WHERE id = " . $id;
                 
