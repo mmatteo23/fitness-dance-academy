@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Modifica profilo - FDA</title>
+    <meta name="keywords" content="profilo, modifica, edit, dati, aggiornamento, foto profilo"/>
+    <meta name="description" content="Ci sono dati utente che vorresti cambiare? sei sulla pagina giusta, qui è possibile aggiornare le informazioni e inserire una foto profilo."/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="../css/print.css"/>
+
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    
+    <script defer src="../js/creaProfiloValidator.js"></script>
+    <script defer src="../js/image_validator.js"></script>
+    <script defer src="../js/mobile-menu.js"></script>
+    <modalManagerJs/>
+    <script defer src="../js/checkUnsavedChanges.js"></script>
+</head>
+<body>
+    <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
+    <header>
+        <nav id="navbar" role="menu">
+            <a id="divLogo" href="../index.php">
+                <img id="img-logo" src="../img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri" role="logo"/>
+                <h1 id="title"><span xml:lang="en" lang="en">Fitness Dance Academy</span></h1>
+            </a>
+            <button aria-label="Apri Menu" id="btn-mobile" aria-haspopup="true"   aria-expanded="false">
+                <span id="hamburger"></span>
+            </button> 
+            <ul id="main-menu">
+                <li>
+                    <a href="../index.php"><span xml:lang="en" lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="../corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="../html/aboutus.html">CHI SIAMO</a>
+                </li>
+                <li id="selectedNavbar">
+                    PROFILO
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <nav>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="../index.php"><span xml:lang="en" lang="en">Home</span></a></li>
+            <li><a href="profilo.php">Profilo</a></li>
+            <li id="selectedBreadcrumb">Modifica</li>
+        </ul>
+    </nav>
+    <main id="content">
+        <div id="private-area-container">
+            <menuPrivateArea/>
+            
+            <div id="private-area-content">
+                <div id="containerCreaPro">
+                    <div id="loginForm" class="form-wrapper">
+                        <h1>Modifica il tuo Profilo</h1>
+                        <p id="consiglio">I campi contrassegnati con "*" sono obbligatori.</p>
+                        <formErrors/>
+                        <form action="modifica_profilo.php" method="POST" id="formEditProfilo" enctype="multipart/form-data">
+                            <formContent/>
+                            <div class="triple-buttons">
+                                <div id="inline-buttons">
+                                    <input id="creaBtn" type="submit" class="button button-purple" value="Conferma" name="modifica"/>
+                                    <a id="annullaBtn" href="profilo.php" class="button button-purple">Annulla</a>
+                                </div>
+                                <buttonElimina/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <modal/>
+
+    <pageFooter/>
+</body>
+</html>

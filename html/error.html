@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Fitness Dance Academy</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="pagina errore server FDA"/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+    <link rel="stylesheet" type="text/css" href="css/print.css"/>
+
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"/>
+    
+    <script defer src="js/bmi.js"></script>
+    <script defer src="js/mobile-menu.js"></script>
+</head>
+<body>
+    <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
+    <header>
+        <nav id="navbar" role="menu">
+            <div id="divLogo">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+                <h1 id="title"><span xml:lang="en" lang="en">Fitness Dance Academy</span></h1>
+            </div>
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-expanded="false">
+                <span id="hamburger"></span>
+            </button>     
+            <ul id="main-menu">
+                <li>
+                    <a href="index.php"><span xml:lang="en" lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="html/aboutus.html">CHI SIAMO</a>
+                </li>
+                <li>
+                    <a href="login.php">PROFILO</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="content" class="errorMain">
+        <h1>Qualcosa è andato storto nei nostri server</h1>
+        <h2>Ci scusiamo per l'inconveniente</h2>
+        <div id="errorFlex">
+            <div>
+                <p>A quanto pare il nostro server è ancora stanco per via dell'allenamento intensivo di ieri.</p>
+                <p>Come rimediare:</p>
+                <ul>
+                    <li>aspettare e riprovare l'azione appena tentata;</li>
+                    <li>riavviare il <span xml:lang="en" lang="en">browser</span> ed eventualmente <span xml:lang="en" lang="en">computer</span>;</li>
+                    <li>scriverci dettagliatamente cos'è successo all'indirizzo <a href="mailto:fda@support.it">fda@support.it</a>.</li>
+                </ul>
+            </div>
+            <div>
+                <img src="img/serverStanchissimo.png" id="serverError" alt="immagine stilizzata di un simpatico computer molto stanco per via di un allenamento con un bilancere e un frullatore davanti"/>
+            </div>
+        </div>
+    </main>
+    <pageFooter/>
+</body>
+</html>

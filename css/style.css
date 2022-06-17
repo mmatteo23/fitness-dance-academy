@@ -5,10 +5,11 @@
     --color0: #1f306e;
     --color0-dark: #1a2240;
     --color0-light: #2c4396;
-    --color0-verylight: #B6C3F6;
+    --color0-verylight: #C6C6DC;
     --color1: #553772;
     --color1-dark: #291834;
     --color2: #8D3A74;
+    --color2-inverted: #72c58b;
     --color3: #C7417B;
     --color3-light: #F5B2CD;
     --color4: #F5487F;
@@ -17,18 +18,20 @@
     --transparent: #ffffff14;
     --transparent-full: #ffffff00;
     --transparent-dark: #20131345;
+    --transparent-dark-inverted: #ffffff5e;
     --transparent-light: #ffffff2b;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
     --error: #ff70ba;
     --error-background: #140f21;
-    --success: #21ab21;
+    --success: rgb(25,135,84);
     --success-background: var(--color2);
+    --danger: darkred;
 }
 
 
 html{
-    background-color: var(--color0)  ;
+    background-color: var(--color0);
 }
 
 html, body{
@@ -37,22 +40,53 @@ html, body{
     color: white;
     margin: 0 auto;
 }
-
 main{
     max-width: var(--content-max_width);
     margin: 0 auto;
 }
+ /* FOOTER NUOVO */
+html{ height:100%; }
+body { min-height:100%;  margin:0; }
+body {
+    display: table;
+    width: 100%; 
+}
+body > footer {
+    display: table-footer-group;
+}
+/* FINE FOOTER NUOVO */
 
 header{
     box-shadow: -5px -3px 9px 0px #1a2240;
 }
 
+input {
+    font-family: inherit;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
 a{
-    color: var(--color0-verylight)
+    display: inline-block;
+    color: var(--color0-verylight);
+    background-color: var(--color0);
+    padding: 0 0.5em;
+    border-radius: 0.5em;
 }
 
 a:visited{
     color: var(--color3-light);
+}
+
+.icon{
+    width: 15px;
+    height: auto;
+}
+.iconAP{
+    width: 20px;
+    height: auto;
 }
 
 .text-bold {
@@ -83,17 +117,39 @@ h1#title{
     position: absolute;
 }
 
-navbar{
+a.skip-to-content {
+    position: absolute;
+    z-index: 300;
+    left: 0;
+    transform: translateY(-110%);
+    background-color: var(--color0-dark);
+    padding: .5em 2em;
+    color: white;
+    transition: transform .2s ease-out;
+    font-size: 1.2em;
+}
+
+a.skip-to-content:visited,
+a.skip-to-content:link {
+    color: white;
+}
+
+a.skip-to-content:focus {
+    transform: translateY(0);
+    background-color: var(--color0-dark);
+}
+
+nav{
     display: flex;
     margin: auto;
     padding: 0 1.5em;
 }
 
-navbar, main {
+nav, main {
     max-width: 1200px;
 }
 
-navbar ul{
+nav ul{
     display: flex;
     list-style-type: none;
     margin: auto;
@@ -102,7 +158,7 @@ navbar ul{
     margin-right: 2em;
 }
 
-navbar li{
+nav li{
     font-size: 1.3em;
     padding: 0.25em 1.5em;
     color: white;
@@ -110,22 +166,23 @@ navbar li{
     transition: background-color 0.25s;
 }
 
-navbar li > a {
+nav li > a {
     text-decoration: none;
     color: inherit;
-    background-color: inherit;
+    background-color: var(--transparent-full);
+    padding: 0;
 }
 
-navbar li > a:visited{
+nav li > a:visited{
     color: inherit;
 }
 
-navbar li:hover {
+nav li:hover {
     background-color: var(--color0);
 }
 
 #main-menu li{
-    min-width: 5em;
+    min-width: 6em;
 }
 
 li#selectedNavbar{
@@ -134,6 +191,7 @@ li#selectedNavbar{
 }
 
 ul#breadcrumb{
+    width: 100%;
     font-size: 0.8em;
     padding: 0;
     display: flex;
@@ -143,7 +201,6 @@ ul#breadcrumb{
     margin-top: 0.2em;
     margin-bottom: 0.2em;
     max-width: 1200px;
-    justify-content: center;
 }
 
 #breadcrumb li{
@@ -183,12 +240,18 @@ li#selectedBreadcrumb{
     margin-top:0;
 }
 
+.grid-container#content {
+    background-color: transparent;
+    padding-top: 0;
+}
+
 .grid-item{
     color: white;
     display: flex;
     /* background-color: var(--color0); */
     background-color: var(--transparent-dark);
     box-shadow: 0 0 10px var(--color0-dark);
+    margin-bottom: em;
 }
 
 #grid-item-a{
@@ -232,11 +295,13 @@ li#selectedBreadcrumb{
 
 p.grid-item-title-horizontal{
     margin: auto 1em;
+    font-size: 1.3em;
 }
 
 p.grid-item-title-vertical{
     margin: auto;
-    padding: 1em;
+    font-size: 1.3em;
+    padding: 1em 1.8em;
 }
 
 .grid-img-horizontal, .grid-img-vertical{
@@ -245,13 +310,20 @@ p.grid-item-title-vertical{
     margin: 1em;
 }
 
+.grid-img-horizontal {
+    margin-left: 2em;
+}
+
 .grid-img-vertical{
     margin: 1em auto;
 }
 
+div.grid-item > img.profilePicture {
+    border-radius: 0;
+}
+
 #grid-item-c>.grid-img-vertical{
     margin-bottom: 1em;
-    margin-top: auto;
 }
 
 #grid-item-g h2{
@@ -269,7 +341,7 @@ p.grid-item-title-vertical{
 #bmi-explaination p{
     text-align: center;
     font-size: 1em;
-    margin: 0 1em;
+    margin: 0 2.5em;
     margin-bottom: 1em;
     max-width: none;
 }
@@ -350,8 +422,8 @@ thead {
     font-size:1.25em;
     padding-left: 0.25em;
 }
-input[type="text"]{
-    font-size: 1.2em;
+input[type="text"], input[type="number"]{
+    font-size: 1.1em;
     padding: 0.5em;
     /* height: 1.75em; */
     /* width: 30%; */
@@ -394,9 +466,16 @@ input[type="text"]{
 
 footer{
     text-align: center;
-    margin-top: 1.7em;
+
     padding-bottom: 1em;
     box-shadow: -2px 4px 9px 0px #1a2240;
+    /* position: absolute;
+    bottom: 0; 
+    width: 100%; */
+}
+
+footer a, footer a:visited{
+    color: white;
 }
 
 footer li > a {
@@ -426,20 +505,25 @@ footer h3{
     margin-bottom: 0;
 }
 
-#contatti, #social, #indirizzo{
+#contatti, #social, #Indirizzo{
     width: 33%;
 }
 
 footer>p{
-    margin: 0;
+    margin: 1em;
 }
 
-main#container {
+#link-indirizzo{
+    background-color: transparent;
+}
+
+main#content {
     /* background-color: var(--color0); */
     background-color: var(--transparent-dark);
     color: white;
     padding: 1.5em 1.5em;
     margin: auto;
+    margin-bottom: 2em;
 }
 
 h1 {
@@ -453,7 +537,7 @@ div.form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -467,6 +551,23 @@ div.input-wrapper {
     width: 100%;
 }
 
+.inline-selectbox div.input-wrapper {
+    width: auto;
+}
+
+div.input-wrapper-with-image {
+    /* text-align: center; */
+}
+
+/* div.input-wrapper-with-image > #copertina-img {
+    margin: auto;
+} */
+
+#copertina-img.profilePicture {
+    border-radius: 0;
+    margin-bottom: 1em;
+}
+
 div.input-wrapper input {
     padding: 0.5em 0.4em;
     font-size: 1em;
@@ -478,8 +579,7 @@ div.input-wrapper label {
 }
 
 #loginForm{
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding: 2em 1em;
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -503,6 +603,10 @@ table#corsi>caption {
     padding-bottom: 0.5em;
 }
 
+#corsoDescription{
+    text-align: center;
+    padding: 0 10em;
+}
 
 table#corsi {
     margin: auto;
@@ -529,15 +633,27 @@ table#corsi td {
     flex-wrap: wrap;
 }
 
+.white-box.corsi {
+    margin: 0;
+}
+.table-box.corsi {
+    margin-bottom: 3em;
+}
+
 div.corso-card {
-    padding: 1em;
+    padding: 1.5em;
     background-color: var(--transparent);
-    width: 29%;
+    width: 28.5%;
     display: flex;
     flex-direction: column;
     color: white;
-    margin-bottom: 1em;
+    margin-top: 1em;
     justify-content: flex-end;
+}
+
+.corso-card > a.button {
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .title-card {
@@ -547,6 +663,7 @@ div.corso-card {
 
 .descrizione-card {
     margin: 0 1em;
+    margin-bottom: 1em;
     text-align: center;
 }
 
@@ -573,13 +690,15 @@ p.title-card {
     margin: 0 auto;
 } */
 #formSessione{
-    width: -webkit-fill-available;
     text-align: center;
     background-color: var(--transparent);
     color:white;
     margin: 0;
     padding: 0.7em;
+    /*
     min-width: 25em;
+    width: -webkit-fill-available;
+    */
 }
 #private-area-table {
     background-color: var(--transparent);
@@ -590,13 +709,45 @@ p.title-card {
     margin-top: 1.5em;
 }
 #head-private-area-top {
-    margin-top: 0;
-    margin-bottom: 1em;
+    /* margin-top: 0;
+    margin-bottom: 1em; */
+}
+.private-area-title-and-button {
+    margin: 0 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.private-area-title-and-button a{
+    font-size: 1em;
+    margin: 0;
 }
 .table-prenotazione {
     margin: 0;
     margin-top: 0.5em;
     width: 100%;
+}
+.table-prenotazione.table-prenotazione-e-utenti {
+    padding: 1em 2em;
+}
+.table-prenotazione button {
+    margin: 0;
+    width: -webkit-fill-available;
+    border-radius: 0;
+}
+#tabPrenotate.full-button tr > td:last-child,
+.full-button tr > td:last-child,
+.lista-corsi.full-button tr > td:nth-last-child(2){
+    padding: 0;
+    border: 0;
+}
+.lista-corsi.full-button tr > td > a.button {
+    margin: 0;
+    width: auto;
+    border-radius: 0;
+}
+.full-button .button.button-filter {
+    padding: 0.5em 1.75em;
 }
 .link-sopra-table {
     margin-left: 0.5em;
@@ -615,11 +766,66 @@ table .button.button-filter {
     padding: 0.3em 0.5em;
     margin-left: 0.5em;
 }
+h2 {
+    text-align: center;
+}
+
+form.filtri {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    margin: auto;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+form.filtri input {
+    max-width: 10em;
+}
+
+p.response, ul.response {
+    padding: 1em;
+    border-radius: 16px;
+    color: white;
+    width: 80%;
+    margin: 1.2em auto;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+}
+
+ul.response {
+    list-style: none;
+}
+
+p.success {
+    background-color: var(--success);
+}
+
+p.danger, ul.danger {
+    background-color: var(--danger);
+}
+
+div#errori {
+    background: var(--danger);
+    padding: 0.8em;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1em;
+    margin: 0 6em;
+}
+
+div#errori > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .filtri label {
     margin-right: 0.75em;
 }
 .filtri input[type=text] {
-    width: 10em;
     margin-right: 2em;
 }
 #giornoSettimana{
@@ -639,7 +845,24 @@ table .button.button-filter {
 }
 #formSessione label{
     font-size: 1.5em;
-    min-width: 15em;
+    /* min-width: 15em; */
+}
+.inline-selectbox #label-solo-data {
+    min-width: 0em;
+    margin-right: 1em;
+
+}
+.selezione-data-e-ora .inline-selectbox{
+    /* justify-content: space-evenly;  */
+}
+.selezione-data-e-ora .inline-selectbox .error{
+    /* height: 1.5em; */
+    width: 20em;
+    margin:0;
+}
+.selezione-data-e-ora label{
+    /* height: 2em; */
+    text-align: left;
 }
 #formSessione select{
     font-family: inherit;
@@ -670,14 +893,12 @@ table .button.button-filter {
     padding: 0.3em;
 }
 #tabPrenotate a{
-    margin-top: 0;
-    margin-bottom: 0;
     font-size: 1em;
     text-decoration: none;
     color: white;
-}
-#tabPrenotate a:hover{
-    color: var(--color1-dark);
+    margin: 0;
+    width: auto;
+    border-radius: 0;
 }
 
 #btn-cancella{
@@ -698,11 +919,21 @@ table .button.button-filter {
 #btn-annulla{
     margin-top: 0.2em;
 }
+#tabPrenotate #btn-conferma, #tabPrenotate #btn-annulla {
+    margin: auto;
+}
+#tabPrenotate.full-button #btn-cancella,
+#tabPrenotate.full-button #btn-conferma,
+#tabPrenotate.full-button #btn-annulla {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.8em 0;
+}
 abbr[title] {
     text-decoration: none;
 }
-div.input-wrapper.alt_img {
-    display: none;
+#formModificaCorso div.input-wrapper.alt_img {
+    display: flex;
 }
 #risultatoContatoreSessioni{
     font-size: 1.5em;
@@ -722,6 +953,7 @@ div.input-wrapper.alt_img {
     margin-bottom: 1.5em;
     padding: 0.5em 1.75em;
     transition: background-color 0.25s;
+    text-align: center;
 }
 .button-blue {
     background-color: var(--color0-light);
@@ -754,8 +986,7 @@ div.input-wrapper.alt_img {
     color: white;
 }
 .button.button-violet:hover{
-    background-color: var(--color3-light);
-    color: var(--color1-dark);
+    background-color: black;
 }
 
 .button-light{
@@ -797,8 +1028,75 @@ select#giornoSessione {
 
 /*----PRENOTAZIONE SCHEDA----*/
 
-#delete-scheda{
+#btn-crea-scheda{
     margin: 0 auto;
+}
+
+.formCreaScheda{
+    text-align: center;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.formCreaScheda select{
+    font-size: 0.75em;
+    width: 33%;
+    min-width: 12em;
+    margin: 0 auto;
+    font-family: inherit;
+    margin-bottom: 2em;
+}
+
+.formCreaScheda input{
+    font-size: 0.75em;
+    font-family: inherit;
+    width: 33%;
+    margin: 0 auto;
+    min-width: 6em;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+.formCreaScheda #creaBtn{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#creaSchedaInput{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2em;
+}
+
+#creaSchedaInput>div{
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+    margin-bottom: 2em;
+}
+
+#creaSchedaInput p.error{
+    font-size: 0.5em;
+    margin: 0 auto;
+    background-color: var(--color1-dark);
+    padding: 0.25em 0.75em;
+    width: fit-content;
+    border-radius: 0.25em;
+    font-size: 0.9em;
+    margin-top: 0.8em;
+}
+
+#addExBtn{
+    font-size: 0.75em;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+}
+
+#tabEx{
+    margin: 0 auto;
+    margin-bottom: 1em;
+    padding: 0 2em;
 }
 
 #scheda-table{
@@ -829,33 +1127,29 @@ background-color: var(--transparent);
 }
 
 /*----VISUALIZZA SCHEDA----*/
-main#visScheda{
-    text-align: center;
-    background-color: var(--transparent-dark);
-}
-main#visScheda h2{
-    padding: 1em;
-    font-size: 2em;
-    margin: 0 auto;
-}
-
 #ex-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 3em;
 }
 
 .ex{
-    margin: 1em;
     background-color: var(--transparent);
     display: flex;
-    min-width: 30em;
+    width: 25em;
+    margin-bottom: 1em;
+    border-radius: 1em;
 }
 .ex-img{
-    background-color: var(--color0-verylight);
+    filter: invert(1);
+    background-color: var(--transparent-dark-inverted);
     max-width: 10em;
     height: auto;
-    border-radius: 1em;
+    border-radius: 0.5em;
     margin: 1em;
 }
 .ex-descr{
@@ -866,12 +1160,19 @@ main#visScheda h2{
     list-style-type: none;
     text-align: left;
 }
+
+li.ex-titolo {
+    font-size: 1.6em;
+    font-weight: 600;
+}
+/*
 .ex-descr :first-child{
     font-size: 2em;
 }
 .ex-descr :last-child{
     margin: 0;
 }
+*/
 .pausa{
     max-width: 12em;
     margin: 1em;
@@ -907,7 +1208,24 @@ main#visScheda h2{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2em 5em;
+    padding: 2em 9em;
+}
+
+.selezione-data-e-ora.selezione-data{
+    padding: 2em 4em;
+    margin: 0 8em;
+    display: flex;
+    flex-direction: row;
+}
+
+.selezione-data-e-ora.selezione-data .button{
+    margin: 0;
+    margin-left: auto;
+    font-size: 1.2em;
+}
+
+.selezione-data-e-ora.selezione-data .inline-selectbox{
+    justify-content: flex-start;
 }
 
 #selezioneOrari {
@@ -927,11 +1245,34 @@ main#visScheda h2{
 
 img.profilePicture {
     /* max-width: 25%; */
-    max-width: 11em;
+    height: 13em;
+    width: 13em;
     border: solid 0.4em;
     border-radius: 10em;
     border-color: #ffffff1a;
     object-fit: cover;
+}
+.input-wrapper img.profilePicture {
+    margin: auto;
+}
+#user-profile-img{
+    margin: auto;
+}
+
+label[for="copertina"] .profilePicture {
+    border-radius: 1em;
+}
+label[for="profile-img"]>:first-child{
+    margin-bottom: 0;
+}
+
+.input-label-img {
+    text-align: initial;
+}
+
+.hint {
+    margin-top: 0;
+    font-size: 0.8em;
 }
 
 .profileData {
@@ -945,7 +1286,9 @@ img.profilePicture {
 }
 
 .profileData li:first-child {
-    font-size: 1.8em;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
 }
 
 .profileData ul {
@@ -973,14 +1316,14 @@ a.button {
     margin: 0em;
     margin-bottom: 0.8em;
     border-radius: 0;
-    min-width: 7em;
+    min-width: 8em;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-weight: normal;
-    padding: 0.5em 0.75em;
+    padding: 0.5em 0.5em;
 }
 
 #private-area-menu li:last-child a{
@@ -1000,13 +1343,22 @@ select option {
     width: -webkit-fill-available;
     background-color: var(--transparent);
     padding-top: 2em;
+    min-height: 24.7em;
 }
 
 .inline-selectbox {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1em;
     align-items: center;
-    width: -webkit-fill-available;
-    justify-content: center;
+}
+
+.inline-selectbox input {
+    padding: 0.5em 0.4em;
+}
+.selezione-data-e-ora .inline-selectbox input {
+    float: right;
 }
 
 .width-fill-available {
@@ -1044,6 +1396,29 @@ select option {
 #creaBtn{
     margin-top: 0.7em;
 }
+#deleteBtn{
+    margin-top: 0;
+}
+#annullaBtn{
+    background-color: var(--color1);
+}
+#annullaBtn:hover{
+    background-color: var(--color1-dark);
+}
+#creaBtn, #deleteBtn, #annullaBtn, #confirmElimination {
+    width: auto;
+    min-width: 5em;
+}
+#confirmElimination{
+    margin-top: 0;
+}
+#inline-buttons {
+    display: flex;
+}
+#inline-buttons #creaBtn {
+    margin-bottom: 0;
+    margin: auto;
+}
 body::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
 }
@@ -1063,30 +1438,23 @@ main#aboutus-container{
     padding: 3%;
     margin: auto;
     font-size: 1.2em;
+    margin-bottom: 2em;
 }
-main#aboutus-container h2{
+main#aboutus-container h1{
     font-size: 2.5em;
     margin: 0;
 }
-main#aboutus-container h3{
-    margin: 0;
-}
-main#aboutus-container dt{
-    font-weight: bold;
+main#aboutus-container h2{
+    margin: 1.4em;
 }
 main#aboutus-container p{
-    margin: 0;
 }
-main#aboutus-container dl{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-main#aboutus-container dd{
-    margin-left: 0;
-    padding-right: 5em;
-    font-size: 1.5em;
+
+main#aboutus-container img {
+    margin: 3em auto;
+    display: block;
+    width: 60%;
+    height: auto;
 }
 
 /*----------------ERROR/SUCCESS----------------*/
@@ -1106,11 +1474,104 @@ div.input-wrapper.success .transparent-login {
     background-color: var(--success-background);
 }
 
+/****************MODAL************************/
+#backdrop{
+    display: none;
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / .55);
+}
+
+.confirm-delete-box{    
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em 2em 3em;
+    background-color: var(--color1-dark);
+    text-align: center;
+    max-width: 450px;
+    border-radius: 16px;
+    box-shadow:
+    0 0px 2.2px 0px rgba(0, 0, 0, 0.44),
+    0 0px 5.3px 1px rgba(0, 0, 0, 0.58),
+    0 0px 10px 2px rgba(0, 0, 0, 0.65),
+    0 0px 17.9px 3px rgba(0, 0, 0, 0.72),
+    0 0px 80px 5px rgba(0, 0, 0, 0.32);
+}
+.confirm-delete-box h2 {
+    text-transform: uppercase;
+}
+
+.confirm-delete-box h2{
+    color: white;
+}
+
+#confirmDelete {
+    background-color: var(--danger);
+    color: white;
+}
+
+#cancelDelete {
+    background-color: var(--color1);
+    color: white;
+}
+
+.confirm-delete-box .delete-box-buttons{
+    margin-top: 1em;
+    display:flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.standard-text {
+    font-size: 1.2em;
+    padding: 0 12em;
+}
+
 /* Change the white to any color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px var(--success-background) inset !important;
-    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px var(--success-background) inset;
+    -webkit-text-fill-color: white;
+}
+
+#errorFlex{
+    display: flex;
+    flex-wrap: wrap;
+}
+#errorFlex div:first-child{
+    background-color: var(--transparent);
+}
+#errorFlex div{
+    margin-top: 1.5%;
+    padding: 1.5%;
+    width: 45%;
+}
+#errorFlex img{
+    width: 90%;
+}
+.errorMain h1{
+    margin-bottom: 0;
+}
+.errorMain h2{
+    margin:0;
+}
+#serverError {
+    padding: 2em;
+    border-radius: 1em;
 }

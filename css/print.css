@@ -1,0 +1,55 @@
+@media print {
+    .grid-item img{
+        display: none;
+    }
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        color: black;
+    }
+    #orari, #orari td, #orari th{
+        border: 1px solid black;
+    }
+    #corsi, #corsi td, #corsi th{
+        border: 1px solid black;
+    }
+    main#content, .grid-item{
+        color: black;
+    }
+    #inserimento-dati{
+        display: none;
+    }
+    nav li{
+        color: black;
+    }
+    .img-card{
+        display: none;
+    }
+    div.corso-card{
+        color: black;
+    }
+    .button{
+        display: none;
+    }
+    main#aboutus-container{
+        color: black;
+    }
+    main#aboutus-container dl{
+        display: block;
+    }
+    #private-area-menu{
+        display: none;
+    }
+    form.filtri{
+        display: none;
+    }
+    #formSessione{display: none;}
+    .ex-descr{
+        color: black;
+    }
+    #img-logo {
+        filter: invert(1);
+    }
+    .ex-img {
+        filter: none;
+    }
+}

@@ -6,7 +6,7 @@ require_once "config.php";
 
 require_once('php/db.php');
 require_once('php/AuthController.php');
-//require_once('php/utilities.php');
+require_once('php/utilities.php');
 require_once('php/Models/Utente.php');
 use DB\DBAccess;
 
@@ -18,6 +18,7 @@ $htmlPage = file_get_contents('html/login.html');
 $errors = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
+    preventMaliciousCode($_POST);
     $email = $_POST['email'];           // prendo i dati inseriti dall'utente
     $password = $_POST['password'];
 
@@ -31,7 +32,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
             $_SESSION['email'] = $email;
             $_SESSION['userId'] = Utente::getIdFromEmail($email);
 
-        } else {    // utente non registrato o credenziali errate
+        } else if ($isValid === -1){
+            header("location: error.php");
+        }        
+        else {    // utente non registrato o credenziali errate
             $errors = "<p class='error'>
                 Your credentials are wrong!
             </p>";
@@ -48,7 +52,7 @@ $htmlPage = str_replace("<formErrors/>", $errors, $htmlPage);
 
 // se l'utente ha già effettuato il login non deve visualizzare questa pagina
 if(isset($_SESSION['email']) && $_SESSION['email'] != '') {             
-    header("location: areaprivata/profile.php");
+    header("location: areaprivata/profilo.php");
 }
 
 //str_replace finale col contenuto specifico della pagina

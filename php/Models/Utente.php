@@ -77,68 +77,6 @@ class Utente {
     {
         return $this->peso;
     }
-    /*
-    // SET METHODS
-    public function setId(int $_id)
-    {
-        $this->id = $_id;
-    }
-
-    public function setNome(string $_nome)
-    {
-        $this->nome = $_nome;
-    }
-
-    public function setCognome(string $_cognome)
-    {
-        $this->cognome = $_cognome;
-    }
-
-    public function setEmail(string $_email)
-    {
-        $this->email = $_email;
-    }
-
-    public function setDataNascita(string $_data_nascita)
-    {
-        $this->data_nascita = $_data_nascita;
-    }
-
-    public function setPassword(string $_password)
-    {
-        $this->password = $_password;
-    }
-
-    public function setTelefono(string $_telefono)
-    {
-        $this->telefono = $_telefono;
-    }
-
-    public function setSesso(char $_sesso)
-    {
-        $this->sesso = $_sesso;
-    }
-
-    public function setFotoProfilo(string $_foto_profilo)
-    {
-        $this->foto_profilo = $_foto_profilo;
-    }
-
-    public function setRuolo(string $_ruolo)
-    {
-        $this->ruolo = $_ruolo;
-    }
-
-    public function setAltezza(string $_altezza)
-    {
-        $this->altezza = $_altezza;
-    }
-
-    public function setPeso(string $_peso)
-    {
-        $this->peso = $_peso;
-    }
-    */
 
     public static function getTrainers(){
         $connection_manager = new DBAccess();
@@ -182,10 +120,46 @@ class Utente {
                     ($data['telefono']!=""?Utente::checkRegExp($data, "telefono", '/^[0-9]{10}$/', "telefono"):"").
                     (time() < strtotime('+18 years', strtotime($data['data_nascita']))?"<li>Data di nascita non corrispondente a persona maggiorenne</li>":"").
                     ($data['password']==$data['Rpassword']?"":"<li>Le due <span xml:lang='en'>password</span> non combaciano</li>").
+                    ($data['sesso']=="M"||$data['sesso']=="F"?"":"<li>Il sesso deve essere F per femmina o M per maschio</li>").
                     (strlen($data['password'])>=4?"":"<li>La <span xml:lang='en'>password</span> deve avere almeno 4 caratteri</li>");
         if($errors != "")
             return "<ul>".$errors."</ul>";
         return true;
+    }
+    
+    public static function index(array $filters) {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT * FROM utente";
+            // append if there are some filters
+            if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields);
+
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?$queryResults:NULL;
+        }
+
+        return NULL;
+    }
+
+    public static function getNewId() {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT id FROM utente ORDER BY id DESC";
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?($queryResults[0]['id']+1):1;
+        }
+
+        return NULL;
     }
 
     // CRUD OPERATIONS
@@ -195,22 +169,21 @@ class Utente {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO utente (nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, alt_foto_profilo, ruolo, altezza, peso)
+            $query = "INSERT INTO utente (id, nome, cognome, email, data_nascita, password, telefono, sesso, foto_profilo, ruolo, altezza, peso)
             VALUE (
+                " . $data['id'] . ",
                 '" . $data['nome'] . "',
                 '" . $data['cognome'] . "',
                 '" . $data['email'] . "',
                 '" . $data['data_nascita'] . "',
                 '" . $data['password'] . "',
-                '" . $data['telefono'] . "',
+                " . ($data['telefono']?:"NULL") . ",
                 '" . $data['sesso'] . "',
                 '" . $data['foto_profilo'] . "',
-                '" . ($data['alt_foto_profilo']?:"NULL") . "',
                 " . $data['ruolo'] . ",
                 " . ($data['altezza']?:"NULL") . ",
                 " . ($data['peso']?:"NULL") . "
             )";
-            
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
@@ -249,16 +222,15 @@ class Utente {
                 cognome = '" . $data['cognome'] . "',
                 data_nascita = '" . $data['data_nascita'] . "',
                 password = '" . $data['password'] . "',
-                telefono = '" . $data['telefono'] . "',
+                telefono = " . ($data['telefono']?:"NULL") . ",
                 sesso = '" . $data['sesso'] . "',
                 foto_profilo = '" . $data['foto_profilo'] . "',
-                alt_foto_profilo = '" . $data['alt_foto_profilo'] . "',
                 ruolo = " . $data['ruolo'] . ",
-                altezza = " . $data['altezza'] . ",
-                peso = " . $data['peso'] . "
+                altezza = " . ($data['altezza']?:"NULL") . ",
+                peso = " . ($data['peso']?:"NULL") . "
                 
                 WHERE id = " . $id;
-            
+                
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
@@ -297,7 +269,8 @@ class Utente {
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();
             
-            return $queryResults[0]['id'];
+            if(count($queryResults) > 0)
+                return $queryResults[0]['id'];
         }
 
         return false;
@@ -322,25 +295,37 @@ class Utente {
 
     public static function isAdmin($userId) {
         $userData = Utente::read($userId);
-        if ($userData['ruolo'] == 1)
-            return true;
-        else
-            return false;
+        if ($userData) {
+            if ($userData['ruolo'] == 1)
+                return true;
+            else
+                return false;
+        }
+
+        return false;
     }
 
     public static function isTrainer($userId) {
         $userData = Utente::read($userId);
-        if ($userData['ruolo'] == 2)
-            return true;
-        else
-            return false;
+        if($userData) {
+            if ($userData['ruolo'] == 2)
+                return true;
+            else
+                return false;
+        }
+
+        return false;
     }
 
     public static function isCliente($userId) {
         $userData = Utente::read($userId);
-        if ($userData['ruolo'] == 3)
-            return true;
-        else
-            return false;
+        if ($userData) {
+            if ($userData['ruolo'] == 3)
+                return true;
+            else
+                return false;
+        }
+
+        return false;
     }
 }

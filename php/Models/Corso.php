@@ -21,7 +21,7 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
+            $query = "SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, alt_copertina, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
                 INNER JOIN utente ON utente.id = trainer";
             // append if there are some filters
             if(count($filters)) $query .= append_filters($filters, $this->filtrable_fields);
@@ -42,8 +42,9 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "INSERT INTO corso (titolo, descrizione, data_inizio, data_fine, copertina, alt_copertina, trainer)
+            $query = "INSERT INTO corso (id, titolo, descrizione, data_inizio, data_fine, copertina, alt_copertina, trainer)
             VALUE (
+                '" . $data['id'] . "',
                 '" . $data['titolo'] . "',
                 '" . $data['descrizione'] . "',
                 '" . $data['data_inizio'] . "',
@@ -81,12 +82,47 @@ class Corso {
 
     public function update(int $id, array $data)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+
+            $query = "UPDATE corso SET 
+                titolo = '" . $data['titolo'] . "', 
+                descrizione = '" . $data['descrizione'] . "',
+                data_inizio = '" . $data['data_inizio'] . "',
+                data_fine = '" . $data['data_fine'] . "',
+                copertina = '" . $data['copertina'] . "',
+                alt_copertina = '" . $data['alt_copertina'] . "',
+                trainer = " . $data['trainer'] . "
+                
+                WHERE id = " . $id;
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     public function delete(int $id)
     {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
 
+        if($conn_ok){
+
+            $query = "DELETE FROM corso WHERE id = " . $id;
+            
+            $queryResults = $connection_manager->executeQuery($query); 
+            $connection_manager->closeDBConnection();
+            
+            return $queryResults;
+        }
+
+        return false;
     }
 
     /******************************************
@@ -120,10 +156,11 @@ class Corso {
                     Corso::isMandatory($data, "descrizione", "descrizione").
                     Corso::isMandatory($data, "data_inizio", "data di inizio").
                     Corso::isMandatory($data, "data_fine", "data di fine").
+                    Corso::isMandatory($data, "alt_copertina", "descrizione copertina").
                     Corso::isMandatory($data, "trainer", "trainer").
-                    Corso::checkRegExp($data, "titolo", "/^[a-zA-Z\s-]+$/", "titolo").
-                    Corso::checkRegExp($data, "descrizione", "/^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/", "descrizione").
-                    Corso::checkRegExp($data, "alt_copertina", "/^[a-zA-Z\s\.\,\!\"\&\*\#-]+$/", "alt_copertina").
+                    Corso::checkRegExp($data, "titolo", "/^[a-zA-ZÀ-ÿ\s-]+$/", "titolo").
+                    Corso::checkRegExp($data, "descrizione", "/^[a-zA-ZÀ-ÿ\s\.\,\!\"\&\*\#\:-]+$/", "descrizione").
+                    Corso::checkRegExp($data, "alt_copertina", "/^[a-zA-ZÀ-ÿ\s\.\,\!\"\&\*\#\:-]+$/", "alt_copertina").
                     (strtotime($data['data_inizio']) < strtotime($data['data_fine'])?"":"<li>La data di inizio deve precedere la data di fine</li>").
                     Corso::trainerExists($data['trainer']);
         if($errors != "")
@@ -158,15 +195,31 @@ class Corso {
         return NULL;
     }
 
+    public static function getNewId() {
+        $connection_manager = new DBAccess();
+        $conn_ok = $connection_manager->openDBConnection();
+
+        if($conn_ok){
+            $query = "SELECT id FROM corso ORDER BY id DESC";
+            //echo $query;
+            $queryResults = $connection_manager->executeQuery($query);
+            $connection_manager->closeDBConnection();
+
+            return isset($queryResults)?($queryResults[0]['id']+1):1;
+        }
+
+        return NULL;
+    }
+
     public function getCorsiByUserId(int $utenteId)
     {
         $connection_manager = new DBAccess();
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome, trainer_cognome FROM
                 (
-                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
                 LEFT JOIN utente ON utente.id = trainer
                 ) as corsi
                 LEFT JOIN iscrizione_corso ON corso = id 
@@ -215,9 +268,9 @@ class Corso {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
-            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome FROM
+            $query = "SELECT id, titolo, descrizione, data_inizio, data_fine, copertina, trainer_id, trainer_nome, trainer_cognome FROM
                 (
-                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome FROM corso
+                SELECT corso.id, titolo, descrizione, data_inizio, data_fine, copertina, trainer as trainer_id, utente.nome as trainer_nome, utente.cognome as trainer_cognome FROM corso
                 LEFT JOIN utente ON utente.id = trainer
                 ) as corsi
                 LEFT JOIN iscrizione_corso ON corso = id 

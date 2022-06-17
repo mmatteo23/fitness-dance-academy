@@ -30,7 +30,7 @@ function authentication(string $email, string $password) {
         return true;
     }
 
-    return false;
+    return -1;
     
 }
 

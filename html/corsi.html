@@ -9,52 +9,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/flip-card.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mobile-menu.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+    <link rel="stylesheet" type="text/css" href="css/print.css"/>
+
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
     <script defer src="js/bmi.js"></script>
     <script defer src="js/mobile-menu.js"></script>
 </head>
 <body>
+    <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
     <header>
-        <navbar id="navbar">
-            <a id="divLogo" href="/">
-                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri"/>
+        <nav id="navbar" role="menu">
+            <a id="divLogo" href="index.php">
+                <img id="img-logo" src="img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri" role="logo"/>
                 <h1 id="title"><span xml:lang="en" lang="en">Fitness Dance Academy</span></h1>
             </a>
-            <button aria-label="Apri Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+            <button aria-label="Apri Menu" id="btn-mobile" aria-haspopup="true" aria-expanded="false">
                 <span id="hamburger"></span>
             </button> 
             <ul id="main-menu">
                 <li>
-                    <a href="/"><span xml:lang="en" lang="en">HOME</span></a>
+                    <a href="index.php"><span xml:lang="en" lang="en">HOME</span></a>
                 </li>
                 <li id="selectedNavbar">
                     CORSI
                 </li>
                 <li>
-                    <a href="html/aboutus.html">SU DI NOI</a>
+                    <a href="html/aboutus.html">CHI SIAMO</a>
                 </li>
                 <li>
                     <a href="login.php">PROFILO</a>
                 </li>
             </ul>
-        </navbar>
+        </nav>
     </header>
 
-    <navbar>
+    <nav>
         <ul id="breadcrumb">
-            <li class="firstBreadcrumb"><a href="/"><span xml:lang="en" lang="en">Home</span></a></li>
+            <li class="firstBreadcrumb"><a href="index.php"><span xml:lang="en" lang="en">Home</span></a></li>
             <li id="selectedBreadcrumb">Corsi</li>
         </ul>
-    </navbar>
+    </nav>
     
-    <main id="container">
+    <main id="content">
         <h1 id="mobile-corsi-title">Orari dei corsi</h1>
-        <div class="table-box">
+        <div class="table-box corsi">
             <table id="corsi" title="orari divisi per ore in cui si svolgono i corsi della palestra dal lunedì al venerdì">
                 <caption>Orari dei corsi</caption>
                 <thead>
@@ -114,39 +116,39 @@
                 <caption>Orari dei corsi</caption>
                 <tbody>
                     <tr><th>Lunedì</th></tr>
-                    <tr><td><p>17:30-18:30 = <span xml:lang="en" lang="en">Total Body</span></p></td></tr>
-                    <tr><td><p>18:30-19:30 = <span xml:lang="en" lang="en">Zumbafit</span></p></td></tr>
-                    <tr><td><p>19:30-20:30 = <span xml:lang="en" lang="en">Spinning</span></p></td></tr>
-                    <tr><td><p>20:30-21:30 = <span xml:lang="en" lang="en">Fitboxe</span></p></td></tr>
-                    <tr><td><p>21:30-22:30 = Tango</p></td></tr>
+                    <tr><td>17:30-18:30</td><td><span xml:lang="en" lang="en">Total Body</span></td></tr>
+                    <tr><td>18:30-19:30</td><td><span xml:lang="en" lang="en">Zumbafit</span></td></tr>
+                    <tr><td>19:30-20:30</td><td><span xml:lang="en" lang="en">Spinning</span></td></tr>
+                    <tr><td>20:30-21:30</td><td><span xml:lang="en" lang="en">Fitboxe</span></td></tr>
+                    <tr><td>21:30-22:30</td><td>Tango</td></tr>
                     <tr><th>Martedì</th></tr>
-                    <tr><td><p>17:30-18:30 = <span xml:lang="en" lang="en">Yogafit</span></p></td></tr>
-                    <tr><td><p>18:30-19:30 = <span xml:lang="en" lang="en">Functional</span></p></td></tr>
-                    <tr><td><p>19:30-20:30 = <span xml:lang="en" lang="en">Tone up</span></p></td></tr>
-                    <tr><td><p>20:30-21:30 = <span xml:lang="en" lang="en">Superjump</span></p></td></tr>
-                    <tr><td><p>21:30-22:30 = <span xml:lang="en" lang="en">Six pack</span></p></td></tr>
+                    <tr><td>17:30-18:30</td><td><span xml:lang="en" lang="en">Yogafit</span></td></tr>
+                    <tr><td>18:30-19:30</td><td><span xml:lang="en" lang="en">Functional</span></td></tr>
+                    <tr><td>19:30-20:30</td><td><span xml:lang="en" lang="en">Tone up</span></td></tr>
+                    <tr><td>20:30-21:30</td><td><span xml:lang="en" lang="en">Superjump</span></td></tr>
+                    <tr><td>21:30-22:30</td><td><span xml:lang="en" lang="en">Six pack</span></td></tr>
                     <tr><th>Mercoledì</th></tr>
-                    <tr><td><p>17:30-18:30 = <span xml:lang="en" lang="en">Total Body</span></p></td></tr>
-                    <tr><td><p>18:30-19:30 = <span xml:lang="en" lang="en">Zumbafit</span></p></td></tr>
-                    <tr><td><p>19:30-20:30 = <span xml:lang="en" lang="en">Spinning</span></p></td></tr>
-                    <tr><td><p>20:30-21:30 = <span xml:lang="en" lang="en">Fitboxe</span></p></td></tr>
+                    <tr><td>17:30-18:30</td><td><span xml:lang="en" lang="en">Total Body</span></td></tr>
+                    <tr><td>18:30-19:30</td><td><span xml:lang="en" lang="en">Zumbafit</span></td></tr>
+                    <tr><td>19:30-20:30</td><td><span xml:lang="en" lang="en">Spinning</span></td></tr>
+                    <tr><td>20:30-21:30</td><td><span xml:lang="en" lang="en">Fitboxe</span></td></tr>
                     <tr><th>Giovedì</th></tr>
-                    <tr><td><p>17:30-18:30 = <span xml:lang="en" lang="en">Yogafit</span></p></td></tr>
-                    <tr><td><p>18:30-19:30 = <span xml:lang="en" lang="en">Functional</span></p></td></tr>
-                    <tr><td><p>19:30-20:30 = <span xml:lang="en" lang="en">Tone up</span></p></td></tr>
-                    <tr><td><p>20:30-21:30 = <span xml:lang="en" lang="en">Superjump</span></p></td></tr>
-                    <tr><td><p>21:30-22:30 = <span xml:lang="en" lang="en">Six pack</span></p></td></tr>
+                    <tr><td>17:30-18:30</td><td><span xml:lang="en" lang="en">Yogafit</span></td></tr>
+                    <tr><td>18:30-19:30</td><td><span xml:lang="en" lang="en">Functional</span></td></tr>
+                    <tr><td>19:30-20:30</td><td><span xml:lang="en" lang="en">Tone up</span></td></tr>
+                    <tr><td>20:30-21:30</td><td><span xml:lang="en" lang="en">Superjump</span></td></tr>
+                    <tr><td>21:30-22:30</td><td><span xml:lang="en" lang="en">Six pack</span></td></tr>
                     <tr><th>Venerdì</th></tr>
-                    <tr><td><p>18:30-19:30 = <span xml:lang="en" lang="en">break ass</span></p></td></tr>
-                    <tr><td><p>19:30-20:30 = <span xml:lang="en" lang="en">Spinning</span></p></td></tr>
-                    <tr><td><p>20:30-21:30 = <span xml:lang="en" lang="en">Calisthenics</span></p></td></tr>
+                    <tr><td>18:30-19:30</td><td><span xml:lang="en" lang="en">break ass</span></td></tr>
+                    <tr><td>19:30-20:30</td><td><span xml:lang="en" lang="en">Spinning</span></td></tr>
+                    <tr><td>20:30-21:30</td><td><span xml:lang="en" lang="en">Calisthenics</span></td></tr>
                 </tbody>
             </table>
         </div>
         
 
         <h1>La nostra offerta corsi</h1>
-        <div class="white-box">
+        <div class="white-box corsi">
             <elencoCorsi/>
         </div>
     </main>

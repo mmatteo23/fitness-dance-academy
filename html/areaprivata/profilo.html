@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <title>Profilo - FDA</title>
+    <meta name="keywords" content="profilo personale, azioni, fda, palestra, i tuoi dati, prenota"/>
+    <meta name="description" content="rivisita i tuoi dati ed accedi alle funzionalità di fda nella comoda area riservata, potrai efettuare prenotazioni o modificare il tuo profilo."/>
+    <meta name="author" content="Danilo Stojkovic, Matteo Midena, Matteo Casonato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/mobile.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/print.css"/>
+
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"/>
+    <script defer src="../js/bmi.js"></script>
+    <script defer src="../js/mobile-menu.js"></script>
+</head>
+<body>
+    <a tabindex="1" href="#content" class="skip-to-content screen-reader-friendly">Premere invio per saltare al contenuto</a>
+    <header>
+        <nav id="navbar" role="menu">
+            <a id="divLogo" href="../index.php">
+                <img id="img-logo" src="../img/logoConScritta.png" alt="il nostro logo rappresentante un teschio con dietro due bilancieri" role="logo"/>
+                <h1 id="title"><span xml:lang="en" lang="en">Fitness Dance Academy</span></h1>
+            </a>
+            <button aria-label="Apri Menu" id="btn-mobile" aria-haspopup="true"   aria-expanded="false">
+                <span id="hamburger"></span>
+            </button> 
+            <ul id="main-menu">
+                <li>
+                    <a href="../index.php"><span xml:lang="en" lang="en">HOME</span></a>
+                </li>
+                <li>
+                    <a href="../corsi.php">CORSI</a>
+                </li>
+                <li>
+                    <a href="../html/aboutus.html">CHI SIAMO</a>
+                </li>
+                <li id="selectedNavbar">
+                    PROFILO
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <nav>
+        <ul id="breadcrumb">
+            <li class="firstBreadcrumb"><a href="../index.php"><span xml:lang="en" lang="en">Home</span></a></li>
+            <li id="selectedBreadcrumb">Profilo</li>
+        </ul>
+    </nav>
+    
+    <main id="content">
+
+        <div id="private-area-container">
+            <menuPrivateArea/>
+    
+            <div id="private-area-content">
+                <div class="page-box">
+                    <h1 id="profileTitle">PROFILO</h1>
+                    <div class="profile-box">
+                        <profilePicture/>
+                        <div class="profileData">
+                            <profileData/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <pageFooter/>
+</body>
+</html>

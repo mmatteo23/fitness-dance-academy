@@ -4,6 +4,7 @@ require_once "../config.php";
 
 require_once(SITE_ROOT . "/php/validSession.php");
 require_once(SITE_ROOT . "/php/Models/Scheda.php");
+require_once(SITE_ROOT . '/php/utilities.php');
 require_once(SITE_ROOT . "/php/Models/Utente.php");
 
 // get all corsi from db
@@ -14,10 +15,11 @@ if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])
     header("location: /login.php");
 }
 
+preventMaliciousCode($_GET);
 $schede = $modelloScheda->index($_GET);
 
 $content = "
-<table id='tabPrenotate'>
+<table id='tabPrenotate' class='full-button'>
     <thead>
         <tr>
             <th scope='col'>Data</th>
@@ -36,12 +38,12 @@ if(isset($_SESSION['userId'])){
     $userId = $_SESSION['userId'];
     if(!$modelloUtente->isCliente($userId)){
         $content = "
-        <table id='tabPrenotate'>
+        <table id='tabPrenotate' class='full-button'>
             <thead>
                 <tr>
-                    <th scope='col'>id</th>
                     <th scope='col'>Cliente</th>
-                    <th scope='col'>Elimina</th>
+                    <th scope='col'>Data prenotazione</th>
+                    <th scope='col'>Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,9 +57,9 @@ if(isset($_SESSION['userId'])){
             foreach($schedeRichieste as $scheda){
                 $content .= "
                     <tr id='scheda".$scheda['id']."'>
-                        <td>".$scheda['id']."</td>
-                        <td>".$scheda['utente']."</td>
-                        <td><button id='delete-scheda' onClick='deletePrenotazioneScheda(".$scheda['id'].")' class='button button-purple'><i class=' fa fa-window-close'></i></i></button></td>
+                        <th scope='row' data-title='Cliente'>".$scheda['utente']."</td>
+                        <td data-title='Data'>". explode(' ', $scheda['data'])[0] ."</td>
+                        <td><a id='btn-crea-scheda' href='creazione_scheda.php?id=".$scheda['id']."' class='button button-purple'>Crea Scheda</button></td>
                     </tr>";
             }
             $content .= $table_footer;
@@ -67,13 +69,13 @@ if(isset($_SESSION['userId'])){
         }
     }
     else{
-        // redirect to profile.html
+        // redirect to profilo.html
     }
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_scheda.html");
 
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 $htmlPage = str_replace("<sessionTableBody/>", $content, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);

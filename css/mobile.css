@@ -1,0 +1,753 @@
+/***************************************
+ *             MOBILE-MENU
+ **************************************/
+ #btn-mobile {
+    display: none;
+    align-items: center;
+}
+
+@media (max-width: 1200px) {
+    nav {
+        justify-content: space-between;
+    }
+    
+    nav ul {
+        margin-right: 0;
+        padding-top: 12.5%;
+    }
+
+    nav li {
+        padding: 1.25em 1.5em;
+    }
+
+    #img-logo {
+        width: 180px;
+        max-width: none;
+    }
+
+    #main-menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        right: 0px;
+        background-color: #3e4291;
+        transition: 0.6s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    
+    #navbar.active #main-menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    #main-menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+    #btn-mobile {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+    }
+    #hamburger {
+        border-top: 2px solid;
+        color: white;
+        width: 20px;
+    }
+    #hamburger::after,
+    #hamburger::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: 0.3s;
+        position: relative;
+    }
+    #navbar.active #hamburger {
+        border-top-color: transparent;
+    }
+    #navbar.active #hamburger::before {
+        transform: rotate(135deg);
+    }
+    #navbar.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+
+
+    /*****************************
+     *          TABLES
+     ****************************/
+
+     
+    table#corsi{
+        display: none;
+    }
+    table#corsi-mobile{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    table#corsi-mobile tbody{
+        display: flex;
+        flex-direction: column;
+    }
+    table#corsi-mobile tr{
+        display: flex;
+    }
+    table#corsi-mobile td, table#corsi-mobile th{
+        width: 100%;
+        margin: 0.08em;
+    }
+    table#corsi-mobile th{
+        margin-top: 1.5em;
+    }
+    table#corsi-mobile tr p{
+        margin: 0;
+    }
+
+    div.table-box table caption {
+        display: none;
+    }
+
+    div.white-box {
+        flex-direction: row;
+    }
+
+    div.corso-card {
+        width: 44.5%;
+        margin-bottom: 1.5em;
+    }
+
+    .grid-container{
+        display: block;
+    }
+    .grid-item{
+        flex-direction: row-reverse;
+        margin-bottom: 2em;
+    }
+    .grid-item>img{
+        margin: 1em auto;
+    }
+    #grid-item-b, #grid-item-e, #grid-item-f{
+        flex-direction: row-reverse;
+    }
+    #grid-item-c, #grid-item-d {
+        flex-direction: row;
+    }
+    #grid-item-g {
+        flex-direction: column;
+    }
+
+    #grid-item-f>p{
+        margin: auto;
+    }
+    .grid-item > p {
+    }
+    p.grid-item-title-vertical {
+        padding: 0;
+    }
+    #bmi-explaination{
+        width: 100%;
+    }
+    #valori-bmi{
+        margin: 1em auto;
+    }
+    #mobile-corsi-title{
+        display: block;
+    }
+    main#visScheda h2{
+        padding: 0.5em 1em; 
+    }
+    #ex-container{
+        display: block;
+        padding-left: 0;
+        padding-bottom: 1em;
+    }
+    .ex{
+       width: auto;
+    }
+    .ex-img{
+        max-width: 6em;
+    }
+    .ex-descr :first-child{
+        font-size: 1.25em;
+    }
+    /**********************AREA PRIVATA**************************/
+    #private-area-container{
+        display: block;
+    }
+    #private-area-table>h1{
+        margin: 0;
+    }
+    #private-area-menu {
+        padding-right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    p#giornoSettimana{
+        display: none;
+    }
+    #formSessione .selezione-data-e-ora label{
+        min-width: 10em;
+        font-size: 1.3em;
+        text-align: center;
+    }
+    #formSessione .selezione-data-e-ora.selezione-data label {
+        min-width: 0;
+    }
+    select#giornoSessione{
+        margin-left: 1em;
+    }
+
+    form.filtri {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    form.filtri>div{
+        width: 100%;
+    }
+    form.filtri input{
+        width: -webkit-fill-available;
+        max-width: none;
+    }
+    form.filtri button.button-filter{
+        margin: auto;
+        margin-top: 1em;
+    }
+    div.form-wrapper{
+        width: inherit;
+    }
+
+    form.filtri input[type="text"] {
+        margin: 0.4em 0 0.8em 0;
+    }
+
+    #private-area-menu {
+        margin-bottom: 1em;
+    }
+
+    ul#private-area-menu > li {
+        flex: 1 0 5%;
+    }
+
+    #private-area-menu .button {
+        width: auto;
+        margin-bottom: 0.25em;
+    }
+
+    #private-area-menu .button{
+        min-width: -webkit-fill-available;
+        width: 50%;
+    }
+
+    #private-area-menu > li:nth-child(1),
+    #private-area-menu > li:nth-child(2),
+    #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(4),
+    #private-area-menu > li:nth-child(5) {
+        padding-right: 0.25em;
+    }
+}
+
+@media (max-width: 1000px) {
+    div.corso-card {
+        width: 42.5%;
+        margin-bottom: 1.5em;
+    }
+    #creaSchedaInput {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 0;
+    }
+    #creaSchedaInput>div{
+        margin-bottom: 1em;
+    }
+    #addExBtn {
+        margin-top: 1.5em;
+    }
+
+    ul#private-area-menu > li {
+        flex: 1 0 30%;
+    }
+
+    #private-area-menu .button {
+        width: auto;
+    }
+
+    #private-area-menu > li:nth-child(2),
+    #private-area-menu > li:nth-child(5) {
+        padding: 0 0.125em;
+    }
+
+    #private-area-menu > li:nth-child(1),
+    #private-area-menu > li:nth-child(4) {
+        padding-right: 0.125em;
+    }
+
+    #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(6) {
+        padding-left: 0.125em;
+        padding-right: 0;
+
+    }
+
+    .profileData{
+        min-width: 0;
+    }
+    .profileData ul{
+        padding: 0;
+    }
+    .profileData li{
+        max-width: 100%;
+        display: block;
+    }
+    .profileData>ul>li>:first-child{
+        margin-top: 0.5em;
+        display: block;
+        background-color: var(--transparent);
+        padding: 0.3em;
+    }
+    .profileData>ul>li>:last-child{
+        display: block;
+        background-color: var(--transparent-dark);
+        word-break: break-all;
+        white-space: normal;
+        padding: 0.3em;
+    }
+    .profileData li:first-child{
+        margin-bottom: 0.7em;
+    }
+    .profile-box{
+        text-align: center;
+        display: block;
+        padding: 2em 7%;
+    }
+    .selezione-data-e-ora .inline-selectbox {
+        /* flex-direction: column; */
+        margin-bottom: 1.5em;
+    }
+    .selezione-data-e-ora .inline-selectbox input {
+        float: none;
+    }
+    .selezione-data-e-ora.selezione-data {
+        padding: 2em 0;
+    }
+    .table-prenotazione.lista-corsi{
+        font-size: 1.2em;
+    }
+    .table-prenotazione.lista-corsi thead{
+        display: none;
+    }
+    .table-prenotazione.lista-corsi tr, 
+    .table-prenotazione.lista-corsi th, 
+    .table-prenotazione.lista-corsi td{
+        display: block;
+        margin: 0.15em 0;
+    }
+    .table-prenotazione.lista-corsi tr:first-child th{
+        margin-top: 0;
+    }
+    .table-prenotazione.lista-corsi td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione.lista-corsi td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione.lista-corsi td[data-title="Pausa"]:last-child, 
+    .table-prenotazione.lista-corsi td[data-title="Telefono"]:last-child{
+        border-width: 0.2em;
+        padding: 0.5em;
+    }
+    .table-prenotazione.lista-corsi th{
+        margin-top: 1.5em;
+    }
+    .table-prenotazione.lista-corsi th[data-title]:before, 
+    .table-prenotazione.lista-corsi td[data-title]:before {
+        content:
+        attr(data-title) ":\00A0";
+        display: block;
+    }
+    .table-prenotazione.lista-corsi .button{
+        border-radius: 0;
+        font-size: 1em;
+        width: 100%;
+        margin:0;
+        padding: 0.7em;
+    }
+    #corsoDescription {
+        padding: 0 3em;
+    }
+}
+
+@media (max-width: 750px) {
+   
+    #errorFlex div{
+        width: 100%;
+    }
+    .errorMain h2{
+        font-size:1.2em;
+    }
+
+    .private-area-title-and-button{
+        display: block;
+    }
+    .private-area-title-and-button>a{
+        margin: auto;
+        margin-top: 3em;
+    }
+     nav{
+        padding: 0 0.5em;
+    }
+    ul#breadcrumb{
+        padding: 0.9em 0;
+    }
+    
+    main#aboutus-container{
+        padding: 10% 7%;
+    }
+    main#aboutus-container h2{
+        margin: 1em 0.5em;
+    }
+
+    main#aboutus-container img {
+        width: 100%;
+        margin: 1em auto;
+    }
+
+    #private-area-menu .button {
+        min-width: 5em;
+    }
+    
+    #contatti, #social, #Indirizzo{
+        width: 22%;
+        padding: 2%;
+    }
+    .table-prenotazione{
+        font-size: 1.2em;
+    }
+    .table-prenotazione thead{
+        display: none;
+    }
+    .table-prenotazione tr, .table-prenotazione th, .table-prenotazione td{
+        display: block;
+        margin: 0.15em 0;
+    }
+    .table-prenotazione tr:first-child th{
+        margin-top: 0;
+    }
+    .table-prenotazione.lista-corsi td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione td:last-child{
+        border: 0;
+        padding: 0;
+    }
+    .table-prenotazione td[data-title="Pausa"]:last-child, .table-prenotazione td[data-title="Telefono"]:last-child{
+        border-width: 0.2em;
+        padding: 0.5em;
+    }
+    .table-prenotazione th{
+        margin-top: 1.5em;
+    }
+    .table-prenotazione th[data-title]:before, .table-prenotazione td[data-title]:before {
+        content:
+        attr(data-title) ":\00A0";
+        display: block;
+    }
+    .table-prenotazione .button{
+        border-radius: 0;
+        font-size: 1em;
+        width: 100%;
+        margin:0;
+        padding: 0.7em;
+    }
+    .btn-vis-corso{
+        border:0;
+        padding: 0;
+    }
+    .btn-vis-corso>.button{
+        width: auto;
+    }
+    .table-prenotazione .btn-mod-corso{
+        width: auto;
+    }
+    .table-prenotazione.table-prenotazione-e-utenti {
+        padding: 0 0.5em;
+        padding-bottom: 1.75em;
+    }
+    #creaBtn, #annullaBtn, #confirmElimination{
+        width: -webkit-fill-available;
+    }
+    #annullaBtn, #confirmElimination {
+        margin: 0.5em 0;
+    }
+    .formCreaScheda #creaBtn {
+        width: auto;
+    }
+    div.triple-buttons{
+        margin-top: 2em;
+    }
+    #tabExbody th{
+        margin-top: 1em;
+    }
+
+    #tabPrenotate{
+        width: 100%;
+    }
+
+    #tabPrenotate thead{
+        display: none;
+    }
+
+    #tabPrenotate tr, #tabPrenotate th, #tabPrenotate td{
+        display: block;
+        margin: 0.15em 0;
+    }
+    #tabPrenotate th{
+        margin-top: 1.5em;
+    }
+    #tabPrenotate tr:first-child th{
+        margin-top:0;
+    }
+    #tabPrenotate tr>:last-child{
+        padding: 0;
+        border: 0;
+        display: flex;
+    }
+    #tabPrenotate tr>:last-child #btn-conferma,
+    #tabPrenotate tr>:last-child #btn-conferma{
+        margin: auto;
+    }
+    div#errori {
+        margin: 1em 1em;
+    }
+    #btn-cancella{
+        border-radius: 0;
+        width: 100%;
+        padding:0.7em;
+    }
+    #tabPrenotate th[data-title]:before, #tabPrenotate td[data-title]:before{
+        content:attr(data-title) ":\00A0";
+        display: block;
+    }
+    #tabPrenotate a.button{
+        margin: 0;
+        width: -webkit-fill-available;
+        border-radius: 0;
+        padding: 0.7em;
+    }
+    #tabPrenotate td[data-title="Data"]:before, #tabPrenotate th[data-title="Data"]:before, 
+    #tabPrenotate td[data-title="Dalle"]:before, #tabPrenotate td[data-title="Alle"]:before,
+    .table-prenotazione td[data-title="Prenotazioni"]:before, .table-prenotazione td[data-title="Serie"]:before,
+    .table-prenotazione td[data-title="Ripetizioni"]:before, .table-prenotazione td[data-title="Pausa"]:before,
+    .table-prenotazione td[data-title="Esercizio"]:before {
+        display:inline-block;
+    }
+
+    #trainerScheda{
+        width:auto
+    }
+    #scheda-table h2{
+        margin: 0;
+        font-size: 1.8em;
+    }
+
+    .selezione-data-e-ora.selezione-data .button {
+        margin-left: 0;
+        margin-top: 1em;    
+    }
+
+
+    #inserimento-dati{
+        width: 80%;
+    }
+
+    div.corso-card {
+        width: 80%;
+    }
+
+    .white-box {
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid-item p {
+        font-size: 1.2em;
+    }
+
+    .inline-selectbox {
+        flex-direction: column;
+        margin-bottom: 1.5em;
+    }
+
+    div.inline-selectbox input {
+        padding: 0.5em;
+        margin-top: 0.4em;
+    }
+
+    .selezione-data-e-ora {
+        padding: 1em;
+    }
+
+    #ex-container{
+        width: 100%;
+    }
+    #private-area-top{
+        padding: 1.5em;
+    }
+    .ex-descr{
+        padding: 0;
+    }
+    p#consiglio{
+        text-align: center;
+    }
+    #inline-buttons{
+        display: block;
+    }
+    .formCreaScheda input {
+        width: 50%;
+    }
+    #serverError {
+        padding: 1em;
+    }
+    #contatti-social {
+        flex-direction: column;
+        align-items: center;
+    }
+    #contatti-social ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    #contatti-social ul li {
+        display: flex;
+        align-items: center;
+        margin: 0 0.5em;
+        margin-top: 0.5em
+    }
+    #contatti-social ul li i {
+        margin-right: 0.3em;
+    }
+    #contatti-social > div {
+        width: -webkit-fill-available;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /*******************************
+     *          HOME
+     ******************************/
+    .grid-item{
+        flex-direction: column;
+        margin-bottom: 2em;
+        padding: 2em 0;
+    }
+    .grid-item>img{
+        margin: 1em auto;
+    }
+    #grid-item-b, #grid-item-e, #grid-item-f{
+        flex-direction: column-reverse;
+    }
+    #grid-item-c, #grid-item-d {
+        flex-direction: column;
+    }
+    #grid-item-g {
+        padding: 0;
+    }
+
+    .grid-item p {
+        max-width: 80%;
+    }
+
+    p.grid-item-title-vertical {
+        padding: 1em 2.5em;
+    }
+
+    #grid-item-f>p {
+        padding: 1em 2.5em;
+    }
+
+    .grid-img-horizontal, .grid-img-vertical {
+        width: 80%;
+    }
+
+    #private-area-menu {
+        margin-bottom: 1em;
+    }
+
+    ul#private-area-menu > li {
+        flex: 1 0 45%;
+    }
+
+    #private-area-menu .button {
+        width: auto;
+        margin-bottom: 0.25em;
+    }
+
+    #private-area-menu > li:nth-child(1),
+    #private-area-menu > li:nth-child(3),
+    #private-area-menu > li:nth-child(5) {
+        padding: 0;
+        padding-right: 0.125em;
+    }
+
+    #private-area-menu > li:nth-child(2),
+    #private-area-menu > li:nth-child(4),
+    #private-area-menu > li:nth-child(6) {
+        padding: 0;
+        padding-left: 0.125em;
+    }
+
+    h1, h2 {
+        font-size: 1.8em;
+
+    }
+
+    #formSessione>h2 {
+        font-size: 1.8em;
+    }
+
+    div.form-wrapper form {
+        width: 100%;
+    }
+
+    .confirm-delete-box {
+        max-width: none;
+        width: 70%;
+        gap: 0;
+    }
+    
+    .confirm-delete-box .delete-box-buttons {
+        flex-direction: column;
+    }
+
+    .delete-box-buttons .button {
+        margin: 0em auto;
+    }
+
+}
+
+/***************************************
+ *             BREADCRUMB
+ **************************************/
