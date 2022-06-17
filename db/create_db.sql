@@ -395,3 +395,8 @@ INSERT INTO prenotazione_sessione (data, ora_inizio, ora_fine, cliente) VALUES
 ("2022-07-18", "10:30", "11:30", 8),
 ("2022-07-01", "14:30", "15:00", 8),
 ("2022-07-05", "21:30", "22:30", 8);
+
+INSERT INTO prenotazione_scheda (cliente, trainer, data) VALUES
+(8, 7, "2022-06-17"),
+(5, 7, "2022-06-17"),
+(3, 7, "2022-06-17");
