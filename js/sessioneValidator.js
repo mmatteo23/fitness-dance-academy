@@ -66,7 +66,9 @@ function validateOraI(){
     var mese = today.getMonth()+1;
     var oggi = today.getFullYear()+'-'+(mese>10?mese:"0"+mese)+'-'+today.getDate();
     var adesso = today.getHours() + ":" + today.getMinutes();
-    if(dateV == oggi && oraIV < adesso){
+    console.log(oraIV);
+    console.log(adesso);
+    if(dateV == oggi && Date.parse(oggi + " " + oraIV) < Date.parse(oggi + " " + adesso)){
         oraIValid = false;
         setError(oraI, "Il momento è passato");
     }

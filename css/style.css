@@ -1,7 +1,7 @@
 /*******************************
  *          PALETTE
  ******************************/
- :root{  
+ /* :root{  
     --color0: #1f306e;
     --color0-dark: #1a2240;
     --color0-light: #2c4396;
@@ -27,6 +27,37 @@
     --success: rgb(25,135,84);
     --success-background: var(--color2);
     --danger: darkred;
+} */
+
+:root{  
+    --color0: #1f306e;
+    --color0-dark: #1a2240;
+    --color0-light: #2c4396;
+    --color0-verylight: #C6C6DC;
+    --color1: #553772;
+    --color1-dark: #291834;
+    --color2: #ddae2d;
+    --color2-inverted: #2251d2;
+    --color3: #ff9b00;
+    --color3-light: #D36C22;
+    --color4: #F5487F;
+    --color5: #dd762d;
+    --dark: #151515;
+
+    --green: #42a029;
+    --dark-shadow: black;
+    --transparent: #ffffff14;
+    --transparent-full: #ffffff00;
+    --transparent-dark: #0000005c;
+    --transparent-dark-inverted: #ffffff5e;
+    --transparent-light: #ffffff2b;
+    --lateral-padding: 2em;
+    --content-max_width: 1200px;
+    --error: #FF7070;
+    --error-background: #140f21;
+    --success: rgb(25,135,84);
+    --success-background: var(--color2);
+    --danger: darkred;
 }
 
 
@@ -35,7 +66,8 @@ html{
 }
 
 html, body{
-    background-image: linear-gradient(to bottom right, #2c4396, #8f3b76);
+    /* background-image: linear-gradient(to bottom right, #2c4396, #8f3b76); */
+    background-color: #212121;
     font-family: "Poppins", sans-serif;
     color: white;
     margin: 0 auto;
@@ -57,7 +89,7 @@ body > footer {
 /* FINE FOOTER NUOVO */
 
 header{
-    box-shadow: -5px -3px 9px 0px #1a2240;
+    box-shadow: -5px -3px 9px 0px #000000;
 }
 
 input {
@@ -70,14 +102,11 @@ h2 {
 
 a{
     display: inline-block;
-    color: var(--color0-verylight);
-    background-color: var(--color0);
-    padding: 0 0.5em;
-    border-radius: 0.5em;
+    color: var(--color2);
 }
 
 a:visited{
-    color: var(--color3-light);
+    color: var(--color5);
 }
 
 .icon{
@@ -178,7 +207,7 @@ nav li > a:visited{
 }
 
 nav li:hover {
-    background-color: var(--color0);
+    background-color: var(--transparent-light);
 }
 
 #main-menu li{
@@ -187,7 +216,8 @@ nav li:hover {
 
 li#selectedNavbar{
     font-weight: bold;
-    background-color: var(--color0-dark);
+    background-color: var(--color2);
+    color: black;
 }
 
 ul#breadcrumb{
@@ -204,7 +234,7 @@ ul#breadcrumb{
 }
 
 #breadcrumb li{
-    background-color: var(--color0);
+    background-color: var(--transparent-light);
     width: 7em;
     margin: 0;
     padding: 0.25em 0.5em;
@@ -219,8 +249,9 @@ ul#breadcrumb{
 }
 
 li#selectedBreadcrumb{
-    background-color: var(--color0-dark);
+    background-color: var(--color2);
     font-weight: bold;
+    color: black;
 }
 #breadcrumb li#selectedBreadcrumb.firstBreadcrumb, #breadcrumb li.firstBreadcrumb{
     -webkit-clip-path: polygon(0 0, 0 100%, 90% 100%, 100% 50%, 90% 0);
@@ -348,11 +379,11 @@ div.grid-item > img.profilePicture {
 #bmi-explaination{
     width:25%;
     align-items: center;
-    background-color: var(--color1-dark);
+    background-color: var(--transparent);
 }
 
 #classi-bmi{
-    background-color: var(--color1-dark);
+    background-color: var(--transparent);
 }
 
 #valori-bmi{
@@ -468,7 +499,7 @@ footer{
     text-align: center;
 
     padding-bottom: 1em;
-    box-shadow: -2px 4px 9px 0px #1a2240;
+    box-shadow: -2px 4px 9px 0px #000000;
     /* position: absolute;
     bottom: 0; 
     width: 100%; */
@@ -503,6 +534,7 @@ footer ul{
 
 footer h3{
     margin-bottom: 0;
+    color: var(--color2);
 }
 
 #contatti, #social, #Indirizzo{
@@ -770,6 +802,18 @@ h2 {
     text-align: center;
 }
 
+.triple-buttons #creaBtn{
+    background-color: var(--green);
+}
+.triple-buttons #annullaBtn{
+    background-color: var(--transparent-light);
+    color: white;
+}
+.triple-buttons #confirmElimination{
+    background-color: #900000;
+    color: black;
+}
+
 form.filtri {
     display: flex;
     align-items: center;
@@ -856,12 +900,15 @@ div#errori > ul {
     /* justify-content: space-evenly;  */
 }
 .selezione-data-e-ora .inline-selectbox .error{
-    /* height: 1.5em; */
+    height: 1.5em; 
+    float: right;
+    text-align: right;
     width: 20em;
     margin:0;
+    color: var(--error)
 }
 .selezione-data-e-ora label{
-    /* height: 2em; */
+    height: 3.5em; 
     text-align: left;
 }
 #formSessione select{
@@ -895,7 +942,7 @@ div#errori > ul {
 #tabPrenotate a{
     font-size: 1em;
     text-decoration: none;
-    color: white;
+    color: black;
     margin: 0;
     width: auto;
     border-radius: 0;
@@ -966,23 +1013,23 @@ abbr[title] {
 
 .button.button-purple {
     background-color: var(--color2);
-    color: white;
+    color: #181818;
 }
 .button.button-purple:hover{
     background-color: var(--color3);
-    color: white;
+    color: #181818;
 }
 .button.button-transparent {
     background-color: var(--transparent);
     color: white;
 }
 .button.button-transparent:hover{
-    background-color: var(--transparent-dark);
+    background-color: var(--transparent-light);
     color: white;
 }
 
 .button-violet {
-    background-color: var(--color1-dark);
+    background-color: #900000;
     color: white;
 }
 .button.button-violet:hover{
@@ -1079,7 +1126,7 @@ select#giornoSessione {
 #creaSchedaInput p.error{
     font-size: 0.5em;
     margin: 0 auto;
-    background-color: var(--color1-dark);
+    color: #FF7070;
     padding: 0.25em 0.75em;
     width: fit-content;
     border-radius: 0.25em;
@@ -1146,7 +1193,7 @@ background-color: var(--transparent);
 }
 .ex-img{
     filter: invert(1);
-    background-color: var(--transparent-dark-inverted);
+    background-color: #EAEAEA;
     max-width: 10em;
     height: auto;
     border-radius: 0.5em;
@@ -1164,6 +1211,7 @@ background-color: var(--transparent);
 li.ex-titolo {
     font-size: 1.6em;
     font-weight: 600;
+    color: var(--color2)
 }
 /*
 .ex-descr :first-child{
@@ -1249,7 +1297,7 @@ img.profilePicture {
     width: 13em;
     border: solid 0.4em;
     border-radius: 10em;
-    border-color: #ffffff1a;
+    border-color: #ffffff26;
     object-fit: cover;
 }
 .input-wrapper img.profilePicture {
@@ -1289,6 +1337,7 @@ label[for="profile-img"]>:first-child{
     font-size: 1.5em;
     font-weight: 600;
     margin-bottom: 0.3em;
+    color: var(--color2);
 }
 
 .profileData ul {
@@ -1333,10 +1382,15 @@ a.button {
 li#private-area-selected p{
     background-color: var(--color2);
     cursor: initial;
+    color: black;
+}
+
+li#private-area-selected img{
+    filter: invert(1);
 }
 
 select option {
-    background: var(--color1);
+    background: #272727;
 }
 
 .page-box {
@@ -1400,7 +1454,7 @@ select option {
     margin-top: 0;
 }
 #annullaBtn{
-    background-color: var(--color1);
+    background-color: var(--color3);
 }
 #annullaBtn:hover{
     background-color: var(--color1-dark);
@@ -1424,11 +1478,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #483368;        /* color of the tracking area */
+    background: var(--transparent-dark);        /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #584474;        /* color of the tracking area */
+    background: var(--color2);        /* color of the tracking area */
 }
 
 /*------------ABOUT US--------------------*/
@@ -1472,6 +1526,7 @@ div.input-wrapper.error .transparent-login {
 
 div.input-wrapper.success .transparent-login {
     background-color: var(--success-background);
+    color: black;
 }
 
 /****************MODAL************************/
@@ -1547,7 +1602,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px var(--success-background) inset;
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: black;
 }
 
 #errorFlex{

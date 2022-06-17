@@ -398,6 +398,10 @@
 }
 
 @media (max-width: 750px) {
+
+    .selezione-data-e-ora label{
+        height: 1.5em;
+    }
    
     #errorFlex div{
         width: 100%;
