@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
     $password = $_POST['password'];
 
     if ($email == '' || $password == ''){
-        $errors = "<p class='error'>E-mail and Password fields are required!</p>";
+        $errors = "<p class='error'>I campi e-mail e password sono obbligatori!</p>";
     } else {
 
         $isValid = authentication($email, $password);
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
         }        
         else {    // utente non registrato o credenziali errate
             $errors = "<div id='errori'><p role='alert' class='response'>
-                Your credentials are wrong!
+                Le credenziali inserite sono errate, riprova.
             </p></div>";
         }
     }   

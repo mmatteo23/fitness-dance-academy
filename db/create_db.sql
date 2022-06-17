@@ -293,17 +293,17 @@ VALUES (
   (
     4,
     '<span xml:lang="en" lang="en">Break Ass</span>',
-    'Allenamento che appena tutto il corso usando pause piccole e ritmi di ripetizioni alte. Riuscirai a resistere?',
+    'Allenamento che allena tutto il corpo usando pause piccole e ritmi di ripetizioni alte. Riuscirai a resistere?',
     '2022-01-02',
     '2022-12-02',
     7,
     NULL,
-    "Immagine del corso di default con il logo del sito, teschio con ossa e acronimo"
+    "Immagine del corso di default con il logo del sito, teschio con dietro due bilancieri incrociati e acronimo FDA"
   ),
   (
     5,
     '<span xml:lang="en" lang="en">Calisthenics</span>',
-    'Allenamento senza pesi. Qui userai solo il tuo corpo, niente pesi e macchinari. Dovrai imparare a controllare il tuo baricentro e il respiro',
+    'Allenamento a corpo libero. Qui userai solo il tuo corpo, niente pesi e macchinari. Dovrai imparare a controllare il tuo baricentro e il respiro',
     '2022-06-23',
     '2022-12-23',
     2,
@@ -392,6 +392,63 @@ INSERT INTO iscrizione_corso VALUES
 (8, 4);
 
 INSERT INTO prenotazione_sessione (data, ora_inizio, ora_fine, cliente) VALUES
+
+("2022-06-17", "14:30", "15:00", 8),
+("2022-06-17", "14:30", "15:00", 5),
+("2022-06-17", "14:30", "15:00", 3),
+
+("2022-06-18", "14:30", "15:00", 8),
+("2022-06-18", "14:30", "15:00", 5),
+("2022-06-18", "14:30", "15:00", 3),
+
+("2022-06-18", "19:30", "20:30", 8),
+("2022-06-18", "19:30", "20:30", 5),
+("2022-06-18", "19:30", "20:30", 3),
+
+("2022-06-20", "14:30", "15:00", 8),
+("2022-06-20", "14:30", "15:00", 5),
+("2022-06-20", "14:30", "15:00", 3),
+
+("2022-06-21", "14:30", "15:00", 8),
+("2022-06-21", "14:30", "15:00", 5),
+("2022-06-21", "14:30", "15:00", 3),
+
+("2022-06-21", "19:30", "20:30", 8),
+("2022-06-21", "19:30", "20:30", 5),
+("2022-06-21", "19:30", "20:30", 3),
+
+("2022-06-22", "14:30", "15:00", 8),
+("2022-06-22", "14:30", "15:00", 5),
+("2022-06-22", "14:30", "15:00", 3),
+
+("2022-06-23", "14:30", "15:00", 8),
+("2022-06-23", "14:30", "15:00", 5),
+("2022-06-23", "14:30", "15:00", 3),
+
+("2022-06-24", "14:30", "15:00", 8),
+("2022-06-24", "14:30", "15:00", 5),
+("2022-06-24", "14:30", "15:00", 3),
+
+("2022-06-25", "14:30", "15:00", 8),
+("2022-06-25", "14:30", "15:00", 5),
+("2022-06-25", "14:30", "15:00", 3),
+
+("2022-06-27", "14:30", "15:00", 8),
+("2022-06-27", "14:30", "15:00", 5),
+("2022-06-27", "14:30", "15:00", 3),
+
+("2022-06-28", "14:30", "15:00", 8),
+("2022-06-28", "14:30", "15:00", 5),
+("2022-06-28", "14:30", "15:00", 3),
+
+("2022-06-29", "14:30", "15:00", 8),
+("2022-06-29", "14:30", "15:00", 5),
+("2022-06-29", "14:30", "15:00", 3),
+
+("2022-06-30", "14:30", "15:00", 8),
+("2022-06-30", "14:30", "15:00", 5),
+("2022-06-30", "14:30", "15:00", 3),
+
 ("2022-07-18", "10:30", "11:30", 8),
 ("2022-07-01", "14:30", "15:00", 8),
 ("2022-07-05", "21:30", "22:30", 8);

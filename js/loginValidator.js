@@ -35,7 +35,7 @@ function validateEmail(){
     const emailValue = email.value.trim();    // trim remove white space
     
     if(emailValue == '') {
-        setError(email, 'Email is required')
+        setError(email, 'Il campo email è obbligatorio')
         return false
     } else {
         setSuccess(email)
@@ -48,7 +48,7 @@ function validatePassword() {
     const passwordValue = password.value.trim();
 
     if(passwordValue == '') {
-        setError(password, 'Password is required')
+        setError(password, 'Il campo password è obbligatorio')
         return false
     } else {
         setSuccess(password);

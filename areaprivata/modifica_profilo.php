@@ -107,12 +107,12 @@ $formContent = "
     </div>
     <div class='input-wrapper success'>
         <label for='password'><span xml:lang='en' lang='en'>Password*</span></label>
-        <input type='password' value='" . $userData['password'] . "' name='password' id='password' onblur='validaPassword()' class='transparent-login' aria-required='true' />
+        <input type='password' value='" . $userData['password'] . "' name='password' id='password' oninput='validaPassword()' class='transparent-login' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
         <label for='Rpassword'>Ripeti <span xml:lang='en' lang='en'>Password*</span></label>
-        <input type='password' value='" . $userData['password'] . "' name='Rpassword' id='Rpassword' onblur='validaPassword()' class='transparent-login' aria-required='true' />
+        <input type='password' value='" . $userData['password'] . "' name='Rpassword' id='Rpassword' oninput='validaPassword()' class='transparent-login' aria-required='true' />
         <p class='error'></p>
     </div>
 ";
