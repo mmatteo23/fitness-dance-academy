@@ -328,7 +328,7 @@ VALUES (
     '2022-12-23',
     2,
     '7.jpg',
-    'Donna che segue il corso di fronte all''istruttore con top e guantini neri'
+    'Donna che segue il corso di fronte all&#39;istruttore con top e guantini neri'
   );
 
 INSERT INTO categoria(descrizione) 

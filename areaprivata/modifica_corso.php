@@ -124,9 +124,9 @@ if($corsoId !== false){
         $trainerOptions = '';
         foreach ($trainers as $trainer) {
             if($trainer['id']==$corso['trainer'])
-                $trainerOptions .= "<option value='" . $trainer['id'] . "' selected='selected' role='option'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
+                $trainerOptions .= "<option value='" . $trainer['id'] . "' selected='selected'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
             else
-                $trainerOptions .= "<option value='" . $trainer['id'] . "' role='option'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
+                $trainerOptions .= "<option value='" . $trainer['id'] . "'>" . $trainer['nome'] . " " . $trainer['cognome'] . "</option>";
         }
     }
 } else {

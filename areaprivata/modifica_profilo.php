@@ -121,27 +121,27 @@ $menuPrivateAreaUtente = "
     <ul id='private-area-menu'>
         <li><a href='../areaprivata/profilo.php' class='button button-transparent'>
             DATI
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/dati.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/dati.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/prenotazione_corso.php' class='button button-transparent'>
             CORSI
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/corsi.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/corsi.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/prenotazione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/schede.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/schede.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/prenotazione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/sessione.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/sessione.png' alt=''/>
         </a></li>
         <li id='private-area-selected'><p class='button button-transparent'>
             MODIFICA
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/modifica.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/modifica.png' alt=''/>
         </p></li>
         <li><a href='../php/logout.php' class='button button-transparent'>
             <span xml:lang='en' lang='en'>LOGOUT</span>
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/logout.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/logout.png' alt=''/>
         </a></li>
     </ul>
 ";
@@ -149,27 +149,27 @@ $menuPrivateAreaGestione = "
     <ul id='private-area-menu'>
         <li><a href='../areaprivata/profilo.php' class='button button-transparent'>
             DATI
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/dati.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/dati.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/gestione_corso.php' class='button button-transparent'>
             CORSI
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/corsi.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/corsi.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/gestione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/schede.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/schede.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/gestione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/sessione.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/sessione.png' alt=''/>
         </a></li>
         <li id='private-area-selected'><p class='button button-transparent'>
             MODIFICA
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/modifica.png' alt=''/>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/modifica.png' alt=''/>
         </p></li>
         <li><a href='../php/logout.php' class='button button-transparent'>
-            <span xml:lang='en'>LOGOUT</span>
-            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/logout.png' alt=''/>
+            <span xml:lang='en' lang='en'>LOGOUT</span>
+            <img class='iconAP'   aria-hidden='true' src='../img/icons/logout.png' alt=''/>
         </a></li>
     </ul>
 ";

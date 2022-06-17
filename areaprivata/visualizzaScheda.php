@@ -22,7 +22,7 @@ if(isset($_GET['id'])) {
         $i++;
         $content .= 
             '<li class="ex">
-                <img class="ex-img" src="../img/iconeEsercizi/'.$es['id'].'.png"/>
+                <img class="ex-img" src="../img/iconeEsercizi/'.$es['id'].'.png" aria-hidden="true" alt=""/>
                 <ul class="ex-descr">
                     <li class="ex-titolo">'.$i.". ".$es['nome'].'</li>
                     <li>Serie: '.$es['serie'].'</li>

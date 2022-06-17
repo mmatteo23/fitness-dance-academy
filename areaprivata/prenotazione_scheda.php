@@ -27,7 +27,7 @@ $trainers = "";
 $response = "";
 $btnPrenota = '<input type="submit" value="Prenota" name="prenota" class="button button-purple"/>';
 $form = '<div id="trainerSchedaDiv">
-            <label for="trainerScheda"><span xml:lang="en">Trainer</span> al quale richiedere la scheda: </label>
+            <label for="trainerScheda"><span xml:lang="en" lang="en">Trainer</span> al quale richiedere la scheda: </label>
             <select id="trainerScheda" name="trainerScheda">
                 <listaTrainer/>
             </select>
@@ -56,7 +56,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
     $schedeUtente = Scheda::getSchedeByUtente($_SESSION['userId']);
     $trainersArr = $modelloUtente->getTrainers();
     foreach($trainersArr as $trainerSingolo){
-        $trainers .= "<option value='".$trainerSingolo['id']."' role='option'>".$trainerSingolo['nome']." ".$trainerSingolo["cognome"]."</option>";
+        $trainers .= "<option value='".$trainerSingolo['id']."' >".$trainerSingolo['nome']." ".$trainerSingolo["cognome"]."</option>";
     }
     
     if(count($schedeUtente) > 0){   // l'utente ha qualche scheda => gliela mostro
@@ -64,7 +64,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
             <table id='tabPrenotate' class='full-button'>
                 <thead>
                     <tr>
-                        <th scope='col'><span xml:lang='en'>Personal Trainer</span></th>
+                        <th scope='col'><span xml:lang='en' lang='en'>Personal Trainer</span></th>
                         <th scope='col'>Data</th>
                         <th scope='col'>Azioni</th>
                     </tr>
@@ -85,7 +85,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
     } else {    // L'utente non ha nemmeno una scheda compilata
 
         if($prenotazione_pendente){
-            $content = '<p>La tua richiesta di ricevere una nuova scheda è stata presa in carico, la visualizzerai qui quando il <span xml:lang="en">trainer</span> l\'avr&agrave; compilata</p>';
+            $content = '<p>La tua richiesta di ricevere una nuova scheda è stata presa in carico, la visualizzerai qui quando il <span xml:lang="en" lang="en">trainer</span> l\'avr&agrave; compilata</p>';
         } else {         
             $content = "<p>Non sono presenti schede per questo utente</p>";
         }
@@ -93,7 +93,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
 
     if($prenotazione_pendente){
         $btnPrenota = '<input type="submit" value="Prenota" name="prenota" class="button button-purple" disabled="disabled"/>';
-        $msg_pendente = '<p class="standard-text">Abbiamo notificato il tuo <span xml:lang="en">Personal Trainer</span> della richiesta di una nuova scheda.</p>';
+        $msg_pendente = '<p class="standard-text">Abbiamo notificato il tuo <span xml:lang="en" lang="en">Personal Trainer</span> della richiesta di una nuova scheda.</p>';
     }
         
 } else {
