@@ -44,7 +44,7 @@ function validateEmail(){
     return true
 }
 
-function validatePassword(){
+function validatePassword() {
     const passwordValue = password.value.trim();
 
     if(passwordValue == '') {

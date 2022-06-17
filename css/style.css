@@ -466,7 +466,7 @@ input[type="text"], input[type="number"]{
     border-color: #ffffff1a;
     color:white;
 }
-#inserimento-dati input[type="text"]{
+#inserimento-dati input[type="number"]{
     width: 15%;
 }
 .transparent-login {
@@ -477,9 +477,6 @@ input[type="text"], input[type="number"]{
     border-radius: 0.5em;
     border-color: #ffffff1a;
     color:white;
-}
-#loginBtn{
-    margin-top: 0;
 }
 #inserimento-dati button.button{
     margin-top: 0.5em;
@@ -855,6 +852,12 @@ p.response, ul.response {
     font-weight: 600;
     font-size: 1em;
     text-align: center;
+}
+
+#formLogin .response {
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 ul.response {
