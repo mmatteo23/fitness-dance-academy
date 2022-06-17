@@ -115,7 +115,7 @@ if($corsoId !== false){
             </select>
             <p class='error'></p>
         </div>
-        <input type='text' value='" . $corso['id'] . "' name='id' id='id' hidden='hidden'>
+        <input type='text' value='" . $corso['id'] . "' name='id' hidden='hidden'>
     ";
 
     $trainers = $modelloUtente->getTrainers();
@@ -139,7 +139,7 @@ $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.ht
 $import_script = '<script defer src="../js/modalManager.js"></script>';
 $form_conferma = '
     <form action="modifica_corso.php" method="post">
-        <input type="text" value="' . $corsoId . '" name="id" id="id" hidden="hidden">
+        <input type="text" value="' . $corsoId . '" name="id" hidden="hidden">
         <input id = "confirmDelete" class="button" type="submit" value="Elimina" name="cancella" />
     </form>
 ';
