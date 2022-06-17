@@ -118,11 +118,6 @@
         margin: 0;
     }
 
-
-    div.table-box {
-        overflow-x: auto !important;
-    }
-
     div.table-box table caption {
         display: none;
     }
@@ -132,7 +127,7 @@
     }
 
     div.corso-card {
-        width: 45%;
+        width: 44.5%;
         margin-bottom: 1.5em;
     }
 
@@ -271,6 +266,10 @@
 }
 
 @media (max-width: 1000px) {
+    div.corso-card {
+        width: 42.5%;
+        margin-bottom: 1.5em;
+    }
     #creaSchedaInput {
         flex-wrap: wrap;
         flex-direction: column;
@@ -423,6 +422,9 @@
     
     main#aboutus-container{
         padding: 10% 7%;
+    }
+    main#aboutus-container h2{
+        margin: 1em 0.5em;
     }
 
     main#aboutus-container img {

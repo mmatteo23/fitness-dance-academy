@@ -85,7 +85,7 @@ if(count($corsi)){
 
     $content_corsi .= $html_table_footer;
 } else {
-    $content_corsi = "<p>Non ci sono corsi che combaciano con i tuoi parametri di ricerca</p>";
+    $content_corsi = "<p role='alert' class='response'>Non ci sono corsi che combaciano con i tuoi parametri di ricerca</p>";
 }
 
 if(count($corsi_prenotati)){

@@ -81,8 +81,8 @@ $profileData = '
         <li><span>E-mail:</span><span>'.$userData['email'].'</span></li>
         <li><span>Data di nascita:</span><span>'.$userData['data_nascita'].'</span></li>'.
         ($userData['telefono']?'<li><span>Telefono:</span><span>'.$userData['telefono'].'</span></li>':'').
-        ($userData['altezza']?'<li><span>Altezza:</span><span>'.$userData['altezza'].' cm</span></li>':'').
-        ($userData['peso']?'<li><span>Peso:</span><span>'.$userData['peso'].' kg</span></li>':'').'
+        ($userData['altezza']?'<li><span>Altezza:</span><span>'.$userData['altezza'].' <abbr title="centimetri">cm</abbr></span></li>':'').
+        ($userData['peso']?'<li><span>Peso:</span><span>'.$userData['peso'].' <abbr title="chilogrammi">kg</abbr></span></li>':'').'
     </ul>
 ';
 

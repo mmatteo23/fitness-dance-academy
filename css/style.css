@@ -31,7 +31,7 @@
 
 
 html{
-    background-color: var(--color0)  ;
+    background-color: var(--color0);
 }
 
 html, body{
@@ -40,11 +40,21 @@ html, body{
     color: white;
     margin: 0 auto;
 }
-
 main{
     max-width: var(--content-max_width);
     margin: 0 auto;
 }
+ /* FOOTER NUOVO */
+html{ height:100%; }
+body { min-height:100%;  margin:0; }
+body {
+    display: table;
+    width: 100%; 
+}
+body > footer {
+    display: table-row;
+}
+/* FINE FOOTER NUOVO */
 
 header{
     box-shadow: -5px -3px 9px 0px #1a2240;
@@ -456,9 +466,12 @@ input[type="text"], input[type="number"]{
 
 footer{
     text-align: center;
-    margin-top: 1.7em;
+
     padding-bottom: 1em;
     box-shadow: -2px 4px 9px 0px #1a2240;
+    /* position: absolute;
+    bottom: 0; 
+    width: 100%; */
 }
 
 footer a, footer a:visited{
@@ -497,7 +510,7 @@ footer h3{
 }
 
 footer>p{
-    margin: 0;
+    margin: 1em;
 }
 
 #link-indirizzo{
@@ -510,6 +523,7 @@ main#content {
     color: white;
     padding: 1.5em 1.5em;
     margin: auto;
+    margin-bottom: 2em;
 }
 
 h1 {
@@ -542,11 +556,16 @@ div.input-wrapper {
 }
 
 div.input-wrapper-with-image {
-    text-align: center;
+    /* text-align: center; */
 }
 
-div.input-wrapper-with-image > #copertina-img {
-    margin: auto !important;
+/* div.input-wrapper-with-image > #copertina-img {
+    margin: auto;
+} */
+
+#copertina-img.profilePicture {
+    border-radius: 0;
+    margin-bottom: 1em;
 }
 
 div.input-wrapper input {
@@ -614,15 +633,27 @@ table#corsi td {
     flex-wrap: wrap;
 }
 
+.white-box.corsi {
+    margin: 0;
+}
+.table-box.corsi {
+    margin-bottom: 3em;
+}
+
 div.corso-card {
-    padding: 1em;
+    padding: 1.5em;
     background-color: var(--transparent);
-    width: 29%;
+    width: 28.5%;
     display: flex;
     flex-direction: column;
     color: white;
-    margin-bottom: 1em;
+    margin-top: 1em;
     justify-content: flex-end;
+}
+
+.corso-card > a.button {
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .title-card {
@@ -632,6 +663,7 @@ div.corso-card {
 
 .descrizione-card {
     margin: 0 1em;
+    margin-bottom: 1em;
     text-align: center;
 }
 
@@ -760,6 +792,7 @@ p.response, ul.response {
     margin: 1.2em auto;
     font-weight: 600;
     font-size: 1em;
+    text-align: center;
 }
 
 ul.response {
@@ -1405,6 +1438,7 @@ main#aboutus-container{
     padding: 3%;
     margin: auto;
     font-size: 1.2em;
+    margin-bottom: 2em;
 }
 main#aboutus-container h1{
     font-size: 2.5em;
@@ -1512,8 +1546,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px var(--success-background) inset !important;
-    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px var(--success-background) inset;
+    -webkit-text-fill-color: white;
 }
 
 #errorFlex{

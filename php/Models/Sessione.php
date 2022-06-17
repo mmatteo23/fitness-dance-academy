@@ -71,7 +71,7 @@ class Sessione {
         }
         $errors .= Sessione::gymIsClosed($date, $time, $time2);
         if($errors != "")
-            return "<ul>".$errors."</ul>";
+            return "<ul role='alert'>".$errors."</ul>";
         return $errors;
     }
 
