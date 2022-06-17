@@ -19,8 +19,8 @@
         width: auto; 
     }
     body > footer {
-        display: table-footer-group;
-}
+        display: block;
+    }
     nav {
         justify-content: space-between;
     }
@@ -45,7 +45,7 @@
         width: 100%;
         top: 100px;
         right: 0px;
-        background-color: #3e4291;
+        background-color: #2b2b2b;
         transition: 0.6s;
         z-index: 1000;
         height: 0px;
@@ -198,11 +198,16 @@
        width: auto;
     }
     .ex-img{
-        max-width: 6em;
+        max-width: 9em;
+        max-height: 9em;
     }
-    .ex-descr :first-child{
-        font-size: 1.25em;
+    .ex-descr li{
+        font-size: 1em;
     }
+    .ex-descr li.ex-titolo{
+        font-size: 1.2em;
+    }
+    
     /**********************AREA PRIVATA**************************/
     #private-area-container{
         display: block;
@@ -222,7 +227,6 @@
     #formSessione .selezione-data-e-ora label{
         min-width: 10em;
         font-size: 1.3em;
-        text-align: center;
     }
     #formSessione .selezione-data-e-ora.selezione-data label {
         min-width: 0;
@@ -359,9 +363,16 @@
     .selezione-data-e-ora .inline-selectbox {
         /* flex-direction: column; */
         margin-bottom: 1.5em;
+        flex-direction: column;
     }
     .selezione-data-e-ora .inline-selectbox input {
         float: none;
+    }
+    .selezione-data-e-ora .inline-selectbox > div {
+        display: contents;
+    }
+    .selezione-data-e-ora label {
+        height: 2em;
     }
     .selezione-data-e-ora.selezione-data {
         padding: 2em 0;
@@ -413,12 +424,21 @@
     #corsoDescription {
         padding: 0 3em;
     }
+    .selezione-data .inline-selectbox {
+        display: contents;
+    }
 }
 
 @media (max-width: 750px) {
 
     .selezione-data-e-ora label{
         height: 1.5em;
+    }
+    .selezione-data .inline-selectbox {
+        display: flex;
+    }
+    .standard-text {
+        padding: 0 3em;
     }
    
     #errorFlex div{
@@ -638,6 +658,7 @@
     }
     .ex-descr{
         padding: 0;
+        width: -webkit-fill-available;
     }
     p#consiglio{
         text-align: center;
@@ -767,9 +788,28 @@
     .delete-box-buttons .button {
         margin: 0em auto;
     }
+    .inline-selectbox {
+       display: block;
+    }
 
 }
 
 /***************************************
  *             BREADCRUMB
  **************************************/
+
+ @media (max-width: 450px) {
+    .ex {
+        margin: 0.75em 0;
+    }
+    .ex-img{
+        max-width: 6em;
+        max-height: 6em;
+    }
+    .ex-descr li{
+        font-size: 0.83em;
+    }
+    .ex-descr li.ex-titolo{
+        font-size: 0.93em;
+    }
+ }

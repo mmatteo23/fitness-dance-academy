@@ -44,7 +44,8 @@
     --color5: #dd762d;
     --dark: #151515;
 
-    --green: #42a029;
+    --green: #8fb425;
+    --green-acceso: #bcff00;
     --dark-shadow: black;
     --transparent: #ffffff14;
     --transparent-full: #ffffff00;
@@ -53,7 +54,7 @@
     --transparent-light: #ffffff2b;
     --lateral-padding: 2em;
     --content-max_width: 1200px;
-    --error: #FF7070;
+    --error: #D36C22;
     --error-background: #140f21;
     --success: rgb(25,135,84);
     --success-background: var(--color2);
@@ -282,7 +283,7 @@ li#selectedBreadcrumb{
     display: flex;
     /* background-color: var(--color0); */
     background-color: var(--transparent-dark);
-    box-shadow: 0 0 10px var(--color0-dark);
+    box-shadow: 0 0 10px black;
     margin-bottom: em;
 }
 
@@ -806,13 +807,27 @@ h2 {
 .triple-buttons #creaBtn{
     background-color: var(--green);
 }
+.triple-buttons #creaBtn:hover{
+    background-color: var(--green-acceso);
+}
 .triple-buttons #annullaBtn{
+    background-color: var(--transparent);
+    color: white;
+}
+.triple-buttons #annullaBtn:hover{
     background-color: var(--transparent-light);
     color: white;
 }
 .triple-buttons #confirmElimination{
-    background-color: #900000;
+    background-color: #bd3816;
     color: black;
+}
+.triple-buttons #confirmElimination:hover{
+    background-color: #ee3506;
+    color: black;
+}
+#annullaBtn.white {
+    background-color: white;
 }
 
 form.filtri {
@@ -895,7 +910,9 @@ div#errori > ul {
 .inline-selectbox #label-solo-data {
     min-width: 0em;
     margin-right: 1em;
-
+}
+.selezione-data #label-solo-data {
+    height: auto;
 }
 .selezione-data-e-ora .inline-selectbox{
     /* justify-content: space-evenly;  */
@@ -1127,7 +1144,7 @@ select#giornoSessione {
 #creaSchedaInput p.error{
     font-size: 0.5em;
     margin: 0 auto;
-    color: #FF7070;
+    color: var(--color3-light);
     padding: 0.25em 0.75em;
     width: fit-content;
     border-radius: 0.25em;
@@ -1163,6 +1180,10 @@ background-color: var(--transparent);
     display:flex;
     flex-direction: column;
 }
+#trainerSchedaDiv label {
+    margin-bottom: 0.5em;
+    padding: 0 1em;
+}
 #trainerSchedaDiv input[type="submit"]:disabled{
     background-color: grey;
     cursor:initial;
@@ -1188,9 +1209,10 @@ background-color: var(--transparent);
 .ex{
     background-color: var(--transparent);
     display: flex;
-    width: 25em;
     margin-bottom: 1em;
     border-radius: 1em;
+    flex: 1 0 40%;
+    margin: 0.5em;
 }
 .ex-img{
     filter: invert(1);
@@ -1257,7 +1279,7 @@ li.ex-titolo {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2em 9em;
+    padding: 2em 12em;
 }
 
 .selezione-data-e-ora.selezione-data{
@@ -1515,14 +1537,12 @@ main#aboutus-container img {
 /*----------------ERROR/SUCCESS----------------*/
 div.input-wrapper.error p.error{
     width: fit-content;
-    padding: 0.1em 1em;
     border-radius: 0.3em;
-    color: var(--error);
-    background-color: var(--error-background);
+    color: var(--color3-light);
 }
 
 div.input-wrapper.error .transparent-login {
-    background-color: var(--error-background);
+    background-color: var(--color3-light);
 }
 
 div.input-wrapper.success .transparent-login {
@@ -1554,7 +1574,7 @@ div.input-wrapper.success .transparent-login {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2em 2em 3em;
-    background-color: var(--color1-dark);
+    background-color: var(--dark);
     text-align: center;
     max-width: 450px;
     border-radius: 16px;
@@ -1594,7 +1614,7 @@ div.input-wrapper.success .transparent-login {
 
 .standard-text {
     font-size: 1.2em;
-    padding: 0 12em;
+    padding: 0 9em;
 }
 
 /* Change the white to any color */

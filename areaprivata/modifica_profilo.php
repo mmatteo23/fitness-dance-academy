@@ -177,7 +177,7 @@ if(!Utente::isTrainer($_SESSION['userId'])){
     $modal = file_get_contents(SITE_ROOT . '/html/components/modal_confirm_delete.html');
     $form_conferma = '
         <form action="modifica_profilo.php" method="post">
-            <input id = "confirmDelete" class="button" type="submit" value="Cancella" name="cancella" />
+            <input id = "confirmDelete" class="button" type="submit" value="Elimina" name="cancella" />
         </form>
     ';
     $modal = str_replace('<formCancella/>', $form_conferma, $modal);

@@ -117,7 +117,7 @@ CREATE TABLE iscrizione_corso (
 
 	PRIMARY KEY (cliente, corso),
 	FOREIGN KEY (cliente) REFERENCES utente(id) ON DELETE CASCADE,
-	FOREIGN KEY (corso) REFERENCES corso(id)
+	FOREIGN KEY (corso) REFERENCES corso(id) ON DELETE CASCADE
 );
 
 INSERT INTO ruolo (id, descrizione)

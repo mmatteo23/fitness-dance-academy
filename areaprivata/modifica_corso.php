@@ -140,7 +140,7 @@ $import_script = '<script defer src="../js/modalManager.js"></script>';
 $form_conferma = '
     <form action="modifica_corso.php" method="post">
         <input type="text" value="' . $corsoId . '" name="id" id="id" hidden="hidden">
-        <input id = "confirmDelete" class="button" type="submit" value="Cancella" name="cancella" />
+        <input id = "confirmDelete" class="button" type="submit" value="Elimina" name="cancella" />
     </form>
 ';
 $modal = str_replace('<formCancella/>', $form_conferma, $modal);

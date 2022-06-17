@@ -1,0 +1,2 @@
+# page for 404 errors
+ErrorDocument 404 error.php
