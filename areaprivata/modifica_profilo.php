@@ -21,8 +21,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
     } else {
         $response = checkAndUploadImage(SITE_ROOT . "/img/fotoProfilo/", "profile-img", $_SESSION['userId'], "default.png");
         if($response[1] == "") {
+            $oldEmail = $_POST['email'];
+            if ($_POST['email'] == "admin" || $_POST['email'] == "trainer" || $_POST['email'] == "client") {
+                $_POST['email'] = $_POST['email'] . "@gmail.com";
+            }
             $valid = $modelloUtente->validator($_POST);
             if($valid === TRUE){
+                $_POST['email'] = $oldEmail;
                 $_POST['foto_profilo'] = $response[0];
                 $_POST['ruolo'] = $ruoloUtente;
                 if(!$modelloUtente->update($_SESSION['userId'], $_POST)){

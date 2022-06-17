@@ -41,7 +41,7 @@ function validateInputs() {
         validaPeso() & validaPassword() & validateImage("profile-img")
     )
     
-    if(!email.disabled)
+    if(!email.readOnly)
         validInput = validInput & validaEmail();
 
     return validInput

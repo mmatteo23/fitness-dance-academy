@@ -738,6 +738,7 @@ p.title-card {
     background-color: var(--transparent);
     text-align: center;
     padding: 1.5em;
+    width: 100%;
     width: -webkit-fill-available;
     margin: 0;
     margin-top: 1.5em;
@@ -766,6 +767,7 @@ p.title-card {
 }
 .table-prenotazione button {
     margin: 0;
+    width: 100%;
     width: -webkit-fill-available;
     border-radius: 0;
 }
@@ -1168,6 +1170,7 @@ select#giornoSessione {
 background-color: var(--transparent);
     text-align: center;
     padding: 1.5em;
+    width: 100%;
     width: -webkit-fill-available;
     margin: 0;
     margin-bottom: 1.5em;
@@ -1263,6 +1266,7 @@ li.ex-titolo {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     width: -webkit-fill-available;
     padding: 2em 0em;
     padding-top: 2.5em;
@@ -1300,11 +1304,13 @@ li.ex-titolo {
 }
 
 #selezioneOrari {
+    width: 100%;
     width: -webkit-fill-available;
 }
 
 #private-area-content {
     /* margin:  da levare; */
+    width: 100%;
     width: -webkit-fill-available;
     margin: 0;
 }
@@ -1418,6 +1424,7 @@ select option {
 }
 
 .page-box {
+    width: 100%;
     width: -webkit-fill-available;
     background-color: var(--transparent);
     padding-top: 2em;
@@ -1440,17 +1447,20 @@ select option {
 }
 
 .width-fill-available {
+    width: 100%;
     width: -webkit-fill-available;
 }
 
 /****************CREA PROFILO*******************************/
 #containerCreaPro{
     background-color: var(--transparent);
+    width: 100%;
     width: -webkit-fill-available;
 }
 
 #containerCreaProDark{
     background-color: var(--transparent-dark);
+    width: 100%;
     width: -webkit-fill-available;
 }
 /* #loginForm input{
