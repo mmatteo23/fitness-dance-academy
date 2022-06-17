@@ -27,16 +27,16 @@ if(isset($_GET['id'])) {
                     <li class="ex-titolo">'.$i.". ".$es['nome'].'</li>
                     <li>Serie: '.$es['serie'].'</li>
                     <li>Ripetizioni: '.$es['ripetizioni'].'</li>
-                    <li>Pausa: '.$es['riposo'].'s</li>
+                    <li>Pausa: '.$es['riposo']."<abbr title='secondi'>s</abbr></li>
                 </ul>
-            </li>';
+            </li>";
     }
     $content .= "</ol>";
 }
 
 $htmlPage = file_get_contents("../html/areaprivata/visualizzaScheda.html");
 
-$footer = file_get_contents("../html/components/footer.html");
+$footer = file_get_contents("../html/components/footer2.html");
 
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);
 $htmlPage = str_replace("<esercizi/>", $content, $htmlPage);

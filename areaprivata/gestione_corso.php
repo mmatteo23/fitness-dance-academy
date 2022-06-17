@@ -77,11 +77,11 @@ if(count($corsi)){
 
     $content_corsi .= $html_table_footer;
 } else {
-    $content_corsi = "<p>Non ci sono corsi che combaciano con i tuoi parametri di ricerca</p>";
+    $content_corsi = "<p role='alert' class='error'>Non ci sono corsi che combaciano con i tuoi parametri di ricerca</p>";
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_corso.html");
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 // tag substitutions
 $htmlPage = str_replace("<pageTitle/>", $pageTitle, $htmlPage);

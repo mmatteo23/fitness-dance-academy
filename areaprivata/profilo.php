@@ -13,51 +13,57 @@ $fotoProfiloDIR = 'img/fotoProfilo/';
 $fotoDefault = 'default.png';
 $menuPrivateAreaUtente = "
     <ul id='private-area-menu'>
-        <li id='private-area-selected'><p class='button button-transparent'>DATI<i class='fa-solid fa-file-lines' aria-hidden='true'></i></p></li>
+        <li id='private-area-selected'><p class='button button-transparent'>
+            DATI
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/dati.png' alt=''/>
+        </p></li>
         <li><a href='../areaprivata/prenotazione_corso.php' class='button button-transparent'>
             CORSI
-            <i class='fa-solid fa-person-running' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/corsi.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/prenotazione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <i class='fa-solid fa-folder-closed' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/schede.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/prenotazione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <i class='fa-regular fa-clock' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/sessione.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/modifica_profilo.php' class='button button-transparent'>
             MODIFICA
-            <i class='fa-solid fa-pen-to-square' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/modifica.png' alt=''/>
         </a></li>
         <li><a href='../php/logout.php' class='button button-transparent'>
             <span xml:lang='en' lang='en'>LOGOUT</span>
-            <i class='fa-solid fa-right-from-bracket' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/logout.png' alt=''/>
         </a></li>
     </ul>
 ";
 $menuPrivateAreaGestione = "
     <ul id='private-area-menu'>
-        <li id='private-area-selected'><p class='button button-transparent'>DATI<i class='fa-solid fa-file-lines'></i></p></li>
+        <li id='private-area-selected'><p class='button button-transparent'>
+            DATI
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/dati.png' alt=''/>
+        </p></li>
         <li><a href='../areaprivata/gestione_corso.php' class='button button-transparent'>
             CORSI
-            <i class='fa-solid fa-person-running' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/corsi.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/gestione_scheda.php' class='button button-transparent'>
             SCHEDE
-            <i class='fa-solid fa-folder-closed' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/schede.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/gestione_sessione.php' class='button button-transparent'>
             SESSIONE
-            <i class='fa-regular fa-clock' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/sessione.png' alt=''/>
         </a></li>
         <li><a href='../areaprivata/modifica_profilo.php' class='button button-transparent'>
             MODIFICA
-            <i class='fa-solid fa-pen-to-square' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/modifica.png' alt=''/>
         </a></li>
         <li><a href='../php/logout.php' class='button button-transparent'>
             <span xml:lang='en'>LOGOUT</span>
-            <i class='fa-solid fa-right-from-bracket' aria-hidden='true'></i>
+            <img class='iconAP' role='icon' aria-hidden='true' src='../img/icons/logout.png' alt=''/>
         </a></li>
     </ul>
 ";
@@ -81,7 +87,7 @@ $profileData = '
 ';
 
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/profilo.html');
-$footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
+$footer = file_get_contents(SITE_ROOT . '/html/components/footer2.html');
 
 if($userData['ruolo'] == 3)
     $htmlPage = str_replace('<menuPrivateArea/>', $menuPrivateAreaUtente, $htmlPage);

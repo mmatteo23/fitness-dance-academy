@@ -77,7 +77,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
             $content .= "
                 <tr>
                     <th data-title='Trainer' scope='row'>".$scheda['trainer']."</th>
-                    <td data-title='Data'>".$data."</td>
+                    <td data-title='Data'>".$scheda['data']."</td>
                     <td><a class='button button-purple' aria-label='Visualizza la scheda' href='visualizzaScheda.php?id=".$scheda['id']."'>Visualizza</a></td>
                 </tr>";
         }
@@ -102,7 +102,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_scheda.html");
 
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 $htmlPage = str_replace('<response/>', $response, $htmlPage);
 $htmlPage = str_replace('<msgPendente/>', $msg_pendente, $htmlPage);

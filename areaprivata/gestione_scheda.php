@@ -75,7 +75,7 @@ if(isset($_SESSION['userId'])){
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/gestione_scheda.html");
 
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 $htmlPage = str_replace("<sessionTableBody/>", $content, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);

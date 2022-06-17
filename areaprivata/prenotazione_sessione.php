@@ -87,7 +87,7 @@ if(isset($_SESSION['userId']) && $_SESSION['userId']!=''){
         $headTabellaSessioni = "<p>Non ti sei prenotato a nessuna sessione</p>";
     }
 }
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 $htmlPage = str_replace('<errori/>', $errors, $htmlPage);
 $htmlPage = str_replace('<response/>', $response, $htmlPage);

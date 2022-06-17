@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
                     <th data-title='Fascia oraria'>". $prenotazione['ora_inizio'] ."-". $prenotazione['ora_fine'] ."</th>
                     <td data-title='Nome'>". $prenotazione['nome'] . " " . $prenotazione['cognome'] ."</td>
                     <td data-title='Email'>". $prenotazione['email'] ."</td>
-                    <td data-title='Telefono'>". ($prenotazione['telefono']?:"/") ."</td>
+                    <td data-title='Telefono'>". ($prenotazione['telefono']?:"<span aria-label='telefono assente'>/</span>") ."</td>
                 </tr>";
             }
         
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     }
 }
 
-$footer = file_get_contents(SITE_ROOT . "/html/components/footer.html");
+$footer = file_get_contents(SITE_ROOT . "/html/components/footer2.html");
 
 $htmlPage = str_replace('<div id="errori"></div>', $errors, $htmlPage);
 $htmlPage = str_replace("<pageFooter/>", $footer, $htmlPage);

@@ -71,7 +71,7 @@ foreach($esercizi as $esercizio){
 
 
 $htmlPage = file_get_contents(SITE_ROOT . '/html/areaprivata/creazione_scheda.html');
-$footer = file_get_contents(SITE_ROOT . '/html/components/footer.html');
+$footer = file_get_contents(SITE_ROOT . '/html/components/footer2.html');
 
 $htmlPage = str_replace('<optionsEsercizi/>', $optionsEsercizi, $htmlPage);
 $htmlPage = str_replace('<tableEserciziScheda/>', $html_table.$html_table_footer, $htmlPage);
