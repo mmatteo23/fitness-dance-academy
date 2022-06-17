@@ -76,22 +76,22 @@ if($corsoId !== false){
     $formContent = "
         <div class='input-wrapper success'>
             <label for='titolo'>Titolo*</label>
-            <input type='text' value='" . $titolo . "' name='titolo' id='titolo' class='transparent-login' onblur='validaTitolo()'>
+            <input type='text' value='" . $titolo . "' name='titolo' id='titolo' class='transparent-login' onblur='validaTitolo()' aria-required='true' />
             <p class='error'></p>
         </div>
         <div class='input-wrapper success'>
             <label for='descrizione'>Descrizione*</label>
-            <input type='text' value='" . $descrizione . "' name='descrizione' id='descrizione' class='transparent-login' onblur='validaDescrizione()'>
+            <input type='text' value='" . $descrizione . "' name='descrizione' id='descrizione' class='transparent-login' onblur='validaDescrizione()' aria-required='true' />
             <p class='error'></p>
         </div>
         <div class='input-wrapper success'>
             <label for='data_inizio'>Data di inizio*</label>
-            <input type='date' value='" . $corso['data_inizio'] . "' name='data_inizio' id='data_inizio' class='transparent-login' onchange='validaDate()'>
+            <input type='date' value='" . $corso['data_inizio'] . "' name='data_inizio' id='data_inizio' class='transparent-login' onchange='validaDate()' aria-required='true' />
             <p class='error'></p>
         </div>
         <div class='input-wrapper success'>
             <label for='data_fine'>Data di fine*</label>
-            <input type='date' value='" . $corso['data_fine'] . "' name='data_fine' id='data_fine' class='transparent-login' onchange='validaDate()'>
+            <input type='date' value='" . $corso['data_fine'] . "' name='data_fine' id='data_fine' class='transparent-login' onchange='validaDate()' aria-required='true' />
             <p class='error'></p>
         </div>
         <div class='input-wrapper input-wrapper-with-image success'>
@@ -105,12 +105,12 @@ if($corsoId !== false){
         </div>
         <div class='input-wrapper alt_img success'>
             <label for='alt_copertina'>Descrizione copertina*</label>
-            <input type='text' value='" . $corso['alt_copertina'] . "' name='alt_copertina' id='alt_copertina' class='transparent-login' onblur='validaAltImmagine()'>
+            <input type='text' value='" . $corso['alt_copertina'] . "' name='alt_copertina' id='alt_copertina' class='transparent-login' onblur='validaAltImmagine()' aria-required='true' />
             <p class='error'></p>
         </div>
         <div class='input-wrapper success'>
             <label for='trainer'>Trainer*</label>
-            <select name='trainer' id='trainer' class='transparent-login'>
+            <select name='trainer' id='trainer' class='transparent-login' aria-required='true'>
                 <trainerOptions/>
             </select>
             <p class='error'></p>

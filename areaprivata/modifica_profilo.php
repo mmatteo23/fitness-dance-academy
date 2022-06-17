@@ -44,12 +44,12 @@ $userData = $modelloUtente->read($_SESSION['userId']);
 $formContent = "
     <div class='input-wrapper success'>
         <label for='nome'>Nome*</label>
-        <input type='text' value='" . $userData['nome'] . "' name='nome' id='nome' class='transparent-login' onblur='validaNome()'>
+        <input type='text' value='" . $userData['nome'] . "' name='nome' id='nome' class='transparent-login' onblur='validaNome()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
         <label for='cognome'>Cognome*</label>
-        <input type='text' value='" . $userData['cognome'] . "' name='cognome' id='cognome' class='transparent-login' onblur='validaCognome()'>
+        <input type='text' value='" . $userData['cognome'] . "' name='cognome' id='cognome' class='transparent-login' onblur='validaCognome()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
@@ -68,7 +68,7 @@ $formContent = "
     </div>
     <div class='input-wrapper success'>
         <label for='data_nascita'>Data di nascita*</label>
-        <input type='date' value='" . $userData['data_nascita'] . "' name='data_nascita' id='data_nascita' class='transparent-login' onblur='validaDataNascita()'>
+        <input type='date' value='" . $userData['data_nascita'] . "' name='data_nascita' id='data_nascita' class='transparent-login' onblur='validaDataNascita()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
@@ -102,12 +102,12 @@ $formContent = "
     </div>
     <div class='input-wrapper success'>
         <label for='password'><span xml:lang='en' lang='en'>Password*</span></label>
-        <input type='password' value='" . $userData['password'] . "' name='password' id='password' onblur='validaPassword()' class='transparent-login'>
+        <input type='password' value='" . $userData['password'] . "' name='password' id='password' onblur='validaPassword()' class='transparent-login' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
         <label for='Rpassword'>Ripeti <span xml:lang='en' lang='en'>Password*</span></label>
-        <input type='password' value='" . $userData['password'] . "' name='Rpassword' id='Rpassword' onblur='validaPassword()' class='transparent-login'>
+        <input type='password' value='" . $userData['password'] . "' name='Rpassword' id='Rpassword' onblur='validaPassword()' class='transparent-login' aria-required='true' />
         <p class='error'></p>
     </div>
 ";

@@ -36,22 +36,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // Pulsante submit premuto
 $formContent = "
     <div class='input-wrapper'>
         <label for='titolo'>Titolo*</label>
-        <input type='text' name='titolo' id='titolo' class='transparent-login' onblur='validaTitolo()'>
+        <input type='text' name='titolo' id='titolo' class='transparent-login' onblur='validaTitolo()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
         <label for='descrizione'>Descrizione*</label>
-        <input type='text' name='descrizione' id='descrizione' class='transparent-login' onblur='validaDescrizione()'>
+        <input type='text' name='descrizione' id='descrizione' class='transparent-login' onblur='validaDescrizione()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
         <label for='data_inizio'>Data di inizio*</label>
-        <input type='date' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01' onblur='validaDate()'>
+        <input type='date' name='data_inizio' id='data_inizio' class='transparent-login' value='2000-01-01' onblur='validaDate()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
         <label for='data_fine'>Data di fine*</label>
-        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onblur='validaDate()'>
+        <input type='date' name='data_fine' id='data_fine' class='transparent-login' value='2000-01-01' onblur='validaDate()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper'>
@@ -62,12 +62,12 @@ $formContent = "
     <div class='input-wrapper alt_img success'>
         <label for='alt_copertina'>Descrizione copertina*</label>
         <p class='hint'>Se non viene scelta una copertina, lasciare la descrizione di default.</p>
-        <input type='text' value='Immagine del logo del sito: teschio con ossa e scritta FDA' name='alt_copertina' id='alt_copertina' class='transparent-login' onblur='validaAltImmagine()'>
+        <input type='text' value='Immagine del logo del sito: teschio con ossa e scritta FDA' name='alt_copertina' id='alt_copertina' class='transparent-login' onblur='validaAltImmagine()' aria-required='true' />
         <p class='error'></p>
     </div>
     <div class='input-wrapper success'>
         <label for='trainer'>Trainer*</label>
-        <select name='trainer' id='trainer' class='transparent-login'>
+        <select name='trainer' id='trainer' class='transparent-login' aria-required='true'>
             <trainerOptions/>
         </select>
         <p class='error'></p>

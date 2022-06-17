@@ -1543,7 +1543,8 @@ div.input-wrapper.error p.error{
 }
 
 div.input-wrapper.error .transparent-login {
-    background-color: var(--color3-light);
+    background-color: var(--error);
+    color: black;
 }
 
 div.input-wrapper.success .transparent-login {
