@@ -1538,8 +1538,6 @@ main#aboutus-container h1{
 main#aboutus-container h2{
     margin: 1.4em;
 }
-main#aboutus-container p{
-}
 
 main#aboutus-container img {
     margin: 3em auto;
@@ -1610,11 +1608,6 @@ div.input-wrapper.success .transparent-login {
 
 #confirmDelete {
     background-color: var(--danger);
-    color: white;
-}
-
-#cancelDelete {
-    background-color: var(--color1);
     color: white;
 }
 
