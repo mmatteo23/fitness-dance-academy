@@ -5,7 +5,7 @@ function getBMI(){
         height = height.replace(",", ".");
     height = parseInt(height);
     if(isNaN(height)){
-        errorString = "Attenzione, inserire l'altezza correttamente.";
+        errorString = "Attenzione, input scorretto nell'altezza";
     }
     var weight = document.getElementById("text-peso").value;
     if(weight.includes(","))
@@ -13,9 +13,9 @@ function getBMI(){
     weight = parseFloat(weight);
     if(isNaN(weight)){
         if(errorString=="")
-            errorString = "Attenzione, inserire il peso correttamente.";
+            errorString = "Attenzione, input scorretto nel peso";
         else
-            errorString += " e peso";
+            errorString += " e nel peso";
     }
     if(errorString == ""){
         height = height / 100;
@@ -38,5 +38,4 @@ function getBMI(){
     else{
         document.getElementById("bmi-result").innerHTML = errorString;
     }
-
 }

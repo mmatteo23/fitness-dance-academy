@@ -32,7 +32,7 @@ form.addEventListener('submit', e => {
     if(haEsercizi)
         form.submit()
     else
-        setError(ripetizioni, "Inserire almeno un esercizio per creare una scheda.");
+        setError(ripetizioni, "Inserire almeno un esercizio");
 });
 
 const setError = (element, message) => {

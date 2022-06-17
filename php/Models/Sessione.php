@@ -12,11 +12,14 @@ class Sessione {
         $conn_ok = $connection_manager->openDBConnection();
 
         if($conn_ok){
+            //1. ora inizio è dentro un'altra sessione
+            //2. ora di fine è dentro un'altra sessione
+            //3. include un'altra sessione
             $query = "SELECT * FROM prenotazione_sessione 
                         WHERE cliente = $clientID AND data = '$date'
-                        AND ((ora_inizio <= '$timeI' AND ora_fine >= '$timeI') 
+                        AND ((ora_inizio <= '$timeI' AND ora_fine >= '$timeI')      
                            OR(ora_inizio <= '$timeF' AND ora_fine >= '$timeF')
-                           OR(ora_inizio >= '$timeF' AND ora_fine <= '$timeF'))";
+                           OR(ora_inizio >= '$timeI' AND ora_fine <= '$timeF'))";
 
             $queryResults = $connection_manager->executeQuery($query); 
             $connection_manager->closeDBConnection();

@@ -427,6 +427,11 @@
     .selezione-data .inline-selectbox {
         display: contents;
     }
+    .selezione-data-e-ora .inline-selectbox .error {
+        float:none;
+        text-align: center;
+        width: auto;
+    }
 }
 
 @media (max-width: 750px) {
