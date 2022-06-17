@@ -52,7 +52,7 @@ body {
     width: 100%; 
 }
 body > footer {
-    display: table-row;
+    display: table-footer-group;
 }
 /* FINE FOOTER NUOVO */
 
@@ -169,7 +169,7 @@ nav li{
 nav li > a {
     text-decoration: none;
     color: inherit;
-    background-color: inherit;
+    background-color: var(--transparent-full);
     padding: 0;
 }
 
