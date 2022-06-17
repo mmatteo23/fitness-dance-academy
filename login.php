@@ -36,9 +36,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {     // Pulsante submit premuto
             header("location: error.php");
         }        
         else {    // utente non registrato o credenziali errate
-            $errors = "<p class='error'>
+            $errors = "<div id='errori'><p role='alert' class='response'>
                 Your credentials are wrong!
-            </p>";
+            </p></div>";
         }
     }   
 }
