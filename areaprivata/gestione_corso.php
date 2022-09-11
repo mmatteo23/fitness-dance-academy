@@ -11,7 +11,7 @@ $modello = new Corso;
 $modelloUtente = new Utente;
 
 if(!isset($_SESSION['userId']) || $modelloUtente->isCliente($_SESSION['userId'])) {
-    header("location: /login.php");
+    header("location: ../login.php");
 }
 
 // html pieces

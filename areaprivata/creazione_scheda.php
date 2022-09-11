@@ -52,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {     // Pulsante submit premuto
             $dati = explode(':', $esercizio);
             Esercizio::addEsercizio($idScheda, $dati[0], $dati[1], $dati[2], $dati[3]);
         }
-        header("location: /areaprivata/visualizzaScheda.php?id=$idScheda");
+        header("location: visualizzaScheda.php?id=$idScheda");
     }
 }
 

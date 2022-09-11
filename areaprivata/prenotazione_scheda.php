@@ -97,7 +97,7 @@ if(isset($_SESSION['userId']) && Utente::isCliente($_SESSION['userId'])) {
     }
         
 } else {
-    header("location: /login.php");
+    header("location: ../login.php");
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_scheda.html");

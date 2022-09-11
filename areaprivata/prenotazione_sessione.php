@@ -11,7 +11,7 @@ $modelloSessione = new Sessione();
 $modelloUtente = new Utente();
 
 if(!isset($_SESSION['userId']) || !$modelloUtente->isCliente($_SESSION['userId'])) {
-    header("location: /login.php");
+    header("location: ../login.php");
 }
 
 $htmlPage = file_get_contents(SITE_ROOT . "/html/areaprivata/prenotazione_sessione.html");
